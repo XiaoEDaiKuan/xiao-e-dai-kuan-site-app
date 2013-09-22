@@ -152,7 +152,7 @@ public class UserServiceImpl implements UserService {
 				e.printStackTrace();
 			}
 
-	     return email;
+	     return custNO;
 	}
 	public UserRepository getUserRepository() {
 		return userRepository;

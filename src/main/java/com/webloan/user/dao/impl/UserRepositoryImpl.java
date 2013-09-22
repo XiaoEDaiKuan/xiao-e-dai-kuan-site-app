@@ -6,11 +6,13 @@ import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Query;
+import javax.servlet.http.HttpServletRequest;
 
 import com.webloan.common.BaseJpaRepositoryImpl;
 import com.webloan.common.Queriable;
 import com.webloan.model.Cust;
 import com.webloan.model.IpRec;
+import com.webloan.security.model.User;
 import com.webloan.user.dao.UserRepository;
 
 public class UserRepositoryImpl extends BaseJpaRepositoryImpl implements
@@ -140,6 +142,21 @@ public class UserRepositoryImpl extends BaseJpaRepositoryImpl implements
 			ic.setSetupIPCnt(1);
 			this.save(ic);
 		}
+	}
+
+
+	@Override
+	public void modifyUser(Long id, String custName, String logonPasswd,
+			String mobileNO, String idType, String idNO, String email,
+			String postCode, String address, String setupIP,
+			HttpServletRequest request) {
+            
+		Cust cust=this.load(Cust.class, id);
+		cust.setAddress(address);
+		cust.setEmail(email);
+		cust.setMobileNO(mobileNO);
+		cust.setPostCode(postCode);
+		this.update(cust);
 	}
 
 }

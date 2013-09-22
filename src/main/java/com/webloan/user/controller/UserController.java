@@ -42,9 +42,11 @@ public class UserController extends MultiActionController {
 		
 		
 
-		mav.addObject("email", userService.createUser(custName, logonPasswd,
+		mav.addObject("account", userService.createUser(custName, logonPasswd,
 				mobileNO, idType, idNO, email, postCode, address, setupIP,
 				request));
+		mav.addObject("email", email);
+		mav.addObject("identity", idNO);
 		return mav;
 	}
 

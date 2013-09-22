@@ -5,6 +5,6 @@
 <html>
 <head></head>
 <body>
-邮件已发到${email}邮箱，请在30分钟内点击链接激活。
+邮件已发到${email}邮箱，请在30分钟内点击链接激活。激活之后可以使用身份证号${identity}或者账号${account}进行登录。
 </body>
 </html>
