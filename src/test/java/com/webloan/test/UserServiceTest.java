@@ -45,9 +45,9 @@ public class UserServiceTest {
 		String mobileNO="18621687579";
 		String email="liuhg5@aliyun.com"; 
 		String idType="0"; 
-		String idNO="210726197110351718";
+		String idNO="2107261999999";
 		String postCode="100000";
-		String address="上海浦东长清路75弄18号501室";
+		String address="上海浦东";
 		String setupIP="123.8.7.6";
 		
 		userService.createUser(custName, logonPasswd, mobileNO, idType, idNO, email, postCode, address,setupIP,null);
