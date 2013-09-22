@@ -1,0 +1,429 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings version="1.0" 
+		xmlns="http://java.sun.com/xml/ns/persistence/orm" 
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+		xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm http://java.sun.com/xml/ns/persistence/orm_1_0.xsd">
+
+	<description>BASE ORM configuration</description>
+
+	<entity class="com.webloan.model.Region" name="Region">
+		<table name="REGION_INFO" />
+		<attributes>
+			<id name="id">
+				<column name="ID" />
+				<generated-value strategy="IDENTITY" />
+			</id>
+			<basic name="code">
+				<column name="REGION_CODE" length="128" nullable="false" />
+			</basic>
+			<basic name="name">
+				<column name="REGION_NAME" length="128" nullable="false" />
+			</basic>
+			<basic name="level">
+				<column name="REGION_LEVEL" />
+			</basic>
+			<basic name="order">
+				<column name="REGION_ORDER" />
+			</basic>
+			<basic name="enName">
+				<column name="REGION_NAME_EN" length="128" />
+			</basic>
+			<basic name="enShortName">
+				<column name="REGION_SHORTNAME_EN" length="128" />
+			</basic>
+			
+			<many-to-one name="parent">
+				<join-column name="PARENT_ID" />
+			</many-to-one>
+		</attributes>
+	</entity>
+
+	<entity class="com.webloan.model.Product" name="Product">
+		<table name="PRD_INFO" />
+		<attributes>
+			<id name="id">
+				<column name="ID" />
+				<generated-value strategy="IDENTITY" />
+			</id>
+			<basic name="name">
+				<column name="PRD_NAME" length="128" nullable="false" />
+			</basic>
+			<basic name="issueOrgan">
+				<column name="ISSUE_ORG" length="128" nullable="false" />
+			</basic>
+			<basic name="issueType">
+				<column name="ISSUE_ORG_TYPE" length="16" />
+			</basic>
+			<basic name="type">
+				<column name="PRD_TYPE" length="16" />
+			</basic>
+			<basic name="status">
+				<column name="PRD_STATUS" length="16" nullable="false" />
+			</basic>
+			<basic name="guarantyType">
+				<column name="GUARANTY_TYPE" length="16" />
+			</basic>
+			<basic name="repayType">
+				<column name="REPAY_TYPE" length="16" />
+			</basic>
+			<basic name="repayDesc">
+				<column name="REPAY_DESC" length="1024" nullable="false" />
+			</basic>
+			<basic name="paidDays">
+				<column name="PAY_TIME" nullable="false" />
+			</basic>
+			<basic name="appReq">
+				<column name="APP_REQ" length="1024" nullable="false" />
+			</basic>
+			<basic name="appMaterial">
+				<column name="APP_MATERIAL" length="1024" nullable="false" />
+			</basic>
+			<basic name="groupBuying">
+				<column name="IS_GROUP" length="16" />
+			</basic>
+			<basic name="intrRate">
+				<column name="INTR_RATE" precision="16" scale="4" nullable="false" />
+			</basic>
+			<basic name="intrDesc">
+				<column name="INTR_RATE_DESC" length="256" nullable="false" />
+			</basic>
+			<basic name="intrFormula">
+				<column name="INTR_FORMULAR" length="256" />
+			</basic>
+			<basic name="monthlyFormula">
+				<column name="MONTHLY_FORMULAR" length="256" />
+			</basic>
+			<basic name="initialRate">
+				<column name="INITIAL_RATE" precision="16" scale="4" />
+			</basic>
+			
+			<many-to-one name="region">
+				<join-column name="REGION_ID" />
+			</many-to-one>
+		</attributes>
+	</entity>
+	
+	<entity class="com.webloan.model.ProductAttach" name="ProductAttach">
+		<table name="PRD_ATTACH" />
+		<attributes>
+			<id name="id">
+				<column name="ID" />
+				<generated-value strategy="IDENTITY" />
+			</id>
+			<basic name="nationality">
+				<column name="NATIONALITY" length="64" />
+			</basic>
+			<basic name="minAge">
+				<column name="MIN_AGE" />
+			</basic>
+			<basic name="maxAge">
+				<column name="MAX_AGE" />
+			</basic>
+			
+			<basic name="identity">
+				<column name="IDENTITY" length="64" />
+			</basic>
+			<basic name="estate">
+				<column name="ESTATE" length="64" />
+			</basic>
+			<basic name="vehicle">
+				<column name="VEHICLE" length="64" />
+			</basic>
+			<basic name="credit">
+				<column name="CREDIT" length="64" />
+			</basic>
+			
+			<basic name="ownerPubAccAmt">
+				<column name="BOWNER_PUBACC_AMT" precision="16" scale="2" />
+			</basic>
+			<basic name="ownerPrvAccAmt">
+				<column name="BOWNER_PRVACC_AMT" precision="16" scale="2" />
+			</basic>
+			<basic name="ownerReg">
+				<column name="BOWNER_REG" length="64" />
+			</basic>
+			<basic name="ownerOplife">
+				<column name="BOWNER_OPLIFE" />
+			</basic>
+			
+			<basic name="selfEmpCardAmt">
+				<column name="SELF_EMPLOYED_CARD_AMT" precision="16" scale="2" />
+			</basic>
+			<basic name="selfEmpCashAmt">
+				<column name="SELF_EMPLOYED_CASH_AMT" precision="16" scale="2" />
+			</basic>
+			<basic name="selfEmpReg">
+				<column name="SELF_EMPLOYED_REG" length="64" />
+			</basic>
+			<basic name="selfEmpOplife">
+				<column name="SELF_EMPLOYED_OPLIFE" />
+			</basic>
+			
+			<basic name="workersCardAmt">
+				<column name="WORKERS_CARD_AMT" precision="16" scale="2" />
+			</basic>
+			<basic name="workersCashAmt">
+				<column name="WORKERS_CASH_AMT" precision="16" scale="2" />
+			</basic>
+			<basic name="workersExperience">
+				<column name="WORKERS_EXPERIENCE" />
+			</basic>
+			
+			<basic name="unempCashAmt">
+				<column name="UNEMPLOYED_CASH_AMT" precision="16" scale="2" />
+			</basic>
+			<basic name="loanUse">
+				<column name="LOAN_USE" length="64" />
+			</basic>
+			
+			<basic name="minLoanAmt">
+				<column name="MIN_LOAN_AMT" precision="16" scale="2" />
+			</basic>
+			<basic name="maxLoanAmt">
+				<column name="MAX_LOAN_AMT" precision="16" scale="2" />
+			</basic>
+			<basic name="minLoanIssue">
+				<column name="MIN_LOAN_TIME" />
+			</basic>
+			<basic name="maxLoanIssue">
+				<column name="MAX_LOAN_TIME" />
+			</basic>
+			
+			<many-to-one name="product">
+				<join-column name="PRODUCT_ID" nullable="false" />
+			</many-to-one>
+		</attributes>
+	</entity>
+	
+	<entity class="com.webloan.model.ProductRecommend" name="ProductRecommend">
+		<table name="PRD_RECOMMEND" />
+		<attributes>
+			<id name="id">
+				<column name="ID" />
+				<generated-value strategy="IDENTITY" />
+			</id>
+			<basic name="type">
+				<column name="TYPE" length="16" nullable="false" />
+			</basic>
+			
+			<many-to-one name="product">
+				<join-column name="PRODUCT_ID" nullable="false" />
+			</many-to-one>
+		</attributes>
+	</entity>
+	
+
+	<entity class="com.webloan.model.Cust" name="Cust">
+		<table name="CUST_INFO" />
+		<attributes>
+			<id name="id">
+				<column name="ID" />
+				<generated-value strategy="IDENTITY" />
+			</id>
+			<basic name="custName">
+				<column name="CUST_NAME" length="20" nullable="false" />
+			</basic>
+			<basic name="custNO">
+				<column name="CUST_NO" length="12" nullable="false" />
+			</basic>
+			<basic name="logonPasswd">
+				<column name="LOGON_PASSWD" length="32" nullable="false" />
+			</basic>
+			<basic name="mobileNO">
+				<column name="MOBILE_NO" length="30" nullable="false" />
+			</basic>
+			<basic name="idType">
+				<column name="ID_Type" length="1" nullable="false" />
+			</basic>
+			<basic name="idNO">
+				<column name="ID_NO" length="30" nullable="false" />
+			</basic>
+			<basic name="email">
+				<column name="email" length="100" nullable="false" />
+			</basic>
+			<basic name="postCode">
+				<column name="postCode" length="6" nullable="false" />
+			</basic>
+			<basic name="address">
+				<column name="address" length="512" nullable="false" />
+			</basic>
+			<basic name="setupTime">
+				<column name="Setup_Time"  />
+			</basic>
+			<basic name="setupIP">
+				<column name="setup_ip" length="512" nullable="false" />
+			</basic>
+			<basic name="status">
+				<column name="status" length="1" nullable="false" />
+			</basic>
+			
+		</attributes>
+	</entity>
+
+	<entity class="com.webloan.model.Order" name="Order">
+		<table name="ORDER_INFO" />
+		<attributes>
+			<id name="id">
+				<column name="ID" />
+				<generated-value strategy="IDENTITY" />
+			</id>
+			<basic name="applyName">
+				<column name="APPLY_NAME" length="100" nullable="false" />
+			</basic>
+			<basic name="applyTelephone">
+				<column name="APPLY_Telephone" length="50" nullable="false" />
+			</basic>
+			<basic name="applyAmt">
+				<column name="Apply_Amt"  precision="16" scale="2"  />
+			</basic>
+			<basic name="approvAmt">
+				<column name="Approv_Amt"  precision="16" scale="2"  />
+			</basic>
+			<basic name="custRegion">
+				<column name="Cust_Region" length="50" nullable="false" />
+			</basic>
+			<basic name="status">
+				<column name="Status" length="1"  />
+			</basic>
+			<basic name="orderTime">
+				<column name="Order_Time"  />
+			</basic>
+			<basic name="approvOper">
+				<column name="Approv_Oper" length="100"  />
+			</basic>
+			<basic name="approvTime">
+				<column name="Approv_Time"  />
+			</basic>
+			<basic name="approvRemark">
+				<column name="Approv_Remark" length="512"  />
+			</basic>
+			<many-to-one name="product">
+				<join-column name="PRODUCT_ID" nullable="false" />
+			</many-to-one>
+			<many-to-one name="cust">
+				<join-column name="CUST_ID" nullable="false" />
+			</many-to-one>
+		</attributes>
+	</entity>
+
+	<entity class="com.webloan.model.Message" name="Message">
+		<table name="MESSAGE_INFO" />
+		<attributes>
+			<id name="id">
+				<column name="ID" />
+				<generated-value strategy="IDENTITY" />
+			</id>
+			<basic name="fromPerson">
+				<column name="From_Person" length="50" nullable="false" />
+			</basic>
+			<basic name="subject">
+				<column name="Subject" length="100" nullable="false" />
+			</basic>
+			<basic name="content">
+				<column name="Content" length="2048" nullable="false" />
+			</basic>
+			<basic name="sendTime">
+				<column name="send_time"  />
+			</basic>
+			<basic name="status">
+				<column name="status" length="1" nullable="false" />
+			</basic>
+			<many-to-one name="cust">
+				<join-column name="CUST_ID" nullable="false" />
+			</many-to-one>
+		</attributes>
+	</entity>
+	
+	<entity class="com.webloan.model.Credit" name="Credit">
+		<table name="Cust_Credit" />
+		<attributes>
+			<id name="id">
+				<column name="ID" />
+				<generated-value strategy="IDENTITY" />
+			</id>
+			<basic name="creditType">
+				<column name="credit_Type" length="1"  />
+			</basic>
+			<basic name="custName">
+				<column name="cust_Name" length="100"  />
+			</basic>
+			<basic name="custTelephone">
+				<column name="cust_Telephone" length="50"  />
+			</basic>
+			<basic name="calTime">
+				<column name="cal_Time"  />
+			</basic>
+			<basic name="creditMin">
+				<column name="credit_Min" precision="16" scale="2" />
+			</basic>
+			<basic name="creditMax">
+				<column name="credit_Max" precision="16" scale="2" />
+			</basic>
+			
+			<basic name="status">
+				<column name="status" length="1"  />
+			</basic>
+			<many-to-one name="cust">
+				<join-column name="CUST_ID"  />
+			</many-to-one>
+		</attributes>
+	</entity>
+
+	<entity class="com.webloan.model.Sequence" name="Sequence">
+		<table name="Sequence_Info" />
+		<attributes>
+			<id name="id">
+				<column name="ID" />
+				<generated-value strategy="IDENTITY" />
+			</id>
+			<basic name="seqType">
+				<column name="seqType" length="1"  />
+			</basic>
+			<basic name="remark">
+				<column name="remark" length="50"  />
+			</basic>
+			<basic name="value">
+				<column name="value"   />
+			</basic>
+			<basic name="length">
+				<column name="length"  />
+			</basic>
+		</attributes>
+	</entity>
+
+	<entity class="com.webloan.model.IpRec" name="IpRec">
+		<table name="IP_REC" />
+		<attributes>
+			<id name="id">
+				<column name="ID" />
+				<generated-value strategy="IDENTITY" />
+			</id>
+			<basic name="setupDate">
+				<column name="setup_date" length="8"  />
+			</basic>
+			<basic name="setupIP">
+				<column name="setup_ip" length="16"  />
+			</basic>
+			<basic name="setupIPCnt">
+				<column name="setup_ip_cnt"   />
+			</basic>
+		</attributes>
+	</entity>
+
+	<entity class="com.webloan.model.CorpIP" name="CorpIP">
+		<table name="corp_ip" />
+		<attributes>
+			<id name="id">
+				<column name="ID" />
+				<generated-value strategy="IDENTITY" />
+			</id>
+			<basic name="startIP">
+				<column name="start_ip" length="16"  />
+			</basic>
+			<basic name="endIP">
+				<column name="end_ip" length="16"  />
+			</basic>
+		</attributes>
+	</entity>
+
+</entity-mappings>

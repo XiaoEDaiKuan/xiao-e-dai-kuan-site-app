@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:aop="http://www.springframework.org/schema/aop" 
+	xmlns:context="http://www.springframework.org/schema/context" 
+	xmlns:tx="http://www.springframework.org/schema/tx" 
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+		http://www.springframework.org/schema/beans/spring-beans.xsd 
+		http://www.springframework.org/schema/aop 
+		http://www.springframework.org/schema/aop/spring-aop.xsd 
+		http://www.springframework.org/schema/context 
+		http://www.springframework.org/schema/context/spring-context.xsd 
+		http://www.springframework.org/schema/tx 
+		http://www.springframework.org/schema/tx/spring-tx.xsd">
+	
+	<bean id="baseJpaRepository" class="com.webloan.common.BaseJpaRepositoryImpl">
+		<property name="entityManager" ref="entityManager" />
+	</bean>
+	
+	<bean id="productRepository" class="com.webloan.product.dao.impl.ProductRepositoryImpl" parent="baseJpaRepository">
+	</bean>
+
+	<bean id="orderRepository" class="com.webloan.order.dao.impl.OrderRepositoryImpl" parent="baseJpaRepository">
+	</bean>
+
+	<bean id="messageRepository" class="com.webloan.message.dao.impl.MessageRepositoryImpl" parent="baseJpaRepository">
+	</bean>
+
+	<bean id="creditRepository" class="com.webloan.credit.dao.impl.CreditRepositoryImpl" parent="baseJpaRepository">
+	</bean>
+
+	<bean id="userRepository" class="com.webloan.user.dao.impl.UserRepositoryImpl" parent="baseJpaRepository">
+	</bean>
+   
+	<bean id="sequenceRepository" class="com.webloan.support.sequence.dao.impl.SequenceRepositoryImpl" parent="baseJpaRepository">
+	</bean>
+
+</beans>

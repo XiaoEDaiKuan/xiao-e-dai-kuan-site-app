@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings version="1.0" 
+		xmlns="http://java.sun.com/xml/ns/persistence/orm" 
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+		xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm http://java.sun.com/xml/ns/persistence/orm_1_0.xsd">
+
+	<description>BASE ORM configuration</description>
+	
+	<entity class="com.webloan.test.model.Person" name="Person">
+		<table name="TEST_PERSON" />
+		<attributes>
+			<id name="id">
+				<column name="ID" />
+				<generated-value strategy="IDENTITY" />
+			</id>
+			<basic name="name">
+				<column name="NAME" length="64" nullable="false" />
+			</basic>
+			<basic name="age">
+				<column name="AGE" length="32" nullable="false" />
+			</basic>
+			<basic name="address">
+				<column name="ADDRESS" length="255" />
+			</basic>
+			
+		</attributes>
+	</entity>
+
+</entity-mappings>

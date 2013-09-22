@@ -1,0 +1,3 @@
+<h2><font color="red">欢迎注册玖富网，请在${time}分钟内点击如下链接激活您的用户：</font><h2><br/><br/>
+			
+			<a href="${authURL}">点击激活账号</a>
