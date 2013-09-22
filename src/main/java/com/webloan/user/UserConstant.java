@@ -16,7 +16,7 @@ public class UserConstant {
     public static final String SetupIPOverrun="同一个IP地址注册账号超过限制";
 	public final static String MAIL_SUBJECT_ACTIVATE = "用户邮箱激活";
 	public final static String MAIL_SUBJECT_FORGET_PWD = "忘记密码";
-	public final static String REQUIRED_MAIL_CODE = "错误的邮箱认链接";
+	public final static String REQUIRED_MAIL_CODE = "错误的邮箱认证链接";
 	public final static String EXCEPTION_MAIL_CODE_EXPIRED = "邮箱认证链接已超期";
 	public final static String EXCEPTION_CUST_NOT_FOUND="没有找到客户";
 	public final static String CUST_STATUS_NORMAL="0";

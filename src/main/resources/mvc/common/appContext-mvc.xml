@@ -29,8 +29,10 @@
 			<props>
 				<prop key="queryProduct.do">productController</prop>
 				<prop key="queryProductByUser.do">productController</prop>
-				<!-- 用户注册/邮箱验证 -->
+				<!-- 用户注册 -->
 				<prop key="createUser.do">userController</prop>
+				<!-- 邮箱验证 -->
+				<prop key="mailAuthentication.do">userController</prop>
 				
 				
 			</props>

@@ -117,7 +117,7 @@ public class UserServiceImpl implements UserService {
 			String strAuthCode = generateAuthCode(new Date(),email);
 			objMailAuthLink
 					.append(WebUtils.getDomainWithContext(request))
-					.append("user/register.jsp?OPERATE=mailAuthentication&code=")
+					.append("mailAuthentication.do&code=")
 					.append(strAuthCode);
 
 			log.info("mail authentication url: {}",
@@ -152,7 +152,7 @@ public class UserServiceImpl implements UserService {
 				e.printStackTrace();
 			}
 
-	     String mailConfirm="";
+	     String mailConfirm="/user/register.jsp";
 	     
 	     return mailConfirm;
 	}
