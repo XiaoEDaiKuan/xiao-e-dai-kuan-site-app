@@ -152,9 +152,7 @@ public class UserServiceImpl implements UserService {
 				e.printStackTrace();
 			}
 
-	     String mailConfirm="/user/register.jsp";
-	     
-	     return mailConfirm;
+	     return email;
 	}
 	public UserRepository getUserRepository() {
 		return userRepository;

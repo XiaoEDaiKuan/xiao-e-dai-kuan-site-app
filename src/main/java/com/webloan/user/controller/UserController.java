@@ -21,7 +21,7 @@ public class UserController extends MultiActionController {
 	public ModelAndView createUser(HttpServletRequest request,
 			HttpServletResponse response) {
 		ModelAndView mav = new ModelAndView();
-		mav.setViewName("user/mailConfirm");
+		mav.setViewName("user/register");
 		String custName = request.getParameter("custName");
 		String logonPasswd = request.getParameter("logonPasswd");
 		String mobileNO = request.getParameter("mobileNO");
@@ -32,11 +32,19 @@ public class UserController extends MultiActionController {
 		String address = request.getParameter("address");
 
 		// String setupIP=request.getParameter("setupIP");
-		String setupIP = "127.0.0.1";
+		String setupIP = request.getHeader("Remote_Addr");
+		if (setupIP == null) {
+			setupIP = request.getHeader("HTTP_X_FORWARDED_FOR");
+		}
+		if (setupIP == null) {
+			setupIP = request.getRemoteAddr();
+		}
+		
+		
 
-		mav.addObject("mailConfirm", userService.createUser(custName,
-				logonPasswd, mobileNO, idType, idNO, email, postCode, address,
-				setupIP, request));
+		mav.addObject("email", userService.createUser(custName, logonPasswd,
+				mobileNO, idType, idNO, email, postCode, address, setupIP,
+				request));
 		return mav;
 	}
 
