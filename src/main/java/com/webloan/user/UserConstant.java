@@ -22,4 +22,9 @@ public class UserConstant {
 	public final static String CUST_STATUS_NORMAL="0";
 	public final static String CUST_STATUS_NOT_ACTIVATED="1";
 	public final static String EXCEPTION_MAIL_AUTHENTICATED="邮件验证失败";
+	public final static String EXCEPTION_MODIFY_EMAIL="注册资料修改错误-邮件为空";
+	public final static String EXCEPTION_MODIFY_ADDRESS="注册资料修改错误-地址为空";
+	public final static String EXCEPTION_MODIFY_POSTCODE="注册资料修改错误-邮编为空";
+	public final static String EXCEPTION_MODIFY_MOBILE="注册资料修改错误-手机为空";
+
 }

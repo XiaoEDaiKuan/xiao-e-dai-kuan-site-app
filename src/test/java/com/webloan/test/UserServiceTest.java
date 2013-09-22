@@ -50,9 +50,25 @@ public class UserServiceTest {
 		String address="上海浦东";
 		String setupIP="123.8.7.6";
 		
-		userService.createUser(custName, logonPasswd, mobileNO, idType, idNO, email, postCode, address,setupIP,null);
+//		userService.createUser(custName, logonPasswd, mobileNO, idType, idNO, email, postCode, address,setupIP,null);
+//         
+//         System.out.println("user save");
+		
+	}
+
+	@Test
+	public void testModifyUser(){
+		UserService userService = appContext.getBean("userService",
+				UserService.class);
+		String mobileNO="18621687579";
+		String email="liuhg5@aliyun.com"; 
+		String postCode="100000";
+		String address="上海浦东";
+		String id="33";
+		
+		userService.modifyUser(id,  mobileNO,  email, postCode, address);
          
-         System.out.println("user save");
+         System.out.println("user modify");
 		
 	}
 

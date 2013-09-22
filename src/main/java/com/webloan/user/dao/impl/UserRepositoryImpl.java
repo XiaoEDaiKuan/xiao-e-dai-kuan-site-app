@@ -40,7 +40,8 @@ public class UserRepositoryImpl extends BaseJpaRepositoryImpl implements
 	@Override
 	public void createCust(String custName, String logonPasswd,
 			String mobileNO, String idType, String idNO, String email,
-			String postCode, String address, String custNO, String setupIP,Timestamp setupTime) {
+			String postCode, String address, String custNO, String setupIP,
+			Timestamp setupTime) {
 		Cust cust = new Cust();
 		cust.setAddress(address);
 		cust.setCustName(custName);
@@ -133,7 +134,7 @@ public class UserRepositoryImpl extends BaseJpaRepositoryImpl implements
 				new String[] { Queriable.EQ, Queriable.EQ });
 		if (ipRecs.size() > 0) {
 			int c = ipRecs.get(0).getSetupIPCnt().intValue();
-			ipRecs.get(0).setSetupIPCnt(c+1);
+			ipRecs.get(0).setSetupIPCnt(c + 1);
 			this.update(ipRecs.get(0));
 		} else {
 			IpRec ic = new IpRec();
@@ -144,14 +145,11 @@ public class UserRepositoryImpl extends BaseJpaRepositoryImpl implements
 		}
 	}
 
-
 	@Override
-	public void modifyUser(Long id, String custName, String logonPasswd,
-			String mobileNO, String idType, String idNO, String email,
-			String postCode, String address, String setupIP,
-			HttpServletRequest request) {
-            
-		Cust cust=this.load(Cust.class, id);
+	public void modifyUser(Long id, String mobileNO, String email,
+			String postCode, String address) {
+
+		Cust cust = this.load(Cust.class, id);
 		cust.setAddress(address);
 		cust.setEmail(email);
 		cust.setMobileNO(mobileNO);
