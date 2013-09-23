@@ -23,14 +23,15 @@ public interface UserService {
 	void mailAuthentication(String code);
 
 	// 修改密码
-	public void modifyPassword(String logonName, String originalPassword,
+	public void modifyPassword(String strCustId, String originalPassword,
 			String newPassword);
 
 	// 忘记密码
-	public Cust forgetPassword(String logonName);
+	public String forgetPassword(String logonName);
 
 	// 修改注册信息
 	public void modifyUser(String id, String mobileNO, String email,
 			String postCode, String address);
-
+    //用户登录
+	public Cust login(String logonName,String passwd);
 }

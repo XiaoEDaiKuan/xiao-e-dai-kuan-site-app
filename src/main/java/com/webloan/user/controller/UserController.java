@@ -8,6 +8,7 @@ import org.apache.commons.lang.Validate;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.multiaction.MultiActionController;
 
+import com.webloan.model.Cust;
 import com.webloan.user.UserConstant;
 import com.webloan.user.service.UserService;
 
@@ -39,8 +40,6 @@ public class UserController extends MultiActionController {
 		if (setupIP == null) {
 			setupIP = request.getRemoteAddr();
 		}
-		
-		
 
 		mav.addObject("account", userService.createUser(custName, logonPasswd,
 				mobileNO, idType, idNO, email, postCode, address, setupIP,
@@ -61,13 +60,85 @@ public class UserController extends MultiActionController {
 	public ModelAndView mailAuthentication(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 		ModelAndView mav = new ModelAndView();
-		mav.setViewName("user/***");
-
+		mav.setViewName("user/mailconfirm");
 		String strCode = request.getParameter("code");
 		Validate.notEmpty(strCode, UserConstant.REQUIRED_MAIL_CODE);
 		userService.mailAuthentication(strCode);
-		mav.addObject("activated", true);
+		return mav;
+	}
 
+	/**
+	 * 用户登录
+	 * @param request
+	 * @param response
+	 * @return
+	 * @throws Exception
+	 */
+	public ModelAndView login(HttpServletRequest request,
+			HttpServletResponse response) throws Exception {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("user/loginsuccess");
+        String logonName=request.getParameter("logonName");
+        String passwd=request.getParameter("passwd");
+		Cust cust=userService.login(logonName, passwd);
+		request.getSession().setAttribute("custId", cust.getId());
+		mav.addObject("mobile", cust.getMobileNO());
+		return mav;
+	}
+
+	/**
+	 * 修改用户登录信息
+	 * @param request
+	 * @param response
+	 * @return
+	 * @throws Exception
+	 */
+	public ModelAndView modifyUser(HttpServletRequest request,
+			HttpServletResponse response) throws Exception {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("user/modifyuser");
+        String id=(String)request.getSession().getAttribute("custId");
+        String mobileNO=request.getParameter("mobileNO");
+        String email=request.getParameter("email");
+        String postCode=request.getParameter("postCode");
+        String address=request.getParameter("address");
+        userService.modifyUser(id, mobileNO, email, postCode, address);
+		return mav;
+	}
+
+	/**
+	 * 忘记密码
+	 * @param request
+	 * @param response
+	 * @return
+	 * @throws Exception
+	 */
+	public ModelAndView forgetPassword(HttpServletRequest request,
+			HttpServletResponse response) throws Exception {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("user/forgetpasswd");
+		String logonName=request.getParameter("logonName");
+        userService.forgetPassword(logonName);
+
+		return mav;
+	}
+
+	/**
+	 * 修改密码
+	 * @param request
+	 * @param response
+	 * @return
+	 * @throws Exception
+	 */
+	public ModelAndView modifyPassword(HttpServletRequest request,
+			HttpServletResponse response) throws Exception {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("user/modifypasswd");
+		String originalPassword=request.getParameter("originalPassword");
+		String newPassword=request.getParameter("newPassword");
+		//从session中获取ciustId
+		String strCustId=(String)request.getSession().getAttribute("custId");
+		userService.modifyPassword(strCustId, originalPassword, newPassword);
 		return mav;
 	}
 

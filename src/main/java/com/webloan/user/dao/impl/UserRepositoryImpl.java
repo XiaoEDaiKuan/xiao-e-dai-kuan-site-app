@@ -12,6 +12,7 @@ import com.webloan.common.BaseJpaRepositoryImpl;
 import com.webloan.common.Queriable;
 import com.webloan.model.Cust;
 import com.webloan.model.IpRec;
+import com.webloan.model.Order;
 import com.webloan.security.model.User;
 import com.webloan.user.dao.UserRepository;
 
@@ -155,6 +156,26 @@ public class UserRepositoryImpl extends BaseJpaRepositoryImpl implements
 		cust.setMobileNO(mobileNO);
 		cust.setPostCode(postCode);
 		this.update(cust);
+	}
+
+	@Override
+	public List<Cust> findCustByCustNO(String custNO) {
+		return this.queryList(Cust.class, new String[] { "cust.custNo" },
+				new Object[] { custNO });
+	}
+
+	@Override
+	public List<Cust> findCustByCusID(Long custId) {
+		return this.queryList(Cust.class, new String[] { "cust.id" },
+				new Object[] { custId });
+	}
+
+
+	@Override
+	public void modifyPasswd(Long id, String newPasswd) {
+      Cust cust=this.load(Cust.class, id);
+      cust.setLogonPasswd(newPasswd);
+      this.update(cust);
 	}
 
 }
