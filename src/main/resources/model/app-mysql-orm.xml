@@ -467,17 +467,61 @@
 				<column name="status" length="1"  />
 			</basic>
 
-			<basic name="status">
-				<column name="status" length="1"  />
-			</basic>
-
 			<basic name="productID">
 				<column name="product_ID"   />
+			</basic>
+			
+			<basic name="subject">
+				<column name="subject" length="100"  />
+			</basic>
+
+			
+			<many-to-one name="region">
+				<join-column name="region_id"  />
+			</many-to-one>
+			
+			<one-to-many name="answers" target-entity="com.webloan.model.Answer" mapped-by="question" fetch="LAZY"></one-to-many>
+			
+		</attributes>
+	</entity>
+
+	<entity class="com.webloan.model.Answer" name="Answer">
+		<table name="answer" />
+		<attributes>
+			<id name="id">
+				<column name="ID" />
+				<generated-value strategy="IDENTITY" />
+			</id>
+			<basic name="answerBy">
+				<column name="answer_By" length="100"  />
+			</basic>
+			<basic name="answerTime">
+				<column name="answer_Time" />
+			</basic>
+			<basic name="answerLevel">
+				<column name="answer_level" length="1" />
+			</basic>
+			
+			<basic name="answerContent">
+				<column name="answer_content" length="1024"  />
+			</basic>
+			
+			<basic name="email">
+				<column name="email" length="100"  />
+			</basic>
+
+			<basic name="telephone">
+				<column name="telephone" length="50"  />
 			</basic>
 			
 			<many-to-one name="region">
 				<join-column name="region_id"  />
 			</many-to-one>
+
+			<many-to-one name="question">
+				<join-column name="question_id"  />
+			</many-to-one>
+
 		</attributes>
 	</entity>
 

@@ -2,6 +2,8 @@ package com.webloan.model;
 
 import java.io.Serializable;
 import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Question implements Serializable{
 
@@ -23,6 +25,10 @@ public class Question implements Serializable{
 	 private String   telephone;//提问人联系电话
 	 private String   status;//问题状态
 	 private Long     productID;//贷款产品ID
+	 private String   subject;//主题
+     private List<Answer> answers;//
+     
+	 
 	public Long getId() {
 		return id;
 	}
@@ -100,6 +106,18 @@ public class Question implements Serializable{
 	}
 	public void setProductID(Long productID) {
 		this.productID = productID;
+	}
+	public String getSubject() {
+		return subject;
+	}
+	public void setSubject(String subject) {
+		this.subject = subject;
+	}
+	public List<Answer> getAnswers() {
+		return answers;
+	}
+	public void setAnswers(List<Answer> answers) {
+		this.answers = answers;
 	}
 	
 }
