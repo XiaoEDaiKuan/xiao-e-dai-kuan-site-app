@@ -142,4 +142,23 @@ public class UserController extends MultiActionController {
 		return mav;
 	}
 
+	/**
+	 * 用户退出
+	 * @param request
+	 * @param response
+	 * @return
+	 * @throws Exception
+	 */
+	public ModelAndView logOut(HttpServletRequest request,
+			HttpServletResponse response) throws Exception {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("user/logout");
+		//从session中获取ciustId
+		String strCustId=(String)request.getSession().getAttribute("custId");
+        if(null != strCustId && !"".equals(strCustId)){
+        	request.getSession().invalidate();
+        }
+		return mav;
+	}
+	
 }
