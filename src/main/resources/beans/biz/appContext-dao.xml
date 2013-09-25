@@ -35,7 +35,7 @@
 	<bean id="sequenceRepository" class="com.webloan.support.sequence.dao.impl.SequenceRepositoryImpl" parent="baseJpaRepository">
 	</bean>
 	
-	<bean id="questionRepository" class="com.webloan.support.sequence.dao.impl.QuestionRepositoryImpl" parent="baseJpaRepository">
+	<bean id="questionRepository" class="com.webloan.question.dao.impl.QuestionRepositoryImpl" parent="baseJpaRepository">
 	</bean>
 
 </beans>

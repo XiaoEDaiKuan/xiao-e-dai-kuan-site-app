@@ -472,7 +472,7 @@
 			</basic>
 
 			<basic name="productID">
-				<column name="productID"   />
+				<column name="product_ID"   />
 			</basic>
 			
 			<many-to-one name="region">

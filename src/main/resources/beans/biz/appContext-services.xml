@@ -80,7 +80,7 @@
             </props>
         </property>
     </bean>
-	<bean id="questionService" class="com.webloan.user.service.impl.QuestionServiceImpl">
+	<bean id="questionService" class="com.webloan.question.service.impl.QuestionServiceImpl">
 		<property name="questionRepository" ref="questionRepository" />
 	</bean>
     	
