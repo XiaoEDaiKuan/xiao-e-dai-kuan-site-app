@@ -9,6 +9,7 @@ import javax.persistence.TypedQuery;
 
 import com.webloan.common.BaseJpaRepositoryImpl;
 import com.webloan.common.Queriable;
+import com.webloan.model.Answer;
 import com.webloan.model.QstPrd;
 import com.webloan.model.Question;
 import com.webloan.question.dao.QuestionRepository;
@@ -52,9 +53,6 @@ public class QuestionRepositoryImpl extends BaseJpaRepositoryImpl implements
 	public List<Question> questionListByKind(String kindTwo) {
 		List<Question> questions = this.queryList(Question.class,
 				new String[] { "kindTwo" }, new Object[] { kindTwo });
-		for (Question q : questions) {
-			q.getAnswers();
-		}
 		return questions;
 
 	}
@@ -69,8 +67,12 @@ public class QuestionRepositoryImpl extends BaseJpaRepositoryImpl implements
 
 		TypedQuery<Question> query = entityManager.createQuery(jpql, Question.class);
 		query.setParameter("subject", "%"+title+"%");
+		List<Question> questions=query.getResultList();
+		for (Question q : questions) {
+			q.getAnswers();
+		}
 		
-		return query.getResultList();
+		return questions;
 	}
 
 }

@@ -480,7 +480,7 @@
 				<join-column name="region_id"  />
 			</many-to-one>
 			
-			<one-to-many name="answers" target-entity="com.webloan.model.Answer" mapped-by="question" fetch="LAZY"></one-to-many>
+			<one-to-many name="answers" target-entity="com.webloan.model.Answer" mapped-by="question" fetch="EAGER"></one-to-many>
 			
 		</attributes>
 	</entity>
