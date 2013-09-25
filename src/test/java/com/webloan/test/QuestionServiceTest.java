@@ -8,6 +8,8 @@ import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import com.webloan.model.Answer;
+import com.webloan.model.QstPrd;
 import com.webloan.model.Question;
 import com.webloan.order.service.OrderService;
 import com.webloan.question.service.QuestionService;
@@ -25,25 +27,64 @@ public class QuestionServiceTest {
 	public void testQuestionListByCustId(){
 		QuestionService questionService = appContext.getBean("questionService",
 				QuestionService.class);
-        String strCustId="";
-		List<Question> qs= questionService.questionListByCustId(strCustId);
-		for(int i=0;i<qs.size();i++){
-			System.out.println(""+qs.get(i).getId());
-			System.out.println(""+qs.get(i).getAskedBy());
-			System.out.println(""+qs.get(i).getDetail());
-			System.out.println(""+qs.get(i).getEmail());
-			System.out.println(""+qs.get(i).getKindOne());
-			System.out.println(""+qs.get(i).getKindTwo());
-			System.out.println(""+qs.get(i).getStatus());
-			System.out.println(""+qs.get(i).getTag());
-			System.out.println(""+qs.get(i).getTelephone());
-			System.out.println(""+qs.get(i).getCustID());
-			System.out.println(""+qs.get(i).getProductID());
-			System.out.println(""+qs.get(i).getAskTime());
-			System.out.println(""+qs.get(i).getRegion().getName());
+        String strCustId="1";
+		List<QstPrd> qs= questionService.questionListByCustId(strCustId);
+	 System.out.println("=======list question by cust id===========");	
+		for(QstPrd qp:qs){
+			System.out.println(""+qp.getQuestionId());
+			System.out.println(""+qp.getPrdId());
+			System.out.println(""+qp.getPrdName());
+			System.out.println(""+qp.getSubject());
+			System.out.println(""+qp.getAskTime());
+			System.out.println(""+qp.getKindTwo());
+			System.out.println("status="+qp.getStatus());
+			System.out.println(""+qp.getTag());
+			System.out.println(""+qp.getTelephone());
+			System.out.println(""+qp.getCustID());
+			System.out.println(""+qp.getAskTime());
+			System.out.println(""+qp.getRegion().getName());
+			System.out.println(""+qp.getAskedBy());
 		}
 	}
 	
+	@Test
+	public void TestQuestionListByKind(){
+		QuestionService questionService = appContext.getBean("questionService",
+				QuestionService.class);
+        String kindTwo="0";
+		List<Question> qs= questionService.questionListByKind(kindTwo);
+		System.out.println("=======list question by kind===========");
+		for(Question qt:qs){
+			System.out.println(""+qt.getAskedBy());
+			System.out.println(""+qt.getDetail());
+			System.out.println(""+qt.getEmail());
+			System.out.println(""+qt.getStatus());
+			System.out.println(""+qt.getSubject());
+			System.out.println(""+qt.getTag());
+			System.out.println(""+qt.getRegion().getName());
+			System.out.println("answerCnt="+qt.getAnswers());
+		}		
+	}
+
+	@Test
+	public void TestQryQuestion(){
+		QuestionService questionService = appContext.getBean("questionService",
+				QuestionService.class);
+        String title="玖富";
+		List<Question> qs= questionService.qryQuestion(title);
+		System.out.println("=======list question by title===========");
+		for(Question qt:qs){
+			System.out.println(""+qt.getAskedBy());
+			System.out.println(""+qt.getDetail());
+			System.out.println(""+qt.getEmail());
+			System.out.println(""+qt.getStatus());
+			System.out.println(""+qt.getSubject());
+			System.out.println(""+qt.getTag());
+			System.out.println(""+qt.getRegion().getName());
+			System.out.println("answerCnt="+qt.getAnswers());
+		}		
+	}
+
 	@After
 	public void end() {
 		appContext = null;
