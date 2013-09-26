@@ -1,5 +1,6 @@
 <h3><font color="blue">${prdName}</font></h3>
-<h3><font color="blue">利率说明<font color="red">${intDesc}</font></font></h3>
-<h3><font color="blue">提前还款说明<font color="red">${repayDesc}</font></font></h3>
-<h3><font color="blue">申请条件说明<font color="red">${appReq}</font></font></h3>
-<h3><font color="blue">申请材料说明<font color="red">${appMaterial}</font></font></h3>
+<h3><font color="blue">利率说明:<font color="red">${intDesc}</font></font></h3>
+<h3><font color="blue">提前还款说明:<font color="red">${repayDesc}</font></font></h3>
+<h3><font color="blue">申请条件说明:<font color="red">${appReq}</font></font></h3>
+<h3><font color="blue">申请材料说明:<font color="red">${appMaterial}</font></font></h3>
+<h3><font color="blue">北京玖富咨询管理公司</font></h3>
