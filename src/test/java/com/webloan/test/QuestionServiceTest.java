@@ -127,6 +127,24 @@ public class QuestionServiceTest {
 			System.out.println(""+r.getId());
 		}
 	}
+	@Test
+	public void TestQryHighQuest(){
+		QuestionService questionService = appContext.getBean("questionService",
+				QuestionService.class);
+		List<Question> qs= questionService.qryHighQuest();
+		System.out.println("=======list high  question ===========");
+		for(Question qt:qs){
+			System.out.println(""+qt.getAskedBy());
+			System.out.println(""+qt.getDetail());
+			System.out.println(""+qt.getEmail());
+			System.out.println(""+qt.getStatus());
+			System.out.println(""+qt.getSubject());
+			System.out.println(""+qt.getTag());
+			System.out.println(""+qt.getRegion().getName());
+			System.out.println("answerCnt="+qt.getAnswers());
+		}		
+		
+	}
 
 	@After
 	public void end() {
