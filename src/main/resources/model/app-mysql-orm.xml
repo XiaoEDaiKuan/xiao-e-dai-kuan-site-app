@@ -554,4 +554,23 @@
 		</attributes>
 	</entity>
 
+	<entity class="com.webloan.model.CityLoan" name="CityLoan">
+		<table name="city_loan" />
+		<attributes>
+			<id name="id">
+				<column name="ID" />
+				<generated-value strategy="IDENTITY" />
+			</id>
+
+			<basic name="status">
+				<column name="status" length="1"  />
+			</basic>
+			
+			<many-to-one name="region">
+				<join-column name="region_id"  />
+			</many-to-one>
+
+		</attributes>
+	</entity>
+
 </entity-mappings>
