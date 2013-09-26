@@ -71,6 +71,14 @@ public class UserServiceTest {
          System.out.println("user modify");
 		
 	}
+	@Test
+	public void TestCorpIpCheck(){
+		UserService userService = appContext.getBean("userService",
+				UserService.class);
+		String ip="124.205.181.80";
+        userService.corpIpCheck(ip);		
+	}
+	
 
 	@After
 	public void end() {

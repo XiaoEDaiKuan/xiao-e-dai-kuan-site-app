@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.webloan.model.QstPrd;
 import com.webloan.model.Question;
+import com.webloan.model.RegionIP;
 import com.webloan.question.dao.QuestionRepository;
 import com.webloan.question.service.QuestionService;
 
@@ -54,6 +55,32 @@ public class QuestionServiceImpl implements QuestionService {
 	public List<Question> qryQuestion(String title) {
 
 		return questionRepository.qryQuestion(title);
+	}
+    /**
+     * 根据id查询
+     */
+	@Override
+	public Question qryQuestionById(String strId) {
+        Long id=strId==null?null:Long.valueOf(strId);
+		return questionRepository.qryQuestionById(id);
+	}
+
+	/**
+	 * 保存问题
+	 */
+	@Override
+	public void saveQuestion(String subject, String detail, String regionId,
+			String email, String telephone) {
+      questionRepository.saveQuestion(subject, detail, Long.valueOf(regionId), email, telephone);		
+	}
+
+	/**
+	 * 根据IP查询所属城市
+	 */
+	@Override
+	public RegionIP qryCityByIP(String ip) {
+		
+		return questionRepository.qryCityByIP(ip);
 	}
 
 }

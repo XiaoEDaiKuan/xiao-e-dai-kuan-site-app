@@ -35,4 +35,7 @@ public interface UserService {
     //用户登录
 	public Cust login(String logonName,String passwd);
 	
+	//验证是否是公司的IP
+	public boolean corpIpCheck(String ip);
+
 }

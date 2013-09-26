@@ -96,9 +96,9 @@ public class UserRepositoryImpl extends BaseJpaRepositoryImpl implements
 	@Override
 	public boolean corpIpCheck(String ip) {
 
-		String countJpql = "select count(*) from CorpIP c where c.startIP<='"
-				+ ip + "' and c.endIP>='" + ip + "'";
+		String countJpql = "select count(*) from CorpIP c where inet_aton(c.startIP)<=inet_aton(:ip) and inet_aton(c.endIP)>=inet_aton(:ip)";
 		Query countQuery = entityManager.createQuery(countJpql);
+		countQuery.setParameter("ip", ip);
 		Object count = countQuery.getSingleResult();
 		int c = ((Number) count).intValue();
 		if (c > 0)
@@ -170,12 +170,11 @@ public class UserRepositoryImpl extends BaseJpaRepositoryImpl implements
 				new Object[] { custId });
 	}
 
-
 	@Override
 	public void modifyPasswd(Long id, String newPasswd) {
-      Cust cust=this.load(Cust.class, id);
-      cust.setLogonPasswd(newPasswd);
-      this.update(cust);
+		Cust cust = this.load(Cust.class, id);
+		cust.setLogonPasswd(newPasswd);
+		this.update(cust);
 	}
 
 }

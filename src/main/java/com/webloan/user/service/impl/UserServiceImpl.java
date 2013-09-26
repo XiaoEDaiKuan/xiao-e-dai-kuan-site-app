@@ -586,4 +586,10 @@ public class UserServiceImpl implements UserService {
 		return flag;
 	}
 
+	@Override
+	public boolean corpIpCheck(String ip) {
+		
+		return userRepository.corpIpCheck(ip);
+	}
+
 }

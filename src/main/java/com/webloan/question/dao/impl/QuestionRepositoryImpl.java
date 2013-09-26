@@ -1,5 +1,7 @@
 package com.webloan.question.dao.impl;
 
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -9,9 +11,12 @@ import javax.persistence.TypedQuery;
 
 import com.webloan.common.BaseJpaRepositoryImpl;
 import com.webloan.common.Queriable;
+import com.webloan.exception.BizException;
 import com.webloan.model.Answer;
 import com.webloan.model.QstPrd;
 import com.webloan.model.Question;
+import com.webloan.model.Region;
+import com.webloan.model.RegionIP;
 import com.webloan.question.dao.QuestionRepository;
 
 public class QuestionRepositoryImpl extends BaseJpaRepositoryImpl implements
@@ -73,6 +78,49 @@ public class QuestionRepositoryImpl extends BaseJpaRepositoryImpl implements
 		}
 		
 		return questions;
+	}
+
+    /**
+     * 根据id查询
+     */
+	@Override
+	public Question qryQuestionById(Long id) {
+		return this.load(Question.class, id);
+	}
+
+    /**
+     * 保存问题
+     */
+	@Override
+	public void saveQuestion(String subject, String detail, Long regionId,
+			String email, String telephone) {
+     Question q=new Question();
+     q.setDetail(detail);
+     q.setSubject(subject);
+     Region r=this.load(Region.class,regionId);
+     q.setRegion(r);
+     q.setEmail(email);
+     q.setTelephone(telephone);
+     this.save(q);
+	}
+
+    /**
+     * 根据IP查询所属城市
+     */
+	@Override
+	public RegionIP qryCityByIP(String ip) {
+		
+		String jpql = "select r from RegionIP r  where inet_aton(r.ipStart)<=inet_aton(:ip) and inet_aton(:ip)<=inet_aton(r.ipEnd)";
+
+		TypedQuery<RegionIP> query = entityManager.createQuery(jpql, RegionIP.class);
+		query.setParameter("ip", ip);
+		List<RegionIP> regionIPs=query.getResultList();
+		if(null==regionIPs || regionIPs.size()==0){
+			//throw new BizException("");
+			return null;
+		}
+		
+		return regionIPs.get(0);
 	}
 
 }

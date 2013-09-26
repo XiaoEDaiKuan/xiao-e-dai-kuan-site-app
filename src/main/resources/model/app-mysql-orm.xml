@@ -525,4 +525,33 @@
 		</attributes>
 	</entity>
 
+	<entity class="com.webloan.model.RegionIP" name="RegionIP">
+		<table name="region_ip" />
+		<attributes>
+			<id name="id">
+				<column name="ID" />
+				<generated-value strategy="IDENTITY" />
+			</id>
+			<basic name="ipStart">
+				<column name="ip_Start" length="16"  />
+			</basic>
+			<basic name="ipEnd">
+				<column name="ip_End" length="16" />
+			</basic>
+			
+			<basic name="areaName">
+				<column name="area_Name" length="128"  />
+			</basic>
+			
+			<basic name="remark">
+				<column name="remark" length="256"  />
+			</basic>
+			
+			<many-to-one name="region">
+				<join-column name="region_id"  />
+			</many-to-one>
+
+		</attributes>
+	</entity>
+
 </entity-mappings>

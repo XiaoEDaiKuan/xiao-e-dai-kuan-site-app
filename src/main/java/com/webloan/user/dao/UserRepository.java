@@ -37,7 +37,7 @@ public interface UserRepository extends BaseJpaRepository {
 	boolean duplicatedMobileCheck(String mobileNO);
 
 	//验证是否是公司的IP
-	boolean corpIpCheck(String ip);
+	public boolean corpIpCheck(String ip);
     
 	//验证同一IP是否多次注册
 	boolean setupIpOverRun(String ip, int max);

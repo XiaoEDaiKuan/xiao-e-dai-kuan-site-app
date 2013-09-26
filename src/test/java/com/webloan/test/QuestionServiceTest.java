@@ -11,6 +11,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import com.webloan.model.Answer;
 import com.webloan.model.QstPrd;
 import com.webloan.model.Question;
+import com.webloan.model.RegionIP;
 import com.webloan.order.service.OrderService;
 import com.webloan.question.service.QuestionService;
 
@@ -70,7 +71,7 @@ public class QuestionServiceTest {
 	public void TestQryQuestion(){
 		QuestionService questionService = appContext.getBean("questionService",
 				QuestionService.class);
-        String title="玖富";
+        String title="午夜";
 		List<Question> qs= questionService.qryQuestion(title);
 		System.out.println("=======list question by title===========");
 		for(Question qt:qs){
@@ -83,6 +84,32 @@ public class QuestionServiceTest {
 			System.out.println(""+qt.getRegion().getName());
 			System.out.println("answerCnt="+qt.getAnswers());
 		}		
+	}
+	@Test
+	public void TestSaveQuestion(){
+		QuestionService questionService = appContext.getBean("questionService",
+				QuestionService.class);
+        String subject="贷款问答-测试1";
+        String detail="午夜电话亭";
+        String regionId="11";
+        String email="wenlinfeng@gmail.com";
+        String  telephone="13917367496";
+		questionService.saveQuestion(subject, detail, regionId, email, telephone);
+		
+		System.out.println("save question ok");
+	}
+	@Test
+	public void TestQryCityByIP(){
+		QuestionService questionService = appContext.getBean("questionService",
+				QuestionService.class);
+        String ip="218.1.101.19";
+		RegionIP r= questionService.qryCityByIP(ip);
+		System.out.println("=======qry city by ip===========");
+			System.out.println(""+r.getAreaName());
+			System.out.println(""+r.getIpEnd());
+			System.out.println(""+r.getIpStart());
+			System.out.println(""+r.getRemark());
+			System.out.println(""+r.getRegion().getName());
 	}
 
 	@After
