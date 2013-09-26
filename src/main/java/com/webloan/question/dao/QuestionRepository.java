@@ -26,6 +26,8 @@ public interface QuestionRepository extends BaseJpaRepository {
 	RegionIP qryCityByIP(String ip);
 	//查询大区所拥有的城市
 	List<Region> qryArrea(String areaCode); 
+	//大家都在问列表
+	List<Question> qryHighQuest();
 
 }
 

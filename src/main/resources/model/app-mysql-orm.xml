@@ -577,4 +577,19 @@
 		</attributes>
 	</entity>
 
+	<entity class="com.webloan.model.HighQuest" name="HighQuest">
+		<table name="high_quest" />
+		<attributes>
+			<id name="id">
+				<column name="ID" />
+				<generated-value strategy="IDENTITY" />
+			</id>
+			
+			<one-to-one name="Question">
+				<join-column name="question_id"  />
+			</one-to-one>
+
+		</attributes>
+	</entity>
+
 </entity-mappings>

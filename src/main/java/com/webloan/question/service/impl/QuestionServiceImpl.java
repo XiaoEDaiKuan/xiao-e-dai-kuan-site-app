@@ -91,4 +91,13 @@ public class QuestionServiceImpl implements QuestionService {
 		return questionRepository.qryArrea(areaCode);
 	}
 
+	/**
+	 * 大家都在问列表
+	 */
+	@Override
+	public List<Question> qryHighQuest() {
+
+		return questionRepository.qryHighQuest();
+	}
+
 }

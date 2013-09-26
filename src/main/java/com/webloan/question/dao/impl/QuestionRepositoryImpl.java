@@ -144,4 +144,13 @@ public class QuestionRepositoryImpl extends BaseJpaRepositoryImpl implements
 		return rs;
 	}
 
+	@Override
+	public List<Question> qryHighQuest() {
+        List<Question> qs=this.queryList(Question.class, new String[]{""}, new Object[]{}); 
+        for(Question q:qs){
+        	q.getAnswers();
+        }
+		return qs;
+	}
+
 }
