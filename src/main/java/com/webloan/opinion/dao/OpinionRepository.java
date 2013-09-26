@@ -13,6 +13,6 @@ public interface OpinionRepository  extends BaseJpaRepository {
 	//根据id查详细
 	public Opinion qryOpinionById(Long id);
 	//保存回复信息
-	public Opinion saveOpinionAnswer(Long id);
+	public void saveOpinionAnswer(Long id,String answerContent,String answerBy);
 
 }

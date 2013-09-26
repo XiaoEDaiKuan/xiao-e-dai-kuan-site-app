@@ -18,20 +18,20 @@ public class OpinionServiceImpl implements OpinionService{
 
 	@Override
 	public List<Opinion> listOpinion() {
-		// TODO Auto-generated method stub
-		return null;
+		// 
+		return opinionRepository.listOpinion();
 	}
 
 	@Override
 	public Opinion qryOpinionById(Long id) {
-		// TODO Auto-generated method stub
-		return null;
+		// 
+		return opinionRepository.qryOpinionById(id);
 	}
 
 	@Override
-	public Opinion saveOpinionAnswer(Long id) {
-		// TODO Auto-generated method stub
-		return null;
+	public void saveOpinionAnswer(Long id,String answerContent,String answerBy) {
+		// =
+		opinionRepository.saveOpinionAnswer(id,answerContent,answerBy);
 	}
 
 	public OpinionRepository getOpinionRepository() {

@@ -1,11 +1,11 @@
 package com.webloan.opinion.dao.impl;
 
-import java.io.Serializable;
+
 import java.sql.Timestamp;
 import java.util.List;
 
 import com.webloan.common.BaseJpaRepositoryImpl;
-import com.webloan.common.Page;
+
 import com.webloan.model.Opinion;
 import com.webloan.opinion.OpinionConstant;
 import com.webloan.opinion.dao.OpinionRepository;
@@ -30,20 +30,22 @@ public class OpinionRepositoryImpl extends BaseJpaRepositoryImpl implements Opin
 
 	@Override
 	public List<Opinion> listOpinion() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.queryList(Opinion.class, new String[]{}, new Object[]{});
 	}
 
 	@Override
 	public Opinion qryOpinionById(Long id) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return this.load(Opinion.class, id);
 	}
 
 	@Override
-	public Opinion saveOpinionAnswer(Long id) {
-		// TODO Auto-generated method stub
-		return null;
+	public void saveOpinionAnswer(Long id,String answerContent,String answerBy) {
+		Opinion o=this.load(Opinion.class, id);
+		o.setAnswerCont(answerContent);
+		o.setAnswerBy(answerBy);
+		o.setAnswerTime(DateUtils.getTimeStamp());
+		this.save(o);
 	}
 
 }
