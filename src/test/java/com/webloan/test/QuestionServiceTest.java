@@ -11,8 +11,10 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import com.webloan.model.Answer;
 import com.webloan.model.QstPrd;
 import com.webloan.model.Question;
+import com.webloan.model.Region;
 import com.webloan.model.RegionIP;
 import com.webloan.order.service.OrderService;
+import com.webloan.question.QuestionConstant;
 import com.webloan.question.service.QuestionService;
 
 public class QuestionServiceTest {
@@ -110,6 +112,20 @@ public class QuestionServiceTest {
 			System.out.println(""+r.getIpStart());
 			System.out.println(""+r.getRemark());
 			System.out.println(""+r.getRegion().getName());
+	}
+
+	@Test
+	public void TestQryArea(){
+		QuestionService questionService = appContext.getBean("questionService",
+				QuestionService.class);
+        String areaCode=QuestionConstant.XI_NAN;
+		List<Region> rs= questionService.qryArrea(areaCode);
+		System.out.println("=======qry city arrea code===========");
+		for(Region r:rs){
+			System.out.println(""+r.getName());
+			System.out.println(""+r.getEnShortName());
+			System.out.println(""+r.getId());
+		}
 	}
 
 	@After

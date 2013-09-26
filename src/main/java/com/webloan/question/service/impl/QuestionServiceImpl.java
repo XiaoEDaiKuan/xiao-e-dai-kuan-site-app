@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.webloan.model.QstPrd;
 import com.webloan.model.Question;
+import com.webloan.model.Region;
 import com.webloan.model.RegionIP;
 import com.webloan.question.dao.QuestionRepository;
 import com.webloan.question.service.QuestionService;
@@ -81,6 +82,13 @@ public class QuestionServiceImpl implements QuestionService {
 	public RegionIP qryCityByIP(String ip) {
 		
 		return questionRepository.qryCityByIP(ip);
+	}
+    /**
+     * 查询大区所拥有的城市
+     */
+	@Override
+	public List<Region> qryArrea(String areaCode) {
+		return questionRepository.qryArrea(areaCode);
 	}
 
 }

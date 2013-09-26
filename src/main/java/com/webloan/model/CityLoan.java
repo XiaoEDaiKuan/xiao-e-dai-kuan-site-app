@@ -12,6 +12,8 @@ public class CityLoan implements Serializable{
 	   private Long id;
 	   private Region region;
 	   private String status;
+	   private String arreaCode;
+	   
 	public Long getId() {
 		return id;
 	}
@@ -29,6 +31,12 @@ public class CityLoan implements Serializable{
 	}
 	public void setStatus(String status) {
 		this.status = status;
+	}
+	public String getArreaCode() {
+		return arreaCode;
+	}
+	public void setArreaCode(String arreaCode) {
+		this.arreaCode = arreaCode;
 	}
 
 

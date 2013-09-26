@@ -17,6 +17,7 @@ import com.webloan.model.QstPrd;
 import com.webloan.model.Question;
 import com.webloan.model.Region;
 import com.webloan.model.RegionIP;
+import com.webloan.question.QuestionConstant;
 import com.webloan.question.dao.QuestionRepository;
 
 public class QuestionRepositoryImpl extends BaseJpaRepositoryImpl implements
@@ -35,7 +36,8 @@ public class QuestionRepositoryImpl extends BaseJpaRepositoryImpl implements
 		Map<String, Object> params = new HashMap<String, Object>();
 		params.put("custId", custId);
 
-		TypedQuery<QstPrd> query = entityManager.createQuery(jpql.toString(),QstPrd.class);
+		TypedQuery<QstPrd> query = entityManager.createQuery(jpql.toString(),
+				QstPrd.class);
 
 		for (Map.Entry<String, Object> param : params.entrySet()) {
 			query.setParameter(param.getKey(), param.getValue());
@@ -62,65 +64,84 @@ public class QuestionRepositoryImpl extends BaseJpaRepositoryImpl implements
 
 	}
 
-    /**
-     * 匹配主题或内容
-     */
+	/**
+	 * 匹配主题或内容
+	 */
 	@Override
 	public List<Question> qryQuestion(String title) {
-		
+
 		String jpql = "select q from Question q  where q.subject like :subject or q.detail like :subject";
 
-		TypedQuery<Question> query = entityManager.createQuery(jpql, Question.class);
-		query.setParameter("subject", "%"+title+"%");
-		List<Question> questions=query.getResultList();
+		TypedQuery<Question> query = entityManager.createQuery(jpql,
+				Question.class);
+		query.setParameter("subject", "%" + title + "%");
+		List<Question> questions = query.getResultList();
 		for (Question q : questions) {
 			q.getAnswers();
 		}
-		
+
 		return questions;
 	}
 
-    /**
-     * 根据id查询
-     */
+	/**
+	 * 根据id查询
+	 */
 	@Override
 	public Question qryQuestionById(Long id) {
 		return this.load(Question.class, id);
 	}
 
-    /**
-     * 保存问题
-     */
+	/**
+	 * 保存问题
+	 */
 	@Override
 	public void saveQuestion(String subject, String detail, Long regionId,
 			String email, String telephone) {
-     Question q=new Question();
-     q.setDetail(detail);
-     q.setSubject(subject);
-     Region r=this.load(Region.class,regionId);
-     q.setRegion(r);
-     q.setEmail(email);
-     q.setTelephone(telephone);
-     this.save(q);
+		Question q = new Question();
+		q.setDetail(detail);
+		q.setSubject(subject);
+		Region r = this.load(Region.class, regionId);
+		q.setRegion(r);
+		q.setEmail(email);
+		q.setTelephone(telephone);
+		this.save(q);
 	}
 
-    /**
-     * 根据IP查询所属城市
-     */
+	/**
+	 * 根据IP查询所属城市
+	 */
 	@Override
 	public RegionIP qryCityByIP(String ip) {
-		
+
 		String jpql = "select r from RegionIP r  where inet_aton(r.ipStart)<=inet_aton(:ip) and inet_aton(:ip)<=inet_aton(r.ipEnd)";
 
-		TypedQuery<RegionIP> query = entityManager.createQuery(jpql, RegionIP.class);
+		TypedQuery<RegionIP> query = entityManager.createQuery(jpql,
+				RegionIP.class);
 		query.setParameter("ip", ip);
-		List<RegionIP> regionIPs=query.getResultList();
-		if(null==regionIPs || regionIPs.size()==0){
-			//throw new BizException("");
+		List<RegionIP> regionIPs = query.getResultList();
+		if (null == regionIPs || regionIPs.size() == 0) {
+			// throw new BizException("");
 			return null;
 		}
-		
+
 		return regionIPs.get(0);
+	}
+
+	@Override
+	public List<Region> qryArrea(String areaCode) {
+		String jpql = "select r from CityLoan c,Region r  where  c.arreaCode=:areaCode and c.region.id=r.id";
+		TypedQuery<Region> query = entityManager
+				.createQuery(jpql, Region.class);
+
+		query.setParameter("areaCode", areaCode);
+
+		List<Region> rs = query.getResultList();
+		if (null == rs || rs.size() == 0) {
+			// throw new BizException("");
+			return null;
+		}
+
+		return rs;
 	}
 
 }

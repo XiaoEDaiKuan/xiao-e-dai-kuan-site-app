@@ -566,6 +566,10 @@
 				<column name="status" length="1"  />
 			</basic>
 			
+			<basic name="arreaCode">
+				<column name="arrea_code" length="1"  />
+			</basic>
+			
 			<many-to-one name="region">
 				<join-column name="region_id"  />
 			</many-to-one>

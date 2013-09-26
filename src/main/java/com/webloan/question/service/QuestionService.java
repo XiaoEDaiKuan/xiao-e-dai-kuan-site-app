@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.webloan.model.QstPrd;
 import com.webloan.model.Question;
+import com.webloan.model.Region;
 import com.webloan.model.RegionIP;
 
 public interface QuestionService {
@@ -22,4 +23,6 @@ public interface QuestionService {
 	void saveQuestion(String subject,String detail,String regionId,String email,String telephone);
 	//根据IP查询所属城市
 	RegionIP qryCityByIP(String ip);
+	//查询大区所拥有的城市
+	List<Region> qryArrea(String areaCode); 
 }
