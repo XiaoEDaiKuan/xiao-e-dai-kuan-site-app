@@ -19,6 +19,7 @@
 
 	<bean id="orderService" class="com.webloan.order.service.impl.OrderServiceImpl">
 		<property name="orderRepository" ref="orderRepository" />
+		<property name="mailEngine" ref="mailEngine" />
 	</bean>
 	
 	<bean id="messageService" class="com.webloan.message.service.impl.MessageServiceImpl">

@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.webloan.common.BaseJpaRepository;
 import com.webloan.model.Order;
+import com.webloan.model.Product;
 
 public interface OrderRepository extends BaseJpaRepository  {
 
@@ -14,5 +15,7 @@ public interface OrderRepository extends BaseJpaRepository  {
 	void deleteOrder(Long orderId);
 	public void createOrder(Long productId, Long custId, String applyName,
 			String applyTelephone, BigDecimal applyAmt, String custRegion) ;
+	   //获得产品
+	public   Product getProduct(Long productId);
 
 }

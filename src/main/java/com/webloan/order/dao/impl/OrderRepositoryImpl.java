@@ -61,4 +61,11 @@ public class OrderRepositoryImpl extends BaseJpaRepositoryImpl implements OrderR
 	 this.save(order);
 	}
 
+
+	@Override
+	public Product getProduct(Long productId) {
+		return this.load(Product.class,productId );
+		
+	}
+
 }

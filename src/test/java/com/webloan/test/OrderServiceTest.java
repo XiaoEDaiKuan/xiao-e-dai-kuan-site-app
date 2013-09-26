@@ -79,7 +79,16 @@ public class OrderServiceTest {
 		orderService.createOrder(productId,custId,applyName,applyTelephone,applyAmt,custRegion);
 		System.out.println("order create");
 	}
-	
+
+	@Test
+	public void testOrderEmail(){
+		OrderService orderService = appContext.getBean("orderService",
+				OrderService.class);
+		String productId="1";
+		String email="haiguangliu@aliyun.com";
+		orderService.orderEmail(email, productId);	
+		System.out.println("product has been sent");
+	}
 	
 	@After
 	public void end() {
