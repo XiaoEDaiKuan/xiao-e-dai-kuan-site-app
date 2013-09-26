@@ -592,4 +592,31 @@
 		</attributes>
 	</entity>
 
+	<entity class="com.webloan.model.Opinion" name="Opinion">
+		<table name="opinion" />
+		<attributes>
+			<id name="id">
+				<column name="ID" />
+				<generated-value strategy="IDENTITY" />
+			</id>
+
+			<basic name="">
+				<column name="name" length="50"  />
+			</basic>
+			
+			<basic name="email">
+				<column name="email" length="100"  />
+			</basic>
+
+			<basic name="telephone">
+				<column name="telephone" length="50"  />
+			</basic>
+			
+			<basic name="content">
+				<column name="content" length="2048"  />
+			</basic>
+
+		</attributes>
+	</entity>
+
 </entity-mappings>
