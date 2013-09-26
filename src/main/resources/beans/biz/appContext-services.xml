@@ -83,5 +83,8 @@
 	<bean id="questionService" class="com.webloan.question.service.impl.QuestionServiceImpl">
 		<property name="questionRepository" ref="questionRepository" />
 	</bean>
+	<bean id="opinionService" class="com.webloan.opinion.service.impl.OpinionServiceImpl">
+		<property name="opinionRepository" ref="opinionRepository" />
+	</bean>
     	
 </beans>

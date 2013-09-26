@@ -19,8 +19,10 @@ public class Opinion implements Serializable {
 	private String answerBy;
 	private Timestamp answerTime;
 	private String status;
-
-
+    private String answerCont;
+    
+     
+    
 	public Timestamp getSetupTime() {
 		return setupTime;
 	}
@@ -91,6 +93,14 @@ public class Opinion implements Serializable {
 
 	public void setContent(String content) {
 		this.content = content;
+	}
+
+	public String getAnswerCont() {
+		return answerCont;
+	}
+
+	public void setAnswerCont(String answerCont) {
+		this.answerCont = answerCont;
 	}
 
 }

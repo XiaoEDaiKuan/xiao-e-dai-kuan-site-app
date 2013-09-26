@@ -38,4 +38,7 @@
 	<bean id="questionRepository" class="com.webloan.question.dao.impl.QuestionRepositoryImpl" parent="baseJpaRepository">
 	</bean>
 
+	<bean id="opinionRepository" class="com.webloan.opinion.dao.impl.OpinionRepositoryImpl" parent="baseJpaRepository">
+	</bean>
+
 </beans>
