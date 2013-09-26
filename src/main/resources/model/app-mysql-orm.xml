@@ -615,6 +615,19 @@
 			<basic name="content">
 				<column name="content" length="2048"  />
 			</basic>
+			<basic name="setupTime">
+				<column name="setup_Time"   />
+			</basic>
+			<basic name="answerBy">
+				<column name="answer_By"   />
+			</basic>
+			
+			<basic name="answerTime">
+				<column name="answer_Time"   />
+			</basic>
+			<basic name="status">
+				<column name="status"   />
+			</basic>
 
 		</attributes>
 	</entity>
