@@ -3,7 +3,6 @@ package com.webloan.order.service.impl;
 
 import java.io.UnsupportedEncodingException;
 import java.math.BigDecimal;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -16,10 +15,11 @@ import org.springframework.mail.SimpleMailMessage;
 
 import com.webloan.model.Order;
 import com.webloan.model.Product;
+import com.webloan.model.Question;
+import com.webloan.model.RequireInfo;
 import com.webloan.order.OrderConstant;
 import com.webloan.order.dao.OrderRepository;
 import com.webloan.order.service.OrderService;
-import com.webloan.user.UserConstant;
 import com.webloan.util.MailEngine;
 
 public class OrderServiceImpl implements OrderService {
@@ -118,6 +118,20 @@ public class OrderServiceImpl implements OrderService {
  			e.printStackTrace();
  		}
 
+	}
+
+	 //根据产品id查询关联的问答
+	@Override
+	public List<Question> listQuestionByPrdId(String productId) {
+        Long prdid=productId==null?null:Long.valueOf(productId);
+		return orderRepository.listQuestionByPrdId(prdid);
+	}
+
+	 //根据产品ID查询贷款申请条件
+	@Override
+	public List<RequireInfo> listRequireInfoByProductID(String productID) {
+        Long prdID=productID==null?null:Long.valueOf(productID);
+		return orderRepository.listRequireInfoByProductID(prdID);
 	}
 
 }

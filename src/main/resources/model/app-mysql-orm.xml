@@ -600,7 +600,7 @@
 				<generated-value strategy="IDENTITY" />
 			</id>
 
-			<basic name="">
+			<basic name="name">
 				<column name="name" length="50"  />
 			</basic>
 			
@@ -631,6 +631,36 @@
 
 			<basic name="answerCont">
 				<column name="answer_Cont"   length="2048"/>
+			</basic>
+
+		</attributes>
+	</entity>
+
+	<entity class="com.webloan.model.RequireInfo" name="RequireInfo">
+		<table name="require_info" />
+		<attributes>
+			<id name="id">
+				<column name="ID" />
+				<generated-value strategy="IDENTITY" />
+			</id>
+
+			<basic name="productID">
+				<column name="product_id"   />
+			</basic>
+			
+			<basic name="attr">
+				<column name="attr" length="100"  />
+			</basic>
+
+			<basic name="columnID">
+				<column name="column_ID" length="50"  />
+			</basic>
+			
+			<basic name="value">
+				<column name="value" length="512"  />
+			</basic>
+			<basic name="status">
+				<column name="status"   />
 			</basic>
 
 		</attributes>

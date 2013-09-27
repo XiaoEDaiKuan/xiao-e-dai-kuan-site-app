@@ -10,6 +10,8 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.webloan.order.OrderStatus;
 import com.webloan.model.Order;
+import com.webloan.model.Question;
+import com.webloan.model.RequireInfo;
 import com.webloan.order.service.OrderService;
 
 public class OrderServiceTest {
@@ -88,6 +90,39 @@ public class OrderServiceTest {
 		String email="haiguangliu@aliyun.com";
 		orderService.orderEmail(email, productId);	
 		System.out.println("product has been sent");
+	}
+
+	@Test
+	public void testListQuestionByPrdId(){
+		OrderService orderService = appContext.getBean("orderService",
+				OrderService.class);
+		String productId="2";
+		List<Question> qs=orderService.listQuestionByPrdId(productId);
+		for(Question q:qs){
+			System.out.println("提问主题："+q.getSubject());
+			System.out.println("提问内容："+q.getDetail());
+			System.out.println("提问时间："+q.getAskTime());
+			System.out.println("提问人："+q.getAskedBy());
+			System.out.println("几个回答："+q.getAnswers().size());
+		}
+		System.out.println("list question about product ok");
+	}
+
+	
+	@Test
+	public void TestListRequireInfoByProductID(){
+		OrderService orderService = appContext.getBean("orderService",
+				OrderService.class);
+		String productId="1";
+		List<RequireInfo> qi=orderService.listRequireInfoByProductID(productId);
+		for(RequireInfo q:qi){
+			System.out.println("产品id："+q.getProductID());
+			System.out.println("属性："+q.getAttr());
+			System.out.println("列ID："+q.getColumnID());
+			System.out.println("取值："+q.getValue());
+			System.out.println("状态："+q.getStatus());
+		}
+		System.out.println("list require info about product ok");
 	}
 	
 	@After
