@@ -1,2 +1,5 @@
 .ClearFix p a{cursor: pointer;cursor: hand}
 .Loansearch6{margin-right:5px;}
+a.insort{background-color:#90bad2;color:#fff;}
+a.noinsort{background-color:#fff;color:#575757;}
+.ClearFix a{cursor: pointer;cursor: hand}
