@@ -24,12 +24,12 @@
   <div class="logo"><a href="index.html"></a></div>
   <div class="city font_f"><font>北京</font><a href="#" id="pop_city">[切换城市]</a></div>
   <div class="top_right">
-    <div class="top_right1"><a href="registered.html">注册</a><font>|</font><a href="login.html">登录</a><font>|</font><a href="members.html">我的会员中心</a><font>|</font><a href="login.html">信贷经理登录</a><font>|</font><a href="manager.html">信贷经理入驻</a></div>
+    <div class="top_right1"><a href="registered.html">注册</a><font>|</font><a href="loginView">登录</a><font>|</font><a href="members.html">我的会员中心</a><font>|</font><a href="login.html">信贷经理登录</a><font>|</font><a href="manager.html">信贷经理入驻</a></div>
     
     <div class="underPmenu font_f" id="w_nav">
       <ul>
         <li class="hover"><a href="index.html">首页</a></li>
-        <li><a href="productSearch.jsp" target="_blank">贷款搜索</a>
+        <li><a href="queryProduct" target="_blank">贷款搜索</a>
           <ul>
             <li class="subline"></li>
             <li><a href="贷款搜索.html" class="w_a1" target="_blank">消费贷款</a></li>

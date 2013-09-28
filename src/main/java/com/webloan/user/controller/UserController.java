@@ -31,10 +31,10 @@ public class UserController extends MultiActionController {
 		String captcha = request.getParameter("captcha");
 		boolean flag=captchaService.validateResponseForID(sessionId, captcha);
 		if(!flag){
-			throw new BizException(UserConstant.EXCEPTION_CAPTCHA_CODE);
+			//throw new BizException(UserConstant.EXCEPTION_CAPTCHA_CODE);
 		}
 		ModelAndView mav = new ModelAndView();
-		mav.setViewName("user/register");
+		mav.setViewName("user/userregister");
 		String custName = request.getParameter("custName");
 		String logonPasswd = request.getParameter("logonPasswd");
 		String mobileNO = request.getParameter("mobileNO");
@@ -61,6 +61,12 @@ public class UserController extends MultiActionController {
 		return mav;
 	}
 
+	public ModelAndView userRegister(HttpServletRequest request,
+			HttpServletResponse response) {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("user/userregister");
+		return mav;
+	}
 	/**
 	 * 邮箱认证(同步页面)
 	 * 
@@ -86,10 +92,17 @@ public class UserController extends MultiActionController {
 	 * @return
 	 * @throws Exception
 	 */
+	public ModelAndView loginView(HttpServletRequest request,
+			HttpServletResponse response) throws Exception {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("user/login");
+		return mav;
+	}
+	
 	public ModelAndView login(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 		ModelAndView mav = new ModelAndView();
-		mav.setViewName("user/loginsuccess");
+		mav.setViewName("index");
         String logonName=request.getParameter("logonName");
         String passwd=request.getParameter("passwd");
 		Cust cust=userService.login(logonName, passwd);
