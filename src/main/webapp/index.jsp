@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <title>无标题文档</title>
-<jsp:include page="globalScript.jsp" /></jsp:include>
+<jsp:include page="globalScript.jsp" />
 <script type="text/javascript">
 	$(document).ready(function() {
 	$("#pop_city").click(function(){
@@ -24,7 +24,7 @@
 </head>
 
 <body>
-<jsp:include page="globalHeader.jsp" /></jsp:include>
+<jsp:include page="globalHeader.jsp" />
 <div id="full-screen-slider">
   <ul id="slides">
     <li class="pic1"><a href="#"></a></li>
@@ -271,7 +271,7 @@
   </div>
 </div>
 
-<jsp:include page="globalFooterMenu.jsp" /></jsp:include>
-<jsp:include page="globalFooter.jsp" /></jsp:include>
+<jsp:include page="globalFooterMenu.jsp" />
+<jsp:include page="globalFooter.jsp" />
 </body>
 </html>
