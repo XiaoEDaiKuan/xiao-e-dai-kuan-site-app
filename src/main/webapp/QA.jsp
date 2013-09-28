@@ -3,16 +3,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>无标题文档</title>
-<link href="css/publlc.css" type="text/css" rel="stylesheet" />
-<link href="css/home.css" type="text/css" rel="stylesheet" />
-<link href="css/tipswindown.css" type="text/css" rel="stylesheet" />
-<link href="css/css.css" type="text/css" rel="stylesheet" />
-<script type="text/javascript" src="Scripts/lihover.js"></script>
-<script type="text/javascript" src="Scripts/select2css.js"></script>
-<script type="text/javascript" src="Scripts/jquery-1.8.0.min.js"></script>
-<script type="text/javascript" src="Scripts/tipswindown.js"></script>
+<%@include file="WEB-INF/inc/globalScript.jsp" %>
 <script type="text/javascript">
 	$(document).ready(function() {
 	$("#pop_city").click(function(){
@@ -45,7 +37,7 @@ con.style.display=i==cursel?"block":"none";
 </head>
 
 <body>
-<jsp:include page="globalHeader.jsp" />
+<%@include file="WEB-INF/inc/globalHeader.jsp" %>
 <div class="Loansquiz">
 	<div class="top Fuzzysearch1 Loansquiz1">
     	<table width="100%" border="1" class="font_f Loansquiz2">
@@ -204,8 +196,8 @@ con.style.display=i==cursel?"block":"none";
   </div>
     </div>
 </div>
-<jsp:include page="globalFooterMenu.jsp" />
-<jsp:include page="globalFooter.jsp" />
+<%@include file="WEB-INF/inc/globalFooterMenu.jsp" %>
+<%@include file="WEB-INF/inc/globalFooter.jsp" %>
 </body>
 </html>
     

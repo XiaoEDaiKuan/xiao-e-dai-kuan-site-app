@@ -5,7 +5,7 @@
 <head>
 
 <title>无标题文档</title>
-<jsp:include page="globalScript.jsp" />
+<%@include file="WEB-INF/inc/globalScript.jsp" %>
 <script type="text/javascript">
 	$(document).ready(function() {
         $("#pop_city").click(function(){
@@ -70,7 +70,7 @@
 </head>
 
 <body>
-<jsp:include page="globalHeader.jsp" />
+<%@include file="WEB-INF/inc/globalHeader.jsp" %>
 
 <div class="Fuzzysearch">
 	<div class="top Fuzzysearch1">
@@ -325,7 +325,7 @@
     </div>
 </div>
 
-<jsp:include page="globalFooterMenu.jsp" />
-<jsp:include page="globalFooter.jsp" />
+<%@include file="WEB-INF/inc/globalFooterMenu.jsp" %>
+<%@include file="WEB-INF/inc/globalFooter.jsp" %>
 </body>
 </html>
