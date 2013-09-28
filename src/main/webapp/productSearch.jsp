@@ -52,6 +52,36 @@
         	$("#credit").css("display","none");
         	$("<div class=\"Loansearch6\" data=\"credit\" value=\"" + credit + "\"><a><img src=\"images/img11.jpg\" onclick=\"remove(this)\" width=\"23\" height=\"22\"/></a>" + $($("#credit p a")[credit]).attr("catalog") + ": <span>" + $($("#credit p a")[credit]).attr("vname") + "</span></div>").appendTo("#selectedString");
         }
+        
+        var orderLx = $.getUrlParam('orderLx');
+        if(orderLx != null){
+        	$($("#orderBy a")[0]).removeClass("insort");
+        	$($("#orderBy a")[0]).addClass("noinsort");
+        	$($("#orderBy a")[1]).removeClass("noinsort");
+        	$($("#orderBy a")[1]).addClass("insort");
+        	$($("#orderBy a")[1]).attr("value",orderLx);
+        	if (orderLx == 1){
+        		$($("#orderBy a")[1]).addClass("sortDown");
+        	}
+        }
+        var orderYg = $.getUrlParam('orderYg');
+		if(orderYg != null){
+			$($("#orderBy a")[0]).removeClass("insort");
+	    	$($("#orderBy a")[0]).addClass("noinsort");
+	    	$($("#orderBy a")[2]).removeClass("noinsort");
+        	$($("#orderBy a")[2]).addClass("insort");
+        	$($("#orderBy a")[2]).attr("value",orderYg);
+			if (orderYg == 1){
+				$($("#orderBy a")[2]).addClass("sortDown");
+        	}
+        }
+		
+		var pageIndex = $.getUrlParam('pageIndex');
+		if(pageIndex != null){
+			pageIndex = parseInt(pageIndex) - 1;
+			$(".me_next a").removeClass("currentPager");
+	    	$($(".me_next a")[pageIndex]).addClass("currentPager");
+		}
     }
     
     function getParmasUrl(){
@@ -67,6 +97,14 @@
         $("#selectedString div").each(function(){
         	url += $(this).attr("data") + "=" + $(this).attr("value") + "&";
         });
+        
+        $(".insort").each(function(){
+        	url += $(this).attr("data") + "=" + $(this).attr("value") + "&";
+        }); 
+
+        $(".currentPager").each(function(){
+        	url += $(this).attr("data") + "=" + $(this).attr("value") + "&";
+        }); 
         return url;
     }
     
@@ -84,7 +122,6 @@
     	search();
     }
     function add(target, key, value){
-    	//selectedString
     	$("#" + key).css("display","none");
     	$("<div class=\"Loansearch6\" data=\"" + key + "\" value=\"" + value + "\"><a><img src=\"images/img11.jpg\" onclick=\"remove(this)\" width=\"23\" height=\"22\"/></a>" + $(target).attr("catalog") + ": <span>" + $(target).attr("vname") + "</span></div>").appendTo("#selectedString");
     	search();
@@ -93,12 +130,25 @@
     function removeOrder(){
     	$("#orderBy a").removeClass("noinsort");
     	$("#orderBy a").removeClass("insort");
+    	search();
     }
     function addOrder(target){
     	$($("#orderBy a")[0]).removeClass("insort");
     	$($("#orderBy a")[0]).addClass("noinsort");
+    	$(target).toggleClass("sortDown");
     	$(target).removeClass("noinsort");
     	$(target).addClass("insort");
+    	if ($(target).hasClass("sortDown")){
+    		$(target).attr("value","1");
+    	}else{
+    		$(target).attr("value","0");
+    	}
+    	search();
+    }
+    function pager(target){
+    	$(".me_next a").removeClass("currentPager");
+    	$(target).addClass("currentPager");
+    	search();
     }
 </script>
 </head>
@@ -328,7 +378,11 @@
         </div>
     </div>
   </div>
-  <div class="me_next"><a href="#"><em>1</em></a><a href="#"><em>2</em></a><a href="#"><em>3</em></a><a href="#"><em>下一页</em></a><span>共<font>66</font>个结果</span></div>
+  <div class="me_next">
+  <a onclick="pager(this)" data="pageIndex" value="1" class="currentPager"><em>1</em></a>
+  <a onclick="pager(this)" data="pageIndex" value="2"><em>2</em></a>
+  <a onclick="pager(this)" data="pageIndex" value="3"><em>3</em></a>
+  <span>共<font>66</font>个结果</span></div>
 </div>
 <div class="main3 ground  Fuzzysearch6">
   <div class="credit_title"> 
