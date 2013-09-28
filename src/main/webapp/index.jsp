@@ -270,7 +270,6 @@
     </ul>
   </div>
 </div>
-
 <%@include file="WEB-INF/inc/globalFooterMenu.jsp" %>
 <%@include file="WEB-INF/inc/globalFooter.jsp" %>
 </body>
