@@ -6,7 +6,7 @@
    $("#showdiv").css("display","block");
    //$("#testdiv").load("test.html");
    };
-  layer();
+  //layer();
    $("#close").click(function(){
       $("#brg").css("display","none");
    $("#showdiv").css("display","none");
