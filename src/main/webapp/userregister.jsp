@@ -46,9 +46,27 @@
       <td><input name="address" type="text" value="address1" class="input" /></td>
     </tr>
     
+        <tr>
+	         	  <td>captcha</td>
+	           	  <td><input type="text" name="captcha" id="cf"/></td>
+	   </tr> 
+	   <tr>
+	          	<td colspan="2">
+	                 	<img id="captcha" src="handleCaptcha.do" alt="captcha" onclick="javascript:reloadCaptcha()"/></td>
+	   </tr>
+    
   </table>
 
 <input type="submit">
 </form>
+<script type="text/javascript" language="JavaScript">
+    function reloadCaptcha() {  
+        var obj = document.getElementById('captcha');  
+        var captchaURL = obj.src;  
+        captchaURL = captchaURL.replace(captchaURL.substring(captchaURL.indexOf("=")+1, captchaURL.length), Math.floor(Math.random()*9999999999));  
+        obj.src = "http://127.0.0.1:8080/web-loan/handleCaptcha.do";
+        
+    }  
+  </script>
 </body>
 </html>
