@@ -35,7 +35,7 @@
   </div>
   <div class="Fuzzysearch3">
   	<div class="Fuzzysearch4 ClearFix"><h1>请选择您的地区:</h1><p><a href="#">北京</a><a href="#">上海</a><a href="#">黑龙江</a><a href="#">乌鲁木齐</a><a href="#">北京</a><a href="#">北京</a><a href="#">北京</a><a href="#">北京</a><a href="#">北京</a><a href="#">北京</a><a href="#">北京</a><a href="#">北京</a><a href="#">北京</a><a href="#">秦皇岛</a><a href="#">北京</a><a href="#">北京</a><a href="#">北京</a><a href="#">北京</a><a href="#">北京</a><a href="#">北京</a><a href="#">北京</a><a href="#">北京</a></p></div>
-    <div class="Fuzzysearch5"><a href="模糊搜索结果.html"><img src="images/img3.jpg" width="154" height="29" /></a></div>
+    <div class="Fuzzysearch5"><a href="mohuSearchResult.jsp"><img src="images/img3.jpg" width="154" height="29" /></a></div>
     </div>
 </div>
 <div class="main3 ground  Fuzzysearch6">
