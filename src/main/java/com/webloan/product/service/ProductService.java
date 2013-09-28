@@ -12,6 +12,8 @@ public interface ProductService {
 	
 	Product getProductById(String id);
 	
+	Page pagingProductRecommend(String type, int limit);
+	
 	List<Product> queryProductRecommend(String type, int limit);
 	
 }

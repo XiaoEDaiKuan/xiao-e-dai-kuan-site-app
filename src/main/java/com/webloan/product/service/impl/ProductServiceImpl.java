@@ -43,6 +43,10 @@ public class ProductServiceImpl implements ProductService {
 		return productRepository.queryProductByUser(loanUse, amt, issue);
 	}
 
+	public Page pagingProductRecommend(String type, int limit) {
+		return null;
+	}
+
 	public List<Product> queryProductRecommend(String type, int limit) {
 		return null;
 	}
