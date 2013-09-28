@@ -5,6 +5,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.lang.Validate;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.multiaction.MultiActionController;
 
@@ -19,6 +21,7 @@ public class UserController extends MultiActionController {
 	UserService userService;
 	@Resource
 	ImageCaptchaService captchaService;
+	protected transient Logger log = LoggerFactory.getLogger(this.getClass());
 
 	/*
 	 * 保存用户注册信息
@@ -29,10 +32,11 @@ public class UserController extends MultiActionController {
 		//验证验证码
 		String sessionId = request.getSession().getId();
 		String captcha = request.getParameter("captcha");
-		//boolean flag=captchaService.validateResponseForID(sessionId, captcha);
-		//if(!flag){
-			//throw new BizException(UserConstant.EXCEPTION_CAPTCHA_CODE);
-		//}
+		boolean flag=captchaService.validateResponseForID(sessionId, captcha);
+		if(!flag){
+			log.error(UserConstant.EXCEPTION_CAPTCHA_CODE);
+			throw new BizException(UserConstant.EXCEPTION_CAPTCHA_CODE);
+		}
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("user/userregister");
 		String custName = request.getParameter("custName");
