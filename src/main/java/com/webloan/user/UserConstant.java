@@ -32,6 +32,7 @@ public class UserConstant {
 	public final static String EXCEPTION_ACCT_NOT_EXISIT="账号或密码不正确";
 	public final static String EXCEPTION_ACCT_STATUS="账号状态不正常";
 	public final static String EXCEPTION_PASSWD_ERROR="密码错误";
+	public final static String EXCEPTION_SENT_MAIL_ERROR="密码错误";
 	
 
 }
