@@ -18,7 +18,7 @@
 <div class="registered_title2">
   <div class="registered_title3"> <font>欢迎注册玖富云金融平台</font> <span>已有账号，点此<a href="login.html">登录</a></span> </div>
 </div>
-<form action="createUser.do" method="post">
+<form action="createUser" method="post">
 <div class="registered_main">
   <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table1">
     <tr>
@@ -64,7 +64,7 @@
     <tr>
     	<th>验证码：</th>
        	<td><input type="text" name="captcha" id="cf" class="input" style="width:90px"/>
-       	<img id="captcha" src="handleCaptcha.do" alt="captcha" onclick="javascript:reloadCaptcha()"/>
+       	<img id="captcha" src="handleCaptcha" alt="captcha" onclick="javascript:reloadCaptcha()"/>
        </td>
 	</tr>     
   </table>
