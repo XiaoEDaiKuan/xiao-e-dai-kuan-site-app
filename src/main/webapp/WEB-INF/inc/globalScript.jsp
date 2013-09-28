@@ -12,4 +12,4 @@
 <script type="text/javascript" src="Scripts/tipswindown.js"></script>
 <script type="text/javascript" src="Scripts/select2css.js"></script>
 <script type="text/javascript" src="Scripts/pop_zidong.js"> </script>
-<script type="text/javascript" src="Scripts/globals.js"> </script>
+<script type="text/javascript" src="Scripts/globals.js"></script>

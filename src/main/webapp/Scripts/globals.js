@@ -1,4 +1,3 @@
-
 (function($){
     $.getUrlParam = function(name)
     {
