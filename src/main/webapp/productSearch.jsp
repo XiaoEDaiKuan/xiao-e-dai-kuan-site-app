@@ -89,6 +89,17 @@
     	$("<div class=\"Loansearch6\" data=\"" + key + "\" value=\"" + value + "\"><a><img src=\"images/img11.jpg\" onclick=\"remove(this)\" width=\"23\" height=\"22\"/></a>" + $(target).attr("catalog") + ": <span>" + $(target).attr("vname") + "</span></div>").appendTo("#selectedString");
     	search();
     }
+    
+    function removeOrder(){
+    	$("#orderBy a").removeClass("noinsort");
+    	$("#orderBy a").removeClass("insort");
+    }
+    function addOrder(target){
+    	$($("#orderBy a")[0]).removeClass("insort");
+    	$($("#orderBy a")[0]).addClass("noinsort");
+    	$(target).removeClass("noinsort");
+    	$(target).addClass("insort");
+    }
 </script>
 </head>
 
@@ -188,7 +199,9 @@
 </div>
 <div class="main3 ground">
   <div class="credit_title Fuzzysearch7"> 
-     <div class="Loansearch7 ClearFix"><a href="#" class="Loansearch8">默认排序</a><a href="#" class="Loansearch8 Loansearch9">总利息</a><a href="#"  class="Loansearch8 Loansearch9 Loansearch10">月供</a></div>
+     <div class="Loansearch7 ClearFix" id="orderBy"><a class="Loansearch8" onclick="removeOrder()">默认排序</a>
+     <a class="Loansearch8 Loansearch9" onclick="addOrder(this)" data="orderLx" value="0">总利息</a>
+     <a class="Loansearch8 Loansearch9 Loansearch10" onclick="addOrder(this)" data="orderYg" value="0">月供</a></div>
      <div class="Loansearch21">
      	<div id="uboxstyle">
 	<select name="language1" id="language1" class="formItem smallItem">
