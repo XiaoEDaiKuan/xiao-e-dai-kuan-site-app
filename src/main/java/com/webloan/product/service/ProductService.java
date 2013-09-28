@@ -12,7 +12,6 @@ public interface ProductService {
 	
 	Product getProductById(String id);
 	
-	List<Product> queryProductRecommend(String type, String vehicle, String credit);
-	
+	List<Product> queryProductRecommend(String type, int limit);
 	
 }

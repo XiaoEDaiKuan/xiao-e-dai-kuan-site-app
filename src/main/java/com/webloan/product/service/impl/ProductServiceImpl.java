@@ -43,8 +43,7 @@ public class ProductServiceImpl implements ProductService {
 		return productRepository.queryProductByUser(loanUse, amt, issue);
 	}
 
-	public List<Product> queryProductRecommend(String type, String vehicle,
-			String credit) {
+	public List<Product> queryProductRecommend(String type, int limit) {
 		return null;
 	}
 	

@@ -119,72 +119,27 @@
     <div class="credit ground">
       <div class="credit_title"> <span class="credit_title1 font_f">热门信用贷款</span> <span class="credit_title2">无需抵押 担保</span> <a target="_blank" href="贷款搜索.html">更多信用贷款</a> </div>
       <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table">
-
-        <tr>
+		<c:forEach var="hcrProd" items="${hcrProds}">
+		<tr>
           <td width="11%"><img src="images/credit01.jpg" width="40" height="21" /></td>
-          <td width="18%">平安银行-新一贷</td>
-          <td width="61%">有1年以上房贷记录即可申请，条件宽松，当天放款</td>
+          <td width="18%">${hcrProd.name}</td>
+          <td width="61%">${hcrProd.desc}</td>
           <td width="10%"><a href="产品申请.html" target="_blank">查看</a></td>
         </tr>
-        <tr>
-          <td><img src="images/credit02.jpg" width="39" height="22" /></td>
-          <td>平安金融-薪金贷</td>
-          <td>有1年以上房贷记录即可申请，条件宽松，当天放款</td>
-          <td><a href="产品申请.html" target="_blank">查看</a></td>
-        </tr>
-        <tr>
-          <td><img src="images/credit03.jpg" width="25" height="24" /></td>
-          <td>平安金融-薪金贷</td>
-          <td>有1年以上房贷记录即可申请，条件宽松，当天放款</td>
-          <td><a href="产品申请.html" target="_blank">查看</a></td>
-        </tr>
-        <tr>
-          <td><img src="images/credit04.jpg" width="18" height="22" /></td>
-          <td>平安金融-薪金贷</td>
-          <td>有1年以上房贷记录即可申请，条件宽松，当天放款</td>
-          <td><a href="产品申请.html" target="_blank">查看</a></td>
-        </tr>
-        <tr>
-          <td><img src="images/credit05.jpg" width="25" height="12" /></td>
-          <td>平安金融-薪金贷</td>
-          <td>有1年以上房贷记录即可申请，条件宽松，当天放款</td>
-          <td><a href="产品申请.html" target="_blank">查看</a></td>
-        </tr>
+		</c:forEach>
       </table>
     </div>
     <div class="credit ground">
       <div class="credit_title"> <span class="credit_title1 font_f">热门特色贷款</span></div>
       <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table">
-        <tr>
+		<c:forEach var="hchProd" items="${hchProds}">
+		<tr>
           <td width="11%"><img src="images/credit01.jpg" width="40" height="21" /></td>
-          <td width="18%">平安银行-新一贷</td>
-          <td width="61%">有1年以上房贷记录即可申请，条件宽松，当天放款</td>
+          <td width="18%">${hchProd.name}</td>
+          <td width="61%">${hchProd.desc}</td>
           <td width="10%"><a href="产品申请.html" target="_blank">查看</a></td>
         </tr>
-        <tr>
-          <td><img src="images/credit02.jpg" width="39" height="22" /></td>
-          <td>平安金融-薪金贷</td>
-          <td>有1年以上房贷记录即可申请，条件宽松，当天放款</td>
-          <td><a href="产品申请.html" target="_blank">查看</a></td>
-        </tr>
-        <tr>
-          <td><img src="images/credit03.jpg" width="25" height="24" /></td>
-          <td>平安金融-薪金贷</td>
-          <td>有1年以上房贷记录即可申请，条件宽松，当天放款</td>
-          <td><a href="产品申请.html" target="_blank">查看</a></td>
-        </tr>
-        <tr>
-          <td><img src="images/credit04.jpg" width="18" height="22" /></td>
-          <td>平安金融-薪金贷</td>
-          <td>有1年以上房贷记录即可申请，条件宽松，当天放款</td>
-          <td><a href="产品申请.html" target="_blank">查看</a></td>
-        </tr>
-        <tr>
-          <td><img src="images/credit05.jpg" width="25" height="12" /></td>
-          <td>平安金融-薪金贷</td>
-          <td>有1年以上房贷记录即可申请，条件宽松，当天放款</td>
-          <td><a href="产品申请.html" target="_blank">查看</a></td>
-        </tr>
+		</c:forEach>
       </table>
     </div>
   </div>
@@ -252,11 +207,9 @@
   <div class="ask ground">
     <div class="credit_title"> <span class="credit_title1 font_f">大家都在问</span> <a target="_blank" href="贷款问答1.html">更多问题</a><input name="" type="button" value="我要提问" id="pop_question" /> </div>
     <ul class="question_list">
-      <li><a href="贷款问答2.html" target="_blank">我有逾期贷哇5个回答</a></li>
-      <li><a href="贷款问答2.html" target="_blank">房地产公司上班可以贷款吗？</a></li>
-      <li><a href="贷款问答2.html" target="_blank">本人现在的月收入在2000至3000左右，且本单位...</a></li>
-      <li><a href="贷款问答2.html" target="_blank">我现在在工厂打工，月收入3500，有工资卡作证。想...</a></li>
-      <li class="border-bt"><a href="贷款问答2.html" target="_blank">我在人人贷的贷款被拒，还能在友信贷款吗？</a></li>
+    <c:forEach var="hiQust" items="${hiQuests}">
+      <li><a href="贷款问答2.html" target="_blank">${hiQust.detail}</a></li>
+    </c:forEach>
     </ul>
   </div>
   <div class="strategy ground">
