@@ -29,7 +29,7 @@
     <div class="underPmenu font_f" id="w_nav">
       <ul>
         <li class="hover"><a href="index.html">首页</a></li>
-        <li><a href="贷款搜索.html" target="_blank">贷款搜索</a>
+        <li><a href="productSearch.jsp" target="_blank">贷款搜索</a>
           <ul>
             <li class="subline"></li>
             <li><a href="贷款搜索.html" class="w_a1" target="_blank">消费贷款</a></li>
