@@ -1,21 +1,33 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>register</title>
+<title>用户注册</title>
+<%@include file="../../inc/globalScript.jsp" %>
 </head>
+
 <body>
-<form action="/createUser.do" method="post">
+<div class="top">
+  <div class="logo"><a href="/"></a></div>
+  <div class="registered font_f">会员注册</div>
+</div>
+<div class="registered_title">
+  <div class="registered_title1"></div>
+</div>
+<div class="registered_title2">
+  <div class="registered_title3"> <font>欢迎注册玖富云金融平台</font> <span>已有账号，点此<a href="login.html">登录</a></span> </div>
+</div>
+<form action="createUser" method="post">
+<div class="registered_main">
   <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table1">
     <tr>
       <th width="8%">手机：</th>
-      <td width="92%"><input name="mobileNO" type="text" value="13917367496" class="input" /></td>
+      <td width="92%"><input name="mobileNO" type="text" value="" class="input" /></td>
     </tr>
     <tr>
       <th>姓名：</th>
-      <td><input name="custName" type="text" value="liuhg1" class=" input input1" /></td>
+      <td><input name="custName" type="text" value="" class=" input input1" /></td>
     </tr>
     <tr>
       <th>密码：</th>
@@ -26,29 +38,57 @@
       <td><input name="" type="password" class="input" /></td>
     </tr>
     <tr>
-      <th>证件类型</th>
-      <td><input name="idType" type="text" value="0" class="input" /></td>
+      <th>证件类型：</th>
+      <td><div id="tm2008style">
+      	<select name="idType" id="idType">
+			<option value="0">身份证</option>
+		</select></div></td>
     </tr>
     <tr>
-      <th>证件号码</th>
-      <td><input name="idNO" type="text" value="210726197110301713" class="input" /></td>
+      <th>证件号码：</th>
+      <td><input name="idNO" type="text" value="" class="input" /></td>
     </tr>
     <tr>
-      <th>电子邮件</th>
-      <td><input name="email" type="text" value="a@a1.com" class="input" /></td>
+      <th>电子邮件：</th>
+      <td><input name="email" type="text" value="" class="input" /></td>
     </tr>
     <tr>
-      <th>邮编</th>
-      <td><input name="postCode" type="text" value="210000" class="input" /></td>
+      <th>邮编：</th>
+      <td><input name="postCode" type="text" value="" class="input" /></td>
     </tr>
     <tr>
-      <th>住址</th>
-      <td><input name="address" type="text" value="address1" class="input" /></td>
+      <th>住址：</th>
+      <td><input name="address" type="text" value="" class="input" /></td>
     </tr>
     
+    <tr>
+    	<th>验证码：</th>
+       	<td><input type="text" name="captcha" id="cf" class="input" style="width:90px"/>
+       	<img style="width:107px;height:28px" id="captcha" src="handleCaptcha" alt="captcha" onclick="javascript:reloadCaptcha()"/>
+       </td>
+	</tr>     
   </table>
 
-<input type="submit">
+  <div class="terms_title">
+    <input type="checkbox" name="CheckboxGroup1" value="复选框" />
+    <font>我同意以下服务条款</font></div>
+  <div class="terms">服务条款服务条款服务条款服务条款服务条款服务条款服务条款服务条款服服务条款服务条款服务条款服服务条款服务条款服务条款服务条款服务条款服务条款服务条款服务条款服务条款服务条款服务条款服务条款服务条款服务条款服务条款服务条款服务条款服务条款服务条款服务条款服务条款服务条款服务条款服务条款服务条款服务条款服务条款服务条款服务条款服务条款服务条款服务条款服务条款服务条款服务条款服务条款服务条款服务条款服务条款服务条款服务条款服务条款服务条款服务条款服务条款服务条款服务条款服务条款服务条款服务条款服务条款服务条款服务条款服务条款服务条款服务条款服务条款服务条款服务条款服务条款服务条款服务条款服务条款服务条款服务条款服务条款服务条款服务条款服务条款服务条款服务条款服务条款服务条款服务条款服务款服务条款服务条款服务条款服务条款服务条款服务条款服务条款服务条款服务条款服务条款服务条款服务条款服务条款服务条款服务条款服务条款服务条款服务条款服务条款服务条款服务条款服务条款服务条款服务条款服务条款服务款服务条款服务条款服务条款服务条款服务条款服务条款服务条款服务条款服务条款服务条款服务条款服务条款服务条款服务条款服务条款服务条款服务条款服务条款服务条款服务条款服务条款服务条款服务条款服务条款服务条款服务款服务条款服务条款服务条款服务条款服务条款服务条款服务条款服务条款服务条款服务条款服务条款服务条款服务条款服务条款服务条款服务条款服务条款服务条款服务条款服务条款服务条款服务条款服务条款服务条款服务条款服务</div>
+</div>
+<div class="btn2">
+  <input name="" type="submit" value="" class="reg_btn" />
+</div>
 </form>
+<div class="footer2">
+  <div class="footer2_2"><font>版权所有：北京玖富时代投资顾问有限公司 copyright 2012</font><br />
+    公司总部地址：北京朝阳区麦子店街37号盛福大厦2580<br />
+    传真：010-85276916&nbsp;&nbsp;&nbsp;&nbsp;邮编：100000</div>
+</div>
+
+<script type="text/javascript" language="JavaScript">
+    function reloadCaptcha() {  
+        var obj = document.getElementById('captcha');  
+        obj.src = "handleCaptcha?time=" + (new Date()).getTime();
+    }  
+  </script>
 </body>
 </html>
