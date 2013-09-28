@@ -11,6 +11,7 @@ for (var i = 0; i < document.styleSheets.length; i++)
      document.styleSheets[i].addRule(newSelector , cssRule.style.cssText);
     }
    }
+if(document.getElementById("w_nav") == null)return
 var getElm = document.getElementById("w_nav").getElementsByTagName("LI");
 for (var i=0; i<getElm.length; i++) {
    getElm[i].onmouseover=function() {
