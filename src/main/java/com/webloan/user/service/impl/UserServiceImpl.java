@@ -56,60 +56,74 @@ public class UserServiceImpl implements UserService {
 
 		// IP地址验证
 		if (ipOverRunCheck(setupIP)) {
+			log.error(UserConstant.SetupIPOverrun);
 			throw new BizException(UserConstant.SetupIPOverrun);
 		}
 		// 姓名不能为空
 		if (null == custName || "".equals(custName.trim())) {
+			log.error(UserConstant.CustNameIsNull);
 			throw new BizException(UserConstant.CustNameIsNull);
 		}
 		// 登录密码不能为空
 		if (null == logonPasswd || "".equals(logonPasswd.trim())) {
+			log.error(UserConstant.LogOnPasswdIsNull);
 			throw new BizException(UserConstant.LogOnPasswdIsNull);
 		}
 		// 手机不能为空
 		if (null == mobileNO || "".equals(mobileNO.trim())) {
+			log.error(UserConstant.MobileIsNull);
 			throw new BizException(UserConstant.MobileIsNull);
 		}
 		// 手机号段验证
 		if (!MobileVerify.isMobileNO(mobileNO)) {
+			log.error(UserConstant.MobileInvalied);
 			throw new BizException(UserConstant.MobileInvalied);
 		}
 		// 手机号必须是数字
 		if (!MobileVerify.isNum(mobileNO)) {
+			log.error(UserConstant.MobileNoInvalied);
 			throw new BizException(UserConstant.MobileNoInvalied);
 		}
 		// 检查该手机号是否已经被注册
 		if (this.duplicatedMobileCheck(mobileNO)) {
+			log.error(UserConstant.MobileDuplicated);
 			throw new BizException(UserConstant.MobileDuplicated);
 		}
 		// 证件类型不能为空，目前只是身份证
 		if (null == idType || "".equals(idType.trim())) {
+			log.error(UserConstant.IdTypeIsNull);
 			throw new BizException(UserConstant.IdTypeIsNull);
 		}
 		// 证件号码不能为空
 		if (null == idNO || "".equals(idNO.trim())) {
+			log.error(UserConstant.IdNoIsNull);
 			throw new BizException(UserConstant.IdNoIsNull);
 		}
 		// 身份证验证
 		IDCodeVerify idV = new IDCodeVerify(idNO);
 		if (!idV.validate()) {
+			log.error(UserConstant.EXCEPTION_ID_CODE);
 			throw new BizException(UserConstant.EXCEPTION_ID_CODE);
 		}
 
 		// 检查该身份证是否已被注册
 		if (this.duplicatedIdNoCheck(idNO)) {
+			log.error(UserConstant.IdNODuplicated);
 			throw new BizException(UserConstant.IdNODuplicated);
 		}
 		// 邮件不能为空
 		if (null == email || "".equals(email.trim())) {
+			log.error(UserConstant.EmailIsNull);
 			throw new BizException(UserConstant.EmailIsNull);
 		}
 		// 邮件格式检查
 		if (!EmailVerify.checkEmail(email)) {
+			log.error(UserConstant.EmailInvalied);
 			throw new BizException(UserConstant.EmailInvalied);
 		}
 		// 检查该邮件是否已被注册
 		if (this.duplicatedEmailCheck(email)) {
+			log.error(UserConstant.EmailDuplicated);
 			throw new BizException(UserConstant.EmailDuplicated);
 		}
 		// 对登录密码MD5加密
@@ -162,9 +176,11 @@ public class UserServiceImpl implements UserService {
 		} catch (UnsupportedEncodingException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			log.error(UserConstant.EXCEPTION_SENT_MAIL_ERROR);
 		} catch (MessagingException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			log.error(UserConstant.EXCEPTION_SENT_MAIL_ERROR);
 		}
 		// 返回客户账号
 		return custNO;
