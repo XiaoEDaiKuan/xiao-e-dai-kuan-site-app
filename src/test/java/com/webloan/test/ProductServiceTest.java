@@ -24,15 +24,15 @@ public class ProductServiceTest {
 	@Test
 	public void testQueryProduct() {
 		ProductService ps = appContext.getBean("productService", ProductService.class);
-		List<Product> prods = ps.queryProduct(null, null, null);
-		System.out.println(prods);
+//		List<Product> prods = ps.queryProduct(null, null, null);
+//		System.out.println(prods);
 	}
 	
 	@Test
 	public void testQueryProductByUser() {
 		ProductService ps = appContext.getBean("productService", ProductService.class);
-		List<Product> prods = ps.queryProductByUser(null, "50000", "12");
-		System.out.println(prods);
+//		List<Product> prods = ps.queryProductByUser(null, "50000", "12");
+//		System.out.println(prods);
 	}
 	
 	@Test
