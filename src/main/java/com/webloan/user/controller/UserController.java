@@ -29,10 +29,10 @@ public class UserController extends MultiActionController {
 		//验证验证码
 		String sessionId = request.getSession().getId();
 		String captcha = request.getParameter("captcha");
-		boolean flag=captchaService.validateResponseForID(sessionId, captcha);
-		if(!flag){
+		//boolean flag=captchaService.validateResponseForID(sessionId, captcha);
+		//if(!flag){
 			//throw new BizException(UserConstant.EXCEPTION_CAPTCHA_CODE);
-		}
+		//}
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("user/userregister");
 		String custName = request.getParameter("custName");
@@ -107,6 +107,7 @@ public class UserController extends MultiActionController {
         String passwd=request.getParameter("passwd");
 		Cust cust=userService.login(logonName, passwd);
 		request.getSession().setAttribute("custId", cust.getId());
+		request.getSession().setAttribute("custName", cust.getCustName());
 		mav.addObject("mobile", cust.getMobileNO());
 		return mav;
 	}
