@@ -35,7 +35,9 @@
         <table width="100%" border="0" cellspacing="0" cellpadding="0">
           <tr>
             <th>账&nbsp;&nbsp;&nbsp;号：</th>
-            <td><input name="" type="text" class="input" /></td>
+            <td><input name="" type="text" class="input" /><br/><br/>
+            	<em style="color:#CCC">Email/手机/身份证/客户号</em>
+            </td>
           </tr>
           <tr>
             <th>密&nbsp;&nbsp;&nbsp;码：</th>
