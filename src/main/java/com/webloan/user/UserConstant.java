@@ -28,6 +28,7 @@ public class UserConstant {
 	public final static String EXCEPTION_MODIFY_MOBILE="注册资料修改错误-手机为空";
 	public final static String EXCEPTION_LOGIN_ACCT="登录账号为空";
 	public final static String EXCEPTION_ID_CODE="身份证号校验错误";
+	public final static String EXCEPTION_CAPTCHA_CODE="验证码错误";
 	public final static String EXCEPTION_ACCT_NOT_EXISIT="账号或密码不正确";
 	public final static String EXCEPTION_ACCT_STATUS="账号状态不正常";
 	public final static String EXCEPTION_PASSWD_ERROR="密码错误";

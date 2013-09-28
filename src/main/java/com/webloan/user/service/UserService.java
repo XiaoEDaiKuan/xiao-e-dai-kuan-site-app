@@ -37,5 +37,4 @@ public interface UserService {
 	
 	//验证是否是公司的IP
 	public boolean corpIpCheck(String ip);
-
 }

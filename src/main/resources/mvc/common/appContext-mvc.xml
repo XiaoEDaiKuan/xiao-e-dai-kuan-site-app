@@ -33,8 +33,7 @@
 				<prop key="createUser.do">userController</prop>
 				<!-- 邮箱验证 -->
 				<prop key="mailAuthentication.do">userController</prop>
-				
-				
+				<prop key="handleCaptcha.do">captchaController</prop>
 			</props>
 		</property>
 	</bean>
@@ -47,6 +46,13 @@
 	</bean>
 	
 	<bean id="userController" class="com.webloan.user.controller.UserController">
+		<property name="methodNameResolver">
+			<bean class="org.springframework.web.servlet.mvc.multiaction.InternalPathMethodNameResolver" />
+		</property>
+	</bean>
+		<!-- 验证码 -->
+	<bean id="captchaController" class="com.webloan.support.captcha.controller.CaptchaController" >
+		<property name="captchaService" ref="captchaService"/>
 		<property name="methodNameResolver">
 			<bean class="org.springframework.web.servlet.mvc.multiaction.InternalPathMethodNameResolver" />
 		</property>

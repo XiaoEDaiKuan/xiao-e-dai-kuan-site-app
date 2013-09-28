@@ -8,6 +8,8 @@ import org.apache.commons.lang.Validate;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.multiaction.MultiActionController;
 
+import com.octo.captcha.service.image.ImageCaptchaService;
+import com.webloan.exception.BizException;
 import com.webloan.model.Cust;
 import com.webloan.user.UserConstant;
 import com.webloan.user.service.UserService;
@@ -15,12 +17,22 @@ import com.webloan.user.service.UserService;
 public class UserController extends MultiActionController {
 	@Resource
 	UserService userService;
+	@Resource
+	ImageCaptchaService captchaService;
 
 	/*
 	 * 保存用户注册信息
 	 */
 	public ModelAndView createUser(HttpServletRequest request,
 			HttpServletResponse response) {
+		
+		//验证验证码
+		String sessionId = request.getSession().getId();
+		String captcha = request.getParameter("captcha");
+		boolean flag=captchaService.validateResponseForID(sessionId, captcha);
+		if(!flag){
+			throw new BizException(UserConstant.EXCEPTION_CAPTCHA_CODE);
+		}
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("user/register");
 		String custName = request.getParameter("custName");

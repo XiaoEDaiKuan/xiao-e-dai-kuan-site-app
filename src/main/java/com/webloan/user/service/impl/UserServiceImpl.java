@@ -10,18 +10,14 @@ import java.util.Map;
 import java.util.concurrent.TimeUnit;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
 import javax.mail.MessagingException;
 import javax.servlet.http.HttpServletRequest;
-
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang.Validate;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.mail.SimpleMailMessage;
-
 import com.webloan.model.Cust;
-import com.webloan.model.Order;
 import com.webloan.support.sequence.ESeqType;
 import com.webloan.support.sequence.service.SequenceService;
 import com.webloan.user.UserConstant;
@@ -45,6 +41,7 @@ public class UserServiceImpl implements UserService {
 	private int hashIterations = 1024;// MD5加密迭代次数
 	private SequenceService sequenceService;
 	private int max = 100;// 同一个IP地址每天最多注册100个
+
 
 	/**
 	 * 保存注册信息
@@ -591,5 +588,6 @@ public class UserServiceImpl implements UserService {
 		
 		return userRepository.corpIpCheck(ip);
 	}
+
 
 }
