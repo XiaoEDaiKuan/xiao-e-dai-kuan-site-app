@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 
-<title>无标题文档</title>
+<title>贷款产品</title>
 <%@include file="WEB-INF/inc/globalScript.jsp" %>
 <script type="text/javascript">
 	$(document).ready(function() {
@@ -14,8 +14,10 @@
         $("#pop_question").click(function(){
             tipsWindown("我要提问：","iframe:iframe:pop_question.html","550","465","true","","false","text","");
         });
-        
-        setParams();
+
+        $(".smallItem").on("onchange", function(){
+        	search();
+       	});
 	});	
 	
 	setTimeout('_magicTimeout()',20*1000);
@@ -24,47 +26,68 @@
     }	
     
     function setParams(){
-        var zhiye = $.getUrlParam('zhiye');
-        if(zhiye != null){
-            $("#zhiye").val(zhiye);
+        $(".formItem").each(function(){
+        	var _id = $(this).attr("id");
+        	if($.getUrlParam(_id) != null){
+        		$(this).val($.getUrlParam(_id));
+        	}
+        });
+        
+        ////////////////////////////
+        
+        var estate = $.getUrlParam('estate');
+        if(estate != null){
+        	$("#estate").css("display","none");
+        	$("<div class=\"Loansearch6\" data=\"estate\" value=\"" + estate + "\"><a><img src=\"images/img11.jpg\" onclick=\"remove(this)\" width=\"23\" height=\"22\"/></a>" + $($("#estate p a")[estate]).attr("catalog") + ": <span>" + $($("#estate p a")[estate]).attr("vname") + "</span></div>").appendTo("#selectedString");
         }
-        var jine = $.getUrlParam('jine');
-        if(jine != null){
-            $("#jine").val(jine);
+        
+        var vehicle = $.getUrlParam('vehicle');
+        if(vehicle != null){
+        	$("#vehicle").css("display","none");
+        	$("<div class=\"Loansearch6\" data=\"vehicle\" value=\"" + vehicle + "\"><a><img src=\"images/img11.jpg\" onclick=\"remove(this)\" width=\"23\" height=\"22\"/></a>" + $($("#vehicle p a")[vehicle]).attr("catalog") + ": <span>" + $($("#vehicle p a")[vehicle]).attr("vname") + "</span></div>").appendTo("#selectedString");
         }
-        var yongtu = $.getUrlParam('yongtu');
-        if(jine != null){
-            $("#yongtu").val(yongtu);
-        }
-        var qixian = $.getUrlParam('qixian');
-        if(qixian != null){
-            $("#qixian").val(qixian);
+        
+        var credit = $.getUrlParam('credit');
+        if(credit != null){
+        	$("#credit").css("display","none");
+        	$("<div class=\"Loansearch6\" data=\"credit\" value=\"" + credit + "\"><a><img src=\"images/img11.jpg\" onclick=\"remove(this)\" width=\"23\" height=\"22\"/></a>" + $($("#credit p a")[credit]).attr("catalog") + ": <span>" + $($("#credit p a")[credit]).attr("vname") + "</span></div>").appendTo("#selectedString");
         }
     }
     
     function getParmasUrl(){
         var url = "productSearch.jsp?";
-        var zhiye = $("#zhiye").val();
-        if(zhiye != null){
-            url += "zhiye=" + zhiye + "&";
-        }
-        var jine = $("#jine").val();
-        if(jine != null){
-            url += "jine=" + jine + "&";
-        }
-        var yongtu = $("#yongtu").val();
-        if(yongtu != null){
-            url += "yongtu=" + yongtu + "&";
-        }
-        var qixian = $("#qixian").val();
-        if(qixian != null){
-            url += "qixian=" + qixian + "&";
-        }
+        
+        $(".formItem").each(function(){
+        	var val = $(this).val();
+        	if(val != null){
+        		url += $(this).attr("id") + "=" + val + "&";
+        	}
+        });
+        
+        $("#selectedString div").each(function(){
+        	url += $(this).attr("data") + "=" + $(this).attr("value") + "&";
+        });
         return url;
     }
     
     function search(){
         window.location = getParmasUrl();
+    }
+    function remove(target){
+    	var key = $(target).parent().parent().attr("data");
+    	$("#" + key).css("display","inline-block");
+    	$(target).parent().parent().remove();
+    	search();
+    }
+    function clearAll(){
+    	$("#selectedString").html("");
+    	search();
+    }
+    function add(target, key, value){
+    	//selectedString
+    	$("#" + key).css("display","none");
+    	$("<div class=\"Loansearch6\" data=\"" + key + "\" value=\"" + value + "\"><a><img src=\"images/img11.jpg\" onclick=\"remove(this)\" width=\"23\" height=\"22\"/></a>" + $(target).attr("catalog") + ": <span>" + $(target).attr("vname") + "</span></div>").appendTo("#selectedString");
+    	search();
     }
 </script>
 </head>
@@ -85,7 +108,7 @@
   <tr>
     <th width="18%" align="right" valign="middle">职业身份：</th>
           <td width="20%"><div id="tm2008style">
-	<select name="zhiye" id="zhiye">
+	<select name="zhiye" id="zhiye" class="formItem">
 		<option value="1">企业主</option>
 		<option value="2" >个体户</option>
 		<option value="3" >上班族</option>
@@ -94,7 +117,7 @@
 </div></td>
     <th width="12%" align="right" valign="middle">贷款金额：</th>
           <td width="20%"><div id="tm2008style">
-	<select name="jine" id="jine">
+	<select name="jine" id="jine" class="formItem">
 		<option value="3" >3万元</option>
 		<option value="5" >5万元</option>
 		<option value="10" >10万元</option>
@@ -110,7 +133,7 @@
   <tr>
     <th width="18%" align="right" valign="middle">贷款用途：</th>
           <td width="20%"><div id="tm2008style">
-	<select name="yongtu" id="yongtu">
+	<select name="yongtu" id="yongtu" class="formItem">
 		<option value="1">不限</option>
 		<option value="2" >经营贷款</option>
 		<option value="3" >消费贷款</option>
@@ -120,7 +143,7 @@
 </div></td>
     <th width="12%" align="right" valign="middle">贷款期限：</th>
           <td width="20%"><div id="tm2008style">
-	<select name="qixian" id="qixian">
+	<select name="qixian" id="qixian" class="formItem">
 		<option value="3m">3个月</option>
 		<option value="6m" >6个月</option>
 		<option value="12m" selected="selected" >12个月</option>
@@ -140,16 +163,25 @@
   </div>
   <div class="Fuzzysearch3">
   	<div class="Fuzzysearch4 Loansearch4 ClearFix">
-    	<a href="#">清空条件</a>
+    	<a onclick="clearAll()" style="cursor: pointer;cursor: hand">清空条件</a>
     	<h1>已选条件:</h1>
-        <div class="Loansearch5">
-        	<div class="Loansearch6"><a href="#"><img src="images/img11.jpg" onclick="remove(this)" width="23" height="22" /></a>信用情况:<span>无信用记录</span></div>
-            <div class="Loansearch6"><a href="#"><img src="images/img11.jpg" onclick="remove(this)" width="23" height="22" /></a>信用情况:<span>无信用记录</span></div>
+        <div class="Loansearch5" id="selectedString">
+        	
         </div>
      </div>
-  	<div class="Fuzzysearch4 ClearFix"><h1>是否有房:</h1><p><a href="#">无房</a><a href="#">有房</a><a href="#">有房已抵押</a></p></div>
-    <div class="Fuzzysearch4 ClearFix"><h1>是否有车:</h1><p><a href="#">无车</a><a href="#">有车</a><a href="#">有车已抵押</a></p></div>
-    <div class="Fuzzysearch4 ClearFix"><h1>信用情况:</h1><p><a href="#">无信用记录</a><a href="#">信用记录良好</a><a href="#">有少数逾期</a><a href="#">长期多次逾期</a></p></div>
+  	<div class="Fuzzysearch4 ClearFix" id="estate"><h1>是否有房:</h1><p>
+  	<a onclick="add(this,'estate',0)" catalog="是否有房" vname="无房">无房</a>
+  	<a onclick="add(this,'estate',1)" catalog="是否有房" vname="有房">有房</a>
+  	<a onclick="add(this,'estate',2)" catalog="是否有房" vname="有房已抵押">有房已抵押</a></p></div>
+    <div class="Fuzzysearch4 ClearFix" id="vehicle"><h1>是否有车:</h1><p>
+    <a onclick="add(this,'vehicle',0)" catalog="是否有车" vname="无车">无车</a>
+    <a onclick="add(this,'vehicle',1)" catalog="是否有车" vname="有车">有车</a>
+    <a onclick="add(this,'vehicle',2)" catalog="是否有车" vname="有车已抵押">有车已抵押</a></p></div>
+    <div class="Fuzzysearch4 ClearFix" id="credit"><h1>信用情况:</h1><p>
+    <a onclick="add(this,'credit',0)" catalog="信用情况" vname="无信用记录">无信用记录</a>
+    <a onclick="add(this,'credit',1)" catalog="信用情况" vname="信用记录良好">信用记录良好</a>
+    <a onclick="add(this,'credit',2)" catalog="信用情况" vname="有少数逾期">有少数逾期</a>
+    <a onclick="add(this,'credit',3)" catalog="信用情况" vname="长期多次逾期">长期多次逾期</a></p></div>
     </div>
   
   
@@ -159,7 +191,7 @@
      <div class="Loansearch7 ClearFix"><a href="#" class="Loansearch8">默认排序</a><a href="#" class="Loansearch8 Loansearch9">总利息</a><a href="#"  class="Loansearch8 Loansearch9 Loansearch10">月供</a></div>
      <div class="Loansearch21">
      	<div id="uboxstyle">
-	<select name="language1" id="language">
+	<select name="language1" id="language1" class="formItem smallItem">
 		<option value="English"  selected="selected">English</option>
 		<option value="简体中文" >简体中文</option>
 		<option value="日本語" >日本語</option>
@@ -175,7 +207,7 @@
 	</select>
     </div>
     <div id="uboxstyle">
-	<select name="language2" id="language">
+	<select name="language2" id="language2" class="formItem smallItem">
 		<option value="English"  selected="selected">English</option>
 		<option value="简体中文" >简体中文</option>
 		<option value="日本語" >日本語</option>
@@ -191,7 +223,7 @@
 	</select>
     </div>
     <div id="uboxstyle">
-	<select name="language3" id="language">
+	<select name="language3" id="language3" class="formItem smallItem">
 		<option value="English"  selected="selected">English</option>
 		<option value="简体中文" >简体中文</option>
 		<option value="日本語" >日本語</option>
@@ -327,5 +359,8 @@
 
 <%@include file="WEB-INF/inc/globalFooterMenu.jsp" %>
 <%@include file="WEB-INF/inc/globalFooter.jsp" %>
+<script type="text/javascript">
+	setParams();
+</script>
 </body>
 </html>

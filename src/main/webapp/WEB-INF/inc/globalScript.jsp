@@ -6,6 +6,7 @@
 <link href="css/tipswindown.css" type="text/css" rel="stylesheet" />
 <link href="css/css.css" type="text/css" rel="stylesheet" />
 <link href="css/style.css" type="text/css" rel="stylesheet" />
+<link href="css/fix.css" type="text/css" rel="stylesheet" />
 <script type="text/javascript" src="Scripts/lihover.js"></script>
 <script type="text/javascript" src="Scripts/jquery-1.8.0.min.js"></script>
 <script type="text/javascript" src="Scripts/jquery.jslides.js"></script>

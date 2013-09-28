@@ -148,6 +148,14 @@ function clickOptions(i, n, name){
 	$id( 'select_info_' + name ).className = 'tag_select';
 	selects[i].options[n].selected = 'selected';
 
+	var evt = document.createEvent('Event');
+	evt.initEvent('onchange',true,true);
+	selects[i].dispatchEvent(evt);
+	if(selects[i].dispatchEvent){
+		selects[i].dispatchEvent(evt);}
+	else{
+		selects[i].fireEvent('onchange');
+	}
 }
 
 window.onload = function(e) {
