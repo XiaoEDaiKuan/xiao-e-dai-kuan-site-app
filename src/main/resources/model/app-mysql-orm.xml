@@ -48,6 +48,12 @@
 			<basic name="name">
 				<column name="PRD_NAME" length="128" nullable="false" />
 			</basic>
+			<basic name="desc">
+				<column name="PRD_DESC" length="256" />
+			</basic>
+			<basic name="icon">
+				<column name="PRD_ICON" length="32" />
+			</basic>
 			<basic name="issueOrgan">
 				<column name="ISSUE_ORG" length="128" nullable="false" />
 			</basic>
@@ -97,9 +103,17 @@
 				<column name="INITIAL_RATE" precision="16" scale="4" />
 			</basic>
 			
-			<many-to-one name="region">
-				<join-column name="REGION_ID" />
-			</many-to-one>
+			<one-to-many name="regions" fetch="LAZY" target-entity="com.webloan.model.Region">
+				<join-table name="PRD_REGIONS">
+					<join-column referenced-column-name="id" name="PRODUCT_ID" nullable="false" />
+					<inverse-join-column referenced-column-name="id" name="REGION_ID" nullable="false" />
+					<unique-constraint>
+						<column-name>PRODUCT_ID</column-name>
+						<column-name>REGION_ID</column-name>
+					</unique-constraint>
+				</join-table>
+			</one-to-many>
+			
 		</attributes>
 	</entity>
 	

@@ -27,6 +27,9 @@ public class Page {
 	public void setTotalRecords(int totalRecords) {
 		this.totalRecords = totalRecords;
 	}
+	public int getTotalPages() {
+		return (totalRecords - 1) / pageSize + 1;
+	}
 	public List<?> getItems() {
 		return items;
 	}

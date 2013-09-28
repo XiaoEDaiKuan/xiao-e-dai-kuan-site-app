@@ -2,6 +2,7 @@ package com.webloan.model;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.util.List;
 
 public class Product implements Serializable {
 
@@ -9,6 +10,9 @@ public class Product implements Serializable {
 	
 	private Long id;//ID
 	private String name;//PRD_NAME
+	private String desc;//PRD_DESC
+	private String icon;//PRD_ICON
+	
 	private String issueOrgan;//ISSUE_ORG
 	private String issueType;//ISSUE_ORG_TYPE
 	
@@ -29,7 +33,7 @@ public class Product implements Serializable {
 	private String monthlyFormula;//MONTHLY_FORMULAR
 	private BigDecimal initialRate;//INITIAL_RATE
 	
-	private Region region;//REGION_ID
+	private List<Region> regions;
 	
 	public Long getId() {
 		return id;
@@ -42,6 +46,18 @@ public class Product implements Serializable {
 	}
 	public void setName(String name) {
 		this.name = name;
+	}
+	public String getDesc() {
+		return desc;
+	}
+	public void setDesc(String desc) {
+		this.desc = desc;
+	}
+	public String getIcon() {
+		return icon;
+	}
+	public void setIcon(String icon) {
+		this.icon = icon;
 	}
 	public String getIssueOrgan() {
 		return issueOrgan;
@@ -139,10 +155,10 @@ public class Product implements Serializable {
 	public void setInitialRate(BigDecimal initialRate) {
 		this.initialRate = initialRate;
 	}
-	public Region getRegion() {
-		return region;
+	public List<Region> getRegions() {
+		return regions;
 	}
-	public void setRegion(Region region) {
-		this.region = region;
+	public void setRegions(List<Region> regions) {
+		this.regions = regions;
 	}
 }

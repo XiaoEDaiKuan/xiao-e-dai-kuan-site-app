@@ -12,12 +12,19 @@
    
 	<context:annotation-config />
 	
+	<mvc:resources location="/Scripts/" mapping="/Scripts/**" />
+	<mvc:resources location="/css/" mapping="/css/**" />
+	<mvc:resources location="/images/" mapping="/images/**" />
+	
 	<!-- Resolvers -->
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/WEB-INF/jsp/" />
 		<property name="suffix" value=".jsp" />
 		<property name="viewClass" value="org.springframework.web.servlet.view.JstlView" />
 	</bean>
+	
+	<!-- Handle exceptions -->
+	<bean id="exceptionResolver" class="com.webloan.common.ExceptionResolver" />
 	
 <!--	<bean id="paraMethodResolver" class="org.springframework.web.servlet.mvc.multiaction.ParameterMethodNameResolver">-->
 <!--		<property name="paramName" value="_m"/>-->
@@ -27,19 +34,22 @@
 	<bean id="simpleUrlHandlerMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
 		<property name="mappings">
 			<props>
-				<prop key="queryProduct.do">productController</prop>
-				<prop key="queryProductByUser.do">productController</prop>
+				<prop key="/">homePageController</prop>
+				<prop key="/index.html">homePageController</prop>
+				<prop key="queryProduct">productController</prop>
+				<prop key="queryProductByUser">productController</prop>
 				<!-- 用户注册 -->
-				<prop key="createUser.do">userController</prop>
+				<prop key="createUser">userController</prop>
 				<!-- 邮箱验证 -->
-				<prop key="mailAuthentication.do">userController</prop>
-				<prop key="handleCaptcha.do">captchaController</prop>
+				<prop key="mailAuthentication">userController</prop>
+				<prop key="handleCaptcha">captchaController</prop>
 			</props>
 		</property>
 	</bean>
 	
+	<bean id="homePageController" class="com.webloan.common.HomePageController" />
+	
 	<bean id="productController" class="com.webloan.product.controller.ProductController">
-<!--		<property name="commandClass" value="com.webloan.model.Product" />-->
 		<property name="methodNameResolver">
 			<bean class="org.springframework.web.servlet.mvc.multiaction.InternalPathMethodNameResolver" />
 		</property>

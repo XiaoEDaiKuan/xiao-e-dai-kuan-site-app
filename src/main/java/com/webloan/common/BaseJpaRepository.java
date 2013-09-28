@@ -47,10 +47,10 @@ public interface BaseJpaRepository {
 	Page queryPage(
 			int pageIndex,
 			int pageSize, 
-			Class<?> clazz, 
+			Class<?> clazz,
 			String[] keys, 
 			Object[] values);
-	
+
 	Page queryPage(
 			int pageIndex,
 			int pageSize, 
@@ -58,11 +58,11 @@ public interface BaseJpaRepository {
 			String[] keys, 
 			Object[] values, 
 			String[] conditions);
-	
+
 	Page queryPage(
 			int pageIndex,
 			int pageSize, 
-			Class<?> clazz, 
+			Class<?> clazz,
 			String[] keys, 
 			Object[] values, 
 			String[] conditions, 
