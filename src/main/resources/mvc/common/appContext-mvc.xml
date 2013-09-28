@@ -23,7 +23,7 @@
 		<property name="viewClass" value="org.springframework.web.servlet.view.JstlView" />
 	</bean>
 	
-	<!-- Handle exceptions -->
+	<!-- Handle exceptions --> 
 	<bean id="exceptionResolver" class="com.webloan.common.ExceptionResolver" />
 	
 <!--	<bean id="paraMethodResolver" class="org.springframework.web.servlet.mvc.multiaction.ParameterMethodNameResolver">-->
