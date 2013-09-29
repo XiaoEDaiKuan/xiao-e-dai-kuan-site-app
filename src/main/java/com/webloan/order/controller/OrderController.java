@@ -28,7 +28,10 @@ public class OrderController extends MultiActionController{
 
 	public ModelAndView requestProductCheck(HttpServletRequest request, HttpServletResponse response) {
 		ModelAndView mav = new ModelAndView();
-		mav.setViewName("order/rejectOrderRequest");
+		//不符合条件的就返回拒绝的页面
+		//mav.setViewName("order/rejectOrderRequest");
+		//符合条件的情况
+		mav.setViewName("order/requestOrderQuestion");
 		return mav;
 	}
 }

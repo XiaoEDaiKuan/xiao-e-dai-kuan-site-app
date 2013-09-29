@@ -50,6 +50,7 @@
 				
 				<prop key="requestProductInfo">orderController</prop>
 				<prop key="requestProductCheck">orderController</prop>
+				<prop key="requestOrderQuestion">orderController</prop>
 			</props>
 		</property>
 	</bean>
