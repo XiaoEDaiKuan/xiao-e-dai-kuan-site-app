@@ -20,7 +20,7 @@ public interface UserService {
 	boolean duplicatedMobileCheck(String mobileNO);
 
 	// 邮件激活
-	void mailAuthentication(String code);
+	String mailAuthentication(String code);
 
 	// 修改密码
 	public void modifyPassword(String strCustId, String originalPassword,
