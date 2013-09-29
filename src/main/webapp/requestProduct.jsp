@@ -26,7 +26,7 @@ con.style.display=i==cursel?"block":"none";
 	});
 	<%}else{%>
 	$("#pop_login").click(function(){
-		tipsWindown("请填写贷款信息","iframe:iframe:pop_申请信息.html","450","215","true","","false","text","");
+		tipsWindown("请填写贷款信息","iframe:iframe:requestProductInfo.jsp","450","215","true","","false","text","");
 	});
 	<%}%>
 	$("#pop_save").click(function(){
@@ -90,7 +90,7 @@ con.style.display=i==cursel?"block":"none";
       	<div class="applicationleft2"><img src="images/img19.jpg" width="110" height="67" /></div>
         <div class="Loansearch13 applicationleft3">
             <p><span class="Loansearch14">无需抵押</span><br /><span class="Loansearch14 Loansearch15">上班族可申请</span><br /><span class="Loansearch14 Loansearch16">5天放款</span></p>
-            <a href="#"><img src="images/img21.jpg" width="94" height="29" id="pop_login" /></a><a href="#" id="pop_loan1">登录后的弹框</a>
+            <a href="#"><img src="images/img21.jpg" width="94" height="29" id="pop_login" /></a>
         </div>
       </div>
     </div>
