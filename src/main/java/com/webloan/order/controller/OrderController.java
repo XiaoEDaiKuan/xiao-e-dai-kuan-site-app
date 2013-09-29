@@ -19,5 +19,11 @@ public class OrderController extends MultiActionController{
 		mav.addObject("orders", orderService.orderListByUser(null));
 		return mav;
 	}
+	
+	public ModelAndView requestProductInfo(HttpServletRequest request, HttpServletResponse response) {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("order/requestProductInfo");
+		return mav;
+	}
 
 }

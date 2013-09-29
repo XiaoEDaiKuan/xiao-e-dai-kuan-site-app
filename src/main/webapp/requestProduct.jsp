@@ -26,7 +26,7 @@ con.style.display=i==cursel?"block":"none";
 	});
 	<%}else{%>
 	$("#pop_login").click(function(){
-		tipsWindown("请填写贷款信息","iframe:iframe:requestProductInfo.jsp","450","215","true","","false","text","");
+		tipsWindown("请填写贷款信息","iframe:iframe:requestProductInfo","450","215","true","","false","text","");
 	});
 	<%}%>
 	$("#pop_save").click(function(){
