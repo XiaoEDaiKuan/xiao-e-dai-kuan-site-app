@@ -34,4 +34,10 @@ public class OrderController extends MultiActionController{
 		mav.setViewName("order/requestOrderQuestion");
 		return mav;
 	}
+	
+	public ModelAndView requestOrderQuestion(HttpServletRequest request, HttpServletResponse response) {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("order/requestOrderFinished");
+		return mav;
+	}
 }

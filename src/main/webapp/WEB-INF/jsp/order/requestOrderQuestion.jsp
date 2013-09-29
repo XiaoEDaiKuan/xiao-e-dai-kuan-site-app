@@ -28,7 +28,9 @@
     </div>
   </div>
   <div class="loan_no2">
-    <input name="" type="button" value="" class="loan_next" onClick="location.href='pop_申请问题2.html'" />
+  	<form action="requestOrderQuestion" method="post">
+    <input name="" type="submit" value="" class="loan_next" />
+    </form>
   </div>
 </div>
 </body>
