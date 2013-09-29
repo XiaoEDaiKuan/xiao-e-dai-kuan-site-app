@@ -20,12 +20,15 @@ con.style.display=i==cursel?"block":"none";
 </script>
 <script type="text/javascript">
 	$(document).ready(function() {
+	<%if(request.getSession().getAttribute("custName") == null){%>
 	$("#pop_login").click(function(){
 		tipsWindown("您当前尚未登录，若想要申请贷款，请先登录。","iframe:iframe:pop_login.html","450","320","true","","false","text","");
 	});
-	$("#pop_loan1").click(function(){
+	<%}else{%>
+	$("#pop_login").click(function(){
 		tipsWindown("请填写贷款信息","iframe:iframe:pop_申请信息.html","450","215","true","","false","text","");
 	});
+	<%}%>
 	$("#pop_save").click(function(){
 		tipsWindown("产品信息保存到邮箱","iframe:iframe:pop_save.html","580","215","true","","false","text","");
 	});
