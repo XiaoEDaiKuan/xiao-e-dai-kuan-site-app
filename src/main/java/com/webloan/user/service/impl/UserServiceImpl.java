@@ -401,6 +401,7 @@ public class UserServiceImpl implements UserService {
 		Long custId=Long.valueOf(strCustId);
 		List<Cust> custs=userRepository.findCustByCusID(custId);
 		if(null==custs || custs.size()!=1){
+			log.error(UserConstant.EXCEPTION_CUST_NOT_FOUND);
 			throw new BizException(UserConstant.EXCEPTION_CUST_NOT_FOUND);
 		}
 		//原始密码验证
@@ -408,6 +409,7 @@ public class UserServiceImpl implements UserService {
 				originalPassword.getBytes(), DigestAlgorithm.MD5, null,
 				hashIterations));
 		if(!custs.get(0).getLogonPasswd().equals(originalPassword)){
+			log.error(UserConstant.EXCEPTION_PASSWD_ERROR);
 			throw new BizException(UserConstant.EXCEPTION_PASSWD_ERROR);
 		}
         //加密新密码   
@@ -430,6 +432,7 @@ public class UserServiceImpl implements UserService {
 			// 手机登录验证
 			custs = userRepository.findCustByMobile(logonName);
 			if (null == custs || custs.size() != 1) {
+				log.error(UserConstant.EXCEPTION_ACCT_NOT_EXISIT);
 				throw new BizException(UserConstant.EXCEPTION_ACCT_NOT_EXISIT);
 			}
 
@@ -437,6 +440,7 @@ public class UserServiceImpl implements UserService {
 			// 邮件登录验证
 			custs = userRepository.findCustByEmail(logonName);
 			if (null == custs || custs.size() != 1) {
+				log.error(UserConstant.EXCEPTION_ACCT_NOT_EXISIT);
 				throw new BizException(UserConstant.EXCEPTION_ACCT_NOT_EXISIT);
 			}
 
@@ -449,6 +453,7 @@ public class UserServiceImpl implements UserService {
 			if (idV.validate()) {
 				custs = userRepository.findCustByIdNO(logonName);
 				if (null == custs || custs.size() != 1) {
+					log.error(UserConstant.EXCEPTION_ACCT_NOT_EXISIT);
 					throw new BizException(
 							UserConstant.EXCEPTION_ACCT_NOT_EXISIT);
 				}
@@ -457,6 +462,7 @@ public class UserServiceImpl implements UserService {
 		}
 
 		if (null == custs || custs.size() != 1) {
+			log.error(UserConstant.EXCEPTION_ACCT_NOT_EXISIT);
 			throw new BizException(UserConstant.EXCEPTION_ACCT_NOT_EXISIT);
 		}
 		
@@ -496,9 +502,11 @@ public class UserServiceImpl implements UserService {
 		} catch (UnsupportedEncodingException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			log.error(UserConstant.EXCEPTION_SENT_MAIL_ERROR);
 		} catch (MessagingException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			log.error(UserConstant.EXCEPTION_SENT_MAIL_ERROR);
 		}
 		
 		return custs.get(0).getEmail();
@@ -534,6 +542,7 @@ public class UserServiceImpl implements UserService {
 			// 手机登录验证
 			custs = userRepository.findCustByMobile(logonName);
 			if (null == custs || custs.size() != 1) {
+				log.error(UserConstant.EXCEPTION_ACCT_NOT_EXISIT);
 				throw new BizException(UserConstant.EXCEPTION_ACCT_NOT_EXISIT);
 			}
 
@@ -541,6 +550,7 @@ public class UserServiceImpl implements UserService {
 			// 邮件登录验证
 			custs = userRepository.findCustByEmail(logonName);
 			if (null == custs || custs.size() != 1) {
+				log.error(UserConstant.EXCEPTION_ACCT_NOT_EXISIT);
 				throw new BizException(UserConstant.EXCEPTION_ACCT_NOT_EXISIT);
 			}
 
@@ -553,6 +563,7 @@ public class UserServiceImpl implements UserService {
 			if (idV.validate()) {
 				custs = userRepository.findCustByIdNO(logonName);
 				if (null == custs || custs.size() != 1) {
+					log.error(UserConstant.EXCEPTION_ACCT_NOT_EXISIT);
 					throw new BizException(
 							UserConstant.EXCEPTION_ACCT_NOT_EXISIT);
 				}
@@ -561,6 +572,7 @@ public class UserServiceImpl implements UserService {
 		}
 
 		if (null == custs || custs.size() != 1) {
+			log.error(UserConstant.EXCEPTION_ACCT_NOT_EXISIT);
 			throw new BizException(UserConstant.EXCEPTION_ACCT_NOT_EXISIT);
 		}
 		
@@ -569,11 +581,13 @@ public class UserServiceImpl implements UserService {
 				passwd.getBytes(), DigestAlgorithm.MD5, null,
 				hashIterations));
 		if(!custs.get(0).getLogonPasswd().equals(passwd)){
+			log.error(UserConstant.EXCEPTION_ACCT_NOT_EXISIT);
 			throw new BizException(UserConstant.EXCEPTION_ACCT_NOT_EXISIT);
 		}
 
         //账号状态验证
 		if(!custs.get(0).getStatus().equals(UserConstant.CUST_STATUS_NORMAL)){
+			log.error(UserConstant.EXCEPTION_ACCT_STATUS);
 			throw new BizException(UserConstant.EXCEPTION_ACCT_STATUS);
 		}
 		//返回客户手机
