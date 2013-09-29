@@ -32,7 +32,7 @@ public class CaptchaController extends MultiActionController {
 		ByteArrayOutputStream jpegOutputStream = new ByteArrayOutputStream();
 		
 		String captchaId = session.getId();
-		log.debug("captcha id: {}", new Object[]{captchaId});
+		//log.debug("captcha id: {}", new Object[]{captchaId});
 
 		BufferedImage challenge = captchaService.getImageChallengeForID(captchaId, request.getLocale());
 		
