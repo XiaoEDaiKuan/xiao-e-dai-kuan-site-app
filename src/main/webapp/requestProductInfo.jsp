@@ -13,6 +13,7 @@
 <body style="background:#fff;">
 <div class="pop_contact">
   <div class="loan">
+  <form action="requestProductCheck" method="post">
     <table width="100%" border="0" cellspacing="0" cellpadding="0">
       <tr>
         <th width="27%">贷款用途：</th>
@@ -35,8 +36,9 @@
       </tr>
     </table>
     <div class="loan2">
-      <a href="pop_无法申请.html">第二种情况</a><input name="" type="button" value="" class="loan_next" onClick="location.href='pop_申请问题.html'" />
+      <input name="" type="submit" value="" class="loan_next"/>
     </div>
+    </form>
   </div>
 </div>
 </body>
