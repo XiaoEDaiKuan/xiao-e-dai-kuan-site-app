@@ -32,7 +32,16 @@ public class UserController extends MultiActionController {
 		//验证验证码
 		String sessionId = request.getSession().getId();
 		String captcha = request.getParameter("captcha");
-		boolean flag=captchaService.validateResponseForID(sessionId, captcha);
+		
+		boolean flag=false;
+		try{
+		flag=captchaService.validateResponseForID(sessionId, captcha);
+		}
+		catch(Exception e){
+			e.printStackTrace();
+			log.error(UserConstant.EXCEPTION_CAPTCHA_CODE);
+			throw new BizException(UserConstant.EXCEPTION_CAPTCHA_CODE);
+		}
 		if(!flag){
 			log.error(UserConstant.EXCEPTION_CAPTCHA_CODE);
 			throw new BizException(UserConstant.EXCEPTION_CAPTCHA_CODE);
@@ -65,12 +74,6 @@ public class UserController extends MultiActionController {
 		return mav;
 	}
 
-	public ModelAndView userRegister(HttpServletRequest request,
-			HttpServletResponse response) {
-		ModelAndView mav = new ModelAndView();
-		mav.setViewName("user/userregister");
-		return mav;
-	}
 	/**
 	 * 邮箱认证(同步页面)
 	 * 
@@ -83,25 +86,18 @@ public class UserController extends MultiActionController {
 			HttpServletResponse response) throws Exception {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("user/mailconfirm");
+		
 		String strCode = request.getParameter("code");
 		Validate.notEmpty(strCode, UserConstant.REQUIRED_MAIL_CODE);
-		userService.mailAuthentication(strCode);
+		String custName=userService.mailAuthentication(strCode);
+		if(null==custName ||"".equals(custName)){
+			log.error(UserConstant.EXCEPTION_MAIL_AUTHENTICATED);
+			throw new BizException(UserConstant.EXCEPTION_MAIL_AUTHENTICATED);
+		}
+		mav.addObject("name", custName);
 		return mav;
 	}
 
-	/**
-	 * 用户登录
-	 * @param request
-	 * @param response
-	 * @return
-	 * @throws Exception
-	 */
-	public ModelAndView loginView(HttpServletRequest request,
-			HttpServletResponse response) throws Exception {
-		ModelAndView mav = new ModelAndView();
-		mav.setViewName("user/login");
-		return mav;
-	}
 	
 	public ModelAndView login(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
