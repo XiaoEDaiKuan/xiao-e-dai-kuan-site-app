@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+	<property name="pattern" 
+        value="%d{yyyyMMdd:HH:mm:ss.SSS} [%X{traceNo}] [%class.%method] %-5level  %msg%n" />
+     
+	
+	<appender name="ROOT_CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+		<layout name="StandardFormat" class="ch.qos.logback.classic.PatternLayout">
+			<pattern>${pattern}</pattern>
+		</layout>
+	</appender>
+
+	<logger name="com.webloan" level="debug" additivity="false">
+	 	<appender-ref ref="ROOT_CONSOLE"/>
+	</logger>
+	
+	
+	<root level="debug">
+		<appender-ref ref="ROOT_CONSOLE"/>
+	</root>
+</configuration>
