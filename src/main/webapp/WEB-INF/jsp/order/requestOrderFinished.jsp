@@ -15,7 +15,7 @@
   <div class="loan_yes"><font>第二步：云信用评分</font><br /><b>您符合该产品的基本要求，</b><br />我们建议您进行信用评分测试，通过全面，权威，科学的评分测试，测测您能贷多少？</div>
   <div class="loan_no2">
     <input name="" type="button" value="" class="loan_imme"  onClick="top.location.href='score_choose.html'" />
-    <input name="" type="button" value="" class="loan_skip"  onClick="location.href='pop_信息填写.html'"/>
+    <input name="" type="button" value="" class="loan_skip"  onClick="location.href='inputOrderInfoForm'"/>
   </div>
 </div>
 </body>

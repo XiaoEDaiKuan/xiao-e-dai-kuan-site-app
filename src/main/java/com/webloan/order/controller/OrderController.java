@@ -40,4 +40,17 @@ public class OrderController extends MultiActionController{
 		mav.setViewName("order/requestOrderFinished");
 		return mav;
 	}
+	
+	
+	public ModelAndView inputOrderInfoForm(HttpServletRequest request, HttpServletResponse response) {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("order/inputOrderInfo");
+		return mav;
+	}
+	
+	public ModelAndView saveOrderInfo(HttpServletRequest request, HttpServletResponse response) {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("order/inputOrderInfoSuccess");
+		return mav;
+	}
 }

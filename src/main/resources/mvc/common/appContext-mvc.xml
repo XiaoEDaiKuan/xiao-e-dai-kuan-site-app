@@ -51,6 +51,8 @@
 				<prop key="requestProductInfo">orderController</prop>
 				<prop key="requestProductCheck">orderController</prop>
 				<prop key="requestOrderQuestion">orderController</prop>
+				<prop key="inputOrderInfoForm">orderController</prop>
+				<prop key="saveOrderInfo">orderController</prop>
 			</props>
 		</property>
 	</bean>
