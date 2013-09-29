@@ -35,6 +35,7 @@ public class OrderController extends MultiActionController{
 		return mav;
 	}
 	
+	
 	public ModelAndView requestOrderQuestion(HttpServletRequest request, HttpServletResponse response) {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("order/requestOrderFinished");
@@ -48,6 +49,7 @@ public class OrderController extends MultiActionController{
 		return mav;
 	}
 	
+	//信息提交处理
 	public ModelAndView saveOrderInfo(HttpServletRequest request, HttpServletResponse response) {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("order/inputOrderInfoSuccess");
