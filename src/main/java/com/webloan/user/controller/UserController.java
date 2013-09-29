@@ -33,7 +33,7 @@ public class UserController extends MultiActionController {
 		String sessionId = request.getSession().getId();
 		String captcha = request.getParameter("captcha");
 		
-		boolean flag=false;
+		/*boolean flag=false;
 		try{
 		flag=captchaService.validateResponseForID(sessionId, captcha);
 		}
@@ -45,7 +45,7 @@ public class UserController extends MultiActionController {
 		if(!flag){
 			log.error(UserConstant.EXCEPTION_CAPTCHA_CODE);
 			throw new BizException(UserConstant.EXCEPTION_CAPTCHA_CODE);
-		}
+		}*/
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("user/registerok");
 		String custName = request.getParameter("custName");
@@ -114,7 +114,7 @@ public class UserController extends MultiActionController {
 		String sessionId = request.getSession().getId();
 		String captcha = request.getParameter("captcha");
 		
-		boolean flag=false;
+		/*boolean flag=false;
 		try{
 		flag=captchaService.validateResponseForID(sessionId, captcha);
 		}
@@ -126,7 +126,7 @@ public class UserController extends MultiActionController {
 		if(!flag){
 			log.error(UserConstant.EXCEPTION_CAPTCHA_CODE);
 			throw new BizException(UserConstant.EXCEPTION_CAPTCHA_CODE);
-		}
+		}*/
 
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("index");
@@ -139,6 +139,19 @@ public class UserController extends MultiActionController {
 		return mav;
 	}
 
+	public ModelAndView loginView(HttpServletRequest request,
+			HttpServletResponse response) throws Exception {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("user/login");
+		return mav;
+	}
+	
+	public ModelAndView reg(HttpServletRequest request,
+			HttpServletResponse response) throws Exception {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("user/userregister");
+		return mav;
+	}
 	/**
 	 * 修改用户登录信息
 	 * @param request

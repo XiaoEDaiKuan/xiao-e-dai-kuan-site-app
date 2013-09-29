@@ -42,7 +42,7 @@
 				<prop key="createUser">userController</prop>
 				<prop key="login">userController</prop>
 				<prop key="loginView">userController</prop>
-				<prop key="userRegister">userController</prop>
+				<prop key="reg">userController</prop>
 				<prop key="createUser">userController</prop>
 				<!-- 邮箱验证 -->
 				<prop key="mailAuthentication">userController</prop>
