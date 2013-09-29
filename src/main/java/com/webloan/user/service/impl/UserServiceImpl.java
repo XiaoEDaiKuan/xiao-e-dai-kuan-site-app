@@ -147,7 +147,7 @@ public class UserServiceImpl implements UserService {
 		StringBuilder objMailAuthLink = new StringBuilder();
 		String strAuthCode = generateAuthCode(new Date(), email);
 		objMailAuthLink.append(WebUtils.getDomainWithContext(request))
-				.append("mailAuthentication.do&code=").append(strAuthCode);
+				.append("mailAuthentication?code=").append(strAuthCode);
 
 		log.info("mail authentication url: {}",
 				new Object[] { objMailAuthLink.toString() });
@@ -156,6 +156,12 @@ public class UserServiceImpl implements UserService {
 		Map<String, Object> mpModel = new HashMap<String, Object>();
 		mpModel.put("authURL", objMailAuthLink.toString());
 		mpModel.put("time", mailLinkExpired);
+		mpModel.put("name", custName);
+		mpModel.put("custNO", custNO);
+		mpModel.put("email", email);
+		mpModel.put("mobileNO", mobileNO);
+		mpModel.put("IDNO", idNO);
+		
 		String strTplContent = mailEngine.initTemplate(
 				"/beans/biz/mailAuthentication.vm", mpModel);
 		log.info("template content:\n {}", new Object[] { strTplContent });
