@@ -19,13 +19,12 @@
      </div>
   </div>
  </div>
- 
  <!--================== 自动弹出框 城市切换 结束 ==================-->
 <div class="top">
   <div class="logo"><a href="index.html"></a></div>
   <div class="city font_f"><font>北京</font><a href="#" id="pop_city">[切换城市]</a></div>
   <div class="top_right">
-    <div class="top_right1"><%=request.getSession().getAttribute("custName") == null ? "":request.getSession().getAttribute("custName") + ", 欢迎您！<font>|</font>"%><%if(request.getSession().getAttribute("custName") == null){ %><a href="userregister.jsp">注册</a><font>|</font><a href="login.jsp">登录</a><font>|<%} %></font><a href="members.html">我的会员中心</a><font>|</font><a href="login.html">信贷经理登录</a><font>|</font><a href="manager.html">信贷经理入驻</a></div>
+    <div class="top_right1"><%=request.getSession().getAttribute("custName") == null ? "":request.getSession().getAttribute("custName") + ", 欢迎您！<font>|</font>"%><%if(request.getSession().getAttribute("custName") == null){ %><a href="reg">注册</a><font>|</font><a href="loginView">登录</a><font>|<%} %></font><a href="members.html">我的会员中心</a><font>|</font><a href="login.html">信贷经理登录</a><font>|</font><a href="manager.html">信贷经理入驻</a></div>
     
     <div class="underPmenu font_f" id="w_nav">
       <ul>
