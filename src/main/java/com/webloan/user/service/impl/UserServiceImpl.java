@@ -318,7 +318,7 @@ public class UserServiceImpl implements UserService {
 	 * 邮件激活
 	 */
 	@Override
-	public void mailAuthentication(String code) {
+	public String mailAuthentication(String code) {
 
 		// 邮箱校验(失效时间，单位：分钟)
 		String strLogonName = verifyAuthCode(code, TimeUnit.MINUTES,
@@ -341,7 +341,8 @@ public class UserServiceImpl implements UserService {
 		objCust.get(0).setStatus(UserConstant.CUST_STATUS_NORMAL);
 		// 更新用户信息
 		userRepository.update(objCust.get(0));
-
+        
+		return objCust.get(0).getCustName();
 	}
 
 	/**
