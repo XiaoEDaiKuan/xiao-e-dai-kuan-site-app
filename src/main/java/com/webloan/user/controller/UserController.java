@@ -47,7 +47,7 @@ public class UserController extends MultiActionController {
 			throw new BizException(UserConstant.EXCEPTION_CAPTCHA_CODE);
 		}
 		ModelAndView mav = new ModelAndView();
-		mav.setViewName("user/userregister");
+		mav.setViewName("user/registerok");
 		String custName = request.getParameter("custName");
 		String logonPasswd = request.getParameter("logonPasswd");
 		String mobileNO = request.getParameter("mobileNO");
@@ -71,6 +71,7 @@ public class UserController extends MultiActionController {
 				request));
 		mav.addObject("email", email);
 		mav.addObject("identity", idNO);
+		mav.addObject("name",custName);
 		return mav;
 	}
 
@@ -98,7 +99,14 @@ public class UserController extends MultiActionController {
 		return mav;
 	}
 
-	
+
+	/**
+	 * 登录认证
+	 * @param request
+	 * @param response
+	 * @return
+	 * @throws Exception
+	 */
 	public ModelAndView login(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 		
@@ -161,7 +169,7 @@ public class UserController extends MultiActionController {
 	public ModelAndView forgetPassword(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 		ModelAndView mav = new ModelAndView();
-		mav.setViewName("user/forgetpasswd");
+		mav.setViewName("user/forgetPasswdOk");
 		String logonName=request.getParameter("logonName");
         userService.forgetPassword(logonName);
 
