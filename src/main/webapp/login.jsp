@@ -50,7 +50,7 @@
             <img id="captchaimg" src="handleCaptcha" alt="captcha"  width="67" height="30" onclick="javascript:reloadCaptcha()" /></td>
           </tr>
         </table>
-        <
+        
         <div class="login3"><input name="" type="submit" value="" /><a href="#">忘记密码？</a></div>
         <div class="login4">没有账号？立即<a href="registered.html">免费注册</a></div>
       </div>
