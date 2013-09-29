@@ -16,7 +16,7 @@
   <div class="registered_title1"></div>
 </div>
 <div class="registered_title2">
-  <div class="registered_title3"> <font>欢迎注册玖富云金融平台</font> <span>已有账号，点此<a href="login.html">登录</a></span> </div>
+  <div class="registered_title3"> <font>欢迎注册玖富云金融平台</font> <span>已有账号，点此<a href="loginView">登录</a></span> </div>
 </div>
 <form action="createUser" method="post">
 <div class="registered_main">
