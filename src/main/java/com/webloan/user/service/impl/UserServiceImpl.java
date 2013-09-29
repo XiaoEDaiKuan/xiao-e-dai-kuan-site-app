@@ -541,8 +541,15 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public Cust login(String logonName, String passwd) {
 
-		Validate.notEmpty(logonName, UserConstant.EXCEPTION_LOGIN_ACCT);
-		Validate.notEmpty(passwd, UserConstant.LogOnPasswdIsNull);
+		
+		if(null==logonName||"".equals(logonName)){
+			log.error(UserConstant.EXCEPTION_LOGIN_ACCT);
+			throw new BizException(UserConstant.EXCEPTION_LOGIN_ACCT);
+		}
+		if(null==passwd || "".equals(passwd)){
+			log.error(UserConstant.EXCEPTION_LOGIN_ACCT);
+			throw new BizException(UserConstant.EXCEPTION_LOGIN_ACCT);
+		}
 
 		List<Cust> custs = null;
 		if (MobileVerify.isMobileNO(logonName) && MobileVerify.isNum(logonName)) {
