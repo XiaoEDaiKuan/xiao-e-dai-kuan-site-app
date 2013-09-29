@@ -76,6 +76,7 @@
 			<tx:method name="modify*" propagation="REQUIRED" rollback-for="Exception" />
 			<tx:method name="delete*" propagation="REQUIRED" rollback-for="Exception" />
 			<tx:method name="execute*" propagation="REQUIRED" rollback-for="Exception" />
+			<tx:method name="mailAuthen*" propagation="REQUIRED" rollback-for="Exception" />
 		</tx:attributes>
 	</tx:advice>
 	
