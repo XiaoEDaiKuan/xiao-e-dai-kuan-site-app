@@ -26,4 +26,9 @@ public class OrderController extends MultiActionController{
 		return mav;
 	}
 
+	public ModelAndView requestProductCheck(HttpServletRequest request, HttpServletResponse response) {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("order/rejectOrderRequest");
+		return mav;
+	}
 }

@@ -49,6 +49,7 @@
 				<prop key="handleCaptcha">captchaController</prop>
 				
 				<prop key="requestProductInfo">orderController</prop>
+				<prop key="requestProductCheck">orderController</prop>
 			</props>
 		</property>
 	</bean>
