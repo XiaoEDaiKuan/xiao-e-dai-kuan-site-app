@@ -139,6 +139,18 @@ public class UserController extends MultiActionController {
 		return mav;
 	}
 
+	public ModelAndView loginView(HttpServletRequest request,
+			HttpServletResponse response) throws Exception {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("user/login");
+		return mav;
+	}
+	public ModelAndView register(HttpServletRequest request,
+			HttpServletResponse response) throws Exception {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("user/register");
+		return mav;
+	}
 	/**
 	 * 修改用户登录信息
 	 * @param request
