@@ -64,7 +64,7 @@
     <tr>
     	<th>验证码：</th>
        	<td><input type="text" name="captcha" id="cf" class="input" style="width:90px"/>
-       	<img id="captcha" src="handleCaptcha" alt="captcha" onclick="javascript:reloadCaptcha()"/>
+       	<img id="captchaimg" src="handleCaptcha" alt="captcha" onclick="javascript:reloadCaptcha()"/>
        </td>
 	</tr>     
   </table>
@@ -86,14 +86,12 @@
 
 <script type="text/javascript" language="JavaScript">
     function reloadCaptcha() {  
-        var obj = document.getElementById('captcha');  
-        var captchaURL = obj.src;  
-        captchaURL = captchaURL.replace(captchaURL.substring(captchaURL.indexOf("=")+1, captchaURL.length), 
-
-Math.floor(Math.random()*9999999999));  
-        obj.src = "http://127.0.0.1:8080/web-loan/handleCaptcha.do";
+        var obj = document.getElementById('captchaimg');  
+        var captchaURL = obj.src+"?nocache=" + Math.floor(Math.random()*100000000 + 100000000);  
+        obj.src =captchaURL ;
         
     }  
   </script>
+
 </body>
 </html>
