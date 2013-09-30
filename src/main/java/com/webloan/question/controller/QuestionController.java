@@ -30,4 +30,11 @@ public class QuestionController extends MultiActionController{
 		return mav;
 	}
 	
+	public ModelAndView QA(HttpServletRequest request, HttpServletResponse response) {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("question/QA");
+		mav.addObject("nonmortage", questionService.questionListByCustId(QuestionConstant.NONMORTAGE));
+		mav.addObject("mortage", questionService.questionListByCustId(QuestionConstant.MORTAGE));
+		return mav;
+	}
 }
