@@ -147,7 +147,7 @@ con.style.display=i==cursel?"block":"none";
 <div class="Contentbox">
    <div id="con_two_1" >
 	<ul class="question_list Loansquiz5">
-      <li><a href="贷款问答2.html" target="_blank">我有逾期贷哇5个回答</a></li>
+      <li><a href="viewAnswer?id=100" target="_blank">这个问答可以点击查看</a></li>
       <li><a href="贷款问答2.html" target="_blank">我有逾期贷哇5个回答</a></li>
       <li><a href="贷款问答2.html" target="_blank">我有逾期贷哇5个回答</a></li>
       <li><a href="贷款问答2.html" target="_blank">我有逾期贷哇5个回答</a></li>

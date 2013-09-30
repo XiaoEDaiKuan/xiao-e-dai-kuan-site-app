@@ -37,4 +37,12 @@ public class QuestionController extends MultiActionController{
 		mav.addObject("mortage", questionService.questionListByCustId(QuestionConstant.MORTAGE));
 		return mav;
 	}
+	
+	public ModelAndView viewAnswer(HttpServletRequest request, HttpServletResponse response) {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("question/viewAnswer");
+		mav.addObject("nonmortage", questionService.questionListByCustId(QuestionConstant.NONMORTAGE));
+		mav.addObject("mortage", questionService.questionListByCustId(QuestionConstant.MORTAGE));
+		return mav;
+	}
 }

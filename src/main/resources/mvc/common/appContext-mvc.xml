@@ -56,6 +56,7 @@
 				<prop key="saveOrderInfo">orderController</prop>
 				
 				<prop key="QA">questionController</prop>
+				<prop key="viewAnswer">questionController</prop>
 			</props>
 		</property>
 	</bean>
