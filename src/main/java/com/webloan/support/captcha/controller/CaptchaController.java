@@ -15,6 +15,8 @@ import org.springframework.web.servlet.mvc.multiaction.MultiActionController;
 import com.octo.captcha.service.image.ImageCaptchaService;
 import com.sun.image.codec.jpeg.JPEGCodec;
 import com.sun.image.codec.jpeg.JPEGImageEncoder;
+import com.webloan.exception.BizException;
+import com.webloan.user.UserConstant;
 
 public class CaptchaController extends MultiActionController {
 
@@ -55,4 +57,35 @@ public class CaptchaController extends MultiActionController {
 	public void setCaptchaService(ImageCaptchaService captchaService) {
 		this.captchaService = captchaService;
 	}
+
+	/**
+	 * 验证前端输入的验证码
+	 * @param request
+	 * @param response
+	 * @param session
+	 * @throws Exception
+	 */
+	public void verifyCaptcha(HttpServletRequest request,
+			HttpServletResponse response, HttpSession session) throws Exception {
+	
+		//验证验证码
+		String sessionId = request.getSession().getId();
+		String captcha = request.getParameter("captcha");
+		
+		boolean flag=false;
+		try{
+		flag=captchaService.validateResponseForID(sessionId, captcha);
+		}
+		catch(Exception e){
+			e.printStackTrace();
+			log.error(UserConstant.EXCEPTION_CAPTCHA_CODE);
+			throw new BizException(UserConstant.EXCEPTION_CAPTCHA_CODE);
+		}
+		if(!flag){
+			log.error(UserConstant.EXCEPTION_CAPTCHA_CODE);
+			throw new BizException(UserConstant.EXCEPTION_CAPTCHA_CODE);
+		}
+
+	}
+
 }
