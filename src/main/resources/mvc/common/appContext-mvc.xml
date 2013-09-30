@@ -47,6 +47,12 @@
 				<!-- 邮箱验证 -->
 				<prop key="mailAuthentication">userController</prop>
 				<prop key="handleCaptcha">captchaController</prop>
+				
+				<prop key="requestProductInfo">orderController</prop>
+				<prop key="requestProductCheck">orderController</prop>
+				<prop key="requestOrderQuestion">orderController</prop>
+				<prop key="inputOrderInfoForm">orderController</prop>
+				<prop key="saveOrderInfo">orderController</prop>
 			</props>
 		</property>
 	</bean>
@@ -72,5 +78,9 @@
 		</property>
 	</bean>
 	
-	
+	<bean id="orderController" class="com.webloan.order.controller.OrderController">
+		<property name="methodNameResolver">
+			<bean class="org.springframework.web.servlet.mvc.multiaction.InternalPathMethodNameResolver" />
+		</property>
+	</bean>
 </beans>
