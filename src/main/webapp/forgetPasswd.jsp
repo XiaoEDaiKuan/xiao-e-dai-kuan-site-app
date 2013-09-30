@@ -28,13 +28,13 @@
             <form id="form_findpwd"  action=""  method="POST"  onsubmit="return false;">
                 <div  id="lostuser_verified" class="line">
                     <label>
-                    	<span class="tit s_tit">用户名:</span><input  type="text" id="txtEmail"  name="txtEmail" value=""  Class="text"  MaxLength="40" onfocus="Onfocus();" onblur="OnBlue(this,'DIVshowError',1);"  tabindex="1"  />
+                    	<span class="tit s_tit">用户名:</span><input  type="text" id="txtEmail"  name="txtEmail" value=""  Class="text"  MaxLength="40" onfocus="Onfocus();" onblur="OnBlur(this,'DIVshowError',1);"  tabindex="1"  />
                     </label>
                     <span id="DIVshowError" class="e9" style="display:none;"></span>
                 </div>
                 <div class="line">
                     <label>
-                    	<span class="tit  s_tit">图形验证码:</span><input  type="text" id="txtVerifyCode"  name="txtVerifyCode"  Class="text"  value="" onfocus="OnVcodeFocus()" onblur="OnVcodeBlue(this,'DIVshowError_code',1);"   tabindex="2"/>
+                    	<span class="tit  s_tit">图形验证码:</span><input  type="text" id="txtVerifyCode"  name="txtVerifyCode"  Class="text"  value="" onfocus="OnVcodeFocus()" onblur="OnVcodeBlur(this,'DIVshowError_code',1);"   tabindex="2"/>
                     </label>
                     <span id="vcode_ok" class="tip_yes" style="display: none"></span>
                     <span id="DIVshowError_code" class="e9" style="display: none;"></span>
@@ -74,7 +74,7 @@ function Onfocus(){
     jQuery("#txtEmail").addClass("label_focus");
 }
 
-function  OnBlue(obj,HTMLid,msgnum)
+function  OnBlur(obj,HTMLid,msgnum)
 {
 
       $(HTMLid).style.display = "none";
@@ -90,17 +90,8 @@ function OnVcodeFocus(){
     jQuery("#txtVerifyCode").addClass("label_focus");
 }
 
-function  OnVcodeBlue(obj,HTMLid,msgnum)
+function  OnVcodeBlur(obj,HTMLid,msgnum)
 {
-
-      checkCode();
-      $(HTMLid).style.display = "none";
-      jQuery("#txtVerifyCode").removeClass("label_focus");
-}
-
-function checkCode()
-{
-
   jQuery.ajax(
     {
        url:'verifyCaptcha',
@@ -108,7 +99,14 @@ function checkCode()
        data:{captcha:jQuery("#txtVerifyCode").val()},
        dataType:"text",
        success: function(data){
-       alert(data);             
+       if(data=="fail"){
+             $(HTMLid).innerHTML=msg[3];
+             $(HTMLid).style.display = "inline-block";
+             reloadCaptcha();
+         }else if(data=="success"){
+             $(HTMLid).style.display = "none";
+             jQuery("#txtVerifyCode").removeClass("label_focus");     
+         }             
         }
     });
 }
