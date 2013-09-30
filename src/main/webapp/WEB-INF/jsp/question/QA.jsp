@@ -3,8 +3,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<title>无标题文档</title>
-<%@include file="WEB-INF/inc/globalScript.jsp" %>
+<title>贷款问答</title>
+<%@include file="../../inc/globalScript.jsp" %>
 <script type="text/javascript">
 	$(document).ready(function() {
 	$("#pop_city").click(function(){
@@ -37,9 +37,9 @@ con.style.display=i==cursel?"block":"none";
 </head>
 
 <body>
-<%@include file="WEB-INF/inc/globalHeader.jsp" %>
+<%@include file="../../inc/globalHeader.jsp" %>
 <div class="Loansquiz">
-	<div class="top Fuzzysearch1 Loansquiz1">
+	<div class="top Fuzzysearch1 Loansquiz1" style="margin-top: 0px;">
     	<table width="100%" border="1" class="font_f Loansquiz2">
   <tr>
     <td width="14%" height="80" align="right" valign="middle"><span>您的问题:</span></td>
@@ -196,8 +196,8 @@ con.style.display=i==cursel?"block":"none";
   </div>
     </div>
 </div>
-<%@include file="WEB-INF/inc/globalFooterMenu.jsp" %>
-<%@include file="WEB-INF/inc/globalFooter.jsp" %>
+<%@include file="../../inc/globalFooterMenu.jsp" %>
+<%@include file="../../inc/globalFooter.jsp" %>
 </body>
 </html>
     
