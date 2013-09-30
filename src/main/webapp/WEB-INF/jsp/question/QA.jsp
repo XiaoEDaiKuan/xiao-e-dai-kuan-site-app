@@ -39,7 +39,7 @@ con.style.display=i==cursel?"block":"none";
 <body>
 <%@include file="../../inc/globalHeader.jsp" %>
 <div class="Loansquiz">
-	<div class="top Fuzzysearch1 Loansquiz1">
+	<div class="top Fuzzysearch1 Loansquiz1" style="margin-top: 0px;">
     	<table width="100%" border="1" class="font_f Loansquiz2">
   <tr>
     <td width="14%" height="80" align="right" valign="middle"><span>您的问题:</span></td>
