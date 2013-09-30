@@ -47,6 +47,7 @@
 				<!-- 邮箱验证 -->
 				<prop key="mailAuthentication">userController</prop>
 				<prop key="handleCaptcha">captchaController</prop>
+				<prop key="verifyCaptcha">captchaController</prop>
 				
 				<prop key="requestProductInfo">orderController</prop>
 				<prop key="requestProductCheck">orderController</prop>
