@@ -6,9 +6,9 @@
 	</div>
 	<div class="members_left2">
 		<ul>
-			<li><a href="members.html">我的贷款</a></li>
+			<li><a href="members.html" class="hover2">我的贷款</a></li>
 			<li><a href="me_message.html">我的消息</a></li>
-			<li><a href="me_CreditScore.html" class="hover2">我的信用评分</a></li>
+			<li><a href="me_CreditScore.html">我的信用评分</a></li>
 			<li><a href="me_EditData.html">编辑资料</a></li>
 			<li><a href="me_MyQuestions.html">我的提问</a></li>
 			<li><a href="me_Password.html">修改密码</a></li>

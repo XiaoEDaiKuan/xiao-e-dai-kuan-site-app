@@ -17,27 +17,21 @@
 			<div class="members_right2">
 				<table width="100%" border="0" cellspacing="0" cellpadding="0">
 					<tr>
-						<th>序号</th>
-						<th>信用评分结果</th>
-						<th>信用评分类型</th>
+						<th>订单号</th>
+						<th>产品</th>
+						<th>金额</th>
 						<th>时间</th>
+						<th>状态</th>
 						<th>操作</th>
 					</tr>
 					<tr>
-						<td>01</td>
-						<td>8-10万</td>
-						<td>工薪阶层</td>
-						<td>2013-09-12</td>
-						<td><a href="#" id="pop_del">删除记录</a></td>
+						<td>123</td>
+						<td>某某某最新产品</td>
+						<td>00万元</td>
+						<td>2013-09-08&nbsp;11:23:26</td>
+						<td>等待预审</td>
+						<td><a href="#" data="1234" class="pop_Cancel_order">取消订单</a></td>
 					</tr>
-					<tr>
-						<td>02</td>
-						<td>20-50万</td>
-						<td>私营企业主或个体工商户</td>
-						<td>2013-09-25</td>
-						<td><a href="score_choose.html" target="_blank">再测一次</a></td>
-					</tr>
-
 				</table>
 				<div class="me_next padd">
 					<a href="#"><em>上一页</em></a><a href="#"><em>1</em></a><a href="#"><em>2</em></a><a
