@@ -30,6 +30,7 @@
                     <label>
                     	<span class="tit s_tit">用户名:</span><input  type="text" id="txtEmail"  name="txtEmail" value=""  Class="text"  MaxLength="40" onfocus="Onfocus();" onblur="OnBlur(this,'DIVshowError',1);"  tabindex="1"  />
                     </label>
+                    <span id="email_ok" class="tip_yes" style="display: none"></span>
                     <span id="DIVshowError" class="e9" style="display:none;"></span>
                 </div>
                 <div class="line">
@@ -82,12 +83,18 @@ function  OnBlur(obj,HTMLid,msgnum)
 }
 
 function OnVcodeFocus(){
-	
+    	
     $('DIVshowError_code').innerHTML=msg[9];
     $('DIVshowError_code').className="e9";
     $('DIVshowError_code').style.display = "inline-block";
    
     jQuery("#txtVerifyCode").addClass("label_focus");
+    
+    if($('vcode_ok').style.display != "none")
+    {   
+        reloadCaptcha(); 
+        $('vcode_ok').style.display = "none";
+     }
 }
 
 function  OnVcodeBlur(obj,HTMLid,msgnum)
@@ -102,10 +109,15 @@ function  OnVcodeBlur(obj,HTMLid,msgnum)
        if(data=="fail"){
              $(HTMLid).innerHTML=msg[3];
              $(HTMLid).style.display = "inline-block";
+             $(HTMLid).className = "wrong_box clearfix";
+             $('vcode_ok').style.display = "none";
              reloadCaptcha();
          }else if(data=="success"){
              $(HTMLid).style.display = "none";
              jQuery("#txtVerifyCode").removeClass("label_focus");     
+             $('vcode_ok').className = "tip_yes";
+             $('vcode_ok').style.display = "inline-block";
+                      
          }             
         }
     });
