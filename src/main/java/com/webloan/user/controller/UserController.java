@@ -227,4 +227,15 @@ public class UserController extends MultiActionController {
 		return mav;
 	}
 	
+	
+	
+	///////////////////////// 会员中心/////////////////////
+	
+	public ModelAndView myDaikuan(HttpServletRequest request,
+			HttpServletResponse response) throws Exception {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("member/myDaikuan");
+		return mav;
+	}
+	
 }
