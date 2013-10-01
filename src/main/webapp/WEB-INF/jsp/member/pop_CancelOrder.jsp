@@ -12,13 +12,18 @@
 
 <body style="background: #fff;">
 	<div class="pop_cancel">
+		<!-- 取消前确认界面 -->
 		<div class="pop_cancel1 font_f">您确定要取消该订单吗？</div>
-		<form action="pop_CancelOrderOK" target="_top" method="post">
+		<form action="pop_CancelOrderOK" method="post">
 			<input value="<%=request.getParameter("orderid")%>" type="hidden" />
 			<div class="pop_cancel2">
 				<input name="" type="submit" value="" class="cancel_det" />
 			</div>
 		</form>
+		<!-- 
+		取消后界面
+		<div class="pop_cancel1 font_f">您的订单已经成功取消？</div>
+		 -->
 	</div>
 
 </body>
