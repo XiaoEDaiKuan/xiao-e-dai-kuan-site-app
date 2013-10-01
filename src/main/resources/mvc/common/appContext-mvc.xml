@@ -48,6 +48,9 @@
 				<prop key="pop_CancelOrder">userController</prop>
 				<prop key="pop_CancelOrderOK">userController</prop>
 				<prop key="verifyAccount">userController</prop>
+			    <prop key="verifyPasswd">userController</prop>
+			    <prop key="forgetPasswd">userController</prop>
+  			    <prop key="modifyPasswd">userController</prop>
 			
 			
 				<!-- 邮箱验证 -->
