@@ -251,4 +251,19 @@ public class UserController extends MultiActionController {
 		mav.setViewName("member/pop_CancelOrder");
 		return mav;
 	}
+	
+	public ModelAndView myMessage(HttpServletRequest request,
+			HttpServletResponse response) throws Exception {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("member/myMessage");
+		return mav;
+	}
+	
+	public ModelAndView myCreditScore(HttpServletRequest request,
+			HttpServletResponse response) throws Exception {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("member/myCreditScore");
+		return mav;
+	}	
+	
 }
