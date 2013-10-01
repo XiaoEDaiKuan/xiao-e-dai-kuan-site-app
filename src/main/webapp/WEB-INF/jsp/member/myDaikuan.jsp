@@ -12,7 +12,9 @@
 	<%@include file="../../inc/memberHeader.jsp"%>
 	<!--===========页面内容部分 开始===========-->
 	<div class="members clear">
-		<%@include file="../../inc/memberLeftMenu.jsp"%>
+		<jsp:include page="../../inc/memberLeftMenu.jsp">
+			<jsp:param name="index" value="1" />
+		</jsp:include>
 		<div class="members_right ground">
 			<div class="members_right2">
 				<table width="100%" border="0" cellspacing="0" cellpadding="0">
