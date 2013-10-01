@@ -1,5 +1,7 @@
 package com.webloan.user.controller;
 
+import java.io.PrintWriter;
+
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -226,5 +228,29 @@ public class UserController extends MultiActionController {
         }
 		return mav;
 	}
+
+	/**
+	 * 忘记密码，验证账号
+	 * @param request
+	 * @param response
+	 * @throws Exception
+	 */
+	public void verifyAccount(HttpServletRequest request,
+			HttpServletResponse response) throws Exception {
+		
+        String logonName=request.getParameter("logonName");
+        String passwd=request.getParameter("passwd");
+		Cust cust=userService.login(logonName, passwd);
+		String result="success";
+		if(null==cust){
+			result="fail";
+		}
+		PrintWriter out=response.getWriter();  
+
+		out.print(result);
+		out.close();
 	
+	}
+
+
 }
