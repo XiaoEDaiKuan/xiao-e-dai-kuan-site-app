@@ -19,6 +19,17 @@ $(document).ready(
 						tipsWindown("提示", "iframe:iframe:pop_删除记录.html", "345",
 								"145", "true", "", "false", "text", "");
 					});
+			$("#pop_information").click(
+					function() {
+						tipsWindown("身份信息",
+								"iframe:iframe:pop_information.html", "420",
+								"180", "true", "", "false", "text", "");
+					});
+			$("#pop_contact").click(
+					function() {
+						tipsWindown("联系方式", "iframe:iframe:pop_contact.html",
+								"420", "250", "true", "", "false", "text", "");
+					});
 		});
 
 setTimeout('_magicTimeout()', 20 * 1000);
