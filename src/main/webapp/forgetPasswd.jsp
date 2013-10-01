@@ -97,6 +97,7 @@ function OnVcodeFocus(){
      }
 }
 
+
 function  OnVcodeBlur(obj,HTMLid,msgnum)
 {
   jQuery.ajax(
