@@ -30,8 +30,8 @@
           <td><input name="" type="password" class="input" /></td>
         </tr>
         <tr>
-          <td colspan="2" height="70"><input name="" type="button" value="" class="p_save" />
-            <input name="" type="button" value="" class="p_cancel" /></td>
+          <th></th>
+          <td colspan="2" height="70"><input name="" type="button" value="" class="p_save" /></td>
         </tr>
       </table>
     </div>

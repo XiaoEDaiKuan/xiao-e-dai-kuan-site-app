@@ -3,7 +3,7 @@
 .padd{padding:25px 0 10px 0;}
 .mt20{margin-top:20px;}
 
-/* 登录 login */
+/* 鐧诲綍 login */
 .login{width:100%;height:568px;margin:0 auto;background:url(../images/login_bj1.jpg) no-repeat center top;}
 .login1{width:982px;margin:0 auto;padding:80px 18px 0 0; clear:both; overflow:hidden;}
 .login2{float:right;width:332px;}
@@ -21,7 +21,7 @@
 .login4{width:267px;height:56px;margin:0 auto;border-top:1px solid #d2d4d7;line-height:33px;color:#a0a3a7;text-align:center;}
 .login5{width:315px;height:54px;margin-left:8px;background:url(../images/login_ft.jpg) no-repeat;}
 
-/* 注册 registered */
+/* 娉ㄥ唽 registered */
 .registered{float:left;color:#000;line-height:112px;padding-left:23px;font-size:18px;}
 .registered_title{width:100%;height:97px;background:url(../images/registered_bj.jpg) repeat-x left top;}
 .registered_title1{width:1000px;height:96px;margin:0 auto;background:url(../images/registered_ad.jpg) no-repeat center center;}
@@ -44,18 +44,18 @@
 .terms{width:604px;height:120px;padding:10px;border:1px solid #e6e6e6;background:#fff; overflow:hidden; overflow-y:auto;line-height:21px;color:#666;}
 .btn2{wdith:1000px;padding:25px 0;margin:0 auto;text-align:center;}
 
-/*注册成功 registered_ok*/
+/*娉ㄥ唽鎴愬姛 registered_ok*/
 .reg_ok{width:565px;margin:0 auto; clear:both; overflow:hidden;padding:105px 0 20px 0;}
 .reg_ok1{float:left;width:120px;height:115px;background:url(../images/reg_ok.jpg) no-repeat left top;}
 .reg_ok2{float:right;width:420px;font-size:18px;color:#000;}
 .reg_ok2 font{font-size:28px;color:#f87a01;line-height:62px;padding-top:15px;}
 .reg_ok_btn{width:94px;height:29px;background:url(../images/btn.jpg) no-repeat left -30px; cursor:pointer;}
 
-/*信贷经理入驻 manager*/
+/*淇¤捶缁忕悊鍏ラ┗ manager*/
 .back_home3{width:94px;height:29px;background:url(../images/btn.jpg) no-repeat left -390px; cursor:pointer;}
 
 
-/* 会员中心 members */
+/* 浼氬憳涓績 members */
 .members{width:1000px;margin:0 auto;padding:38px 0 40px 0;}
 .members_left{float:left;width:192px;}
 .members_left1{width:192px;height:53px;background:url(../images/members_left1.png) no-repeat left top;}
@@ -78,7 +78,7 @@
 .me_next span{color:#b2b2b2;padding:0 15px;}
 .me_next span font{color:#fe0002;font-size:12px;}
 
-/*信用评分器 score*/
+/*淇＄敤璇勫垎鍣�score*/
 .back_home{float:right;line-height:100px;padding-right:10px;}
 .back_home a{font-size:14px;color:#004f94;}
 .score{width:100%;height:56px;background:url(../images/score_line.jpg) repeat-x left top;margin:0 auto;}
@@ -105,7 +105,7 @@
 .score3{width:995px;margin:0 auto;text-align:right;height:35px;}
 .score3 a{font-size:14px;color:#004f94;}
 
-/*信用评分器用户类型选择 score_choose*/
+/*淇＄敤璇勫垎鍣ㄧ敤鎴风被鍨嬮�鎷�score_choose*/
 .choose1{float:left;width:229px;padding:20px 80px 0 140px;}
 .choose1_1{width:229px;height:229px;background:url(../images/choose1.jpg) no-repeat left top;}
 .choose1_2{width:229px;height:229px;background:url(../images/choose2.jpg) no-repeat left top;}
@@ -115,7 +115,7 @@
 .choose2{width:945px;margin:0 auto;font-size:14px;color:#555;text-align:center;line-height:25px;}
 .choose2 a{color:#ff5f01;}
 
-/*计算结果 score_results*/
+/*璁＄畻缁撴灉 score_results*/
 .res_left{float:left;width:307px;height:307px;padding:37px 0 0 76px;background:url(../images/score_results.jpg) no-repeat right bottom;text-align:center;}
 .res_left font{display:block;padding-top:125px;font-size:12px;color:#82a0ab;}
 .res_left p{line-height:63px;font-size:36px;color:#3d88db;}
@@ -140,10 +140,10 @@
 .res3 font{font-size:12px;color:#5e5e5e;}
 .res3 a{color:#fe7e00;padding-left:15px;}
 
-/* 关于云金融 financial*/
+/* 鍏充簬浜戦噾铻�financial*/
 .financial{float:right;width:790px;padding:1px;min-height:418px;height:100%;_height:418px;}
 
-  /* 意见反馈 opinion */
+  /* 鎰忚鍙嶉 opinion */
 .opinion{width:100%;height:8px;background:#e9f1f4;font-size:0;}
 .opinion1{width:520px;margin:0 auto;padding-top:33px;}
 .opinion1_1{float:left;width:139px;}
@@ -169,15 +169,15 @@
 .opinion4{padding:15px 0;text-align:center;}
 .opinion4 input{width:94px;height:29px;background:url(../images/btn.jpg) no-repeat left -210px; cursor:pointer;}
 
-  /* 什么是云金融 financial */
+  /* 浠�箞鏄簯閲戣瀺 financial */
 .fin{width:730px;padding:25px 0 0 0;margin:0 auto;}
 .fin p{line-height:27px;font-size:12px;color:#333; text-indent:2em;padding-bottom:20px;}
  
-  /* 我的消息 message */
+  /* 鎴戠殑娑堟伅 message */
 .message{width:690px;margin:0 auto;padding-top:15px;}
 .message1{height:25px;line-height:25px;font-size:12px;color:#000;padding:10px 0 0 10px;}
 .message1 b{color:#ff5f01;}
-    /* js css 开始*/
+    /* js css 寮�*/
 .mes_tit{width:100%;height:23px;line-height:23px;text-align:center;border-bottom:1px solid #e3e6eb;font-size:12px;olor:#000; cursor:pointer; clear:both; overflow:hidden;}
 .mes_tit span{float:left;width:37px;height:23px;}
 .mes_tit span input{margin-top:5px;_margin-top:0;*margin-top:0;}
@@ -193,7 +193,7 @@
 .mes_tit1 p{float:left;width:340px;padding:0 5px;}
 .mes_tit1 a{float:left;width:115px;}
 .n_content{color:#333;background:#f2f8fd;padding:15px 40px;line-height:20px;margin-bottom:3px;text-align:left;}
-     /* js css 结束*/
+     /* js css 缁撴潫*/
 .message2{width:100%;height:21px;line-height:21px;text-align:center;border-top:1px solid #c1c8d2;border-bottom:1px solid #c1c8d2;font-size:12px;olor:#000;background:#f2f4f6; clear:both; overflow:hidden;}
 .message2 span{float:left;width:35px;height:21px;border-right:1px solid #c6c9ca;border-left:1px solid #fff;}
 .message2 span input{margin-top:4px;_margin-top:0;*margin-top:0;}
@@ -209,7 +209,7 @@
 .n_btn5{width:50px;height:24px;line-height:24px;font-size:12px;color:#000;background:url(../images/del_btn.jpg) no-repeat left top;}
 .n_btn6{width:74px;height:24px;line-height:24px;font-size:12px;color:#000;background:url(../images/n_yidu.jpg) no-repeat left top;}
 
-  /*编辑资料 editdata */
+  /*缂栬緫璧勬枡 editdata */
 .edit{padding-top:20px;}
 .editd{background:#f5f7f8;height:37px;line-height:37px;font-size:12px;color:#e17025;padding:0 0 0 23px;margin-top:1px;}
 .editd1{width:665px;margin:0 auto;height:30px;line-height:30px;padding:10px 10px 0 10px;border-bottom:1px solid #e3e6eb;}
@@ -223,8 +223,8 @@
 .editd4{width:500px;margin:0 auto;height:65px;padding-top:30px;text-align:center;}
 
 
-  /*我的提问 MyQuestions*/
-    /* 折叠文字 js样式 */
+  /*鎴戠殑鎻愰棶 MyQuestions*/
+    /* 鎶樺彔鏂囧瓧 js鏍峰紡 */
 #nav{margin:0 auto;width:710px;padding:10px 0 30px 0;}
 #nav em{color:#000;}
 .title{height:34px;line-height:34px;border-bottom:1px dashed #ddd;font-size:12px;color:#777;padding:0 13px 0 30px;cursor:pointer;background:url(../images/n_xia.jpg) no-repeat 10px center;}
@@ -238,16 +238,16 @@
 .title1 span{float:right;width:150px;font-size:12px;text-align:right;}
 .content li{color:#333;background:#f1f7fc;padding:5px 28px;line-height:20px;margin-bottom:2px;}
 
-  /* 修改密码 Password */
+  /* 淇敼瀵嗙爜 Password */
 .password{width:400px;margin:0 auto;padding:70px 0 0 0;}
 .password table{color:#000;font-size:12px;}
 .password table th{text-align:right;padding-right:5px;font-weight:normal;height:45px;line-height:28px;}
 .password table td{padding-left:5px;height:45px;}
 .password table td input{width:178px;height:26px;line-height:26px;}
-.password table td input.p_save{width:94px;height:29px;background:url(../images/btn.jpg) no-repeat left -240px; cursor:pointer;margin:20px 65px 0 35px;}
+.password table td input.p_save{width:94px;height:29px;background:url(../images/btn.jpg) no-repeat left -240px; cursor:pointer;margin:20px 65px 0 0px;}
 .password table td input.p_cancel{width:94px;height:29px;background:url(../images/btn.jpg) no-repeat left -270px; cursor:pointer;margin-top:20px;}
 
-   /*404错误页面*/
+   /*404閿欒椤甸潰*/
 .error{width:495px;margin:0 auto;padding:60px 0 0 0;}
 .error1{float:left;width:283px;padding-top:30px;}
 .error1 input{display:block;width:133px;height:29px;background:url(../images/btn.jpg) no-repeat left -360px;margin:0 auto;margin-top:25px; cursor:pointer;}
@@ -259,8 +259,8 @@
 
 
 
-/*===========弹出框代码 开始============*/
-  /*订单取消*/
+/*===========寮瑰嚭妗嗕唬鐮�寮�============*/
+  /*璁㈠崟鍙栨秷*/
 .pop_cancel{width:250px;margin:0 auto;}
 .pop_cancel1{height:88px;line-height:88px;font-size:16px;color:#000;font-weight:bold;padding-left:40px;background:url(../images/pop_cancel1.jpg) no-repeat left center;}
 .pop_cancel2{text-align:center;}
@@ -268,7 +268,7 @@
 .cancel_det{width:94px;height:29px;background:url(../images/btn.jpg) no-repeat left -330px;}
 .cancel_can{width:94px;height:29px;background:url(../images/btn.jpg) no-repeat left -270px;}
 
-  /*联系方式  身份信息 编辑*/
+  /*鑱旂郴鏂瑰紡  韬唤淇℃伅 缂栬緫*/
 .pop_contact{margin:0 auto;padding:20px 0;}
 .pop_contact p{height:38px;line-height:35px;font-size:12px;color:#000;}
 .pop_contact p font{float:left;width:125px;font-size:12px;line-height:28px;text-align:right;}
@@ -278,10 +278,10 @@
 .pop_contact1 input{ cursor:pointer;margin:0 15px;}
 .pop_save{width:94px;height:29px;background:url(../images/btn.jpg) no-repeat left -240px; cursor:pointer;margin:20px 65px 0 35px;}
 
-  /*我要提问*/
+  /*鎴戣鎻愰棶*/
 .pop_question{width:505px;margin:0 auto;}
 .pop_question1{height:45px;line-height:45px;margin:0 auto;}
-.pop_question1 span{float:left;font-size:16px;color:#000;font-family:"微软雅黑";}
+.pop_question1 span{float:left;font-size:16px;color:#000;font-family:"寰蒋闆呴粦";}
 .pop_question1 font{float:right;font-size:12px;color:#999;}
 .pop_question1 font em{color:#000;}
 .n_srk2{background:#fff;border:1px solid #ccc;}
@@ -302,7 +302,7 @@
 .pop_table3 tr td b{font-weight:normal;}
 .pop_submit{width:94px;height:29px;background:url(../images/btn.jpg) no-repeat left -210px; cursor:pointer;}
 
-  /*切换城市*/
+  /*鍒囨崲鍩庡競*/
 .pop_city{line-height:30px;padding:0 20px;}
 .pop_city a{color:#777;padding-right:10px;}
 .pop_city a:hover{color:#ff5f01;}
@@ -311,7 +311,7 @@
 .pop_city3{padding:20px 50px 0;text-align:right;}
 .pop_switch{width:94px;height:29px;background:url(../images/btn.jpg) no-repeat left -420px; cursor:pointer;}
 
-  /*贷款申请信息*/
+  /*璐锋鐢宠淇℃伅*/
 
 .loan{width:310px;margin:0 auto;}
 .loan table tr th{height:37px;font-size:14px;color:#000;text-align:right;font-size:14px;line-height:28px;font-weight:normal;}
