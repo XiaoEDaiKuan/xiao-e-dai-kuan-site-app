@@ -10,8 +10,8 @@
 			<li><a href="myMessage">我的消息</a></li>
 			<li><a href="myCreditScore">我的信用评分</a></li>
 			<li><a href="editMyInfo">编辑资料</a></li>
-			<li><a href="me_MyQuestions.html">我的提问</a></li>
-			<li><a href="me_Password.html">修改密码</a></li>
+			<li><a href="myQuestion">我的提问</a></li>
+			<li><a href="changePassword">修改密码</a></li>
 		</ul>
 	</div>
 </div>

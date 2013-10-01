@@ -50,6 +50,8 @@
 				<prop key="myMessage">userController</prop>
 				<prop key="myCreditScore">userController</prop>
 				<prop key="editMyInfo">userController</prop>
+				<prop key="myQuestion">userController</prop>
+				<prop key="changePassword">userController</prop>
 				<!-- 邮箱验证 -->
 				<prop key="mailAuthentication">userController</prop>
 				<prop key="handleCaptcha">captchaController</prop>

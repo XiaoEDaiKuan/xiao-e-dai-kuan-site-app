@@ -272,4 +272,17 @@ public class UserController extends MultiActionController {
 		mav.setViewName("member/editMyInfo");
 		return mav;
 	}
+	
+	public ModelAndView myQuestion(HttpServletRequest request,
+			HttpServletResponse response) throws Exception {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("member/myQuestion");
+		return mav;
+	}
+	public ModelAndView changePassword(HttpServletRequest request,
+			HttpServletResponse response) throws Exception {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("member/changePassword");
+		return mav;
+	}
 }
