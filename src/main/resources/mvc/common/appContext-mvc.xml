@@ -57,6 +57,7 @@
 				
 				<prop key="QA">questionController</prop>
 				<prop key="viewAnswer">questionController</prop>
+				<prop key="questionSearch">questionController</prop>
 			</props>
 		</property>
 	</bean>
