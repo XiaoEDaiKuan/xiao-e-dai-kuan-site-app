@@ -44,6 +44,11 @@
 				<prop key="loginView">userController</prop>
 				<prop key="reg">userController</prop>
 				<prop key="createUser">userController</prop>
+				<prop key="myDaikuan">userController</prop>
+				<prop key="pop_CancelOrder">userController</prop>
+				<prop key="pop_CancelOrderOK">userController</prop>
+				<prop key="verifyAccount">userController</prop>
+			
 				<!-- 邮箱验证 -->
 				<prop key="mailAuthentication">userController</prop>
 				<prop key="handleCaptcha">captchaController</prop>
@@ -56,6 +61,11 @@
 				<prop key="saveOrderInfo">orderController</prop>
 				
 				<prop key="QA">questionController</prop>
+				<prop key="viewAnswer">questionController</prop>
+				<prop key="questionSearch">questionController</prop>
+				<prop key="postQuestionForm">questionController</prop>
+				<prop key="postQuestionFormSave">questionController</prop>
+				
 			</props>
 		</property>
 	</bean>
