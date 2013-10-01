@@ -30,7 +30,7 @@
 						<td>00万元</td>
 						<td>2013-09-08&nbsp;11:23:26</td>
 						<td>等待预审</td>
-						<td><a href="#" data="1234" class="pop_Cancel_order">取消订单</a></td>
+						<td><a href="#" data="{订单号：1234}" class="pop_Cancel_order">取消订单</a></td>
 					</tr>
 				</table>
 				<div class="me_next padd">

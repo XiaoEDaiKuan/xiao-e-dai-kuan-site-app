@@ -238,4 +238,17 @@ public class UserController extends MultiActionController {
 		return mav;
 	}
 	
+	public ModelAndView pop_CancelOrder(HttpServletRequest request,
+			HttpServletResponse response) throws Exception {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("member/pop_CancelOrder");
+		return mav;
+	}
+	
+	public ModelAndView pop_CancelOrderOK(HttpServletRequest request,
+			HttpServletResponse response) throws Exception {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("member/myDaikuan");
+		return mav;
+	}
 }

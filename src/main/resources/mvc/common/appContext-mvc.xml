@@ -45,6 +45,9 @@
 				<prop key="reg">userController</prop>
 				<prop key="createUser">userController</prop>
 				<prop key="myDaikuan">userController</prop>
+				<prop key="pop_CancelOrder">userController</prop>
+				<prop key="pop_CancelOrderOK">userController</prop>
+				
 				<!-- 邮箱验证 -->
 				<prop key="mailAuthentication">userController</prop>
 				<prop key="handleCaptcha">captchaController</prop>
