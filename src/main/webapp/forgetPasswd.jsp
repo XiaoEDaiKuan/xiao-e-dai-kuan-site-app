@@ -80,6 +80,29 @@ function  OnBlur(obj,HTMLid,msgnum)
 
       $(HTMLid).style.display = "none";
       jQuery("#txtEmail").removeClass("label_focus");
+    jQuery.ajax(
+    {
+       url:'verifyAccount',
+       type:'post',
+       data:{captcha:jQuery("#txtVerifyCode").val()},
+       dataType:"text",
+       success: function(data){
+       if(data=="fail"){
+             $(HTMLid).innerHTML=msg[3];
+             $(HTMLid).style.display = "inline-block";
+             $(HTMLid).className = "wrong_box clearfix";
+             $('vcode_ok').style.display = "none";
+             reloadCaptcha();
+         }else if(data=="success"){
+             $(HTMLid).style.display = "none";
+             jQuery("#txtVerifyCode").removeClass("label_focus");     
+             $('vcode_ok').className = "tip_yes";
+             $('vcode_ok').style.display = "inline-block";
+                      
+         }             
+        }
+    });
+
 }
 
 function OnVcodeFocus(){

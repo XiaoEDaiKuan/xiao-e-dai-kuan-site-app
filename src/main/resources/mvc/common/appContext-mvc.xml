@@ -49,6 +49,7 @@
 				<prop key="pop_CancelOrderOK">userController</prop>
 				<prop key="verifyAccount">userController</prop>
 			
+			
 				<!-- 邮箱验证 -->
 				<prop key="mailAuthentication">userController</prop>
 				<prop key="handleCaptcha">captchaController</prop>
