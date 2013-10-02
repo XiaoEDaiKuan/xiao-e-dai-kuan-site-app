@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form action="login" method="post">
+	<form action="loginFormAction" method="post">
 		<table width="100%" border="0" cellspacing="0" cellpadding="0">
 			<tr>
 				<th>账&nbsp;&nbsp;&nbsp;号：</th>
