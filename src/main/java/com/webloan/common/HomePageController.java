@@ -33,8 +33,7 @@ public class HomePageController implements Controller {
 		List<Question> hiQusts = questionService.qryHighQuest();
 		mav.addObject("hiQusts", hiQusts);
 		
-		throw new RuntimeException();
-//		return mav;
+		return mav;
 	}
 
 }

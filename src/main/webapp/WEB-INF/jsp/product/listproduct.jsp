@@ -89,21 +89,30 @@
         
         $(".formItem").each(function(){
         	var val = $(this).val();
-        	if(val != null){
+        	if(val){
         		url += $(this).attr("id") + "=" + val + "&";
         	}
         });
         
         $("#selectedString div").each(function(){
-        	url += $(this).attr("data") + "=" + $(this).attr("value") + "&";
+        	var val = $(this).attr("value");
+        	if (val) {
+        		url += $(this).attr("data") + "=" + val + "&";
+        	}
         });
         
         $(".insort").each(function(){
-        	url += $(this).attr("data") + "=" + $(this).attr("value") + "&";
+        	var val = $(this).attr("value");
+        	if (val) {
+        		url += $(this).attr("data") + "=" + val + "&";
+        	}
         }); 
 
         $(".currentPager").each(function(){
-        	url += $(this).attr("data") + "=" + $(this).attr("value") + "&";
+        	var val = $(this).attr("value");
+        	if (val) {
+        		url += $(this).attr("data") + "=" + val + "&";
+        	}
         }); 
         return url;
     }
@@ -169,7 +178,8 @@
   <tr>
     <th width="18%" align="right" valign="middle">职业身份：</th>
           <td width="20%"><div id="tm2008style">
-	<select name="zhiye" id="zhiye" class="formItem">
+	<select name="identity" id="identity" class="formItem">
+		<option value="">请选择</option>
 		<option value="1">企业主</option>
 		<option value="2" >个体户</option>
 		<option value="3" >上班族</option>
@@ -178,14 +188,15 @@
 </div></td>
     <th width="12%" align="right" valign="middle">贷款金额：</th>
           <td width="20%"><div id="tm2008style">
-	<select name="jine" id="jine" class="formItem">
+	<select name="loanAmt" id="loanAmt" class="formItem">
+		<option value="">请选择</option>
 		<option value="3" >3万元</option>
 		<option value="5" >5万元</option>
 		<option value="10" >10万元</option>
 		<option value="20" >20万元</option>
 		<option value="50" >50万元</option>
 		<option value="100" >100万元</option>
-		<option value="other" >其他</option>
+		<option value="" >其他</option>
 	</select>
 </div></td>
           <td width="30%" rowspan="2" align="left" valign="middle"><a href="#"><img onclick="search()" src="images/img10.jpg" width="94" height="29" /></a></td>
@@ -194,7 +205,8 @@
   <tr>
     <th width="18%" align="right" valign="middle">贷款用途：</th>
           <td width="20%"><div id="tm2008style">
-	<select name="yongtu" id="yongtu" class="formItem">
+	<select name="loanUse" id="loanUse" class="formItem">
+		<option value="">请选择</option>
 		<option value="1">不限</option>
 		<option value="2" >经营贷款</option>
 		<option value="3" >消费贷款</option>
@@ -204,14 +216,15 @@
 </div></td>
     <th width="12%" align="right" valign="middle">贷款期限：</th>
           <td width="20%"><div id="tm2008style">
-	<select name="qixian" id="qixian" class="formItem">
-		<option value="3m">3个月</option>
-		<option value="6m" >6个月</option>
-		<option value="12m" selected="selected" >12个月</option>
-		<option value="2y" >2年</option>
-		<option value="3y" >3年</option>
-		<option value="5y" >5年</option>
-		<option value="10y" >10年</option>
+	<select name="loanIssue" id="loanIssue" class="formItem">
+		<option value="">请选择</option>
+		<option value="3">3个月</option>
+		<option value="6" >6个月</option>
+		<option value="12">12个月</option>
+		<option value="24" >2年</option>
+		<option value="36" >3年</option>
+		<option value="60" >5年</option>
+		<option value="120" >10年</option>
 	</select>
 </div></td>
           <td width="16%">&nbsp;</td>
@@ -250,55 +263,36 @@
 <div class="main3 ground">
   <div class="credit_title Fuzzysearch7"> 
      <div class="Loansearch7 ClearFix" id="orderBy"><a class="Loansearch8" onclick="removeOrder()">默认排序</a>
-     <a class="Loansearch8 Loansearch9" onclick="addOrder(this)" data="orderLx" value="0">总利息</a>
-     <a class="Loansearch8 Loansearch9 Loansearch10" onclick="addOrder(this)" data="orderYg" value="0">月供</a></div>
+     <a class="Loansearch8 Loansearch9" onclick="addOrder(this)" data="orderRate" value="0">总利息</a>
+     <a class="Loansearch8 Loansearch9 Loansearch10" onclick="addOrder(this)" data="orderMonthly" value="0">月供</a></div>
      <div class="Loansearch21">
      	<div id="uboxstyle">
-	<select name="language1" id="language1" class="formItem smallItem">
-		<option value="English"  selected="selected">English</option>
-		<option value="简体中文" >简体中文</option>
-		<option value="日本語" >日本語</option>
-		<option value="Deutsch" >Deutsch</option>
-		<option value="Espa?ol" >Espa?ol</option>
-		<option value="Fran?ais" >Fran?ais</option>
-		<option value="Italiano" >Italiano</option>
-		<option value="Polski" >Polski</option>
-		<option value="Português" >Português</option>
-		<option value="Svenska" >Svenska</option>
-		<option value="Türk?e" >Türk?e</option>
-		<option value="Руccкий" >Руccкий</option>
+	<select name="issueType" id="issueType" class="formItem smallItem">
+		<option value="">请选择</option>
+		<option value="0">银行</option>
+		<option value="1" >小额贷款公司</option>
+		<option value="2" >典当行</option>
+		<option value="3" >其他</option>
 	</select>
     </div>
     <div id="uboxstyle">
-	<select name="language2" id="language2" class="formItem smallItem">
-		<option value="English"  selected="selected">English</option>
-		<option value="简体中文" >简体中文</option>
-		<option value="日本語" >日本語</option>
-		<option value="Deutsch" >Deutsch</option>
-		<option value="Espa?ol" >Espa?ol</option>
-		<option value="Fran?ais" >Fran?ais</option>
-		<option value="Italiano" >Italiano</option>
-		<option value="Polski" >Polski</option>
-		<option value="Português" >Português</option>
-		<option value="Svenska" >Svenska</option>
-		<option value="Türk?e" >Türk?e</option>
-		<option value="Руccкий" >Руccкий</option>
+	<select name="guarantyType" id="guarantyType" class="formItem smallItem">
+		<option value="">请选择</option>
+		<option value="0">不需要抵押</option>
+		<option value="1" >需要抵押，但不限抵押物</option>
+		<option value="2" >车辆抵押</option>
+		<option value="3" >房屋抵押</option>
+		<option value="4" >信用卡</option>
+		<option value="5" >其他抵押</option>
+		<option value="6" >担保</option>
 	</select>
     </div>
     <div id="uboxstyle">
-	<select name="language3" id="language3" class="formItem smallItem">
-		<option value="English"  selected="selected">English</option>
-		<option value="简体中文" >简体中文</option>
-		<option value="日本語" >日本語</option>
-		<option value="Deutsch" >Deutsch</option>
-		<option value="Espa?ol" >Espa?ol</option>
-		<option value="Fran?ais" >Fran?ais</option>
-		<option value="Italiano" >Italiano</option>
-		<option value="Polski" >Polski</option>
-		<option value="Português" >Português</option>
-		<option value="Svenska" >Svenska</option>
-		<option value="Türk?e" >Türk?e</option>
-		<option value="Руccкий" >Руccкий</option>
+	<select name="repayType" id="repayType" class="formItem smallItem">
+		<option value="">请选择</option>
+		<option value="0">分期还款</option>
+		<option value="1" >到期还款</option>
+		<option value="2" >随借随还</option>
 	</select>
     </div>
      </div>
@@ -306,7 +300,7 @@
   
   <c:forEach var="prod" items="${products.items}">
   <div class="Loansearch11 ClearFix">
-  	<div class="Loansearch19"><a href="产品申请.html" target="_blank"><img src="images/img18.jpg" width="94" height="29" /></a></div>
+  	<div class="Loansearch19"><a style="cursor: pointer; cursor:hand" onclick="javascript:document.location.href=document.location.href.replace('queryProduct','productView') + '?&productId=${prod.product.id}'" target="_blank"><img src="images/img18.jpg" width="94" height="29" /></a></div>
   	<div class="Loansearch12">
     	<div class="Loansearch13">
         	<h1>${prod.product.issueOrgan}</h1>

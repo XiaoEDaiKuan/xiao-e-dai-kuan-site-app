@@ -34,10 +34,12 @@
 	<bean id="simpleUrlHandlerMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
 		<property name="mappings">
 			<props>
+				<!-- Home page -->
 				<prop key="/">homePageController</prop>
 				<prop key="/index.html">homePageController</prop>
+				<!-- 产品 -->
 				<prop key="queryProduct">productController</prop>
-				<prop key="queryProductByUser">productController</prop>
+				<prop key="productView">productController</prop>
 				<!-- 用户注册 -->
 				<prop key="createUser">userController</prop>
 				<prop key="login">userController</prop>

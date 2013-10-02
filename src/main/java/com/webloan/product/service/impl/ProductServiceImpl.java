@@ -1,5 +1,6 @@
 package com.webloan.product.service.impl;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,15 +27,63 @@ public class ProductServiceImpl implements ProductService {
 	public Product getProductById(Long productId) {
 		return productRepository.load(Product.class, productId);
 	}
+	public ProductAttach getAttachByProductId(Long productId) {
+		List<ProductAttach> attaches = productRepository.queryList(ProductAttach.class, 
+				new String[]{ "product.id" }, new Object[]{ productId });
+		return attaches != null && attaches.size() > 0 ? attaches.get(0) : null;
+	}
 
 	public Page pagingProductRecommend(int pageIndex, int pageSize, String recommendType) {
 		return productRepository.pagingProductByRecommend(pageIndex, pageSize, recommendType);
 	}
 	
 	public Page pagingProduct(ProductQuery pq) {
-		String[] keys = { "identity", "loanUse", "minLoanAmt", "maxLoanAmt", "estate", "vehicle", "credit", "product.issueType", "product.guarantyType", "product.repayType" };
-		Object[] vals = { pq.getIdentity(), pq.getLoanUse(), pq.getLoanAmt(), pq.getLoanAmt(), pq.getEstate(), pq.getVehicle(), pq.getCredit(), pq.getIssueType(), pq.getGuarantyType(), pq.getRepayType() };
-		String[] conds = { LIKE, EQ, GE, LE, EQ, EQ, EQ, EQ, EQ, EQ };
+		BigDecimal loanAmt = pq.getLoanAmt() == null ? null : new BigDecimal(10000).multiply(pq.getLoanAmt());
+		
+		String[] keys = { 
+			"identity", 
+			"loanUse", 
+			"minLoanAmt", 
+			"maxLoanAmt", 
+			"minLoanIssue", 
+			"maxLoanIssue", 
+			"estate", 
+			"vehicle", 
+			"credit", 
+			"product.issueType", 
+			"product.guarantyType", 
+			"product.repayType" 
+		};
+		
+		Object[] vals = { 
+			pq.getIdentity(), 
+			pq.getLoanUse(), 
+			loanAmt, 
+			loanAmt, 
+			pq.getLoanIssue(), 
+			pq.getLoanIssue(), 
+			pq.getEstate(), 
+			pq.getVehicle(), 
+			pq.getCredit(), 
+			pq.getIssueType(), 
+			pq.getGuarantyType(), 
+			pq.getRepayType() 
+		};
+		
+		String[] conds = { 
+			LIKE, 
+			EQ, 
+			GE, 
+			LE, 
+			GE, 
+			LE, 
+			EQ, 
+			EQ, 
+			EQ, 
+			EQ, 
+			EQ, 
+			EQ 
+		};
 		
 		List<String> ordKeys = new ArrayList<String>();
 		List<String> ordVals = new ArrayList<String>();

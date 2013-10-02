@@ -1,9 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
- <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<title>无标题文档</title>
+<title>贷款申请</title>
 <%@include file="../../inc/globalScript.jsp" %>
 <script>
 <!--
@@ -78,19 +78,23 @@ con.style.display=i==cursel?"block":"none";
             </div>
         	<div class="applicationleft">
             	<div class="credit ground Loansearch3 clear">
-      <div class="credit_title"> <span class="credit_title1 font_f">花旗银行-幸福时代</span></div>
+      <div class="credit_title"> <span class="credit_title1 font_f">${prod.product.issueOrgan} - ${prod.product.name}</span></div>
       <div class="applicationleft1 ClearFix">
       	<ul class="applicationleft4">
-        	<li>贷款金额<span>100</span>万元</li>
-            <li>期限<span>10</span>月</li>
+        	<li>贷款金额<span>${pq.loanAmt}</span>万元</li>
+            <li>期限<span>${pq.loanIssue}</span>月</li>
             <li>总利息<span>100</span>万元</li>
             <li>月供<span>100</span>元</li>
-            <li>利率说明:月利率<span>100</span></li>
+            <li>利率说明:月利率<span>${prod.product.intrRate}</span></li>
             <li>提前还款说明</li>
         </ul>
       	<div class="applicationleft2"><img src="images/img19.jpg" width="110" height="67" /></div>
         <div class="Loansearch13 applicationleft3">
-            <p><span class="Loansearch14">无需抵押</span><br /><span class="Loansearch14 Loansearch15">上班族可申请</span><br /><span class="Loansearch14 Loansearch16">5天放款</span></p>
+            <p>
+            <span class="Loansearch14">${prod.product.guarantyType}</span><br />
+            <span class="Loansearch14 Loansearch15">${prod.identity}</span><br />
+            <span class="Loansearch14 Loansearch16">${prod.product.paidDays}天放款</span>
+            </p>
             <a href="#"><img src="images/img21.jpg" width="94" height="29" id="pop_login" /></a>
         </div>
       </div>
@@ -102,26 +106,26 @@ con.style.display=i==cursel?"block":"none";
   <div class="applicationleft6">
   	<div class="applicationleft7">
     	<h1>申请条件</h1>
-        <p>有1年以上房贷记录即可申请，条件宽松，当天放款<br />有1年以上房贷记录即可申请，条件宽松，当天放款</p>
+        <p>${prod.product.appReq}</p>
     </div>
     <div class="applicationleft7">
     	<h1>所需材料</h1>
-        <p>有1年以上房贷记录即可申请，条件宽松，当天放款<br />有1年以上房贷记录即可申请，条件宽松，当天放款</p>
+        <p>${prod.product.appMaterial}</p>
     </div>
     <div class="applicationleft7">
     	<h1>利率说明</h1>
-        <p>有1年以上房贷记录即可申请，条件宽松，当天放款<br />有1年以上房贷记录即可申请，条件宽松，当天放款</p>
+        <p>${prod.product.intrDesc}</p>
     </div>
     <div class="applicationleft7 applicationleft8">
     	<h1>常见问题</h1>
+    	<c:forEach var="q" items="${questions}">
         <div class="applicationleft9">
-        	<div class="applicationleft10"><span>2013-10-10</span><p>问题:了房间啊设立考间啊设立考点附近间啊设立考点附近间啊设立考点附近间啊设立考点附近间啊设立考点附近间啊设立考点附近间啊设立考点附近间啊设立考点附近间啊设立考点附近间啊设立考点附近间啊设立考点附近间啊设立考点附近间啊设立考点附近点附近；垃圾水电费健康</p></div>
-            <div class="applicationleft10 applicationleft11"><span>2013-10-10</span><p>回答:了房间啊设立考间啊设立考点附近间啊设立考点附近间啊设立考点附近间啊设立考点附近间啊设立考点附近间啊设立考点附近间啊设立考点附近间啊设立考点附近间啊设立考点附近间啊设立考点附近间啊设立考点附近间啊设立考点附近间啊设立考点附近点附近；垃圾水电费健康</p></div>
+        	<div class="applicationleft10"><span>${q.askTime}</span><p>问题: ${q.detail}</p></div>
+        	<c:forEach var="a" items="${q.answers}">
+            <div class="applicationleft10 applicationleft11"><span>${a.answerTime}</span><p>回答: ${a.answerContent}</p></div>
+        	</c:forEach>
         </div>
-        <div class="applicationleft9">
-        	<div class="applicationleft10"><span>2013-10-10</span><p>问题:了房间啊设立考间啊设立费健康</p></div>
-            <div class="applicationleft10 applicationleft11"><span>2013-10-10</span><p>回答:了房间啊</p></div>
-        </div>
+    	</c:forEach>
         <div class="applicationleft12"><a href="#" id="pop_question"><img src="images/img25.jpg" width="94" height="29" /></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#"><img src="images/img26.jpg" width="94" height="29" /></a></div>
     </div>
   </div>
