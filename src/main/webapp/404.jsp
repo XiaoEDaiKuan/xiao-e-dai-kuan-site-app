@@ -32,9 +32,9 @@
       <input name="" type="button" value="" onClick="location.href='index.html'" />
       <p>5秒钟后将自动跳转到网站首页</p>
     </div>
-    <div class="error2"></div>
   </div>
   <div class="kong2"></div>
+  <div class="error2"></div>
 </div>
 <div class="footer2">
   <div class="footer2_2"><font>版权所有：北京玖富时代投资顾问有限公司 copyright 2012</font><br />
