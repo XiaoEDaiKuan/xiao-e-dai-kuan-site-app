@@ -10,7 +10,6 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.Controller;
 
 import com.webloan.common.dict.RecommendType;
-import com.webloan.model.Product;
 import com.webloan.model.Question;
 import com.webloan.product.service.ProductService;
 import com.webloan.question.service.QuestionService;
@@ -34,8 +33,8 @@ public class HomePageController implements Controller {
 		List<Question> hiQusts = questionService.qryHighQuest();
 		mav.addObject("hiQusts", hiQusts);
 		
-		
-		return mav;
+		throw new RuntimeException();
+//		return mav;
 	}
 
 }
