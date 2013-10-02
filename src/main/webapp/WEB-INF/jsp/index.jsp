@@ -119,7 +119,7 @@
     <div class="credit ground">
       <div class="credit_title"> <span class="credit_title1 font_f">热门信用贷款</span> <span class="credit_title2">无需抵押 担保</span> <a target="_blank" href="贷款搜索.html">更多信用贷款</a> </div>
       <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table">
-		<c:forEach var="hcrProd" items="${hcrProds}">
+		<c:forEach var="hcrProd" items="${hcrProds.items}">
 		<tr>
           <td width="11%"><img src="images/credit01.jpg" width="40" height="21" /></td>
           <td width="18%">${hcrProd.name}</td>
@@ -132,7 +132,7 @@
     <div class="credit ground">
       <div class="credit_title"> <span class="credit_title1 font_f">热门特色贷款</span></div>
       <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table">
-		<c:forEach var="hchProd" items="${hchProds}">
+		<c:forEach var="hchProd" items="${hchProds.items}">
 		<tr>
           <td width="11%"><img src="images/credit01.jpg" width="40" height="21" /></td>
           <td width="18%">${hchProd.name}</td>
