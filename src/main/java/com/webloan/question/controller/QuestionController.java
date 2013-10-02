@@ -62,4 +62,14 @@ public class QuestionController extends MultiActionController{
 		mav.setViewName("question/postQuestionForm");
 		return mav;
 	}
+	
+	
+	
+	///////////////////////////////////////////////////
+	
+	public ModelAndView scoreChoose(HttpServletRequest request, HttpServletResponse response) {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("score/scoreChoose");
+		return mav;
+	}
 }
