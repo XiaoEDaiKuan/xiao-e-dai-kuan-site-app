@@ -65,11 +65,32 @@ public class QuestionController extends MultiActionController{
 	
 	
 	
-	///////////////////////////////////////////////////
+	/////////////////////////////////////////////////// 评分器的Controller
 	
 	public ModelAndView scoreChoose(HttpServletRequest request, HttpServletResponse response) {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("score/scoreChoose");
+		return mav;
+	}
+	
+	public ModelAndView scorePerson(HttpServletRequest request, HttpServletResponse response) {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("score/score");
+		return mav;
+	}
+	
+	public ModelAndView scoreCompany(HttpServletRequest request, HttpServletResponse response) {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("score/scoreCompany");
+		return mav;
+	}
+	
+	public ModelAndView scoreSave(HttpServletRequest request, HttpServletResponse response) {
+		ModelAndView mav = new ModelAndView();
+		//没有登录，导向登录页面
+		mav.setViewName("user/login");
+		//保存成功，返回会员
+		//mav.setViewName("member/myCreditScore");
 		return mav;
 	}
 }

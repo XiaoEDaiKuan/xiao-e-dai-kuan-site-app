@@ -6,10 +6,10 @@
 	</div>
 	<div class="assistant1">
 		<div class="assistant1_1">
-			<a href="score_choose.html" class="cal"></a>
+			<a href="scoreChoose" class="cal"></a>
 		</div>
 		<div class="assistant1_2">
-			<a href="score_choose.html">云信用评分器</a><br />测测你能贷多少
+			<a href="scoreChoose">云信用评分器</a><br />测测你能贷多少
 		</div>
 	</div>
 
