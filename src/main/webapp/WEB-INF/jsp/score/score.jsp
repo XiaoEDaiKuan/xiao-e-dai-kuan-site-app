@@ -90,6 +90,7 @@ var reset = function(){
     $("#nextBtn").show();
     $("#resultData").html("");
     $("#shenqingBtn").hide();
+    $("#resultData").css("background","url('images/score_pic_10.jpg') no-repeat right bottom");
     showQuestion();
 }
 </script>
