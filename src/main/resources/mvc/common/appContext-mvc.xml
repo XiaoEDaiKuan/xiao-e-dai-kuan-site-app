@@ -74,6 +74,7 @@
 				<prop key="questionSearch">questionController</prop>
 				<prop key="postQuestionForm">questionController</prop>
 				<prop key="postQuestionFormSave">questionController</prop>
+				<prop key="scoreChoose">questionController</prop>
 				
 			</props>
 		</property>

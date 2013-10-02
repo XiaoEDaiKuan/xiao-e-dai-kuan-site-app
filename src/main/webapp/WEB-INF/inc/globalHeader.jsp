@@ -55,8 +55,8 @@
 						<li><a href="贷款搜索.html" class="w_a1" target="_blank">购车贷款</a></li>
 						<li><a href="贷款搜索.html" class="w_a1" target="_blank">购房贷款</a></li>
 					</ul></li>
-				<li><a href="score_choose.html" target="_blank">信用评分</a></li>
-				<li><a href="#" target="_blank">金融团</a> <i></i></li>
+				<li><a href="scoreChoose" target="_blank">信用评分</a></li>
+				<li><a target="_blank">金融团</a> <i></i></li>
 				<li><a href="#" target="_blank">贷款攻略</a></li>
 				<li class="border-bt"><a href="QA" target="_blank">贷款问答</a></li>
 			</ul>
