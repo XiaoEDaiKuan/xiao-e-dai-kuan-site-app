@@ -22,7 +22,7 @@
   <div class="choose1 font_f">
     <div class="choose1_2"></div>
     <p>私营企业主或个体工商户</p>
-    <span><a href="scoreCom">进入&gt;&gt;</a></span>
+    <span><a href="scoreCompany">进入&gt;&gt;</a></span>
   </div>
 </div>
 <div class="choose2 font_f">

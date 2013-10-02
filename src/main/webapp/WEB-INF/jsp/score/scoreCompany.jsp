@@ -110,13 +110,14 @@ var reset = function(){
     </div>
     <div class="kong2"></div>
     <div class="score_right2">
-        <input name="" type="button" id="nextBtn" value="" class="score_btn1" onClick="next()" />
-        <form action="" method="post">
+        <input name="" type="button" id="nextBtn" value="" class="score_btn1" onclick="next()" />
+        <form action="scoreSave" target="_top" method="post">
             <input type="hidden" id="strCreditMin" name="strCreditMin"/>
             <input type="hidden" id="strCreditMax" name="strCreditMax"/>
+            <input type="hidden" id="strCreditType" name="strCreditType" value="company"/>
             <input name="" type="submit" id="shenqingBtn" value="" style="background:url('images/img21.jpg')" class="score_btn1" />
         </form>
-        <input name="" type="button" value="" class="score_btn2" onClick="reset()"/>
+        <input name="" type="button" value="" class="score_btn2" onclick="reset()"/>
       </div>
   </div>
 </div>
