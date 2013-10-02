@@ -195,14 +195,7 @@
       <div class="sina1"><a href="#" class="weixin"></a><p>平台微信二维码</p></div> 
       </div>   
     </div>
-    <div class="assistant ground">
-      <div class="credit_title"> <span class="credit_title1 font_f">贷款助手</span></div>
-      <div class="assistant1">
-        <div class="assistant1_1"><a href="score_choose.html" class="cal" target="_blank"></a></div>
-        <div class="assistant1_2"><a href="score_choose.html" target="_blank">云信用评分器</a><br />测测你能贷多少</div>
-      </div>
-     
-    </div>
+    <%@include file="WEB-INF/inc/daikuanTools.jsp" %>
   </div>
 </div>
 <div class="main3 padding-bt ground">

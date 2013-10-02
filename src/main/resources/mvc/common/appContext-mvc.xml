@@ -79,6 +79,11 @@
 				<prop key="scoreCompany">questionController</prop>
 				<prop key="scoreSave">questionController</prop>
 				
+				
+				<prop key="gonglue">gonelueController</prop>
+				<prop key="kuaisu">gonelueController</prop>
+				<prop key="tigao">gonelueController</prop>
+				<prop key="pos">gonelueController</prop>
 			</props>
 		</property>
 	</bean>
@@ -111,6 +116,12 @@
 	</bean>
 	
 	<bean id="questionController" class="com.webloan.question.controller.QuestionController">
+		<property name="methodNameResolver">
+			<bean class="org.springframework.web.servlet.mvc.multiaction.InternalPathMethodNameResolver" />
+		</property>
+	</bean>
+	
+	<bean id="gonelueController" class="com.webloan.gonglue.controller.GonelueController">
 		<property name="methodNameResolver">
 			<bean class="org.springframework.web.servlet.mvc.multiaction.InternalPathMethodNameResolver" />
 		</property>
