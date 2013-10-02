@@ -1,10 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>无标题文档</title>
 <link href="css/publlc.css" type="text/css" rel="stylesheet" />
 <link href="css/style.css" type="text/css" rel="stylesheet" />
 <link href="css/tipswindown.css" type="text/css" rel="stylesheet" />
@@ -12,24 +11,56 @@
 
 <body style="background:#fff;">
 <div class="pop_contact">
-  <div class="loan_question">
-    <p>第一步：请回答云金融问题</p>
-    <div class="loan_question1">问题1：回答即溶问题？</div>
-    <div class="loan_question2">
-        <label>
-          <input type="radio" name="RadioGroup1" value="单选" id="RadioGroup1_0" />
-          单选</label>
-        <label>
-          <input type="radio" name="RadioGroup1" value="单选" id="RadioGroup1_1" />
-          单选</label>
-        <label>
-          <input type="radio" name="RadioGroup1" value="单选" id="RadioGroup1_2" />
-          单选</label>
+<div class="loan">
+  <form action="inputOrderInfoForm" method="post">
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <th width="27%">职业身份：</th>
+        <td width="59%">
+          <select name="identity" class="input">
+			<option value="0" selected="selected">无固定职业</option>
+			<option value="1" >企业主</option>
+			<option value="2" >个体户</option>
+			<option value="3" >上班族</option>
+          </select></td>
+        <td width="14%"></td>
+      </tr>
+      <tr>
+        <th>房产类型：</th>
+        <td>
+          <select name="estate" class="input">
+			<option value="0" selected="selected">无房</option>
+			<option value="1" >有房</option>
+			<option value="2" >有房已抵押</option>
+          </select></td>
+        <td></td>
+      </tr>
+      <tr>
+        <th>是否有车辆：</th>
+        <td>
+          <select name="vehicle" class="input">
+			<option value="0" selected="selected">无车</option>
+			<option value="1" >有车</option>
+			<option value="2" >有车已抵押</option>
+          </select></td>
+        <td></td>
+      </tr>
+      <tr>
+        <th>两年内信用情况：</th>
+        <td>
+          <select name="credit" class="input">
+			<option value="0" selected="selected">无信用记录</option>
+			<option value="1" >信用记录良好</option>
+			<option value="2" >有少数逾期</option>
+			<option value="3" >长期多次逾期</option>
+          </select></td>
+        <td></td>
+      </tr>
+    </table>
+    <div class="loan2">
+      <input name="productId" type="hidden" value="${productId}" />
+      <input type="submit" value="" class="loan_next"/>
     </div>
-  </div>
-  <div class="loan_no2">
-  	<form action="requestOrderQuestion" method="post">
-    <input name="" type="submit" value="" class="loan_next" />
     </form>
   </div>
 </div>

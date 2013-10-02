@@ -180,10 +180,10 @@
           <td width="20%"><div id="tm2008style">
 	<select name="identity" id="identity" class="formItem">
 		<option value="">请选择</option>
+		<option value="0" >无固定职业</option>
 		<option value="1">企业主</option>
 		<option value="2" >个体户</option>
 		<option value="3" >上班族</option>
-		<option value="4" >无固定职业</option>
 	</select>
 </div></td>
     <th width="12%" align="right" valign="middle">贷款金额：</th>
@@ -207,11 +207,11 @@
           <td width="20%"><div id="tm2008style">
 	<select name="loanUse" id="loanUse" class="formItem">
 		<option value="">请选择</option>
-		<option value="1">不限</option>
-		<option value="2" >经营贷款</option>
-		<option value="3" >消费贷款</option>
-		<option value="4" >购车贷款</option>
-		<option value="5" >购房贷款</option>
+		<option value="0">不限</option>
+		<option value="1" >经营贷款</option>
+		<option value="2" >消费贷款</option>
+		<option value="3" >购车贷款</option>
+		<option value="4" >购房贷款</option>
 	</select>
 </div></td>
     <th width="12%" align="right" valign="middle">贷款期限：</th>

@@ -20,7 +20,6 @@
 	   $('.time_box').hide();
     }	
 </script>
-<meta http-equiv="Refresh" content="5;url="/>
 </head>
 
 <body>

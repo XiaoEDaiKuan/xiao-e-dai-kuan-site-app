@@ -14,7 +14,7 @@
 <div class="pop_contact">
   <div class="loan_no"> 
     <b>抱歉，该产品无法满足您的贷款需求</b>
-    <p>该产品最小额度为30万，建议您搜索其他可以满足您需求的贷款产品，或进行专业评估我们会问您推荐最适合的产品</p>
+    <p>\建议您搜索其他可以满足您需求的贷款产品，或进行专业评估我们会问您推荐最适合的产品</p>
   </div>
   <div class="loan_no2">
     <input name="" type="button" value="" class="loan_other" onClick="top.location.href='queryProduct'" />

@@ -11,6 +11,7 @@ import org.springframework.web.servlet.mvc.multiaction.MultiActionController;
 
 import com.webloan.common.Asserts;
 import com.webloan.common.Page;
+import com.webloan.model.Product;
 import com.webloan.model.ProductAttach;
 import com.webloan.model.Question;
 import com.webloan.order.service.OrderService;
@@ -26,8 +27,10 @@ public class ProductController extends MultiActionController {
 			HttpServletResponse response, ProductQuery pq) {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("product/listproduct");
-		Page page = productService.pagingProduct(pq);
-		mav.addObject("products", page);
+		if (pq.getLoanAmt() != null) {
+			Page page = productService.pagingProduct(pq);
+			mav.addObject("products", page);
+		}
 		return mav;
 	}
 	
@@ -50,4 +53,34 @@ public class ProductController extends MultiActionController {
 		
 		return mav;
 	}
+	
+	public ModelAndView requestProductInfo(HttpServletRequest request, 
+			HttpServletResponse response, ProductQuery pq) {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("order/requestProductInfo");
+		
+		mav.addObject("productId", pq.getProductId());
+		
+		return mav;
+	}
+
+	public ModelAndView requestProductCheck(HttpServletRequest request, 
+			HttpServletResponse response, ProductQuery pq) {
+		ModelAndView mav = new ModelAndView();
+		
+		List<ProductAttach> attaches = productService.queryProductAttaches(pq);
+		
+		//不符合条件的就返回拒绝的页面
+		if (attaches == null || attaches.size() == 0) {
+			mav.setViewName("order/rejectOrderRequest");
+		}
+		else {//符合条件的情况
+			mav.setViewName("order/requestOrderQuestion");
+			mav.addObject("productId", pq.getProductId());
+		}
+		
+		return mav;
+	}
+	
+	
 }

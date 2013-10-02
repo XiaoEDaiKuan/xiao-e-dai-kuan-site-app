@@ -3,7 +3,7 @@ package com.webloan.exception;
 public class BizException extends RuntimeException {
 
 	private static final long serialVersionUID = 8249044200269374305L;
-
+	
 	public BizException() {
 		super();
 	}
@@ -19,5 +19,15 @@ public class BizException extends RuntimeException {
 	public BizException(Throwable detail) {
 		super(detail);
 	}
+	
+	private String viewName;
 
+	public String getViewName() {
+		return viewName;
+	}
+
+	public void setViewName(String viewName) {
+		this.viewName = viewName;
+	}
+	
 }

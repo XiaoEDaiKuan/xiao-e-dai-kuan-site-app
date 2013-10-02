@@ -107,4 +107,57 @@ public class ProductServiceImpl implements ProductService {
 				ProductAttach.class, keys, vals, conds, orderKeys, orderVals);
 	}
 
+	public List<ProductAttach> queryProductAttaches(ProductQuery pq) {
+		BigDecimal loanAmt = pq.getLoanAmt() == null ? null : new BigDecimal(10000).multiply(pq.getLoanAmt());
+		
+		String[] keys = { 
+			"identity", 
+			"loanUse", 
+			"minLoanAmt", 
+			"maxLoanAmt", 
+			"minLoanIssue", 
+			"maxLoanIssue", 
+			"estate", 
+			"vehicle", 
+			"credit", 
+			"product.id", 
+			"product.issueType", 
+			"product.guarantyType", 
+			"product.repayType" 
+		};
+		
+		Object[] vals = { 
+			pq.getIdentity(), 
+			pq.getLoanUse(), 
+			loanAmt, 
+			loanAmt, 
+			pq.getLoanIssue(), 
+			pq.getLoanIssue(), 
+			pq.getEstate(), 
+			pq.getVehicle(), 
+			pq.getCredit(), 
+			pq.getProductId(), 
+			pq.getIssueType(), 
+			pq.getGuarantyType(), 
+			pq.getRepayType() 
+		};
+		
+		String[] conds = { 
+			LIKE, 
+			EQ, 
+			GE, 
+			LE, 
+			GE, 
+			LE, 
+			EQ, 
+			EQ, 
+			EQ, 
+			EQ, 
+			EQ, 
+			EQ, 
+			EQ 
+		};
+		
+		return productRepository.queryList(ProductAttach.class, keys, vals, conds);
+	}
 }

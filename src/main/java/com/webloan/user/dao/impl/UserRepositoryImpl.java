@@ -160,7 +160,7 @@ public class UserRepositoryImpl extends BaseJpaRepositoryImpl implements
 
 	@Override
 	public List<Cust> findCustByCustNO(String custNO) {
-		return this.queryList(Cust.class, new String[] { "custNo" },
+		return this.queryList(Cust.class, new String[] { "custNO" },
 				new Object[] { custNO });
 	}
 

@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -17,26 +17,30 @@
     <table width="100%" border="0" cellspacing="0" cellpadding="0">
       <tr>
         <th width="27%">贷款用途：</th>
-        <td width="59%"><select name="" class="input">
-            <option></option>
-            <option>个体</option>
-            <option>个体</option>
+        <td width="59%">
+          <select name="loanUse" class="input">
+			<option value="1" selected="selected">不限</option>
+			<option value="2" >经营贷款</option>
+			<option value="3" >消费贷款</option>
+			<option value="4" >购车贷款</option>
+			<option value="5" >购房贷款</option>
           </select></td>
         <td width="14%"></td>
       </tr>
       <tr>
         <th>贷款金额：</th>
-        <td><input name="" type="password" class="input" /></td>
+        <td><input name="loanAmt" type="text" class="input" /></td>
         <td>万元</td>
       </tr>
       <tr>
         <th>贷款期限：</th>
-        <td><input name="" type="text" class="input" /></td>
+        <td><input name="loanIssue" type="text" class="input" /></td>
         <td>个月</td>
       </tr>
     </table>
     <div class="loan2">
-      <input name="" type="submit" value="" class="loan_next"/>
+      <input name="productId" type="hidden" value="${productId}" />
+      <input type="submit" value="" class="loan_next"/>
     </div>
     </form>
   </div>
