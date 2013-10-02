@@ -50,8 +50,8 @@
             <img src="images/code2.jpg" width="57" height="30" /></td>
           </tr>
         </table>
-        <div class="login3"><input name="" type="submit" value="" /><a href="#">忘记密码？</a></div>
-        <div class="login4">没有账号？立即<a href="registered.html">免费注册</a></div>
+        <div class="login3"><input name="" type="submit" value="" /><a href="forgetPassword.jsp">忘记密码？</a></div>
+        <div class="login4">没有账号？立即<a href="reg">免费注册</a></div>
         </form>
       </div>
       <div class="login5"></div>
