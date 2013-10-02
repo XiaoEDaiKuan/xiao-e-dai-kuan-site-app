@@ -319,4 +319,63 @@ public class UserController extends MultiActionController {
 		return mav;
 	}
 
+	
+	
+	
+	///////////////////////// 会员中心/////////////////////
+	
+	public ModelAndView myDaikuan(HttpServletRequest request,
+			HttpServletResponse response) throws Exception {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("member/myDaikuan");
+		return mav;
+	}
+	
+	public ModelAndView pop_CancelOrder(HttpServletRequest request,
+			HttpServletResponse response) throws Exception {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("member/pop_CancelOrder");
+		return mav;
+	}
+	
+	public ModelAndView pop_CancelOrderOK(HttpServletRequest request,
+			HttpServletResponse response) throws Exception {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("member/pop_CancelOrder");
+		return mav;
+	}
+	
+	public ModelAndView myMessage(HttpServletRequest request,
+			HttpServletResponse response) throws Exception {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("member/myMessage");
+		return mav;
+	}
+	
+	public ModelAndView myCreditScore(HttpServletRequest request,
+			HttpServletResponse response) throws Exception {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("member/myCreditScore");
+		return mav;
+	}	
+	
+	public ModelAndView editMyInfo(HttpServletRequest request,
+			HttpServletResponse response) throws Exception {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("member/editMyInfo");
+		return mav;
+	}
+	
+	public ModelAndView myQuestion(HttpServletRequest request,
+			HttpServletResponse response) throws Exception {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("member/myQuestion");
+		return mav;
+	}
+	public ModelAndView changePassword(HttpServletRequest request,
+			HttpServletResponse response) throws Exception {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("member/changePassword");
+		return mav;
+	}
 }

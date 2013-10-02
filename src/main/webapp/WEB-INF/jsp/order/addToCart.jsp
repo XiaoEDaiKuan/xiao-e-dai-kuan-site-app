@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <title>无标题文档</title>
-<%@include file="WEB-INF/inc/globalScript.jsp" %>
+<%@include file="../../inc/globalScript.jsp" %>
 <script>
 <!--
 /*第一种形式 第二种形式 更换显示样式*/
@@ -51,7 +51,7 @@ con.style.display=i==cursel?"block":"none";
 </head>
 
 <body>
-<%@include file="WEB-INF/inc/globalHeader.jsp" %>
+<%@include file="../../inc/globalHeader.jsp" %>
 
 <div class="Fuzzysearch">
 	<div class="top Fuzzysearch1">
@@ -133,13 +133,13 @@ con.style.display=i==cursel?"block":"none";
   <div class="credit_title"> 
     <span class="credit_title1 font_f">热门贷款推荐</span>
   </div>
-  <%@include file="WEB-INF/inc/productInRow.jsp" %>
+  <%@include file="../../inc/productInRow.jsp" %>
 </div>
     </div>
 </div>
 
-<%@include file="WEB-INF/inc/globalFooterMenu.jsp" %>
-<%@include file="WEB-INF/inc/globalFooter.jsp" %>
+<%@include file="../../inc/globalFooterMenu.jsp" %>
+<%@include file="../../inc/globalFooter.jsp" %>
 </body>
 </html>
  
