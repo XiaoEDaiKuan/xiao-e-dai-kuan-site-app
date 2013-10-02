@@ -18,13 +18,13 @@ public class ProductRepositoryImpl extends BaseJpaRepositoryImpl implements
 		
 		if (recommendType != null && !"".equals(recommendType)) {
 			jpql.append(" and pr.type=:recommendType ");
-			params.put("type", recommendType);
+			params.put("recommendType", recommendType);
 		}
 		
 		jpql.append(" order by pr.id desc");
 		
 		String pageJpql = "select pr.product" + jpql;
-		String countJpql = "select count(*)" + jpql;
+		String countJpql = "select count(pr.product)" + jpql;
 		
 		return queryPageResult(pageIndex, pageSize, pageJpql, countJpql, params);
 	}
