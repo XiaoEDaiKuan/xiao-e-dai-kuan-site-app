@@ -58,13 +58,5 @@ a:hover { text-decoration: underline; }
 .find_wrap .msg_level .s1 {background-color:#ffc6a0;}
 .find_wrap .msg_level .s2 {background-color:#ffa568;}
 .find_wrap .msg_level .s3 {background-color:#ff8e42;}
-.find_wrap .tip_yes {background:url(bg_findmsg.png) no-repeat -20px -280px;display:inline-block;height:16px;vertical-align:middle;margin-top:4px;width:16px;*margin-top:4px;}
+.find_wrap .tip_yes {background:url(../images/bg_findmsg.png) no-repeat -20px -280px;display:inline-block;height:16px;vertical-align:middle;margin-top:4px;width:16px;*margin-top:4px;}
 
-/*  �����û���ʾ��                 */
-.find_wrap .winerror .error{position:absolute;display:block;z-index:10000;width:180px;height:48px;margin-left:137px;*margin-left:-198px;margin-top:-6px;*margin-top:19px;background:url(../images/winlogin_sprites.png) no-repeat -230px -104px;padding:13px 0 0 0;color:#404040;overflow:hidden;padding-top:14px\9;height:47px\9;}
-.find_wrap .winerror .error input{border:none;float:left;width:auto;height:auto;padding:0;margin:-4px 3px 0 11px;*margin:-7px -1px 3px 6px;_display:inline;}
-.find_wrap .winerror .error b{display:block;padding:0 0 6px 11px;}
-.find_wrap .winerror .error span{float:left;margin-top: -8px;}
-.find_wrap .winerror .error span.error_name{margin-right:33px;}
-.find_wrap .winlogin_replacetype01 {display: inline-block;margin-left: 20px; padding:4px 0 0 18px;background:url(../images/winlogin_sprites.png) no-repeat -226px -174px;}
-.find_wrap .winlogin_replacetype02 {display: inline-block;;margin-left: 20px;padding:4px 0 0 18px;background:url(../images/winlogin_sprites.png) no-repeat -226px -174px; background-position:-341px -175px;}

@@ -1,5 +1,7 @@
 package com.webloan.user.service;
 
+import java.util.HashMap;
+
 import javax.servlet.http.HttpServletRequest;
 
 import com.webloan.model.Cust;
@@ -27,7 +29,7 @@ public interface UserService {
 			String newPassword);
 
 	// 忘记密码
-	public String forgetPassword(String logonName);
+	public void forgetPasswd(String logonName,String newPasswd);
 
 	// 修改注册信息
 	public void modifyUser(String id, String mobileNO, String email,
@@ -37,4 +39,11 @@ public interface UserService {
 	
 	//验证是否是公司的IP
 	public boolean corpIpCheck(String ip);
+	
+	//验证账号
+	public  boolean  verifyAccount(String logonName);
+	
+	//验证密码
+	public  HashMap  verifyPasswd(String logonName);
+	
 }
