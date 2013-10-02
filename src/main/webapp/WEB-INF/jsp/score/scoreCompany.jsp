@@ -7,27 +7,23 @@
 <%@include file="../../inc/globalScript.jsp" %>
 <script type="text/javascript">
 var questions = [
-    {question:"银行卡发放工资（月）",choice:[
-        {content:"小于3500",down:5000,up:20000},
-        {content:"3500~7000",down:10000,up:30000},
-        {content:"7000~15000",down:15000,up:50000},
-        {content:"15000以上",down:20000,up:60000}]},
-    {question:"就职公司类型",choice:[
-        {content:"公务员/事业单位",down:1.2,up:1.5},
-        {content:"大型垄断企业",down:1.2,up:1.5},
-        {content:"世界500强或上市企业",down:1.1,up:1.2},
-        {content:"普通企业",down:1,up:1}]},
-    {question:"职位",choice:[
-        {content:"高层领导",down:1.1,up:1.25},
-        {content:"中层管理人员",down:1.05,up:1.1},
-        {content:"一般员工",down:0.95,up:1}]},
+    {question:"收入（净利润）",choice:[
+        {content:"小于15000",down:10000,up:30000},
+        {content:"15000~30000",down:20000,up:40000},
+        {content:"30000~50000",down:30000,up:50000},
+        {content:"50000以上",down:30000,up:80000}]},
+    {question:"经营年限",choice:[
+        {content:"一年以下",down:0.9,up:0.9},
+        {content:"1~3年",down:1,up:1},
+        {content:"3~7年",down:1.2,up:1.5},
+        {content:"7年以上",down:1.5,up:1.5}]},
     {question:"房产",choice:[
-        {content:"无房产",down:0.95,up:1},
-        {content:"有房产（商品房）",down:1.2,up:1.3},
-        {content:"有房产（非商品房）",down:1.1,up:1.2}]},
+        {content:"无房产",down:1,up:1},
+        {content:"有房产（商品房）",down:1.2,up:1.2},
+        {content:"有房产（非商品房）",down:1.1,up:1.1}]},
     {question:"户籍",choice:[
-        {content:"本地户籍",down:1.1,up:1.25},
-        {content:"外地户籍",down:0.9,up:1}]},
+        {content:"本地户籍",down:1,up:1},
+        {content:"外地户籍",down:0.9,up:0.9}]},
     {question:"实名认证（身份证，联系方式）",choice:[
         {content:"是",down:1.05,up:1.1},
         {content:"否",down:1,up:1}]},
@@ -44,7 +40,7 @@ var questions = [
 var questionIndex = 0;
 $(document).ready(function(){
     showQuestion();
-    $("#resultData").css("background","url('images/score_pic_10.jpg') no-repeat right bottom");
+    $("#resultData").css("background","url('images/score_pic_20.jpg') no-repeat right bottom");
     $("#shenqingBtn").hide();
 });
 var _down = 0;
@@ -74,7 +70,7 @@ var next = function(){
     if(questionIndex < questions.length - 1){
         questionIndex++;
         showQuestion();
-        $("#resultData").css("background","url('images/score_pic_" + (questionIndex + 1) + "0.jpg') no-repeat right bottom");
+        $("#resultData").css("background","url('images/score_pic_" + (questionIndex + 2) + "0.jpg') no-repeat right bottom");
     }else{
         $("#nextBtn").hide();
         $("#shenqingBtn").show();
@@ -90,7 +86,7 @@ var reset = function(){
     $("#nextBtn").show();
     $("#resultData").html("");
     $("#shenqingBtn").hide();
-    $("#resultData").css("background","url('images/score_pic_10.jpg') no-repeat right bottom");
+    $("#resultData").css("background","url('images/score_pic_20.jpg') no-repeat right bottom");
     showQuestion();
 }
 </script>
