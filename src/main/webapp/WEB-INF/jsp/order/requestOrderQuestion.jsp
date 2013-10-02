@@ -58,7 +58,10 @@
       </tr>
     </table>
     <div class="loan2">
-      <input name="productId" type="hidden" value="${productId}" />
+      <input name="productId" type="hidden" value="${pq.productId}" />
+      <input name="loanUse" type="hidden" value="${pq.loanUse}" />
+      <input name="loanAmt" type="hidden" value="${pq.loanAmt}" />
+      <input name="loanIssue" type="hidden" value="${pq.loanIssue}" />
       <input type="submit" value="" class="loan_next"/>
     </div>
     </form>

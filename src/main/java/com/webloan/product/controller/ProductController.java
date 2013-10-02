@@ -76,11 +76,28 @@ public class ProductController extends MultiActionController {
 		}
 		else {//符合条件的情况
 			mav.setViewName("order/requestOrderQuestion");
-			mav.addObject("productId", pq.getProductId());
+			mav.addObject("pq", pq);
 		}
 		
 		return mav;
 	}
 	
+	public ModelAndView inputOrderInfoForm(HttpServletRequest request, 
+			HttpServletResponse response, ProductQuery pq) {
+		ModelAndView mav = new ModelAndView();
+		
+		List<ProductAttach> attaches = productService.queryProductAttaches(pq);
+
+		//不符合条件的就返回拒绝的页面
+		if (attaches == null || attaches.size() == 0) {
+			mav.setViewName("order/requestOrderFinished");
+		}
+		else {//符合条件的情况
+			mav.setViewName("order/inputOrderInfo");
+			mav.addObject("pq", pq);
+		}
+		
+		return mav;
+	}
 	
 }

@@ -68,10 +68,9 @@
 				<prop key="handleCaptcha">captchaController</prop>
 				<prop key="verifyCaptcha">captchaController</prop>
 				
-				<prop key="requestProductInfo">orderController</prop>
-				<prop key="requestProductCheck">orderController</prop>
-				<prop key="requestOrderQuestion">orderController</prop>
-				<prop key="inputOrderInfoForm">orderController</prop>
+				<prop key="requestProductInfo">productController</prop>
+				<prop key="requestProductCheck">productController</prop>
+				<prop key="inputOrderInfoForm">productController</prop>
 				<prop key="saveOrderInfo">orderController</prop>
 				
 				<prop key="QA">questionController</prop>
