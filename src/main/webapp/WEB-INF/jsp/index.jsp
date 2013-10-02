@@ -119,7 +119,7 @@
     <div class="credit ground">
       <div class="credit_title"> <span class="credit_title1 font_f">热门信用贷款</span> <span class="credit_title2">无需抵押 担保</span> <a target="_blank" href="贷款搜索.html">更多信用贷款</a> </div>
       <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table">
-		<c:forEach var="hcrProd" items="${hcrProds.items}">
+		<c:forEach var="hcrProd" items="${hcrProds}">
 		<tr>
           <td width="11%"><img src="images/credit01.jpg" width="40" height="21" /></td>
           <td width="18%">${hcrProd.name}</td>
@@ -132,7 +132,7 @@
     <div class="credit ground">
       <div class="credit_title"> <span class="credit_title1 font_f">热门特色贷款</span></div>
       <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table">
-		<c:forEach var="hchProd" items="${hchProds.items}">
+		<c:forEach var="hchProd" items="${hchProds}">
 		<tr>
           <td width="11%"><img src="images/credit01.jpg" width="40" height="21" /></td>
           <td width="18%">${hchProd.name}</td>
@@ -213,15 +213,7 @@
     </ul>
   </div>
   <div class="strategy ground">
-    <div class="credit_title"> <span class="credit_title1 font_f">贷款攻略</span> <a target="_blank" href="贷款攻略.html">更多</a></div>
-    <ul class="strategy_list">
-      <li><a href="贷款攻略2.html" target="_blank">得不偿失？信用卡购车小心捆绑保险</a></li>
-      <li><a href="贷款攻略2.html" target="_blank">新版信用报告的不良记录是怎么算的？</a></li>
-      <li><a href="贷款攻略2.html" target="_blank">看中介攻心术如何让你"非买不可"</a></li>
-      <li><a href="贷款攻略2.html" target="_blank">购买二手房 你可能忽视了这些</a></li>
-      <li><a href="贷款攻略2.html" target="_blank">5种贷款方式大汇总 谁是你心中的主角</a></li>
-      <li><a href="贷款攻略2.html" target="_blank">看中介攻心术如何让你"非买不可"</a></li>
-    </ul>
+  <%@include file="../inc/gonglueList.jsp"%>
   </div>
 </div>
 <%@include file="../inc/globalFooterMenu.jsp" %>

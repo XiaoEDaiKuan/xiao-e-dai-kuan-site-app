@@ -10,6 +10,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.Controller;
 
 import com.webloan.common.dict.RecommendType;
+import com.webloan.model.Product;
 import com.webloan.model.Question;
 import com.webloan.product.service.ProductService;
 import com.webloan.question.service.QuestionService;
@@ -24,10 +25,10 @@ public class HomePageController implements Controller {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("index");
 		
-		Page hcrProds = productService.pagingProductRecommend(1, 5, RecommendType.HOT_CREDIT);
+		List<Product> hcrProds = productService.queryProductRecommend(RecommendType.HOT_CREDIT, 5);
 		mav.addObject("hcrProds", hcrProds);
 		
-		Page hchProds = productService.pagingProductRecommend(1, 5, RecommendType.HOT_CHARACTER);
+		List<Product> hchProds = productService.queryProductRecommend(RecommendType.HOT_CHARACTER, 5);
 		mav.addObject("hchProds", hchProds);
 		
 		List<Question> hiQusts = questionService.qryHighQuest();

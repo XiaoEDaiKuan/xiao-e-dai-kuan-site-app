@@ -1,3 +1,8 @@
-<h2><font color="red">欢迎注册玖富网，请在${time}分钟内点击如下链接激活您的用户：</font><h2><br/><br/>
-			
+<h2><font color="red">亲爱的${name},您好！</font><h2>
+<h3><font color="red">欢迎注册玖富网！</font><h3>
+<h3><font color="red">您的客户号：${custNO}</font><h3>
+<h3><font color="red">您的邮件：${email}</font><h3>
+<h3><font color="red">您的手机号：${mobileNO}</font><h3>
+<h3><font color="red">您的身份证号：${IDNO}</font><h3>
+<h2><font color="red">请您在${time}分钟内点击如下链接激活您的用户，激活之后可以使用上述任意一个账号登录系统,   我们将一如既往、热忱地为您服务！</font><h2>
 			<a href="${authURL}">点击激活账号</a>

@@ -42,11 +42,39 @@
 				<prop key="createUser">userController</prop>
 				<prop key="login">userController</prop>
 				<prop key="loginView">userController</prop>
-				<prop key="userRegister">userController</prop>
+				<prop key="reg">userController</prop>
 				<prop key="createUser">userController</prop>
+				<prop key="myDaikuan">userController</prop>
+				<prop key="pop_CancelOrder">userController</prop>
+				<prop key="pop_CancelOrderOK">userController</prop>
+				<prop key="verifyAccount">userController</prop>
+			    <prop key="verifyPasswd">userController</prop>
+			    <prop key="forgetPasswd">userController</prop>
+  			    <prop key="modifyPasswd">userController</prop>
+			
+				<prop key="myMessage">userController</prop>
+				<prop key="myCreditScore">userController</prop>
+				<prop key="editMyInfo">userController</prop>
+				<prop key="myQuestion">userController</prop>
+				<prop key="changePassword">userController</prop>
+
 				<!-- 邮箱验证 -->
 				<prop key="mailAuthentication">userController</prop>
 				<prop key="handleCaptcha">captchaController</prop>
+				<prop key="verifyCaptcha">captchaController</prop>
+				
+				<prop key="requestProductInfo">orderController</prop>
+				<prop key="requestProductCheck">orderController</prop>
+				<prop key="requestOrderQuestion">orderController</prop>
+				<prop key="inputOrderInfoForm">orderController</prop>
+				<prop key="saveOrderInfo">orderController</prop>
+				
+				<prop key="QA">questionController</prop>
+				<prop key="viewAnswer">questionController</prop>
+				<prop key="questionSearch">questionController</prop>
+				<prop key="postQuestionForm">questionController</prop>
+				<prop key="postQuestionFormSave">questionController</prop>
+				
 			</props>
 		</property>
 	</bean>
@@ -72,5 +100,15 @@
 		</property>
 	</bean>
 	
+	<bean id="orderController" class="com.webloan.order.controller.OrderController">
+		<property name="methodNameResolver">
+			<bean class="org.springframework.web.servlet.mvc.multiaction.InternalPathMethodNameResolver" />
+		</property>
+	</bean>
 	
+	<bean id="questionController" class="com.webloan.question.controller.QuestionController">
+		<property name="methodNameResolver">
+			<bean class="org.springframework.web.servlet.mvc.multiaction.InternalPathMethodNameResolver" />
+		</property>
+	</bean>
 </beans>

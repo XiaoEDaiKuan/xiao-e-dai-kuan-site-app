@@ -30,4 +30,36 @@ public class QuestionController extends MultiActionController{
 		return mav;
 	}
 	
+	public ModelAndView QA(HttpServletRequest request, HttpServletResponse response) {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("question/QA");
+		mav.addObject("nonmortage", questionService.questionListByCustId(QuestionConstant.NONMORTAGE));
+		mav.addObject("mortage", questionService.questionListByCustId(QuestionConstant.MORTAGE));
+		return mav;
+	}
+	
+	public ModelAndView viewAnswer(HttpServletRequest request, HttpServletResponse response) {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("question/viewAnswer");
+		mav.addObject("nonmortage", questionService.questionListByCustId(QuestionConstant.NONMORTAGE));
+		mav.addObject("mortage", questionService.questionListByCustId(QuestionConstant.MORTAGE));
+		return mav;
+	}
+	public ModelAndView questionSearch(HttpServletRequest request, HttpServletResponse response) {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("question/questionlist");
+		mav.addObject("nonmortage", questionService.questionListByCustId(QuestionConstant.NONMORTAGE));
+		mav.addObject("mortage", questionService.questionListByCustId(QuestionConstant.MORTAGE));
+		return mav;
+	}
+	public ModelAndView postQuestionForm(HttpServletRequest request, HttpServletResponse response) {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("question/postQuestionForm");
+		return mav;
+	}
+	public ModelAndView postQuestionFormSave(HttpServletRequest request, HttpServletResponse response) {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("question/postQuestionForm");
+		return mav;
+	}
 }

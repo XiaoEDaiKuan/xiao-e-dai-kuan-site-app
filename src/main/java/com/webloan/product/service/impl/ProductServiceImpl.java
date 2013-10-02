@@ -1,7 +1,11 @@
 package com.webloan.product.service.impl;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+
+import org.hibernate.mapping.Array;
 
 import com.webloan.product.dao.ProductRepository;
 import com.webloan.common.Page;
@@ -23,12 +27,28 @@ public class ProductServiceImpl implements ProductService {
 		this.productRepository = productRepository;
 	}
 
-	public Product getProductById(Long productId) {
-		return productRepository.load(Product.class, productId);
+	public List<Product> queryProduct(String estate, String vehicle,
+			String credit) {
+		return productRepository.queryProduct(estate, vehicle, credit);
 	}
 
-	public Page pagingProductRecommend(int pageIndex, int pageSize, String recommendType) {
-		return productRepository.pagingProductByRecommend(pageIndex, pageSize, recommendType);
+	public Product getProductById(String id) {
+		return productRepository.load(Product.class, Long.valueOf(id));
+	}
+
+	public List<Product>  queryProductByUser(String loanUse, String loanAmt,
+			String loanIssue) {
+		BigDecimal amt = loanAmt == null ? null : new BigDecimal(loanAmt);
+		Integer issue = loanIssue == null ? null : Integer.valueOf(loanIssue);
+		return productRepository.queryProductByUser(loanUse, amt, issue);
+	}
+
+	public Page pagingProductRecommend(String type, int limit) {
+		return null;
+	}
+
+	public List<Product> queryProductRecommend(String type, int limit) {
+		return null;
 	}
 	
 	public Page pagingProduct(ProductQuery pq) {
