@@ -217,7 +217,7 @@
   </div>
   <div class="strategy ground">
   <%@include file="../inc/gonglueList.jsp"%>
-  </div>
+  </div> 
 </div>
 <%@include file="../inc/globalFooterMenu.jsp" %>
 <%@include file="../inc/globalFooter.jsp" %>
