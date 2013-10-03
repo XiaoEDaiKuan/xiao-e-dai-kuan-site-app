@@ -2,12 +2,14 @@ package com.webloan.question.service.impl;
 
 import java.util.List;
 
+import com.webloan.common.Page;
 import com.webloan.model.QstPrd;
 import com.webloan.model.Question;
 import com.webloan.model.Region;
 import com.webloan.model.RegionIP;
 import com.webloan.question.dao.QuestionRepository;
 import com.webloan.question.service.QuestionService;
+import com.webloan.question.view.QuestionView;
 
 public class QuestionServiceImpl implements QuestionService {
 
@@ -61,8 +63,7 @@ public class QuestionServiceImpl implements QuestionService {
      * 根据id查询
      */
 	@Override
-	public Question qryQuestionById(String strId) {
-        Long id=strId==null?null:Long.valueOf(strId);
+	public Question qryQuestionById(Long id) {
 		return questionRepository.qryQuestionById(id);
 	}
 
@@ -98,6 +99,25 @@ public class QuestionServiceImpl implements QuestionService {
 	public List<Question> qryHighQuest() {
 
 		return questionRepository.qryHighQuest();
+	}
+	
+	public void saveQuestion(QuestionView qv, String ipAddr) {
+		RegionIP ipInfo = qryCityByIP(ipAddr);
+		if (ipInfo != null) {
+			Region region = ipInfo.getRegion();
+			if (region != null) {
+				saveQuestion(qv.getSubject(), qv.getDetail(), 
+						region.getId().toString(), qv.getEmail(), qv.getTelephone());
+			}
+		}
+	}
+	
+	public Page pagingQuestions(int pageIndex, int pageSize, String type) {
+		return questionRepository.pagingQuestion(pageIndex, pageSize, type, null, null);
+	}
+	
+	public Page pagingQuestions(int pageIndex, int pageSize, String title, String kindTwo) {
+		return questionRepository.pagingQuestion(pageIndex, pageSize, null, title, kindTwo);
 	}
 
 }

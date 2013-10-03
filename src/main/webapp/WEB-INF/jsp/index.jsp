@@ -210,8 +210,8 @@
   <div class="ask ground">
     <div class="credit_title"> <span class="credit_title1 font_f">大家都在问</span> <a target="_blank" href="ask">更多问题</a><input name="" type="button" value="我要提问" id="pop_question" /> </div>
     <ul class="question_list">
-    <c:forEach var="hiQust" items="${hiQusts}">
-      <li><a href="viewAnswer?questId=${hiQust.id}" target="_blank">${hiQust.detail}</a></li>
+    <c:forEach var="hiQust" items="${hiQusts.items}">
+      <li><a href="viewAnswer?id=${hiQust.id}" target="_blank">${hiQust.detail}</a></li>
     </c:forEach>
     </ul>
   </div>

@@ -58,7 +58,7 @@
 				<li><a href="scoreChoose" target="_blank">信用评分</a></li>
 				<li><a target="_blank">金融团</a> <i></i></li>
 				<li><a href="gonglue" target="_blank">贷款攻略</a></li>
-				<li class="border-bt"><a href="QA" target="_blank">贷款问答</a></li>
+				<li class="border-bt"><a href="ask" target="_blank">贷款问答</a></li>
 			</ul>
 		</div>
 	</div>

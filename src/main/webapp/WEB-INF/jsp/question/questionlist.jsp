@@ -39,85 +39,27 @@ con.style.display=i==cursel?"block":"none";
 		</div>
 		<div class="applicationleft">
 			<div class="ask ground Loansquiz10">
-
-
-
-				<c:forEach var="question" items="${questions}">
-					<p>${question.id}- ${question.subject}-
-						${question.askTime}-${question.status}</p>
+				<c:forEach var="q" items="${questions.items}">
+				<div class="Loansquiz11">
+					<h1>
+						<a href="viewAnswer?id=${q.id}" target="_blank">${q.subject}</a>
+					</h1>
+					<p>问: ${q.detail}</p>
+					<p>答: 
+					<c:forEach var="a" items="${q.answers}" varStatus="ast">
+						<c:if test="${ast.index == 0}">${a.answerContent}</c:if>
+					</c:forEach>		
+  					</p>
+					<div>
+						${q.askTime}<em>来自${q.region.name}的问题</em>
+					</div>
+				</div>
 				</c:forEach>
-
-
-
-				<div class="Loansquiz11">
-					<h1>
-						<a href="贷款问答2.html" target="_blank">能<span>贷款</span>吗?
-						</a>
-					</h1>
-					<p>问:啊就是浪费；就；阿斯科利的酒饭两开叫阿桑兰多夫金水淀粉</p>
-					<p>答:啊就是浪费；就；阿斯科利的酒饭两开叫阿桑兰多夫金水淀粉</p>
-					<div>
-						2012-12-12<em>来自黑龙江的问题</em>
-					</div>
-				</div>
-				<div class="Loansquiz11">
-					<h1>
-						<a href="贷款问答2.html" target="_blank">能<span>贷款</span>吗?
-						</a>
-					</h1>
-					<p>问:啊就是浪费；就；阿斯科利的酒饭两开叫阿桑兰多夫金水淀粉</p>
-					<p>答:啊就是浪费；就；阿斯科利的酒饭两开叫阿桑兰多夫金水淀粉</p>
-					<div>
-						2012-12-12<em>来自黑龙江的问题</em>
-					</div>
-				</div>
-				<div class="Loansquiz11">
-					<h1>
-						<a href="贷款问答2.html" target="_blank">能<span>贷款</span>吗?
-						</a>
-					</h1>
-					<p>问:啊就是浪费；就；阿斯科利的酒饭两开叫阿桑兰多夫金水淀粉</p>
-					<p>答:啊就是浪费；就；阿斯科利的酒饭两开叫阿桑兰多夫金水淀粉</p>
-					<div>
-						2012-12-12<em>来自黑龙江的问题</em>
-					</div>
-				</div>
-				<div class="Loansquiz11">
-					<h1>
-						<a href="贷款问答2.html" target="_blank">能<span>贷款</span>吗?
-						</a>
-					</h1>
-					<p>问:啊就是浪费；就；阿斯科利的酒饭两开叫阿桑兰多夫金水淀粉</p>
-					<p>答:啊就是浪费；就；阿斯科利的酒饭两开叫阿桑兰多夫金水淀粉</p>
-					<div>
-						2012-12-12<em>来自黑龙江的问题</em>
-					</div>
-				</div>
-				<div class="Loansquiz11">
-					<h1>
-						<a href="贷款问答2.html" target="_blank">能<span>贷款</span>吗?
-						</a>
-					</h1>
-					<p>问:啊就是浪费；就；阿斯科利的酒饭两开叫阿桑兰斯科利的酒饭两开叫阿桑兰多夫斯科利的酒饭两开叫阿桑兰多夫斯科利的酒饭两开叫阿桑兰多夫斯科利的酒饭两开叫阿桑兰多夫斯科利的酒饭两开叫阿桑兰多夫斯科利的酒饭两开叫阿桑兰多夫斯科利的酒饭两开叫阿桑兰多夫斯科利的酒饭两开叫阿桑兰多夫多夫金水淀粉</p>
-					<p>答:啊就是浪费；就；阿斯科利的酒饭两开叫阿斯科利的酒饭两开叫阿桑兰多夫斯科利的酒饭两开叫阿桑兰多夫斯科利的酒饭两开叫阿桑兰多夫斯科利的酒饭两开叫阿桑兰多夫斯科利的酒饭两开叫阿桑兰多夫斯科利的酒饭两开叫阿桑兰多夫斯科利的酒饭两开叫阿桑兰多夫斯科利的酒饭两开叫阿桑兰多夫斯科利的酒饭两开叫阿桑兰多夫桑兰多夫金水淀粉</p>
-					<div>
-						2012-12-12<em>来自黑龙江的问题</em>
-					</div>
-				</div>
-				<div class="Loansquiz11">
-					<h1>
-						能<span>贷款</span>吗?
-					</h1>
-					<p>问:啊就是浪费；就；阿斯科利的酒饭两开叫阿桑兰多夫金水淀粉</p>
-					<p>答:啊就是浪费；就；阿斯科利的酒饭两开叫阿桑兰多夫金水淀粉</p>
-					<div>
-						2012-12-12<em>来自黑龙江的问题</em>
-					</div>
-				</div>
 				<div class="me_next">
-					<a href="#"><em>1</em></a><a href="#"><em>2</em></a><a href="#"><em>3</em></a><a
-						href="#"><em>下一页</em></a><span>共<font>66</font>个结果
-					</span>
+				<c:forEach var="i" begin="1" end="${questions.totalPages}" step="1">
+					<a href="questionSearch?pageIndex=${i}&title=${qv.title}" <c:if test="${i == questions.pageIndex}">class="currentPager"</c:if>><em>${i}</em></a>
+				</c:forEach>
+					<span>共<font>${questions.totalRecords}</font>个结果</span>
 				</div>
 			</div>
 		</div>

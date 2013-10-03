@@ -49,7 +49,7 @@
 				<column name="PRD_NAME" length="128" nullable="false" />
 			</basic>
 			<basic name="desc">
-				<column name="PRD_DESC" length="256" />
+				<column name="PRD_DESC" length="1024" />
 			</basic>
 			<basic name="icon">
 				<column name="PRD_ICON" length="32" />
@@ -82,7 +82,7 @@
 				<column name="APP_REQ" length="1024" nullable="false" />
 			</basic>
 			<basic name="appMaterial">
-				<column name="APP_MATERIAL" length="1024" nullable="false" />
+				<column name="APP_MATERIAL" length="2048" nullable="false" />
 			</basic>
 			<basic name="groupBuying">
 				<column name="IS_GROUP" length="16" />
@@ -107,10 +107,6 @@
 				<join-table name="PRD_REGIONS">
 					<join-column referenced-column-name="id" name="PRODUCT_ID" nullable="false" />
 					<inverse-join-column referenced-column-name="id" name="REGION_ID" nullable="false" />
-					<unique-constraint>
-						<column-name>PRODUCT_ID</column-name>
-						<column-name>REGION_ID</column-name>
-					</unique-constraint>
 				</join-table>
 			</one-to-many>
 			
@@ -488,7 +484,10 @@
 			<basic name="subject">
 				<column name="subject" length="100"  />
 			</basic>
-
+			
+			<basic name="type">
+				<column name="QST_TYPE" length="16"  />
+			</basic>
 			
 			<many-to-one name="region">
 				<join-column name="region_id"  />
@@ -587,21 +586,6 @@
 			<many-to-one name="region">
 				<join-column name="region_id"  />
 			</many-to-one>
-
-		</attributes>
-	</entity>
-
-	<entity class="com.webloan.model.HighQuest" name="HighQuest">
-		<table name="high_quest" />
-		<attributes>
-			<id name="id">
-				<column name="ID" />
-				<generated-value strategy="IDENTITY" />
-			</id>
-			
-			<one-to-one name="Question">
-				<join-column name="question_id"  />
-			</one-to-one>
 
 		</attributes>
 	</entity>

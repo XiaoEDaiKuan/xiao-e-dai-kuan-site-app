@@ -10,6 +10,7 @@ import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 
 import com.webloan.common.BaseJpaRepositoryImpl;
+import com.webloan.common.Page;
 import com.webloan.common.Queriable;
 import com.webloan.exception.BizException;
 import com.webloan.model.Answer;
@@ -151,6 +152,30 @@ public class QuestionRepositoryImpl extends BaseJpaRepositoryImpl implements
         	q.getAnswers();
         }
 		return qs;
+	}
+	
+
+	public Page pagingQuestion(int pageIndex, int pageSize, String type, String title, String kindTwo) {
+		StringBuilder jpql = new StringBuilder(" from Question q where 1=1 ");
+		Map<String, Object> params = new HashMap<String, Object>();
+		
+		if (type != null && !"".equals(type)) {
+			jpql.append("and q.type=:qstType ");
+			params.put("qstType", type);
+		}
+		if (kindTwo != null && !"".equals(kindTwo)) {
+			jpql.append("and q.kindTwo=:kindTwo ");
+			params.put("kindTwo", kindTwo);
+		}
+		if (title != null && !"".equals(title)) {
+			jpql.append("and (q.subject like :title or q.detail like :title)");
+			params.put("title", "%" + title + "%");
+		}
+		
+		String pageJpql = "select q " + jpql;
+		String countJpql = "select count(*) " + jpql;
+		
+		return queryPageResult(pageIndex, pageSize, pageJpql, countJpql, params);
 	}
 
 }

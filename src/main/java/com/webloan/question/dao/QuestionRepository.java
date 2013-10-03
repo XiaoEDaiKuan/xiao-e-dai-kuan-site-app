@@ -3,6 +3,7 @@ package com.webloan.question.dao;
 import java.util.List;
 
 import com.webloan.common.BaseJpaRepository;
+import com.webloan.common.Page;
 import com.webloan.model.QstPrd;
 import com.webloan.model.Question;
 import com.webloan.model.Region;
@@ -29,5 +30,6 @@ public interface QuestionRepository extends BaseJpaRepository {
 	//大家都在问列表
 	List<Question> qryHighQuest();
 
+	Page pagingQuestion(int pageIndex, int pageSize, String type, String title, String kindTwo);
 }
 

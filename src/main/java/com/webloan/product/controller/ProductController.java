@@ -11,7 +11,6 @@ import org.springframework.web.servlet.mvc.multiaction.MultiActionController;
 
 import com.webloan.common.Asserts;
 import com.webloan.common.Page;
-import com.webloan.model.Product;
 import com.webloan.model.ProductAttach;
 import com.webloan.model.Question;
 import com.webloan.order.service.OrderService;

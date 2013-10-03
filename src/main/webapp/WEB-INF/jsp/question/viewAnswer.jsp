@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -39,12 +39,12 @@ con.style.display=i==cursel?"block":"none";
 		<div class="applicationleft">
 			<div class="ask ground Loansquiz10 Loansquiz15 Loansquiz8">
 				<div class="Loansquiz13">
-					<h1>贷款</h1>
+					<h1>${question.subject}</h1>
 					<p>
-						<span>2013-12-25&nbsp;13:24</span>提问者:121212**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;问答来自:黑龙江&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;标签:贷款&nbsp;贷款&nbsp;贷款
+						<span>${question.askTime}</span>提问者:${question.askedBy}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;问答来自:${question.region.name}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;标签:${question.tag}
 					</p>
 				</div>
-				<p class="Loansquiz14">11日在大连举行的2013年夏季达沃斯论坛上，国务院总理李克强发表了《以改革创新驱动中国经济长期持续健康发展》的开幕致辞，透露出的政策信号引起了各界的高度关注11日在大连举行的2013年夏季达沃斯论坛上，国务院总理李克强发表了《以改革创新驱动中国经济长期持续健康发展》的开幕致辞，透露出的政策信号引起了各界的高度关注。</p>
+				<p class="Loansquiz14">${question.detail}</p>
 			</div>
 			<div class="credit ground  applicationleft13">
 				<div class="credit_title Fuzzysearch7">
@@ -53,8 +53,10 @@ con.style.display=i==cursel?"block":"none";
 						<span>平台回答</span>
 					</div>
 				</div>
-				<p class="Loansquiz17">11日在大连举行的2013年夏季达沃斯论坛上，国务院总理李克强发表了《以改革创新驱动中国经济长期持续健康发展》的开幕致辞，透露出的政策信号引起了各界的高度关注11日在大连举行的2013年夏季达沃斯论坛上</p>
-				<div class="Loansquiz18">9F云金融&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2010-12-12</div>
+				<c:forEach var="ans" items="${question.answers}">
+				<p class="Loansquiz17">${ans.answerContent}</p>
+				<div class="Loansquiz18">${ans.answerBy}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${ans.answerTime}</div>
+				</c:forEach>
 			</div>
 		</div>
 	</div>

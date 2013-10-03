@@ -20,7 +20,7 @@ public class ProductQuery {
 	private String orderMonthly;
 	
 	private Integer pageIndex = 1;
-	private Integer pageSize = 1;
+	private Integer pageSize = 10;
 	
 	public Long getProductId() {
 		return productId;

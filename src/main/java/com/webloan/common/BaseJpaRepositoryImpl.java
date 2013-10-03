@@ -86,6 +86,9 @@ public class BaseJpaRepositoryImpl implements BaseJpaRepository {
 			query.setParameter(param.getKey(), param.getValue());
 		}
 		
+		System.out.println("JPQL: " + jpql);
+		System.out.println("PARAMS: " + params);
+		
 		return query.getResultList();
 	}
 
@@ -122,27 +125,9 @@ public class BaseJpaRepositoryImpl implements BaseJpaRepository {
 		String pageJpql = "select o" + jpql;
 		String countJpql = "select count(*)" + jpql;
 		
-//		Query countQuery = entityManager.createQuery(countJpql);
-//		Query pageQuery = entityManager.createQuery(pageJpql);
-//		
-//		for (Map.Entry<Integer, Object> param : params.entrySet()) {
-//			countQuery.setParameter(param.getKey(), param.getValue());
-//			pageQuery.setParameter(param.getKey(), param.getValue());
-//		}
-//		
-//		Object count = countQuery.getSingleResult();
-//		
-//		pageQuery.setFirstResult((pageIndex - 1) * pageSize);
-//		pageQuery.setMaxResults(pageSize);
-//		
-//		Page page = new Page();
-//		page.setPageIndex(pageIndex);
-//		page.setPageSize(pageSize);
-//		
-//		page.setTotalRecords(((Number) count).intValue());
-//		page.setItems(pageQuery.getResultList());
-//		
-//		return page;
+		System.out.println("PAGE JPQL: " + pageJpql);
+		System.out.println("COUNT JPQL: " + countJpql);
+		System.out.println("PARAMS: " + params);
 		
 		return queryPageResult(pageIndex, pageSize, pageJpql, countJpql, params);
 	}

@@ -1,5 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix='fmt' uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -47,31 +48,17 @@
 					<div class="Contentbox">
 						<div id="con_two_1">
 							<ul class="question_list Loansquiz5">
-								<li><a href="viewAnswer?id=100" target="_blank">这个问答可以点击查看</a></li>
-								<li><a href="贷款问答2.html" target="_blank">我有逾期贷哇5个回答</a></li>
-								<li><a href="贷款问答2.html" target="_blank">我有逾期贷哇5个回答</a></li>
-								<li><a href="贷款问答2.html" target="_blank">我有逾期贷哇5个回答</a></li>
-								<li><a href="贷款问答2.html" target="_blank">我有逾期贷哇5个回答</a></li>
-								<li><a href="贷款问答2.html" target="_blank">我有逾期贷哇5个回答</a></li>
-								<li><a href="贷款问答2.html" target="_blank">我有逾期贷哇5个回答</a></li>
-								<li><a href="贷款问答2.html" target="_blank">我有逾期贷哇5个回答</a></li>
-								<li><a href="贷款问答2.html" target="_blank">我有逾期贷哇5个回答</a></li>
-								<li><a href="贷款问答2.html" target="_blank">我有逾期贷哇5个回答</a></li>
+							<c:forEach var="k1" items="${nonMort.items}">
+								<li><a href="viewAnswer?id=${k1.id}" target="_blank">${k1.detail}</a></li>
+							</c:forEach>
 							</ul>
 							<!--<div class="Loansquiz6"><a href="#">更多抵押贷款问题>></a></div>-->
 						</div>
 						<div id="con_two_2" style="display: none">
 							<ul class="question_list Loansquiz5">
-								<li><a href="贷款问答2.html" target="_blank">我有逾期贷哇51111111个回答</a></li>
-								<li><a href="贷款问答2.html" target="_blank">我有逾期贷哇5个回答</a></li>
-								<li><a href="贷款问答2.html" target="_blank">我有逾期贷哇5个回答</a></li>
-								<li><a href="贷款问答2.html" target="_blank">我有逾期贷哇5个回答</a></li>
-								<li><a href="贷款问答2.html" target="_blank">我有逾期贷哇5个回答</a></li>
-								<li><a href="贷款问答2.html" target="_blank">我有逾期贷哇5个回答</a></li>
-								<li><a href="贷款问答2.html" target="_blank">我有逾期贷哇5个回答</a></li>
-								<li><a href="贷款问答2.html" target="_blank">我有逾期贷哇5个回答</a></li>
-								<li><a href="贷款问答2.html" target="_blank">我有逾期贷哇5个回答</a></li>
-								<li><a href="贷款问答2.html" target="_blank">我有逾期贷哇5个回答</a></li>
+							<c:forEach var="k2" items="${mortage.items}">
+								<li><a href="viewAnswer?id=${k2.id}" target="_blank">${k2.detail}</a></li>
+							</c:forEach>
 							</ul>
 							<!--<div class="Loansquiz6"><a href="贷款问答2.html" target="_blank">更多抵押贷款问题>></a></div>-->
 						</div>
@@ -83,16 +70,9 @@
 					<span class="credit_title1 font_f">大家都在问</span>
 				</div>
 				<ul class="question_list Loansquiz5">
-					<li><a href="贷款问答2.html" target="_blank">我有逾期贷哇51111111个回答</a></li>
-					<li><a href="贷款问答2.html" target="_blank">我有逾期贷哇5个回答</a></li>
-					<li><a href="贷款问答2.html" target="_blank">我有逾期贷哇5个回答</a></li>
-					<li><a href="贷款问答2.html" target="_blank">我有逾期贷哇5个回答</a></li>
-					<li><a href="贷款问答2.html" target="_blank">我有逾期贷哇5个回答</a></li>
-					<li><a href="贷款问答2.html" target="_blank">我有逾期贷哇5个回答</a></li>
-					<li><a href="贷款问答2.html" target="_blank">我有逾期贷哇5个回答</a></li>
-					<li><a href="贷款问答2.html" target="_blank">我有逾期贷哇5个回答</a></li>
-					<li><a href="贷款问答2.html" target="_blank">我有逾期贷哇5个回答</a></li>
-					<li><a href="贷款问答2.html" target="_blank">我有逾期贷哇5个回答</a></li>
+			    <c:forEach var="hiQust" items="${hiQusts.items}">
+			      <li><a href="viewAnswer?questId=${hiQust.id}" target="_blank">${hiQust.detail}</a></li>
+			    </c:forEach>
 				</ul>
 				<!--<div class="Loansquiz6"><a href="#">更多问题>></a></div>-->
 			</div>

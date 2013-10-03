@@ -73,7 +73,7 @@
 				<prop key="inputOrderInfoForm">productController</prop>
 				<prop key="saveOrderInfo">orderController</prop>
 				
-				<prop key="QA">questionController</prop>
+				<prop key="ask">questionController</prop>
 				<prop key="viewAnswer">questionController</prop>
 				<prop key="questionSearch">questionController</prop>
 				<prop key="postQuestionForm">questionController</prop>

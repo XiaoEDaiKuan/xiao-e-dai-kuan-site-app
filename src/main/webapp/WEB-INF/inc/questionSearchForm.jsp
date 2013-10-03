@@ -7,8 +7,8 @@
 				<tr>
 					<td width="14%" height="80" align="right" valign="middle"><span>您的问题:</span></td>
 					<td width="34%" align="left" valign="middle"><input
-						type="text" name="textfield" id="textfield" /></td>
-					<td width="11%"><input name="" type="submit" value="" class="questionSearch_btn"/></td>
+						type="text" name="title" id="textfield" /></td>
+					<td width="11%"><input type="submit" value="" class="questionSearch_btn"/></td>
 					<td width="41%"><a href="#" class="Loansquiz3"
 						id="pop_question">我要提问</a></td>
 				</tr>

@@ -19,13 +19,13 @@
 					</font>
 				</div>
 				<div class="pop_question4">
-					<input name="" type="text" class="n_srk2 pop_question2" />
+					<input name="subject" type="text" class="n_srk2 pop_question2" />
 				</div>
 				<div class="pop_question3">
 					问题详细描述（选填）：<font>问题描述的越详细，得到的解答也越精准</font>
 				</div>
 				<div class="pop_question4">
-					<textarea name="" cols="" rows="" class="n_srk2 pop_question5"></textarea>
+					<textarea name="detail" cols="" rows="" class="n_srk2 pop_question5"></textarea>
 				</div>
 				<div class="pop_question6">
 					<table width="100%" border="0" cellspacing="0" cellpadding="0"
@@ -35,12 +35,12 @@
 						</tr>
 						<tr>
 							<th width="17%">常用邮箱：</th>
-							<td width="47%"><input name="" type="text" class="input" /></td>
+							<td width="47%"><input name="email" type="text" class="input" /></td>
 							<td width="36%">&nbsp;</td>
 						</tr>
 						<tr>
 							<th>手机号码：</th>
-							<td><input name="" type="text" class="input" /></td>
+							<td><input name="telephone" type="text" class="input" /></td>
 							<td>&nbsp;</td>
 						</tr>
 						<tr>
@@ -53,7 +53,7 @@
 				</div>
 			</div>
 			<div class="pop_contact1">
-				<input name="" type="submit" value="" class="pop_submit" />
+				<input type="submit" value="" class="pop_submit" />
 			</div>
 		</div>
 	</form>

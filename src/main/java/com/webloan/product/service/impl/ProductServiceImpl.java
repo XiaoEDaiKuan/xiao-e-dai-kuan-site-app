@@ -73,10 +73,10 @@ public class ProductServiceImpl implements ProductService {
 		String[] conds = { 
 			LIKE, 
 			EQ, 
-			GE, 
 			LE, 
 			GE, 
 			LE, 
+			GE, 
 			EQ, 
 			EQ, 
 			EQ, 
@@ -145,10 +145,10 @@ public class ProductServiceImpl implements ProductService {
 		String[] conds = { 
 			LIKE, 
 			EQ, 
-			GE, 
 			LE, 
 			GE, 
 			LE, 
+			GE, 
 			EQ, 
 			EQ, 
 			EQ, 

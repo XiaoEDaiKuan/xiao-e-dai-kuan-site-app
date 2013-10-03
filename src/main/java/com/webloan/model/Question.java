@@ -26,6 +26,8 @@ public class Question implements Serializable{
 	 private String   status;//问题状态
 	 private Long     productID;//贷款产品ID
 	 private String   subject;//主题
+	 private String   type;////问题类型
+	 
      private List<Answer> answers;//
      
 	 
@@ -112,6 +114,12 @@ public class Question implements Serializable{
 	}
 	public void setSubject(String subject) {
 		this.subject = subject;
+	}
+	public String getType() {
+		return type;
+	}
+	public void setType(String type) {
+		this.type = type;
 	}
 	public List<Answer> getAnswers() {
 		return answers;
