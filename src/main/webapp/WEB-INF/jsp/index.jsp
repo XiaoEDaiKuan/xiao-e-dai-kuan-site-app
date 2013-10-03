@@ -41,10 +41,11 @@
           <th width="20%">职业身份：</th>
           <td><div id="tm2008style">
 	<select name="language_tm20081" id="language_tm2008">
-		<option value="企业主">企业主</option>
-		<option value="个体户" >个体户</option>
-		<option value="上班族" >上班族</option>
-		<option value="无固定职业" >无固定职业</option>
+		<option value="">请选择</option>
+		<option value="0" >无固定职业</option>
+		<option value="1">企业主</option>
+		<option value="2" >个体户</option>
+		<option value="3" >上班族</option>
 	</select>
 </div></td>
           <td>&nbsp;</td>
@@ -53,11 +54,12 @@
           <th>贷款用途：</th>
           <td><div id="tm2008style">
 	<select name="language_tm20082" id="language_tm2008">
-		<option value="不限">不限</option>
-		<option value="经营贷款" >经营贷款</option>
-		<option value="消费贷款" >消费贷款</option>
-		<option value="购车贷款" >购车贷款</option>
-		<option value="购房贷款" >购房贷款</option>
+		<option value="">请选择</option>
+		<option value="0">不限</option>
+		<option value="1" >经营贷款</option>
+		<option value="2" >消费贷款</option>
+		<option value="3" >购车贷款</option>
+		<option value="4" >购房贷款</option>
 	</select>
 </div></td>
           <td>&nbsp;</td>
@@ -66,14 +68,14 @@
           <th>贷款金额：</th>
           <td><div id="tm2008style">
 	<select name="language_tm20083" id="language_tm2008">
-		<option value="万元">万元</option>
-		<option value="3万元" >3万元</option>
-		<option value="5万元" >5万元</option>
-		<option value="10万元" >10万元</option>
-		<option value="20万元" >20万元</option>
-		<option value="50万元" >50万元</option>
-		<option value="100万元" >100万元</option>
-		<option value="其他" >其他</option>
+		<option value="">请选择</option>
+		<option value="3" >3万元</option>
+		<option value="5" >5万元</option>
+		<option value="10" >10万元</option>
+		<option value="20" >20万元</option>
+		<option value="50" >50万元</option>
+		<option value="100" >100万元</option>
+		<option value="" >其他</option>
 	</select>
 </div></td>
           <td>不足1万可用小数表示</td>
@@ -82,13 +84,14 @@
           <th>贷款期限：</th>
           <td><div id="tm2008style">
 	<select name="language_tm20084" id="language_tm2008">
-		<option value="3个月">3个月</option>
-		<option value="6个月" >6个月</option>
-		<option value="12个月" selected="selected" >12个月</option>
-		<option value="2年" >2年</option>
-		<option value="3年" >3年</option>
-		<option value="5年" >5年</option>
-		<option value="10年" >10年</option>
+		<option value="">请选择</option>
+		<option value="3">3个月</option>
+		<option value="6" >6个月</option>
+		<option value="12">12个月</option>
+		<option value="24" >2年</option>
+		<option value="36" >3年</option>
+		<option value="60" >5年</option>
+		<option value="120" >10年</option>
 	</select>
 </div></td>
           <td>&nbsp;</td>
