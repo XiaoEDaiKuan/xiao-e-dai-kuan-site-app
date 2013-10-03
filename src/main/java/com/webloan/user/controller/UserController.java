@@ -14,8 +14,10 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.multiaction.MultiActionController;
 
 import com.octo.captcha.service.image.ImageCaptchaService;
+import com.webloan.common.Page;
 import com.webloan.exception.BizException;
 import com.webloan.model.Cust;
+import com.webloan.order.service.OrderService;
 import com.webloan.user.UserConstant;
 import com.webloan.user.service.UserService;
 
@@ -24,6 +26,9 @@ public class UserController extends MultiActionController {
 	UserService userService;
 	@Resource
 	ImageCaptchaService captchaService;
+	@Resource
+	OrderService orderService;
+	
 	protected transient Logger log = LoggerFactory.getLogger(this.getClass());
 
 	/*
@@ -342,6 +347,34 @@ public class UserController extends MultiActionController {
 			HttpServletResponse response) throws Exception {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("member/myDaikuan");
+		String custId=(String)request.getSession().getAttribute("custId");
+
+		//测试
+		custId="1";
+
+		
+		if(null==custId||"".equals(custId)){
+			log.error(UserConstant.EXCEPTION_CUST_NOT_FOUND);
+			throw new BizException(UserConstant.EXCEPTION_CUST_NOT_FOUND);
+		}
+		String strPageIndex=request.getParameter("pageIndex");
+		String strPageSize=request.getParameter("pageSize");
+		
+		if(null==strPageIndex||"".equals(strPageIndex)){
+           strPageIndex="1";
+		}
+		int pageIndex=Integer.parseInt(strPageIndex);
+		
+		if(null==strPageSize||"".equals(strPageSize)){
+           strPageSize="10";
+		}
+		int pageSize=Integer.parseInt(strPageSize);
+		
+		Page orderPage=orderService.orderListByUser(custId,pageIndex,pageSize);
+		
+		mav.addObject("orderPage",orderPage);
+
+		
 		return mav;
 	}
 	
@@ -349,6 +382,13 @@ public class UserController extends MultiActionController {
 			HttpServletResponse response) throws Exception {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("member/pop_CancelOrder");
+        String orderid=request.getParameter("orderid");
+		if(null==orderid ||"".equals(orderid)){
+			log.error(UserConstant.EXCEPTION_MY_LOAN);
+			throw new BizException(UserConstant.EXCEPTION_MY_LOAN);
+		}
+		orderService.deleteOrder(orderid);
+		
 		return mav;
 	}
 	

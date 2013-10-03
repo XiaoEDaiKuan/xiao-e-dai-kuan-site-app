@@ -33,6 +33,7 @@ public class UserConstant {
 	public final static String EXCEPTION_ACCT_STATUS="账号状态不正常";
 	public final static String EXCEPTION_PASSWD_ERROR="密码错误";
 	public final static String EXCEPTION_SENT_MAIL_ERROR="密码错误";
-	
+	public final static String EXCEPTION_MY_LOAN="查询我的贷款发生系统错误";
+	public final static String EXCEPTION_ORDER_CANCEL="取消订单发生系统错误";
 
 }
