@@ -120,7 +120,7 @@
 <div class="main2">
   <div class="main2_left">
     <div class="credit ground">
-      <div class="credit_title"> <span class="credit_title1 font_f">热门信用贷款</span> <span class="credit_title2">无需抵押 担保</span> <a target="_blank" href="贷款搜索.html">更多信用贷款</a> </div>
+      <div class="credit_title"> <span class="credit_title1 font_f">热门信用贷款</span> <span class="credit_title2">无需抵押 担保</span> <a target="_blank" href="queryProduct">更多信用贷款</a> </div>
       <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table">
 		<c:forEach var="hcrProd" items="${hcrProds.items}">
 		<tr>
@@ -208,10 +208,10 @@
 </div>
 <div class="main4">
   <div class="ask ground">
-    <div class="credit_title"> <span class="credit_title1 font_f">大家都在问</span> <a target="_blank" href="贷款问答1.html">更多问题</a><input name="" type="button" value="我要提问" id="pop_question" /> </div>
+    <div class="credit_title"> <span class="credit_title1 font_f">大家都在问</span> <a target="_blank" href="ask">更多问题</a><input name="" type="button" value="我要提问" id="pop_question" /> </div>
     <ul class="question_list">
-    <c:forEach var="hiQust" items="${hiQuests}">
-      <li><a href="贷款问答2.html" target="_blank">${hiQust.detail}</a></li>
+    <c:forEach var="hiQust" items="${hiQusts}">
+      <li><a href="viewAnswer?questId=${hiQust.id}" target="_blank">${hiQust.detail}</a></li>
     </c:forEach>
     </ul>
   </div>
