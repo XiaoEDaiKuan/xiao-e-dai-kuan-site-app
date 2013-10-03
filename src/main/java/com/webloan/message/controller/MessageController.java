@@ -15,7 +15,7 @@ public class MessageController extends MultiActionController{
 	public ModelAndView messageListByUser(HttpServletRequest request, HttpServletResponse response) {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("message/messagelistbyuser");
-		mav.addObject("messages", messageService.messageListByUser(null));
+		mav.addObject("messages", messageService.messageListByUser("1",1,10));
 		return mav;
 	}
 
