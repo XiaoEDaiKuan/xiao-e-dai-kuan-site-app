@@ -2,13 +2,14 @@ package com.webloan.order.service;
 
 import java.util.List;
 
+import com.webloan.common.Page;
 import com.webloan.model.Order;
 import com.webloan.model.Question;
 import com.webloan.model.RequireInfo;
 
 public interface OrderService {
 	//查询订单
-   List<Order> orderListByUser(String strCustId);
+   Page orderListByUser(String strCustId,int pageIndex,int pageSize);
    //查询记录条数
    int orderCount();
    //取消订单

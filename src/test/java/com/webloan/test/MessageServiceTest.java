@@ -7,6 +7,8 @@ import org.junit.Before;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import com.webloan.common.Page;
 import com.webloan.message.service.MessageService;
 import com.webloan.model.Message;
 
@@ -23,13 +25,13 @@ public class MessageServiceTest {
 	public void testMessageListByUser() {
 		MessageService messageService = appContext.getBean("messageService",
 				MessageService.class);
-		List<Message> messages = messageService.messageListByUser("1");
-		for (int i = 0; i < messages.size(); i++) {
+		Page messages= messageService.messageListByUser("1",1,10);
+		for (int i = 0; i < messages.getItems().size(); i++) {
 
-			System.out.println(((Message) messages.get(i)).getId());
-			System.out.println(((Message) messages.get(i)).getFromPerson());
-			System.out.println(((Message) messages.get(i)).getSubject());
-			System.out.println(((Message) messages.get(i)).getSendTime());
+			System.out.println(((Message) messages.getItems().get(i)).getId());
+			System.out.println(((Message) messages.getItems().get(i)).getFromPerson());
+			System.out.println(((Message) messages.getItems().get(i)).getSubject());
+			System.out.println(((Message) messages.getItems().get(i)).getSendTime());
 
 		}
 	}
@@ -38,7 +40,7 @@ public class MessageServiceTest {
 	public void testMessageCountByStatus() {
 		MessageService messageService = appContext.getBean("messageService",
 				MessageService.class);
-		List<Object> object = messageService.messageCountByStatus();
+		List<Object> object = messageService.messageCountByStatus("1");
 		for (int i = 0; i < object.size(); i++) {
 
 			System.out.println(((Number) object.get(i)).intValue());

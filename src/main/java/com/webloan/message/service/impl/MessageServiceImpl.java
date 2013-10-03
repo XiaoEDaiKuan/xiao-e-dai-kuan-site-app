@@ -2,6 +2,7 @@ package com.webloan.message.service.impl;
 
 import java.util.List;
 
+import com.webloan.common.Page;
 import com.webloan.message.dao.MessageRepository;
 import com.webloan.message.service.MessageService;
 import com.webloan.model.Message;
@@ -11,9 +12,9 @@ public class MessageServiceImpl implements MessageService{
 	private MessageRepository messageRepository;
 	
 	@Override
-	public List<Message> messageListByUser(String strCustId) {
+	public Page messageListByUser(String strCustId,int pageIndex,int pageSize) {
 		Long custId = strCustId == null ? null : Long.valueOf(strCustId);
-		return messageRepository.messageListByUser(custId);
+		return messageRepository.messageListByUser(custId,pageIndex,pageSize);
 	}
 
 	public MessageRepository getMessageRepository() {
@@ -25,9 +26,9 @@ public class MessageServiceImpl implements MessageService{
 	}
 
 	@Override
-	public List<Object> messageCountByStatus() {
-		
-		return messageRepository.messageCountByStatus();
+	public List<Object> messageCountByStatus(String strCustId) {
+		Long custId = strCustId == null ? null : Long.valueOf(strCustId);
+		return messageRepository.messageCountByStatus(custId);
 	}
 
 	@Override

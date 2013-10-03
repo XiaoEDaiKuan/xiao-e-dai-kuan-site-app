@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <title>会员中心</title>
@@ -23,7 +26,7 @@
 
 			<div class="message">
 				<div class="message1">
-					未读 <b>0</b> 封，已读 <b>2</b> 封，共 <b>3</b> 封
+					未读 <b>${unreadCnt}</b> 封，已读 <b>${readCnt}</b> 封，共 <b>${messageCnt}</b> 封
 				</div>
 				
 				
@@ -35,28 +38,21 @@
 				</div>
 				
 				<!-- 第一条 -->
-				<div class="mes_tit" id="n_menu1">
-					<span> <input name="" type="checkbox" value="" />
-					</span><span  onclick="n_showmenu('1') "><img src="images/message2.jpg" width="14" height="11" /></span><font  onclick="n_showmenu('1') ">安心</font>
-					<p onclick="n_showmenu('1') ">安心贷的最新活动</p>
-					<a>2013-9-12</a>
-				</div>
-				<div id="n_list1" class="n_content" style="display: none">
-					李先生:<br /> 从无逾期，长沙的，平安申请被拒绝了，还有哪里可以做？大概3万~能批吗？
-				</div>
-				
-				<!-- 第二条 -->
-				<div class="mes_tit" id="n_menu2">
-					<span> <input name="" type="checkbox" value="" />
-					</span><span  onclick="n_showmenu('2') "><img src="images/message3.jpg" width="14" height="12" /></span><font  onclick="n_showmenu('2') ">安心</font>
-					<p onclick="n_showmenu('2') ">安心贷的最新活动</p>
-					<a>2013-9-12</a>
-				</div>
-				<div id="n_list2" class="n_content" style="display: none">
-					李先生:<br /> 从无逾期，长沙的，平安申请被拒绝了，还有哪里可以做？大概3万~能批吗？
-				</div>
+			  <c:forEach var="message" items="${messagePage.items}" varStatus="vst">
 
+				<div class="mes_tit" id="n_menu${vst.index+1}">
+					<span> <input name="" type="checkbox" value="" />
+					</span><span  onclick="n_showmenu('${vst.index+1}') "><img src="images/message2.jpg" width="14" height="11" /></span><font  onclick="n_showmenu('${vst.index+1}') ">${message.toPerson}</font>
+					<p onclick="n_showmenu('${vst.index+1}') ">${message.subject}</p>
+					<a><fmt:formatDate value="${message.sendTime}" pattern="yyyy-MM-dd HH:mm:ss"/></a>
+			 	</div>
+				 <div id="n_list${vst.index+1}" class="n_content" style="display: none">
+					${message.toPerson}先生:<br /> ${message.content}
+				 </div>
+			  </c:forEach>	
+			
 			</div>
+			
 			<div class="message3 clear">
 				<div class="message3_2">
 					<input name="" type="checkbox" value="" /> <font>全选</font> <input
@@ -64,10 +60,12 @@
 						type="button" value="标记为已读" class="n_btn6" />
 				</div>
 				<div class="message3_1" style="height:60px">
-					<div class="me_next" style="height:30px">
-						<a href="#"><em>第一页</em></a><a href="#"><em>上一页</em></a><a
-							href="#"><em>1</em></a><a href="#"><em>下一页</em></a><a href="#"><em>末尾页</em></a>
-					</div>
+                 
+                 <div class="me_next padd">
+				   <c:forEach var="i" begin="1" end="${messagePage.totalPages}" step="1">
+                    	<a  href="myMessage?pageIndex=${i}" <c:if test="${i == messagePage.pageIndex}">class="currentPager"</c:if> ><em>${i}</em></a>
+                   </c:forEach>
+                  </div>
 				</div>
 			</div>
 		</div>

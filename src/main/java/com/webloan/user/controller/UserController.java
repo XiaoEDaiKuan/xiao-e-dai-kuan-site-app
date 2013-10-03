@@ -2,6 +2,7 @@ package com.webloan.user.controller;
 
 import java.io.PrintWriter;
 import java.util.HashMap;
+import java.util.List;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -14,8 +15,11 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.multiaction.MultiActionController;
 
 import com.octo.captcha.service.image.ImageCaptchaService;
+import com.webloan.common.Page;
 import com.webloan.exception.BizException;
+import com.webloan.message.service.MessageService;
 import com.webloan.model.Cust;
+import com.webloan.order.service.OrderService;
 import com.webloan.user.UserConstant;
 import com.webloan.user.service.UserService;
 
@@ -24,6 +28,12 @@ public class UserController extends MultiActionController {
 	UserService userService;
 	@Resource
 	ImageCaptchaService captchaService;
+	@Resource
+	OrderService orderService;
+	@Resource
+	MessageService messageService;
+	
+	
 	protected transient Logger log = LoggerFactory.getLogger(this.getClass());
 
 	/*
@@ -342,6 +352,35 @@ public class UserController extends MultiActionController {
 			HttpServletResponse response) throws Exception {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("member/myDaikuan");
+
+		String custId=(String)request.getSession().getAttribute("custId");
+
+		//测试
+		custId="1";
+
+		
+		if(null==custId||"".equals(custId)){
+			log.error(UserConstant.EXCEPTION_CUST_NOT_FOUND);
+			throw new BizException(UserConstant.EXCEPTION_CUST_NOT_FOUND);
+		}
+		String strPageIndex=request.getParameter("pageIndex");
+		String strPageSize=request.getParameter("pageSize");
+		
+		if(null==strPageIndex||"".equals(strPageIndex)){
+           strPageIndex="1";
+		}
+		int pageIndex=Integer.parseInt(strPageIndex);
+		
+		if(null==strPageSize||"".equals(strPageSize)){
+           strPageSize="10";
+		}
+		int pageSize=Integer.parseInt(strPageSize);
+		
+		Page orderPage=orderService.orderListByUser(custId,pageIndex,pageSize);
+		
+		mav.addObject("orderPage",orderPage);
+
+		
 		return mav;
 	}
 	
@@ -349,6 +388,13 @@ public class UserController extends MultiActionController {
 			HttpServletResponse response) throws Exception {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("member/pop_CancelOrder");
+        String orderid=request.getParameter("orderid");
+		if(null==orderid ||"".equals(orderid)){
+			log.error(UserConstant.EXCEPTION_MY_LOAN);
+			throw new BizException(UserConstant.EXCEPTION_MY_LOAN);
+		}
+		orderService.deleteOrder(orderid);
+		
 		return mav;
 	}
 	
@@ -363,6 +409,55 @@ public class UserController extends MultiActionController {
 			HttpServletResponse response) throws Exception {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("member/myMessage");
+
+		String custId=(String)request.getSession().getAttribute("custId");
+
+		//测试
+		custId="1";
+
+		
+		if(null==custId||"".equals(custId)){
+			log.error(UserConstant.EXCEPTION_CUST_NOT_FOUND);
+			throw new BizException(UserConstant.EXCEPTION_CUST_NOT_FOUND);
+		}
+		String strPageIndex=request.getParameter("pageIndex");
+		String strPageSize=request.getParameter("pageSize");
+		
+		if(null==strPageIndex||"".equals(strPageIndex)){
+           strPageIndex="1";
+		}
+		int pageIndex=Integer.parseInt(strPageIndex);
+		
+		if(null==strPageSize||"".equals(strPageSize)){
+           strPageSize="10";
+		}
+		int pageSize=Integer.parseInt(strPageSize);
+		
+		
+		Page messagePage=messageService.messageListByUser(custId,pageIndex,pageSize);
+		
+		mav.addObject("messagePage",messagePage);
+		
+		List<Object> ls=messageService.messageCountByStatus(custId);
+		
+		int messageCnt=0;
+		int unreadCnt=0;
+		int readCnt=0;
+		
+		if(null !=ls && ls.size() ==2){
+				unreadCnt=((Number) ls.get(0)).intValue();
+				readCnt=((Number) ls.get(1)).intValue();
+				messageCnt=unreadCnt+readCnt;
+		}
+		if(null !=ls && ls.size() ==1){
+			unreadCnt=((Number) ls.get(0)).intValue();
+			messageCnt=unreadCnt+readCnt;
+     	}
+		
+		mav.addObject("unreadCnt",unreadCnt );
+		mav.addObject("readCnt",readCnt );
+		mav.addObject("messageCnt",messageCnt );
+		
 		return mav;
 	}
 	

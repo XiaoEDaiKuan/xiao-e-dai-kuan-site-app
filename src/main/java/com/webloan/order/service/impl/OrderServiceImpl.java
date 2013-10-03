@@ -13,6 +13,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.mail.SimpleMailMessage;
 
+import com.webloan.common.Page;
 import com.webloan.model.Order;
 import com.webloan.model.Product;
 import com.webloan.model.Question;
@@ -46,9 +47,9 @@ public class OrderServiceImpl implements OrderService {
 	}
 
 	@Override
-	public List<Order> orderListByUser(String strCustId) {
+	public Page orderListByUser(String strCustId,int pageIndex,int pageSize) {
 		Long custId = strCustId == null ? null : Long.valueOf(strCustId);
-		return orderRepository.orderListByUser(custId);
+		return orderRepository.orderListByUser(custId,pageIndex,pageSize);
 	}
 
 	@Override

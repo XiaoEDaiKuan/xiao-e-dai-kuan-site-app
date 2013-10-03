@@ -11,7 +11,9 @@ function showmenu(id) {
 } 
 
 function n_showmenu(id) {
+
 	var n_list = document.getElementById("n_list"+id);
+	
 	var n_menu = document.getElementById("n_menu"+id)
 	if (n_list.style.display=="none") {
 		document.getElementById("n_list"+id).style.display="block";

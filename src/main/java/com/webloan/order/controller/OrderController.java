@@ -4,21 +4,46 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.multiaction.MultiActionController;
 
+import com.webloan.exception.BizException;
 import com.webloan.order.service.OrderService;
+import com.webloan.user.UserConstant;
 import com.webloan.user.service.UserService;
 
 public class OrderController extends MultiActionController{
 
 	@Resource OrderService orderService;
 	@Resource UserService userService;
+	protected transient Logger log = LoggerFactory.getLogger(this.getClass());
 	
 	public ModelAndView orderlistByUser(HttpServletRequest request, HttpServletResponse response) {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("order/orderlistbyuser");
-		mav.addObject("orders", orderService.orderListByUser(null));
+		String strPageIndex=request.getParameter("pageIndex");
+		String strPageSize=request.getParameter("pageSize");
+		String custId=(String)request.getSession().getAttribute("custId");
+
+		
+		if(null==custId||"".equals(custId)){
+			log.error(UserConstant.EXCEPTION_CUST_NOT_FOUND);
+			throw new BizException(UserConstant.EXCEPTION_CUST_NOT_FOUND);
+		}
+
+		if(null==strPageIndex||"".equals(strPageIndex)){
+           strPageIndex="1";
+		}
+		int pageIndex=Integer.parseInt(strPageIndex);
+		
+		if(null==strPageSize||"".equals(strPageSize)){
+           strPageSize="10";
+		}
+		int pageSize=Integer.parseInt(strPageSize);
+
+		mav.addObject("orders", orderService.orderListByUser(custId,pageIndex,pageSize));
 		return mav;
 	}
 	

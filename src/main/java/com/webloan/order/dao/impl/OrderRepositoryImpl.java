@@ -6,6 +6,7 @@ import java.util.List;
 import javax.persistence.Query;
 
 import com.webloan.common.BaseJpaRepositoryImpl;
+import com.webloan.common.Page;
 import com.webloan.common.Queriable;
 import com.webloan.order.OrderStatus;
 import com.webloan.model.Cust;
@@ -19,9 +20,10 @@ public class OrderRepositoryImpl extends BaseJpaRepositoryImpl implements
 		OrderRepository {
 
 	@Override
-	public List<Order> orderListByUser(Long custId) {
-		return this.queryList(Order.class, new String[] { "cust.id" },
-				new Object[] { custId });
+	public Page orderListByUser(Long custId,int pageIndex,int pageSize) {
+		
+		return this.queryPage(pageIndex, pageSize, Order.class,new String[] { "cust.id" },new Object[] { custId });
+    
 	}
 
 	@Override
