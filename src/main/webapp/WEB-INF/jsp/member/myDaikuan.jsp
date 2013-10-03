@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>	
+	
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -26,18 +29,26 @@
 						<th>状态</th>
 						<th>操作</th>
 					</tr>
+			  <c:forEach var="order" items="${orderPage.items}">
+				
 					<tr>
-						<td>123</td>
-						<td>某某某最新产品</td>
-						<td>00万元</td>
-						<td>2013-09-08&nbsp;11:23:26</td>
-						<td>等待预审</td>
-						<td><a href="#" data="{订单号：1234}" class="pop_Cancel_order">取消订单</a></td>
+						<td>${order.id}</td>
+						<td>${order.product.name}</td>
+						<td>${order.applyAmt}元</td>
+						<td><fmt:formatDate value="${order.orderTime}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
+						<td>${order.status}</td>
+						<td><a href="#" data="${order.id}" class="pop_Cancel_order">取消订单</a></td>
 					</tr>
+			   </c:forEach>
+			   
 				</table>
+				
+				
 				<div class="me_next padd">
-					<a href="#"><em>上一页</em></a><a href="#"><em>1</em></a><a href="#"><em>2</em></a><a
-						href="#"><em>3</em></a><a href="#"><em>下一页</em></a>
+				
+				  <c:forEach var="i" begin="1" end="${orderPage.totalPages}" step="1">
+                    	<a  href="myDaikuan?pageIndex=${i}" <c:if test="${i == orderPage.pageIndex}">class="currentPager"</c:if> ><em>${i}</em></a>
+                   </c:forEach>
 				</div>
 			</div>
 
