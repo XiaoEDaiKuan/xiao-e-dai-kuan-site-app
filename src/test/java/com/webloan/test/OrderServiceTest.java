@@ -9,6 +9,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.webloan.order.OrderStatus;
+import com.webloan.common.Page;
 import com.webloan.model.Order;
 import com.webloan.model.Question;
 import com.webloan.model.RequireInfo;
@@ -27,20 +28,14 @@ public class OrderServiceTest {
 	public void testOrderListByUser() {
 		OrderService orderService = appContext.getBean("orderService",
 				OrderService.class);
-		List<Order> orders = orderService.orderListByUser("1");
-		for (int i = 0; i < orders.size(); i++) {
-			for (OrderStatus os : OrderStatus.values()) {
-				if(os.getIndex()==Integer.valueOf(orders.get(i).getStatus()).intValue()){
-					orders.get(i).setStatus(os.getName());
-					break;
-				}
-			}
+		Page orderpage= orderService.orderListByUser("1",1,10);
+		for (int i = 0; i < orderpage.getItems().size(); i++) {
 
-			System.out.println(((Order) orders.get(i)).getId());
-			System.out.println(((Order) orders.get(i)).getProduct().getName());
-			System.out.println(((Order) orders.get(i)).getApprovAmt());
-			System.out.println(((Order) orders.get(i)).getOrderTime());
-			System.out.println(((Order) orders.get(i)).getStatus());
+			System.out.println(((Order) orderpage.getItems().get(i)).getId());
+			System.out.println(((Order) orderpage.getItems().get(i)).getProduct().getName());
+			System.out.println(((Order) orderpage.getItems().get(i)).getApprovAmt());
+			System.out.println(((Order) orderpage.getItems().get(i)).getOrderTime());
+			System.out.println(((Order) orderpage.getItems().get(i)).getStatus());
 
 		}
 	}
