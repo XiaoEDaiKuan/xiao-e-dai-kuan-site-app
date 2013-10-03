@@ -53,6 +53,7 @@
 			    <prop key="verifyPasswd">userController</prop>
 			    <prop key="forgetPasswd">userController</prop>
   			    <prop key="modifyPasswd">userController</prop>
+  			    <prop key="myMessage">userController</prop>
   			    
 				<prop key="loginForm">userController</prop>
 				<prop key="loginFormAction">userController</prop>
