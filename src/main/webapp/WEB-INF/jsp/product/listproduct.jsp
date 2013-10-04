@@ -1,9 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-
 <title>贷款产品</title>
 <%@include file="../../inc/globalScript.jsp" %>
 <script type="text/javascript">
@@ -233,7 +233,7 @@
 </div>
 <div class="main3 ground  Fuzzysearch6 Loansearch2 Loansearch3">
   <div class="credit_title Fuzzysearch7 Loansearch2"> 
-    <span class="credit_title1 Fuzzysearch8">为您找到<em>8</em>款贷款产品，请根据你的条件进行筛选</span>
+    <span class="credit_title1 Fuzzysearch8">为您找到<em>${products.totalRecords}</em>款贷款产品，请根据你的条件进行筛选</span>
   </div>
   <div class="Fuzzysearch3">
   	<div class="Fuzzysearch4 Loansearch4 ClearFix">
@@ -305,8 +305,22 @@
     	<div class="Loansearch13">
         	<h1>${prod.product.issueOrgan}</h1>
             <p>
-            	<span class="Loansearch14">${prod.product.guarantyType}</span><br />
-            	<span class="Loansearch14 Loansearch15">${prod.identity}</span><br />
+            	<span class="Loansearch14">
+            	<fmt:bundle basename="dict/dict-mapping" prefix="PRD_GRNT_TYPE.">
+            		<fmt:message key="${prod.product.guarantyType}" />
+				</fmt:bundle>
+            	</span><br />
+            	<span class="Loansearch14 Loansearch15">
+            	<fmt:bundle basename="dict/dict-mapping" prefix="PRD_IDENTITY.">
+	            	<c:set var="hasIden" value="0" />
+	            	<c:forTokens var="iden" items="${prod.identity}" delims="|">
+	            		<c:if test="${not empty iden}">
+	            			<c:if test="${hasIden == '1'}">, </c:if><fmt:message key="${iden}" />
+	            			<c:set var="hasIden" value="1" />
+	            		</c:if>
+	            	</c:forTokens>
+				</fmt:bundle>
+            	</span><br />
             	<span class="Loansearch14 Loansearch16">${prod.product.paidDays}天放款</span>
             </p>
         </div>
@@ -319,7 +333,10 @@
     </div>
     <div class="Loansearch12 Loansearch17">
     	<div class="Loansearch18">
-            <p>利率：${prod.product.intrRate}<br />总利息：${prod.product.intrFormula}<span>万元</span><br /></p>
+            <p>
+            	利率：<fmt:formatNumber type="percent" pattern="0.00%" value="${prod.product.intrRate}" /><br />
+            	总利息：${prod.product.intrFormula}<span>万元</span><br />
+            </p>
         </div>
     </div>
     <div class="Loansearch12 Loansearch17">
