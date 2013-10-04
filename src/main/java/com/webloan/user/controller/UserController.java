@@ -641,8 +641,31 @@ public class UserController extends MultiActionController {
 			throw new BizException(UserConstant.EXCEPTION_CUST_NOT_FOUND);
 		}
 		
-      //  Page questionPage=questionService.questionListByCustId(strCustId);
+		String custId=(String)request.getSession().getAttribute("custId");
+
+		//测试
+		custId="1";
+
 		
+		if(null==custId||"".equals(custId)){
+			log.error(UserConstant.EXCEPTION_CUST_NOT_FOUND);
+			throw new BizException(UserConstant.EXCEPTION_CUST_NOT_FOUND);
+		}
+		String strPageIndex=request.getParameter("pageIndex");
+		String strPageSize=request.getParameter("pageSize");
+		
+		if(null==strPageIndex||"".equals(strPageIndex)){
+           strPageIndex="1";
+		}
+		int pageIndex=Integer.parseInt(strPageIndex);
+		
+		if(null==strPageSize||"".equals(strPageSize)){
+           strPageSize="10";
+		}
+		int pageSize=Integer.parseInt(strPageSize);
+
+        Page questionPage=questionService.qryQuestionByCustId(strCustId, pageIndex, pageSize);
+        mav.addObject("questionPage", questionPage);		
 		
 		return mav;
 	}

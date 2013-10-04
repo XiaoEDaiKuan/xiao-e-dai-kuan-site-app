@@ -48,6 +48,16 @@ public class QuestionRepositoryImpl extends BaseJpaRepositoryImpl implements
 	}
 
 	/**
+	 * 根据客户id,查找该客户提交的问题
+	 */
+	@Override
+	public Page qryQuestionByCustId(Long custId,int pageIndex,int pageSize) {
+        
+        return this.queryPage(pageIndex, pageSize, Question.class, new String[]{"custID"}, new Object[]{custId});
+		
+	}
+	
+	/**
 	 * 根据问题id查找该问题的详情
 	 */
 	@Override

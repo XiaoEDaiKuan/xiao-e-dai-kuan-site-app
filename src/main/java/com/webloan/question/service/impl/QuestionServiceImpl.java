@@ -25,6 +25,15 @@ public class QuestionServiceImpl implements QuestionService {
 	}
 
 	/**
+	 * 根据客户ID查询提问
+	 */
+	@Override
+	public Page qryQuestionByCustId(String strCustId,int pageIndex,int pageSize) {
+        Long custId=strCustId==null?null:Long.valueOf(strCustId);
+		return questionRepository.qryQuestionByCustId(custId, pageIndex, pageSize);
+	}
+
+	/**
 	 * 根据问题ID查看详情
 	 * 
 	 */

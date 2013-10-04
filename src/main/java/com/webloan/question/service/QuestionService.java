@@ -13,6 +13,9 @@ public interface QuestionService {
 
 	//根据客户ID查询提问
 	List<QstPrd> questionListByCustId(String strCustId);
+	//根据客户ID查询提问
+	Page qryQuestionByCustId(String strCustId,int pageIndex,int pageSize);
+	
 	//根据问题ID查看详情
 	Question questionDtById(String strQuestionId);
 	//根据问题类型查询

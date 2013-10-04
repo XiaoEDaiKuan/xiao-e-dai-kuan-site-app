@@ -13,6 +13,8 @@ public interface QuestionRepository extends BaseJpaRepository {
 	
 	//根据客户ID查询提问
 	List<QstPrd> questionListByCustId(Long custId);
+	//根据客户ID查询提问	
+	public Page qryQuestionByCustId(Long custId,int pageIndex,int pageSize) ;
 	//根据问题ID查看详情
 	Question questionDtById(Long questionId);
 	//根据问题类型查询

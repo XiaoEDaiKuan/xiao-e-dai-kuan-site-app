@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>	
+
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <title>会员中心</title>
@@ -20,13 +23,23 @@
     <div class="opinion"></div>
     <div class="edit">
       <div id="nav">
-        <div class="title" id="menu1" onclick="showmenu('1') "><a>信用卡未还清可以贷款么？【薪易贷】</a><span>已解决</span><font>2013-8-25</font></div>
-        <div id="list1" class="content" style="display:none">
+
+	  <c:forEach var="question" items="${questionPage.items}" varStatus="vst">
+
+        <div class="title" id="menu1" onclick="showmenu('${vst.index+1}') "><a>${question.subject}【${question.productID}】</a><span>${question.status}</span><font><fmt:formatDate value="${question.askTime}" pattern="yyyy-MM-dd HH:mm:ss"/></font></div>
+        <div id="list${vst.index+1}" class="content" style="display:none">
           <ul>
-            <li><strong>问题：</strong>我信用卡负债10万，月收入是我公司转账打卡，流水约1万每月，信用卡有按期还，从无逾期，长沙的，平安申请被拒绝了，还有哪里可以做？大概3万~能批吗？</li>
-            <li><strong>回答：</strong>从你提供的资料可以看出你是信用良好的客户,并且有一定的还款能力,您你只需准备好身份证\工作证明,工资流水就可以在我们网站进行申请。</li>
+            <li><strong>问题：</strong>${question.detail}</li>
+            <li><strong>回答：</strong>${question.answers[0].answerContent}</li>
           </ul>
         </div>
+      </c:forEach>
+                       <div class="me_next padd">
+				   <c:forEach var="i" begin="1" end="${questionPage.totalPages}" step="1">
+                    	<a  href="myQuestion?pageIndex=${i}" <c:if test="${i == questionPage.pageIndex}">class="currentPager"</c:if> ><em>${i}</em></a>
+                   </c:forEach>
+                  </div>
+      
       </div>
     </div>
   </div>
