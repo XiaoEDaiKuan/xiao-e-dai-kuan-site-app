@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 import java.util.List;
 
 import com.webloan.common.BaseJpaRepositoryImpl;
+import com.webloan.common.Page;
 import com.webloan.credit.dao.CreditRepository;
 import com.webloan.model.Credit;
 import com.webloan.model.Cust;
@@ -12,8 +13,8 @@ public class CreditRepositoryImpl extends BaseJpaRepositoryImpl implements Credi
 
 
 	@Override
-	public List<Credit> creditListByUser(Long custId) {
-    return this.queryList(Credit.class, new String[]{"cust.id"}, new Object[]{custId});
+	public Page creditListByUser(Long custId,int pageIndex,int pageSize) {
+    return this.queryPage(pageIndex, pageSize, Credit.class, new String[]{"cust.id"}, new Object[]{custId});
     }
 
 	@Override

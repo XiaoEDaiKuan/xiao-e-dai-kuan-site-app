@@ -59,7 +59,11 @@
 				<prop key="loginFormAction">userController</prop>
 			
 				<prop key="myMessage">userController</prop>
+				
 				<prop key="myCreditScore">userController</prop>
+				<prop key="pop_DeleteCredit">userController</prop>
+				
+				<prop key="modifyMyInfo">userController</prop>
 				<prop key="editMyInfo">userController</prop>
 				<prop key="myQuestion">userController</prop>
 				<prop key="changePassword">userController</prop>

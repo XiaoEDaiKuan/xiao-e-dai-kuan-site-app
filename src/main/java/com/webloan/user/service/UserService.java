@@ -17,10 +17,16 @@ public interface UserService {
 
 	// 验证邮件是否重复
 	boolean duplicatedEmailCheck(String email);
+	// 验证邮件是否重复
+	boolean duplicatedMyEmailCheck(Long custId,String email);
 
 	// 验证电话是否重复
 	boolean duplicatedMobileCheck(String mobileNO);
 
+	// 验证电话是否重复
+	boolean duplicatedMyMobileCheck(Long custId,String mobileNO);
+
+	
 	// 邮件激活
 	String mailAuthentication(String code);
 
@@ -45,5 +51,7 @@ public interface UserService {
 	
 	//验证密码
 	public  HashMap  verifyPasswd(String logonName);
-	
+
+	//获得用户信息
+	public Cust findCustById(Long custId);
 }

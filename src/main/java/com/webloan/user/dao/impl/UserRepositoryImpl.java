@@ -83,6 +83,29 @@ public class UserRepositoryImpl extends BaseJpaRepositoryImpl implements
 	}
 
 	@Override
+	public boolean duplicatedMyEmailCheck(Long custId,String email) {
+		boolean flag = false;
+		List<Cust> custs = this.queryList(Cust.class, new String[] { "email" },
+				new Object[] { email });
+		if (null == custs) {
+			return flag;
+		}
+		if (custs.size()==1 && custs.get(0).getId()==custId) {
+			return flag;
+		}
+		if (custs.size()==1 && custs.get(0).getId()!=custId) {
+			 flag=true;
+			 return flag;
+		}
+		
+		if (custs.size()>1 ) {
+			 flag=true;
+			 return flag;
+		}
+		 return flag;
+	}
+
+	@Override
 	public boolean duplicatedMobileCheck(String mobileNO) {
 		boolean flag = false;
 		List<Cust> custs = this.queryList(Cust.class,
@@ -91,6 +114,30 @@ public class UserRepositoryImpl extends BaseJpaRepositoryImpl implements
 			flag = true;
 		}
 		return flag;
+	}
+
+	@Override
+	public boolean duplicatedMyMobileCheck(Long custId, String mobileNO) {
+		boolean flag = false;
+		List<Cust> custs = this.queryList(Cust.class,
+				new String[] { "mobileNO" }, new Object[] { mobileNO });
+		if (null == custs) {
+			return flag;
+		}
+		if (custs.size()==1 && custs.get(0).getId()==custId) {
+			return flag;
+		}
+		if (custs.size()==1 && custs.get(0).getId()!=custId) {
+			 flag=true;
+			 return flag;
+		}
+		
+		if (custs.size()>1 ) {
+			 flag=true;
+			 return flag;
+		}
+		 return flag;
+		
 	}
 
 	@Override

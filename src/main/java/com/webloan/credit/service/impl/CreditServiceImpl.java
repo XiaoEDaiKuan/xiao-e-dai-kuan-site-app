@@ -3,6 +3,7 @@ package com.webloan.credit.service.impl;
 import java.math.BigDecimal;
 import java.util.List;
 
+import com.webloan.common.Page;
 import com.webloan.credit.dao.CreditRepository;
 import com.webloan.credit.service.CreditService;
 import com.webloan.model.Credit;
@@ -11,9 +12,9 @@ public class CreditServiceImpl implements CreditService {
 
 	private CreditRepository creditRepository; 
 	@Override
-	public List<Credit> creditListByUser(String strCustId) {
+	public Page creditListByUser(String strCustId,int pageIndex,int pageSize) {
 		Long custId=strCustId==null?null:Long.valueOf(strCustId);
-		return creditRepository.creditListByUser(custId);
+		return creditRepository.creditListByUser(custId,pageIndex,pageSize);
 	}
 	public CreditRepository getCreditRepository() {
 		return creditRepository;

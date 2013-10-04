@@ -235,6 +235,14 @@ public class UserServiceImpl implements UserService {
 	}
 
 	/**
+	 * 邮件重复检查
+	 */
+	@Override
+	public boolean duplicatedMyEmailCheck(Long custId,String email) {
+		return this.userRepository.duplicatedMyEmailCheck(custId,email);
+	}
+
+	/**
 	 * 手机重复检查
 	 */
 	@Override
@@ -242,6 +250,16 @@ public class UserServiceImpl implements UserService {
 		return this.userRepository.duplicatedMobileCheck(mobileNO);
 	}
 
+	/**
+	 * 手机重复检查
+	 */
+	@Override
+	public boolean duplicatedMyMobileCheck(Long custId,String mobileNO) {
+		return this.userRepository.duplicatedMyMobileCheck(custId,mobileNO);
+	}
+	
+	
+	
 	/**
 	 * IP地址检查
 	 * 
@@ -461,11 +479,49 @@ public class UserServiceImpl implements UserService {
 	public void modifyUser(String strId, String mobileNO, String email,
 			String postCode, String address) {
 		Long id = strId == null ? null : Long.valueOf(strId);
-		Validate.notEmpty(mobileNO, UserConstant.EXCEPTION_MODIFY_MOBILE);
-		Validate.notEmpty(email, UserConstant.EXCEPTION_MODIFY_EMAIL);
-		Validate.notEmpty(postCode, UserConstant.EXCEPTION_MODIFY_POSTCODE);
-		Validate.notEmpty(address, UserConstant.EXCEPTION_MODIFY_ADDRESS);
+		if(null==mobileNO||"".equals(mobileNO)){
+			log.error(UserConstant.MobileIsNull);
+			throw new BizException(UserConstant.MobileIsNull);
+		}
+		if(null==email||"".equals(email)){
+			log.error(UserConstant.EmailIsNull);
+			throw new BizException(UserConstant.EmailIsNull);
+		}
+        
+		// 手机号段验证
+		if (!MobileVerify.isMobileNO(mobileNO)) {
+			log.error(UserConstant.MobileInvalied);
+			throw new BizException(UserConstant.MobileInvalied);
+		}
+		// 手机号必须是数字
+		if (!MobileVerify.isNum(mobileNO)) {
+			log.error(UserConstant.MobileNoInvalied);
+			throw new BizException(UserConstant.MobileNoInvalied);
+		}
+		// 检查该手机号是否已经被注册
+		if (this.duplicatedMyMobileCheck(id,mobileNO)) {
+			log.error(UserConstant.MobileDuplicated);
+			throw new BizException(UserConstant.MobileDuplicated);
+		}
+		
+		// 邮件不能为空
+		if (null == email || "".equals(email.trim())) {
+			log.error(UserConstant.EmailIsNull);
+			throw new BizException(UserConstant.EmailIsNull);
+		}
+		// 邮件格式检查
+		if (!EmailVerify.checkEmail(email)) {
+			log.error(UserConstant.EmailInvalied);
+			throw new BizException(UserConstant.EmailInvalied);
+		}
+		// 检查该邮件是否已被注册
+		if (this.duplicatedMyEmailCheck(id,email)) {
+			log.error(UserConstant.EmailDuplicated);
+			throw new BizException(UserConstant.EmailDuplicated);
+		}
 
+		
+		
 		this.userRepository.modifyUser(id, mobileNO, email, postCode, address);
 	}
 
@@ -725,6 +781,20 @@ public class UserServiceImpl implements UserService {
 		hm.put("email", custs.get(0).getEmail());
 		hm.put("verifyCode", strRandomPwd);
 		return hm;
+	}
+
+	/**
+	 * 查询客户资料
+	 */
+	@Override
+	public Cust findCustById(Long custId) {
+
+	  List<Cust> custs=userRepository.findCustByCusID(custId);
+	  if(null==custs||custs.size()!=1){
+		  log.error(UserConstant.EXCEPTION_CUST_NOT_FOUND);
+		  throw new BizException(UserConstant.EXCEPTION_CUST_NOT_FOUND);
+	  }
+	  return custs.get(0);
 	}
 
 }

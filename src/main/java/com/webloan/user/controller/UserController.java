@@ -16,10 +16,12 @@ import org.springframework.web.servlet.mvc.multiaction.MultiActionController;
 
 import com.octo.captcha.service.image.ImageCaptchaService;
 import com.webloan.common.Page;
+import com.webloan.credit.service.CreditService;
 import com.webloan.exception.BizException;
 import com.webloan.message.service.MessageService;
 import com.webloan.model.Cust;
 import com.webloan.order.service.OrderService;
+import com.webloan.question.service.QuestionService;
 import com.webloan.user.UserConstant;
 import com.webloan.user.service.UserService;
 
@@ -32,7 +34,10 @@ public class UserController extends MultiActionController {
 	OrderService orderService;
 	@Resource
 	MessageService messageService;
-	
+	@Resource
+	CreditService creditService;
+	@Resource
+	QuestionService questionService;
 	
 	protected transient Logger log = LoggerFactory.getLogger(this.getClass());
 
@@ -347,7 +352,13 @@ public class UserController extends MultiActionController {
 	
 	
 	///////////////////////// 会员中心/////////////////////
-	
+	/**
+	 * 我的贷款
+	 * @param request
+	 * @param response
+	 * @return
+	 * @throws Exception
+	 */
 	public ModelAndView myDaikuan(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 		ModelAndView mav = new ModelAndView();
@@ -384,6 +395,13 @@ public class UserController extends MultiActionController {
 		return mav;
 	}
 	
+	/**
+	 * 取消订单
+	 * @param request
+	 * @param response
+	 * @return
+	 * @throws Exception
+	 */
 	public ModelAndView pop_CancelOrder(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 		ModelAndView mav = new ModelAndView();
@@ -398,13 +416,27 @@ public class UserController extends MultiActionController {
 		return mav;
 	}
 	
+	/**
+	 * 取消订单成功
+	 * @param request
+	 * @param response
+	 * @return
+	 * @throws Exception
+	 */
 	public ModelAndView pop_CancelOrderOK(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("member/pop_CancelOrder");
 		return mav;
 	}
-	
+
+	/**
+	 * 我的消息
+	 * @param request
+	 * @param response
+	 * @return
+	 * @throws Exception
+	 */
 	public ModelAndView myMessage(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 		ModelAndView mav = new ModelAndView();
@@ -461,24 +493,157 @@ public class UserController extends MultiActionController {
 		return mav;
 	}
 	
+	/**
+	 * 我的信用评分
+	 * @param request
+	 * @param response
+	 * @return
+	 * @throws Exception
+	 */
 	public ModelAndView myCreditScore(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("member/myCreditScore");
+		
+		String custId=(String)request.getSession().getAttribute("custId");
+
+		//测试
+		custId="1";
+
+		
+		if(null==custId||"".equals(custId)){
+			log.error(UserConstant.EXCEPTION_CUST_NOT_FOUND);
+			throw new BizException(UserConstant.EXCEPTION_CUST_NOT_FOUND);
+		}
+		String strPageIndex=request.getParameter("pageIndex");
+		String strPageSize=request.getParameter("pageSize");
+		
+		if(null==strPageIndex||"".equals(strPageIndex)){
+           strPageIndex="1";
+		}
+		int pageIndex=Integer.parseInt(strPageIndex);
+		
+		if(null==strPageSize||"".equals(strPageSize)){
+           strPageSize="10";
+		}
+		int pageSize=Integer.parseInt(strPageSize);
+		
+		
+		Page creditPage=creditService.creditListByUser(custId,pageIndex,pageSize);
+		
+		mav.addObject("creditPage",creditPage);
+		
+		
 		return mav;
 	}	
+
+	/**
+	 * 删除兴勇评分记录
+	 * @param request
+	 * @param response
+	 * @return
+	 * @throws Exception
+	 */
+	public ModelAndView pop_DeleteCredit(HttpServletRequest request,
+			HttpServletResponse response) throws Exception {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("member/pop_DeleteCredit");
+        String creditId=request.getParameter("creditId");
+		if(null==creditId ||"".equals(creditId)){
+			log.error(UserConstant.EXCEPTION_MY_LOAN);
+			throw new BizException(UserConstant.EXCEPTION_MY_LOAN);
+		}
+		creditService.deleteCredit(creditId);
+		
+		return mav;
+	}
 	
+	
+	/**
+	 * 编辑用户信息-回显用户信息
+	 * @param request
+	 * @param response
+	 * @return
+	 * @throws Exception
+	 */
 	public ModelAndView editMyInfo(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("member/editMyInfo");
+
+		String strCustId=(String)request.getSession().getAttribute("custId");
+		//测试
+		strCustId="1";
+		if(null==strCustId||"".equals(strCustId)){
+			log.error(UserConstant.EXCEPTION_CUST_NOT_FOUND);
+			throw new BizException(UserConstant.EXCEPTION_CUST_NOT_FOUND);
+		}
+
+		Long custId=Long.valueOf(strCustId);
+		Cust cust=userService.findCustById(custId);
+		mav.addObject("cust", cust);
 		return mav;
 	}
+
+   /**
+    * 保存用户编辑的联系信息
+    * @param request
+    * @param response
+    * @return
+    * @throws Exception
+    */
+	public ModelAndView modifyMyInfo(HttpServletRequest request,
+			HttpServletResponse response) throws Exception {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("member/pop_contact");
+
+		String strCustId=(String)request.getSession().getAttribute("custId");
+		//测试
+		strCustId="1";
+		if(null==strCustId||"".equals(strCustId)){
+			log.error(UserConstant.EXCEPTION_CUST_NOT_FOUND);
+			throw new BizException(UserConstant.EXCEPTION_CUST_NOT_FOUND);
+		}
+
+		
+		String mobileNO=request.getParameter("mobileNO");
+		if(null==mobileNO||"".equals(mobileNO)){
+			log.error(UserConstant.MobileIsNull);
+			throw new BizException(UserConstant.MobileIsNull);
+		}
+		String email=request.getParameter("email");
+		if(null==email||"".equals(email)){
+			log.error(UserConstant.EmailIsNull);
+			throw new BizException(UserConstant.EmailIsNull);
+		}
+		
+		
+		String postCode=request.getParameter("postCode");
+		String address=request.getParameter("address");
+		
+        userService.modifyUser(strCustId, mobileNO, email, postCode, address);
+		
+		return mav;
+	}
+	
+
 	
 	public ModelAndView myQuestion(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("member/myQuestion");
+
+		String strCustId=(String)request.getSession().getAttribute("custId");
+		//测试
+		strCustId="1";
+		if(null==strCustId||"".equals(strCustId)){
+			log.error(UserConstant.EXCEPTION_CUST_NOT_FOUND);
+			throw new BizException(UserConstant.EXCEPTION_CUST_NOT_FOUND);
+		}
+		
+      //  Page questionPage=questionService.questionListByCustId(strCustId);
+		
+		
 		return mav;
 	}
 	public ModelAndView changePassword(HttpServletRequest request,

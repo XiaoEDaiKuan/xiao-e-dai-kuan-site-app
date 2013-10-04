@@ -32,9 +32,14 @@ public interface UserRepository extends BaseJpaRepository {
 
 	//验证邮件是否重复
 	boolean duplicatedEmailCheck(String email);
+	//验证邮件是否重复
+	boolean duplicatedMyEmailCheck(Long custId,String email);
 
 	//验证手机是否重复
 	boolean duplicatedMobileCheck(String mobileNO);
+
+	//验证手机是否重复
+	boolean duplicatedMyMobileCheck(Long custId,String mobileNO);
 
 	//验证是否是公司的IP
 	public boolean corpIpCheck(String ip);

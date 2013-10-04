@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <title>会员中心</title>
@@ -24,18 +27,24 @@
 						<th>时间</th>
 						<th>操作</th>
 					</tr>
+
+			  <c:forEach var="credit" items="${creditPage.items}" >
 					<tr>
-						<td>01</td>
-						<td>8-10万</td>
-						<td>工薪阶层</td>
-						<td>2013-09-12</td>
-						<td><a href="#" id="pop_del">删除记录</a><a
-							href="score_choose.html" target="_blank">再测一次</a></td>
+						<td>${credit.id}</td>
+						<td>${credit.creditMin}-${credit.creditMax}</td>
+						<td>${credit.creditType}</td>
+						<td><fmt:formatDate value="${credit.calTime}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
+						<td><a href="#" data="${credit.id}" class="pop_del">删除记录</a>
+						    <a href="score_choose.html" target="_blank">再测一次</a>
+						</td>
 					</tr>
+               </c:forEach>
+
 				</table>
 				<div class="me_next padd">
-					<a href="#"><em>上一页</em></a><a href="#"><em>1</em></a><a href="#"><em>2</em></a><a
-						href="#"><em>3</em></a><a href="#"><em>下一页</em></a>
+				   <c:forEach var="i" begin="1" end="${creditPage.totalPages}" step="1">
+                    	<a  href="myCreditScore?pageIndex=${i}" <c:if test="${i == creditPage.pageIndex}">class="currentPager"</c:if> ><em>${i}</em></a>
+                   </c:forEach>
 				</div>
 			</div>
 

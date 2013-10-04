@@ -2,10 +2,11 @@ package com.webloan.credit.service;
 
 import java.util.List;
 
+import com.webloan.common.Page;
 import com.webloan.model.Credit;
 
 public interface CreditService {
-	List<Credit> creditListByUser(String strCustId);
+	Page creditListByUser(String strCustId,int pageIndex,int pageSize);
 
 	void deleteCredit(String strCreditId);
 

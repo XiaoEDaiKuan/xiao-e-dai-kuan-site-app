@@ -8,6 +8,7 @@ import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import com.webloan.common.Page;
 import com.webloan.credit.service.CreditService;
 import com.webloan.model.Credit;
 
@@ -24,15 +25,15 @@ public class CreditServiceTest {
 	public void testCreditListByUser() {
 		CreditService creditService = appContext.getBean("creditService",
 				CreditService.class);
-		List<Credit> credits = creditService.creditListByUser("1");
-		for (int i = 0; i < credits.size(); i++) {
+		Page credits = creditService.creditListByUser("1",1,10);
+		for (int i = 0; i < credits.getItems().size(); i++) {
 
-			System.out.println(((Credit) credits.get(i)).getId());
-			System.out.println(((Credit) credits.get(i)).getCustName());
-			System.out.println(((Credit) credits.get(i)).getCreditType());
-			System.out.println(((Credit) credits.get(i)).getCreditMin());
-			System.out.println(((Credit) credits.get(i)).getCreditMax());
-			System.out.println(((Credit) credits.get(i)).getCalTime());
+			System.out.println(((Credit) credits.getItems().get(i)).getId());
+			System.out.println(((Credit) credits.getItems().get(i)).getCustName());
+			System.out.println(((Credit) credits.getItems().get(i)).getCreditType());
+			System.out.println(((Credit) credits.getItems().get(i)).getCreditMin());
+			System.out.println(((Credit) credits.getItems().get(i)).getCreditMax());
+			System.out.println(((Credit) credits.getItems().get(i)).getCalTime());
 
 		}
 	}

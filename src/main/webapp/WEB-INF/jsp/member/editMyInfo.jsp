@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
+
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <title>会员中心</title>
@@ -21,16 +24,16 @@
     
       <div class="editd1"><font>身份信息</font><a href="#" id="pop_information">编辑</a></div>
       <div class="editd2">
-        <p><font>姓名：</font><span>王先生</span></p>
-        <p><font>身份证号：</font><span>150646890546083756</span></p>
+        <p><font>姓名：</font><span>${cust.custName}</span></p>
+        <p><font>身份证号：</font><span>${cust.idNO}</span></p>
       </div> 
        
       <div class="editd1"><font>联系方式</font><a href="#" id="pop_contact">编辑</a></div>
       <div class="editd2">
-        <p><font>电话：</font><span>16980767915</span></p>
-        <p><font>邮箱：</font><span>16897265@qq.com</span></p>
-        <p><font>住址：</font><span>北京朝阳区麦子店街26号</span></p>
-        <p><font>邮编：</font><span>100000</span></p>
+        <p><font>电话：</font><span>${cust.mobileNO}</span></p>
+        <p><font>邮箱：</font><span>${cust.email}</span></p>
+        <p><font>住址：</font><span>${cust.address}</span></p>
+        <p><font>邮编：</font><span>${cust.postCode}</span></p>
       </div>
 
     </div>
