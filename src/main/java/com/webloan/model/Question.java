@@ -17,14 +17,14 @@ public class Question implements Serializable{
 	 private String  kindOne;//问题分类1
 	 private String  kindTwo;//问题分类2
 	 private String  askedBy;//提问人姓名
-	 private Long     custID;//
+	 private Cust     custID;//
 	 private Timestamp askTime;//提问时间
 	 private String   tag;//问题标签
 	 private String   detail;//提问内容的详细描述'
 	 private String   email;//提问人邮箱
 	 private String   telephone;//提问人联系电话
 	 private String   status;//问题状态
-	 private Long     productID;//贷款产品ID
+	 private Product     productID;//贷款产品ID
 	 private String   subject;//主题
 	 private String   type;////问题类型
 	 
@@ -60,12 +60,6 @@ public class Question implements Serializable{
 	}
 	public void setAskedBy(String askedBy) {
 		this.askedBy = askedBy;
-	}
-	public Long getCustID() {
-		return custID;
-	}
-	public void setCustID(Long custID) {
-		this.custID = custID;
 	}
 	public Timestamp getAskTime() {
 		return askTime;
@@ -103,12 +97,6 @@ public class Question implements Serializable{
 	public void setStatus(String status) {
 		this.status = status;
 	}
-	public Long getProductID() {
-		return productID;
-	}
-	public void setProductID(Long productID) {
-		this.productID = productID;
-	}
 	public String getSubject() {
 		return subject;
 	}
@@ -126,6 +114,18 @@ public class Question implements Serializable{
 	}
 	public void setAnswers(List<Answer> answers) {
 		this.answers = answers;
+	}
+	public Cust getCustID() {
+		return custID;
+	}
+	public void setCustID(Cust custID) {
+		this.custID = custID;
+	}
+	public Product getProductID() {
+		return productID;
+	}
+	public void setProductID(Product productID) {
+		this.productID = productID;
 	}
 	
 }
