@@ -73,12 +73,13 @@ public class OrderServiceImpl implements OrderService {
 
 	@Override
 	public void createOrder(String strProductId, String strCustId, String applyName,
-			String applyTelephone, String strApplyAmt, String custRegion) {
+			String applyTelephone, String strApplyAmt, String strRegionId) {
 
 		Long productId = strProductId == null ? null : Long.valueOf(strProductId);
 		Long custId = strCustId == null ? null : Long.valueOf(strCustId);
+		Long regionId=strRegionId==null?null:Long.valueOf(strRegionId);
 		BigDecimal applyAmt=strApplyAmt==null?null:new BigDecimal(strApplyAmt);
-		orderRepository.createOrder(productId, custId, applyName, applyTelephone, applyAmt, custRegion);
+		orderRepository.createOrder(productId, custId, applyName, applyTelephone, applyAmt, regionId);
 		
 	}
 
