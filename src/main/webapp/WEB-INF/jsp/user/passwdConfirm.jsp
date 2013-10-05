@@ -21,7 +21,7 @@
         </div>
         <div class="content">
             <div class="progress p_2"> </div>
-            <form id="form1"   action="forgetPasswd"  method="POST"   >
+            <form id="form1"   action="forgetPasswdConfirm"  method="POST"   >
              <div class="line">
                 <label><span class="tit s_tit">电子邮箱：</span><input  type="text" id="email" name="email"  value="${email}"
                         TextMode="Password" size="10"  Class="text" readonly /></label>
