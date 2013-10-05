@@ -8,8 +8,24 @@
 })(jQuery);
 
 
-    function reloadCaptcha() {  
-        var obj = document.getElementById('captchaimg');  
-        var captchaURL = obj.src+"?nocache=" + Math.floor(Math.random()*100000000 + 100000000);  
-        obj.src =captchaURL ;
-    }
+function reloadCaptcha() {  
+    var obj = document.getElementById('captchaimg');  
+    var captchaURL = obj.src+"?nocache=" + Math.floor(Math.random()*100000000 + 100000000);  
+    obj.src =captchaURL ;
+}
+$(document).ready(    
+	$("#pop_save").click(function(){
+		tipsWindown("产品信息保存到邮箱","iframe:iframe:pop_save.html","580","215","true","","false","text","");
+	});
+	$("#pop_city").click(function(){
+		tipsWindown("您可以选择以下地区：","iframe:iframe:pop_city.html","500","200","true","","false","text","");
+	});
+	$("#pop_question").click(function(){
+		tipsWindown("我要提问：","iframe:iframe:pop_question.html","550","465","true","","false","text","");
+	});
+});
+
+setTimeout('_magicTimeout()',20*1000);
+function _magicTimeout(){
+   $('.time_box').hide();
+}
