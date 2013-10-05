@@ -24,7 +24,7 @@
        <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table1">
          <tr>
              <th width="50%"><span style="color:red;padding-left:8px">*</span>邮箱</th>
-            <td width="50%"><input name="mobileNO" type="text" value="" class="input" /></td>
+            <td width="50%"><input name="email" type="text" value="" class="input" /></td>
          </tr>
 	  </table>
 	

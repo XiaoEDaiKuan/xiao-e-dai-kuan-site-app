@@ -63,11 +63,9 @@ public class OrderController extends MultiActionController{
 	
 	public ModelAndView  orderEmail(HttpServletRequest request, HttpServletResponse response){
 		
-		String productId = request.getParameter("productId");
+		String productId =(String) request.getSession().getAttribute("productId");
 		String email = request.getParameter("email");
 		
-		String ip = request.getRemoteAddr();
-		String custId = request.getSession().getAttribute("custId").toString();
 		
 		orderService.orderEmail(email, productId);
 		
@@ -77,7 +75,8 @@ public class OrderController extends MultiActionController{
 	
 	
 	public ModelAndView  popSave(HttpServletRequest request, HttpServletResponse response){
-		
+		String productId=request.getParameter("productId");
+		request.getSession().setAttribute("productId", productId);
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("order/inputEmail"); 
 		return mav;

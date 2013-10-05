@@ -46,6 +46,8 @@
 				
 				<!-- 订单 -->
 				<prop key="popSave">orderController</prop>
+				<prop key="orderEmail">orderController</prop>
+				
 				
 				<!-- 用户注册 -->
 				<prop key="createUser">userController</prop>
