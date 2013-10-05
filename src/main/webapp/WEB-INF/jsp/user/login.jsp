@@ -49,8 +49,8 @@
             <td><input name="captcha" type="text" class="input code" /></td>
           </tr>
           <tr>
-             <th></th>
-            <td><img id="captchaimg" src="handleCaptcha" alt="captcha"  class="input code" onclick="reloadCaptcha()" /></td>
+            <th>&nbsp;</th>
+            <td><img id="captchaimg" src="handleCaptcha" alt="captcha"  class="input code" style="margin:0px;width:112px;height:32px" onclick="reloadCaptcha()" /></td>
           </tr>
 
         </table>
@@ -65,6 +65,13 @@
 
 <!--===========页面内容部分 结束===========-->
 <%@include file="../../inc/memberFooter.jsp" %>
+
+<script type="text/javascript" language="JavaScript">
+    function reloadCaptcha() {  
+        var obj = document.getElementById('captcha');  
+        obj.src = "handleCaptcha?time=" + (new Date()).getTime();
+    }  
+</script>
 </body>
 </html>
     
