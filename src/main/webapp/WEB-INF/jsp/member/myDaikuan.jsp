@@ -34,9 +34,13 @@
 					<tr>
 						<td>${order.id}</td>
 						<td>${order.product.name}</td>
-						<td>${order.applyAmt}元</td>
+						<td>${order.applyAmt/10000}万元</td>
 						<td><fmt:formatDate value="${order.orderTime}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
-						<td>${order.status}</td>
+						<td>
+						<fmt:bundle basename="dict/dict-mapping" prefix="ORDER_STATUS.">
+							<fmt:message key="${order.status}" />
+				        </fmt:bundle>
+						</td>
 						<td><a href="#" data="${order.id}" class="pop_Cancel_order">取消订单</a></td>
 					</tr>
 			   </c:forEach>
