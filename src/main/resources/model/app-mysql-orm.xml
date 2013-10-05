@@ -311,7 +311,7 @@
 				<join-column name="CUST_ID" nullable="false" />
 			</many-to-one>
 			<many-to-one name="region">
-				<join-column name="REGION_ID" nullable="true" />
+				<join-column name="REGION_ID"  />
 			</many-to-one>
 
 		</attributes>
@@ -495,7 +495,7 @@
 			</many-to-one>
 
 			<many-to-one name="product">
-				<column name="PRODUCT_ID"   />
+				<join-column name="PRODUCT_ID"   />
 			</many-to-one>
 			
 			<one-to-many name="answers" target-entity="com.webloan.model.Answer" mapped-by="question" fetch="EAGER"></one-to-many>
