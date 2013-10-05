@@ -12,12 +12,13 @@ import com.webloan.model.RequireInfo;
 
 public interface OrderRepository extends BaseJpaRepository  {
 
+	
 	Page orderListByUser(Long custId,int pageIndex,int pageSize);
 	void modifyOrderStatus(Long orderId);
 	int orderCount();
 	void deleteOrder(Long orderId);
 	public void createOrder(Long productId, Long custId, String applyName,
-			String applyTelephone, BigDecimal applyAmt, String custRegion) ;
+			String applyTelephone, BigDecimal applyAmt, Long regionId) ;
    //获得产品
 	public   Product getProduct(Long productId);
 
