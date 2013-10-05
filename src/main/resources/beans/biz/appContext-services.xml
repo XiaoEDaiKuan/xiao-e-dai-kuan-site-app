@@ -16,6 +16,10 @@
 	<bean id="productService" class="com.webloan.product.service.impl.ProductServiceImpl">
 		<property name="productRepository" ref="productRepository" />
 	</bean>
+	
+	<bean id="regionService" class="com.webloan.region.service.impl.RegionServiceImpl">
+		<property name="regionRepository" ref="regionRepository" />
+	</bean>
 
 	<bean id="orderService" class="com.webloan.order.service.impl.OrderServiceImpl">
 		<property name="orderRepository" ref="orderRepository" />
@@ -41,46 +45,47 @@
 	</bean>
 
 	<bean id="mailEngine" class="com.webloan.util.impl.DefaultMailEngine">
-        <property name="mailSender" ref="mailSender"/>
-        <property name="velocityEngine" ref="velocityEngine"/>
-        <property name="mailMessage" ref="mailMessage" />
-        <property name="displayName" value="${mail.default.displayName}"/>
+		<property name="mailSender" ref="mailSender"/>
+		<property name="velocityEngine" ref="velocityEngine"/>
+		<property name="mailMessage" ref="mailMessage" />
+		<property name="displayName" value="${mail.default.displayName}"/>
 	</bean>
 
-		<bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
-	        <property name="host" value="${mail.host}"/>
-	        <property name="defaultEncoding" value="UTF-8"/>
-	        <!-- authenticate with SMTP Server -->
-	        <property name="username" value="${mail.username}"/>
-	        <property name="password" value="${mail.password}"/>
-	        <property name="port"><value>587</value></property>
-	        <!-- add property "mail.smtp.starttls.enable=true" for SSL, for example: GMail -->
-	        <property name="javaMailProperties">
-	           <props>
-					<prop key="mail.smtp.auth">true</prop>
-					<!-- 使用gmail smtp server的必须参数 -->
-					<prop key="mail.smtp.starttls.enable">true</prop>
-				</props>
-	        </property>
-	    </bean>
+	<bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+		<property name="host" value="${mail.host}"/>
+		<property name="defaultEncoding" value="UTF-8"/>
+		<!-- authenticate with SMTP Server -->
+		<property name="username" value="${mail.username}"/>
+		<property name="password" value="${mail.password}"/>
+		<property name="port"><value>587</value></property>
+		<!-- add property "mail.smtp.starttls.enable=true" for SSL, for example: GMail -->
+		<property name="javaMailProperties">
+			<props>
+				<prop key="mail.smtp.auth">true</prop>
+				<!-- 使用gmail smtp server的必须参数 -->
+				<prop key="mail.smtp.starttls.enable">true</prop>
+			</props>
+		</property>
+	</bean>
      
-     <bean id="mailMessage" class="org.springframework.mail.SimpleMailMessage">
-        <property name="from" value="${mail.default.from}"/>
-     </bean>
+	<bean id="mailMessage" class="org.springframework.mail.SimpleMailMessage">
+		<property name="from" value="${mail.default.from}"/>
+	</bean>
     
-        <bean id="velocityEngine" class="org.springframework.ui.velocity.VelocityEngineFactoryBean">
-        <property name="velocityProperties">
-            <props>
-                <prop key="resource.loader">class</prop>
-                <prop key="class.resource.loader.class">
-                    org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
-                </prop>
-                <prop key="velocimacro.library"></prop>
-                <prop key="input.encoding">UTF-8</prop>
-                <prop key="output.encoding">UTF-8</prop>
-            </props>
-        </property>
-    </bean>
+	<bean id="velocityEngine" class="org.springframework.ui.velocity.VelocityEngineFactoryBean">
+		<property name="velocityProperties">
+			<props>
+				<prop key="resource.loader">class</prop>
+				<prop key="class.resource.loader.class">
+					org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+				</prop>
+				<prop key="velocimacro.library"></prop>
+				<prop key="input.encoding">UTF-8</prop>
+				<prop key="output.encoding">UTF-8</prop>
+			</props>
+		</property>
+	</bean>
+    
 	<bean id="questionService" class="com.webloan.question.service.impl.QuestionServiceImpl">
 		<property name="questionRepository" ref="questionRepository" />
 	</bean>

@@ -17,28 +17,22 @@
 		<property name="entityManager" ref="entityManager" />
 	</bean>
 	
-	<bean id="productRepository" class="com.webloan.product.dao.impl.ProductRepositoryImpl" parent="baseJpaRepository">
-	</bean>
-
-	<bean id="orderRepository" class="com.webloan.order.dao.impl.OrderRepositoryImpl" parent="baseJpaRepository">
-	</bean>
-
-	<bean id="messageRepository" class="com.webloan.message.dao.impl.MessageRepositoryImpl" parent="baseJpaRepository">
-	</bean>
-
-	<bean id="creditRepository" class="com.webloan.credit.dao.impl.CreditRepositoryImpl" parent="baseJpaRepository">
-	</bean>
-
-	<bean id="userRepository" class="com.webloan.user.dao.impl.UserRepositoryImpl" parent="baseJpaRepository">
-	</bean>
-   
-	<bean id="sequenceRepository" class="com.webloan.support.sequence.dao.impl.SequenceRepositoryImpl" parent="baseJpaRepository">
-	</bean>
+	<bean id="productRepository" class="com.webloan.product.dao.impl.ProductRepositoryImpl" parent="baseJpaRepository" />
 	
-	<bean id="questionRepository" class="com.webloan.question.dao.impl.QuestionRepositoryImpl" parent="baseJpaRepository">
-	</bean>
+	<bean id="regionRepository" class="com.webloan.region.dao.impl.RegionRepositoryImpl" parent="baseJpaRepository" />
 
-	<bean id="opinionRepository" class="com.webloan.opinion.dao.impl.OpinionRepositoryImpl" parent="baseJpaRepository">
-	</bean>
+	<bean id="orderRepository" class="com.webloan.order.dao.impl.OrderRepositoryImpl" parent="baseJpaRepository" />
+
+	<bean id="messageRepository" class="com.webloan.message.dao.impl.MessageRepositoryImpl" parent="baseJpaRepository" />
+
+	<bean id="creditRepository" class="com.webloan.credit.dao.impl.CreditRepositoryImpl" parent="baseJpaRepository" />
+
+	<bean id="userRepository" class="com.webloan.user.dao.impl.UserRepositoryImpl" parent="baseJpaRepository" />
+   
+	<bean id="sequenceRepository" class="com.webloan.support.sequence.dao.impl.SequenceRepositoryImpl" parent="baseJpaRepository" />
+	
+	<bean id="questionRepository" class="com.webloan.question.dao.impl.QuestionRepositoryImpl" parent="baseJpaRepository" />
+
+	<bean id="opinionRepository" class="com.webloan.opinion.dao.impl.OpinionRepositoryImpl" parent="baseJpaRepository" />
 
 </beans>
