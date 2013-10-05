@@ -206,6 +206,19 @@ public class UserController extends MultiActionController {
 		return mav;
 	}
 
+	
+	
+	
+	public ModelAndView forgetPassword(HttpServletRequest request,
+			HttpServletResponse response) throws Exception {
+
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("user/forgetPasswd");
+
+		return mav;
+	}
+	
+	
 	/**
 	 * 忘记密码
 	 * 
@@ -214,7 +227,7 @@ public class UserController extends MultiActionController {
 	 * @return
 	 * @throws Exception
 	 */
-	public ModelAndView forgetPasswd(HttpServletRequest request,
+	public ModelAndView forgetPasswdOK(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 
 		ModelAndView mav = new ModelAndView();
