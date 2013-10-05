@@ -28,6 +28,7 @@ public class Question implements Serializable{
 	 private String   subject;//主题
 	 private String   type;////问题类型
 	 
+	 
      private List<Answer> answers;//
      
 	 
