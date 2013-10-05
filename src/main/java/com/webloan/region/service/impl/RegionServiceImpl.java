@@ -7,6 +7,10 @@ import com.webloan.region.dao.RegionRepository;
 import com.webloan.region.service.RegionService;
 
 public class RegionServiceImpl implements RegionService {
+	
+	public static final String STATUS_KT = "0";
+	public static final String STATUS_WKT = "1";
+	
 
 	private RegionRepository regionRepository;
 	
@@ -29,5 +33,10 @@ public class RegionServiceImpl implements RegionService {
 				new String[]{ "parent.id" }, 
 				new Object[]{ provinceId });
 	}
-
+	
+	public List<Region> queryRegionByCityLoan() {
+		return regionRepository.queryRegionByCityLoan(null, STATUS_KT);
+	}
+	
+	
 }

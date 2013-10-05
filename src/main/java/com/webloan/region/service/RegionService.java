@@ -9,5 +9,6 @@ public interface RegionService {
 	List<Region> queryProvinces();
 	
 	List<Region> queryCities(Long provinceId);
-
+	
+	List<Region> queryRegionByCityLoan();
 }
