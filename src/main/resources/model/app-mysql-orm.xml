@@ -289,9 +289,6 @@
 			<basic name="approvAmt">
 				<column name="Approv_Amt"  precision="16" scale="2"  />
 			</basic>
-			<basic name="custRegion">
-				<column name="Cust_Region" length="50" nullable="false" />
-			</basic>
 			<basic name="status">
 				<column name="Status" length="1"  />
 			</basic>
@@ -313,6 +310,10 @@
 			<many-to-one name="cust">
 				<join-column name="CUST_ID" nullable="false" />
 			</many-to-one>
+			<many-to-one name="region">
+				<join-column name="REGION_ID" nullable="true" />
+			</many-to-one>
+
 		</attributes>
 	</entity>
 
