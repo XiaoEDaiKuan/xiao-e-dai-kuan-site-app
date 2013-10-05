@@ -31,7 +31,9 @@ public class ProductRepositoryImpl extends BaseJpaRepositoryImpl implements
 	}
 	
 	public Page pagingProductByRegion(int pageIndex, int pageSize, Long regionId) {
-		StringBuilder jpql = new StringBuilder(" from Order o where 1=1 ");
+		StringBuilder jpql = new StringBuilder(" from ProductAttach a, Order o ")
+				.append(" where a.product.id=o.product.id ");
+		
 		Map<String, Object> params = new HashMap<String, Object>();
 		
 		if (regionId != null) {
@@ -39,8 +41,8 @@ public class ProductRepositoryImpl extends BaseJpaRepositoryImpl implements
 			params.put("regionId", regionId);
 		}
 		
-		String pageJpql = "select distinct o.product" + jpql;
-		String countJpql = "select count(distinct o.product)" + jpql;
+		String pageJpql = "select a " + jpql;
+		String countJpql = "select count(*) " + jpql;
 
 		return queryPageResult(pageIndex, pageSize, pageJpql, countJpql, params);
 	}

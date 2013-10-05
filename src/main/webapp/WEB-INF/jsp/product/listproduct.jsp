@@ -310,7 +310,8 @@
 	            	<c:set var="hasIden" value="0" />
 	            	<c:forTokens var="iden" items="${prod.identity}" delims="|">
 	            		<c:if test="${not empty iden}">
-	            			<c:if test="${hasIden == '1'}">, </c:if><fmt:message key="${iden}" />
+	            			<c:if test="${hasIden == '1'}">,</c:if>
+	            			<fmt:message key="${iden}" />
 	            			<c:set var="hasIden" value="1" />
 	            		</c:if>
 	            	</c:forTokens>

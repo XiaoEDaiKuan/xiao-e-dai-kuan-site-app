@@ -11,7 +11,8 @@ import com.webloan.region.dao.RegionRepository;
 public class RegionRepositoryImpl extends BaseJpaRepositoryImpl implements RegionRepository {
 
 	public List<Region> queryRegionByCityLoan(String areaCode, String status) {
-		StringBuilder jpql = new StringBuilder("select distinct c.region from CityLoan c ");
+		StringBuilder jpql = new StringBuilder("select distinct c.region from ")
+				.append(" CityLoan c where 1=1 ");
 		
 		Map<String, Object> params = new HashMap<String, Object>();
 		

@@ -14,14 +14,17 @@ import com.webloan.common.Page;
 import com.webloan.model.Product;
 import com.webloan.model.ProductAttach;
 import com.webloan.model.Question;
+import com.webloan.model.Region;
 import com.webloan.order.service.OrderService;
 import com.webloan.product.service.ProductService;
 import com.webloan.product.view.ProductQuery;
+import com.webloan.region.service.RegionService;
 
 public class ProductController extends MultiActionController {
 
 	@Resource ProductService productService;
 	@Resource OrderService orderService;
+	@Resource RegionService regionService;
 	
 	public ModelAndView queryProduct(HttpServletRequest request, 
 			HttpServletResponse response, ProductQuery pq) {
@@ -38,7 +41,7 @@ public class ProductController extends MultiActionController {
 			HttpServletResponse response, ProductQuery pq) {
 		Long productId = pq.getProductId();
 		Asserts.notNull(productId);
-		Asserts.notNull(pq.getLoanAmt(), "请选择贷款金额!");
+//		Asserts.notNull(pq.getLoanAmt(), "请选择贷款金额!");
 		
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("order/addToCart");
@@ -57,6 +60,9 @@ public class ProductController extends MultiActionController {
 	public ModelAndView matchProduct(HttpServletRequest request, 
 			HttpServletResponse response, ProductQuery pq) {
 		ModelAndView mav = new ModelAndView("product/matchproduct");
+		
+		List<Region> regions = regionService.queryRegionByCityLoan();
+		mav.addObject("regions", regions);
 		
 		List<Product> grpBuyProds = productService.queryGroupBuyingProducts(
 				pq.getRegionId(), pq.getIdentity());

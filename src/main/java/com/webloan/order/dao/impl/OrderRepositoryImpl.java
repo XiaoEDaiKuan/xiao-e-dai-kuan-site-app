@@ -77,7 +77,7 @@ public class OrderRepositoryImpl extends BaseJpaRepositoryImpl implements
 	@Override
 	public List<Question> listQuestionByPrdId(Long productId) {
 
-		return this.queryList(Question.class, new String[] { "productID" },
+		return this.queryList(Question.class, new String[] { "product.id" },
 				new Object[] { productId });
 	}
 
@@ -85,8 +85,8 @@ public class OrderRepositoryImpl extends BaseJpaRepositoryImpl implements
 	@Override
 	public List<RequireInfo> listRequireInfoByProductID(Long productID) {
 
-		return this.queryList(RequireInfo.class, new String[] { "productID",
-				"status" }, new Object[] { productID,"1"  }, new String[] {
+		return this.queryList(RequireInfo.class, new String[] { "product.id",
+				"status" }, new Object[] { productID, "1"  }, new String[] {
 				Queriable.EQ, Queriable.EQ });
 	}
 

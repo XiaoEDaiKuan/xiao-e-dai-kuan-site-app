@@ -73,7 +73,7 @@
 				</div>
 				<ul class="question_list Loansquiz5">
 			    <c:forEach var="hiQust" items="${hiQusts.items}">
-			      <li><a href="viewAnswer?questId=${hiQust.id}" target="_blank">${hiQust.detail}</a></li>
+			      <li><a href="viewAnswer?id=${hiQust.id}" target="_blank">${hiQust.detail}</a></li>
 			    </c:forEach>
 				</ul>
 				<!--<div class="Loansquiz6"><a href="#">更多问题>></a></div>-->
