@@ -4,8 +4,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import javax.persistence.TypedQuery;
-
 import com.webloan.common.BaseJpaRepositoryImpl;
 import com.webloan.common.Page;
 import com.webloan.model.Product;
@@ -66,12 +64,7 @@ public class ProductRepositoryImpl extends BaseJpaRepositoryImpl implements
 			params.put("groupBuying", groupBuying);
 		}
 		
-		TypedQuery<Product> query = entityManager.createQuery(jpql.toString(), Product.class);
-		for (Map.Entry<String, Object> param : params.entrySet()) {
-			query.setParameter(param.getKey(), param.getValue());
-		}
-		
-		return query.getResultList();
+		return queryListResult(Product.class, jpql.toString(), params);
 	}
 
 }
