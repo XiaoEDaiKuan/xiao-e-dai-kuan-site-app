@@ -26,7 +26,7 @@ public class OrderRepositoryImpl extends BaseJpaRepositoryImpl implements
 		return this.queryPage(pageIndex, pageSize, Order.class,new String[] { "cust.id" },new Object[] { custId });
     
 	}
-
+	
 	@Override
 	public void modifyOrderStatus(Long orderId) {
 		Order orderObj = this.load(Order.class, orderId);
@@ -50,6 +50,7 @@ public class OrderRepositoryImpl extends BaseJpaRepositoryImpl implements
 	}
 
 	
+
 	@Override
 	public void createOrder(Long productId, Long custId, String applyName,
 			String applyTelephone, BigDecimal applyAmt, Long regionId) {

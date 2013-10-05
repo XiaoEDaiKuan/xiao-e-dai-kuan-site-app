@@ -11,6 +11,7 @@ import org.springframework.web.servlet.mvc.multiaction.MultiActionController;
 
 import com.webloan.common.Asserts;
 import com.webloan.common.Page;
+import com.webloan.model.Product;
 import com.webloan.model.ProductAttach;
 import com.webloan.model.Question;
 import com.webloan.order.service.OrderService;
@@ -49,6 +50,21 @@ public class ProductController extends MultiActionController {
 		mav.addObject("questions", questions);
 		
 		mav.addObject("pq", pq);
+		
+		return mav;
+	}
+	
+	public ModelAndView searchProduct(HttpServletRequest request, 
+			HttpServletResponse response, ProductQuery pq) {
+		ModelAndView mav = new ModelAndView("product/recmdPrdSearch");
+		
+		List<Product> grpBuyProds = productService.queryGroupBuyingProducts(
+				pq.getRegionId(), pq.getIdentity());
+		mav.addObject("groupProducts", grpBuyProds);
+		
+		Page purchasedProds = productService.pagingPurchasedProducts(
+				pq.getPageIndex(), pq.getPageSize(), pq.getRegionId());
+		mav.addObject("purchasedProds", purchasedProds);
 		
 		return mav;
 	}

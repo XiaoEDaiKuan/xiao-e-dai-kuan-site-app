@@ -16,6 +16,8 @@ public class ProductQuery {
 	private String guarantyType;
 	private String repayType;
 	
+	private Long regionId;
+	
 	private String orderRate;
 	private String orderMonthly;
 	
@@ -87,6 +89,12 @@ public class ProductQuery {
 	}
 	public void setRepayType(String repayType) {
 		this.repayType = repayType;
+	}
+	public Long getRegionId() {
+		return regionId;
+	}
+	public void setRegionId(Long regionId) {
+		this.regionId = regionId;
 	}
 	public String getOrderRate() {
 		return orderRate;
