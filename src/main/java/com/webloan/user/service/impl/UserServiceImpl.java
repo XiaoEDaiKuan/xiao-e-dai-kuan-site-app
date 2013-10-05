@@ -752,6 +752,7 @@ public class UserServiceImpl implements UserService {
 		// 套用模板并发送邮件
 		Map<String, Object> mpModel = new HashMap<String, Object>();
 		mpModel.put("tempPwd", strRandomPwd);
+		mpModel.put("custName", custs.get(0).getCustName());
 		String strTplContent = mailEngine.initTemplate(
 				"/beans/biz/forgetPassword.vm", mpModel);
 		log.trace("template content:\n {}", new Object[] { strTplContent });
