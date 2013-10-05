@@ -68,7 +68,7 @@
 
 <script type="text/javascript" language="JavaScript">
     function reloadCaptcha() {  
-        var obj = document.getElementById('captcha');  
+        var obj = document.getElementById('captchaimg');  
         obj.src = "handleCaptcha?time=" + (new Date()).getTime();
     }  
 </script>
