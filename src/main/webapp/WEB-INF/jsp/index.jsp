@@ -83,7 +83,7 @@
         </tr>
         <tr>
           <td>&nbsp;</td>
-          <td><a href="贷款搜索.html"><input name="" type="button" value="" class="btn1" /></a></td>
+          <td><input name="" type="button" value="" class="btn1" /></td>
           <td>&nbsp;</td>
         </tr>
       </table>
@@ -132,21 +132,14 @@
     </div>
   </div>
   <div class="main2_right">
-    <div class="ad1"><a href="产品申请.html" target="_blank"></a></div>
+    <div class="ad1"><a href="queryProduct" target="_blank"></a></div>
     <div class="sina">
       <div class="sina_border">
       <div class="sina1"><a href="#" class="sina2"></a><p>平台微博加关注</p></div>
       <div class="sina1"><a href="#" class="weixin"></a><p>平台微信二维码</p></div> 
       </div>   
     </div>
-    <div class="assistant ground">
-      <div class="credit_title"> <span class="credit_title1 font_f">贷款助手</span></div>
-      <div class="assistant1">
-        <div class="assistant1_1"><a href="score_choose.html" class="cal" target="_blank"></a></div>
-        <div class="assistant1_2"><a href="score_choose.html" target="_blank">云信用评分器</a><br />测测你能贷多少</div>
-      </div>
-     
-    </div>
+    <%@include file="../inc/daikuanTools.jsp"%>
   </div>
 </div>
 <div class="main3 padding-bt ground">

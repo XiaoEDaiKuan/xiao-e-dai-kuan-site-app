@@ -22,34 +22,34 @@
 <div class="registered_main">
   <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table1">
     <tr>
-      <th width="8%">手机：</th>
-      <td width="92%"><input name="mobileNO" type="text" value="" class="input" /></td>
+      <th width="12%"><span style="color:red;padding-right:8px">*</span>手机：</th>
+      <td width="88%"><input name="mobileNO" type="text" value="" class="input" /></td>
     </tr>
     <tr>
-      <th>姓名：</th>
+      <th><span style="color:red;padding-right:8px">*</span>姓名：</th>
       <td><input name="custName" type="text" value="" class=" input input1" /></td>
     </tr>
     <tr>
-      <th>密码：</th>
+      <th><span style="color:red;padding-right:8px">*</span>密码：</th>
       <td><input name="logonPasswd" type="password" class="input" /></td>
     </tr>
     <tr>
-      <th>确认密码：</th>
+      <th><span style="color:red;padding-right:8px">*</span>确认密码：</th>
       <td><input name="" type="password" class="input" /></td>
     </tr>
     <tr>
-      <th>证件类型：</th>
+      <th><span style="color:red;padding-right:8px">*</span>证件类型：</th>
       <td><div id="tm2008style">
       	<select name="idType" id="idType">
 			<option value="0">身份证</option>
 		</select></div></td>
     </tr>
     <tr>
-      <th>证件号码：</th>
+      <th><span style="color:red;padding-right:8px">*</span>证件号码：</th>
       <td><input name="idNO" type="text" value="" class="input" /></td>
     </tr>
     <tr>
-      <th>电子邮件：</th>
+      <th><span style="color:red;padding-right:8px">*</span>电子邮件：</th>
       <td><input name="email" type="text" value="" class="input" /></td>
     </tr>
     <tr>
@@ -62,7 +62,7 @@
     </tr>
     
     <tr>
-    	<th>验证码：</th>
+    	<th><span style="color:red;padding-right:8px">*</span>验证码：</th>
        	<td><input type="text" name="captcha" id="cf" class="input" style="width:90px"/>
        	<img style="width:107px;height:28px" id="captchaimg" src="handleCaptcha" alt="captcha" onclick="javascript:reloadCaptcha()"/>
        </td>
