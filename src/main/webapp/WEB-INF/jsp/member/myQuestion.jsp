@@ -4,7 +4,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>	
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns:wb="http://open.weibo.com/wb"  xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <title>会员中心</title>
 <%@include file="../../inc/globalScript.jsp"%>
@@ -26,7 +26,7 @@
 
 	  <c:forEach var="question" items="${questionPage.items}" varStatus="vst">
 
-        <div class="title" id="menu1" onclick="showmenu('${vst.index+1}') "><a>${question.subject}【${question.productID}】</a>
+        <div class="title" id="menu1" onclick="showmenu('${vst.index+1}') "><a>${question.subject}【${question.product.name}】</a>
         <span>
         	<fmt:bundle basename="dict/dict-mapping" prefix="QUESTION_STATUS.">
 			<fmt:message key="${question.status}" />
