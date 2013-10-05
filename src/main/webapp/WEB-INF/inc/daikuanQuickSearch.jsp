@@ -6,58 +6,57 @@
     	<tr>
         <td width="31%" align="right" valign="middle">职业身份：</td>
         <td width="69%" align="left" valign="middle"><div id="tm2008style">
-	<select name="language_tm20081" id="language_tm2008">
-		<option value="企业主">企业主</option>
-		<option value="个体户" >个体户</option>
-		<option value="上班族" >上班族</option>
-		<option value="无固定职业" >无固定职业</option>
+	<select name="identity" id="identity" class="proSearch">
+		<option value="0" >无固定职业</option>
+		<option value="1">企业主</option>
+		<option value="2" >个体户</option>
+		<option value="3" >上班族</option>
 	</select>
 </div></td>
       </tr>
       <tr>
         <td width="31%" align="right" valign="middle">贷款用途：</td>
         <td width="69%" align="left" valign="middle"><div id="tm2008style">
-	<select name="language_tm20082" id="language_tm2008">
-		<option value="不限">不限</option>
-		<option value="经营贷款" >经营贷款</option>
-		<option value="消费贷款" >消费贷款</option>
-		<option value="购车贷款" >购车贷款</option>
-		<option value="购房贷款" >购房贷款</option>
+	<select name="loanUse" id="loanUse" class="proSearch">
+		<option value="0">不限</option>
+		<option value="1" >经营贷款</option>
+		<option value="2" >消费贷款</option>
+		<option value="3" >购车贷款</option>
+		<option value="4" >购房贷款</option>
 	</select>
 </div></td>
       </tr>
       <tr>
         <td align="right" valign="middle">贷款金额：</td>
          <td width="69%" align="left" valign="middle"><div id="tm2008style">
-	<select name="language_tm20083" id="language_tm2008">
-		<option value="万元">万元</option>
-		<option value="3万元" >3万元</option>
-		<option value="5万元" >5万元</option>
-		<option value="10万元" >10万元</option>
-		<option value="20万元" >20万元</option>
-		<option value="50万元" >50万元</option>
-		<option value="100万元" >100万元</option>
-		<option value="其他" >其他</option>
+	<select name="loanAmt" id="loanAmt" class="proSearch">
+		<option value="3" >3万元</option>
+		<option value="5" >5万元</option>
+		<option value="10" >10万元</option>
+		<option value="20" >20万元</option>
+		<option value="50" >50万元</option>
+		<option value="100" >100万元</option>
+		<option value="" >其他</option>
 	</select>
 </div></td>
       </tr>
       <tr>
         <td align="right" valign="middle">贷款期限：</td>
          <td width="69%" align="left" valign="middle"><div id="tm2008style">
-	<select name="language_tm20084" id="language_tm2008">
-		<option value="3个月">3个月</option>
-		<option value="6个月" >6个月</option>
-		<option value="12个月" selected="selected" >12个月</option>
-		<option value="2年" >2年</option>
-		<option value="3年" >3年</option>
-		<option value="5年" >5年</option>
-		<option value="10年" >10年</option>
+	<select name="loanIssue" id="loanIssue" class="proSearch">
+		<option value="3">3个月</option>
+		<option value="6" >6个月</option>
+		<option value="12">12个月</option>
+		<option value="24" >2年</option>
+		<option value="36" >3年</option>
+		<option value="60" >5年</option>
+		<option value="120" >10年</option>
 	</select>
 </div></td>
       </tr>
       <tr>
         <td>&nbsp;</td>
-        <td align="left" valign="middle"><a href="贷款搜索.html" target="_blank"><img src="images/img34.jpg" width="94" height="29" /></a></td>
+        <td align="left" valign="middle"><a style="cursor: pointer;" onclick="searchProduct()" ><img src="images/img34.jpg" width="94" height="29" /></a></td>
       </tr>
     </table>
   </div>
