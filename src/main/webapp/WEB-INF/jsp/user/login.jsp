@@ -9,7 +9,9 @@
 </head>
 
 <body>
-<%@include file="../../inc/globalHeader.jsp" %>
+	<jsp:include page="../../inc/globalHeader.jsp">
+		<jsp:param name="index" value="1" />
+	</jsp:include>
 
 <!--===========页面内容部分 开始===========-->
 <div class="login">

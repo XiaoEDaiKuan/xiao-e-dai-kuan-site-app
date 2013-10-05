@@ -23,7 +23,9 @@ con.style.display=i==cursel?"block":"none";
 </head>
 
 <body>
-	<%@include file="../../inc/globalHeader.jsp"%>
+	<jsp:include page="../../inc/globalHeader.jsp">
+		<jsp:param name="index" value="6" />
+	</jsp:include>
 
 	<%@include file="../../inc/questionSearchForm.jsp"%>
 	<div class="top Fuzzysearch1 Loansquiz1">

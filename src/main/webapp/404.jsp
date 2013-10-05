@@ -9,7 +9,9 @@
 </head>
 
 <body>
-<%@include file="WEB-INF/inc/globalHeader.jsp" %>
+<jsp:include page="WEB-INF/inc/globalHeader.jsp">
+	<jsp:param name="index" value="1" />
+</jsp:include>
 <div class="main3 padding-bt ground mt20">
   <div class="error clear">
     <div class="error1"> <img src="images/404_1.jpg" width="283" height="131" />
