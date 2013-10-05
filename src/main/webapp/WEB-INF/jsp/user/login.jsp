@@ -5,22 +5,7 @@
 <head>
 <title>用户登录</title>
 <%@include file="../../inc/globalScript.jsp" %>
-<script type="text/javascript">
-	$(document).ready(function() {
-	$("#pop_city").click(function(){
-		tipsWindown("您可以选择以下地区：","iframe:iframe:pop_city.html","500","200","true","","false","text","");
-	});
-	$("#pop_question").click(function(){
-		tipsWindown("我要提问：","iframe:iframe:pop_question.html","550","465","true","","false","text","");
-	});
-	
-	});	
-	
-	setTimeout('_magicTimeout()',20*1000);
-    function _magicTimeout(){
-	   $('.time_box').hide();
-    }	
-</script>
+
 </head>
 
 <body>
@@ -49,8 +34,8 @@
             <td><input name="captcha" type="text" class="input code" /></td>
           </tr>
           <tr>
-             <th></th>
-            <td><img id="captchaimg" src="handleCaptcha" alt="captcha"  class="input code" onclick="reloadCaptcha()" /></td>
+            <th>&nbsp;</th>
+            <td><img id="captchaimg" src="handleCaptcha" alt="captcha"  class="input code" style="margin:0px;width:112px;height:32px" onclick="reloadCaptcha()" /></td>
           </tr>
 
         </table>
@@ -65,6 +50,13 @@
 
 <!--===========页面内容部分 结束===========-->
 <%@include file="../../inc/memberFooter.jsp" %>
+
+<script type="text/javascript" language="JavaScript">
+    function reloadCaptcha() {  
+        var obj = document.getElementById('captchaimg');  
+        obj.src = "handleCaptcha?time=" + (new Date()).getTime();
+    }  
+</script>
 </body>
 </html>
     
