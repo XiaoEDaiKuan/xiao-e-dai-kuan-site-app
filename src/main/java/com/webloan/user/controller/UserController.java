@@ -469,6 +469,7 @@ public class UserController extends MultiActionController {
 	 * @return
 	 * @throws Exception
 	 */
+	
 	public ModelAndView myMessage(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 		ModelAndView mav = new ModelAndView();
