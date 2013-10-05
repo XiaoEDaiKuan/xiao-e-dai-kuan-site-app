@@ -274,13 +274,35 @@ public class UserController extends MultiActionController {
 		mav.addObject("success", "密码修改成功！");
 		String originalPassword = request.getParameter("originalPassword");
 		String newPassword = request.getParameter("newPassword");
+		String newPasswordRep = request.getParameter("newPasswordRep");
+
 		// 从session中获取ciustId
 		Long custId = (Long) request.getSession().getAttribute("custId");
 
 		if (null == custId) {
 			log.error(UserConstant.EXCEPTION_ACCT_NOT_EXISIT);
-			throw new BizException(UserConstant.EXCEPTION_ACCT_NOT_EXISIT);
+			mav.setViewName("usr/login");
 		}
+
+		if (null == newPassword || "".equals(newPassword)) {
+			log.error(UserConstant.EXCEPTION_PASSWD_CONFIRM);
+			throw new BizException();
+		}
+		
+		if (null == originalPassword || "".equals(originalPassword)) {
+			log.error(UserConstant.EXCEPTION_PASSWD_CONFIRM);
+			throw new BizException();
+		}
+		if (null == newPasswordRep || "".equals(newPasswordRep)) {
+			log.error(UserConstant.EXCEPTION_PASSWD_CONFIRM);
+			throw new BizException();
+		}
+		
+		if (!newPasswordRep.equals(newPasswordRep)) {
+			log.error(UserConstant.EXCEPTION_PASSWD_CONFIRM);
+			throw new BizException();
+		}
+		
 
 		String strCustId = String.valueOf(custId);
 		userService.modifyPassword(strCustId, originalPassword, newPassword);
@@ -436,7 +458,7 @@ public class UserController extends MultiActionController {
 			HttpServletResponse response) throws Exception {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("member/pop_CancelOrder");
-		
+
 		String orderid = request.getParameter("orderid");
 		mav.addObject("orderid", orderid);
 		if (null == orderid || "".equals(orderid)) {
@@ -590,6 +612,7 @@ public class UserController extends MultiActionController {
 
 	/**
 	 * 删除兴勇评分记录确认
+	 * 
 	 * @param request
 	 * @param response
 	 * @return
@@ -604,7 +627,6 @@ public class UserController extends MultiActionController {
 		return mav;
 	}
 
-	
 	/**
 	 * 编辑用户信息-回显用户信息
 	 * 
@@ -655,6 +677,7 @@ public class UserController extends MultiActionController {
 
 	/**
 	 * 保存编辑后的信息
+	 * 
 	 * @param request
 	 * @param response
 	 * @return
@@ -688,12 +711,10 @@ public class UserController extends MultiActionController {
 		String strCustId = String.valueOf(custId);
 		userService.modifyUser(strCustId, mobileNO, email, postCode, address);
 		mav.addObject("editOK", "true");
-		
+
 		return mav;
 	}
 
-	
-	
 	public ModelAndView myQuestion(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 		ModelAndView mav = new ModelAndView();
