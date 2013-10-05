@@ -37,11 +37,30 @@ public class ProductController extends MultiActionController {
 		return mav;
 	}
 	
+	public ModelAndView viewProduct(HttpServletRequest request, 
+			HttpServletResponse response, ProductQuery pq) {
+		Long productId = pq.getProductId();
+		Asserts.notNull(productId);
+		
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("product/viewProduct");
+		
+		ProductAttach prod = productService.getAttachByProductId(productId);
+		mav.addObject("prod", prod);
+		
+		List<Question> questions = orderService.listQuestionByPrdId(productId.toString());
+		mav.addObject("questions", questions);
+		
+		mav.addObject("pq", pq);
+		
+		return mav;
+	}
+	
 	public ModelAndView productView(HttpServletRequest request, 
 			HttpServletResponse response, ProductQuery pq) {
 		Long productId = pq.getProductId();
 		Asserts.notNull(productId);
-//		Asserts.notNull(pq.getLoanAmt(), "请选择贷款金额!");
+		Asserts.notNull(pq.getLoanAmt(), "请选择贷款金额!");
 		
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("order/addToCart");

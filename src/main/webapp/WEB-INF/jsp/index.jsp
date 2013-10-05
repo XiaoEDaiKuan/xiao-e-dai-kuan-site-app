@@ -112,7 +112,7 @@
           <td width="11%"><img src="images/credit01.jpg" width="40" height="21" /></td>
           <td width="18%">${hcrProd.name}</td>
           <td width="61%">${hcrProd.desc}</td>
-          <td width="10%"><a href="产品申请.html" target="_blank">查看</a></td>
+          <td width="10%"><a href="viewProduct?productId=${hcrProd.id}" target="_blank">查看</a></td>
         </tr>
 		</c:forEach>
       </table>
@@ -125,7 +125,7 @@
           <td width="11%"><img src="images/credit01.jpg" width="40" height="21" /></td>
           <td width="18%">${hchProd.name}</td>
           <td width="61%">${hchProd.desc}</td>
-          <td width="10%"><a href="产品申请.html" target="_blank">查看</a></td>
+          <td width="10%"><a href="viewProduct?productId=${hchProd.id}" target="_blank">查看</a></td>
         </tr>
 		</c:forEach>
       </table>
