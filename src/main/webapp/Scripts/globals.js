@@ -13,7 +13,7 @@ function reloadCaptcha() {
     var captchaURL = obj.src+"?nocache=" + Math.floor(Math.random()*100000000 + 100000000);  
     obj.src =captchaURL ;
 }
-$(document).ready(    
+$(document).ready(function(){  
 	$("#pop_save").click(function(){
 		tipsWindown("产品信息保存到邮箱","iframe:iframe:pop_save.html","580","215","true","","false","text","");
 	});
@@ -21,7 +21,8 @@ $(document).ready(
 		tipsWindown("您可以选择以下地区：","iframe:iframe:pop_city.html","500","200","true","","false","text","");
 	});
 	$("#pop_question").click(function(){
-		tipsWindown("我要提问：","iframe:iframe:pop_question.html","550","465","true","","false","text","");
+		tipsWindown("我要提问：", "iframe:iframe:postQuestionForm",
+				"550", "465", "true", "", "false", "text", "");
 	});
 });
 
