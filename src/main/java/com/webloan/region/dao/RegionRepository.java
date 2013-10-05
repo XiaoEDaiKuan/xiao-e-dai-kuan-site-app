@@ -7,6 +7,6 @@ import com.webloan.model.Region;
 
 public interface RegionRepository extends BaseJpaRepository {
 	
-	List<Region> queryRegionsByParentId(Long parentId);
+	List<Region> queryRegionByCityLoan(String areaCode, String status);
 
 }

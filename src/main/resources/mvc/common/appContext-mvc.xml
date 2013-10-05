@@ -40,6 +40,8 @@
 				<!-- 产品 -->
 				<prop key="queryProduct">productController</prop>
 				<prop key="productView">productController</prop>
+				<prop key="matchProduct">productController</prop>
+				
 				<!-- 用户注册 -->
 				<prop key="createUser">userController</prop>
 				<prop key="login">userController</prop>

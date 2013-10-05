@@ -54,9 +54,9 @@ public class ProductController extends MultiActionController {
 		return mav;
 	}
 	
-	public ModelAndView searchProduct(HttpServletRequest request, 
+	public ModelAndView matchProduct(HttpServletRequest request, 
 			HttpServletResponse response, ProductQuery pq) {
-		ModelAndView mav = new ModelAndView("product/recmdPrdSearch");
+		ModelAndView mav = new ModelAndView("product/matchproduct");
 		
 		List<Product> grpBuyProds = productService.queryGroupBuyingProducts(
 				pq.getRegionId(), pq.getIdentity());
