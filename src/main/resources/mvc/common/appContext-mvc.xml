@@ -64,6 +64,7 @@
 				
 				<prop key="myCreditScore">userController</prop>
 				<prop key="pop_DeleteCredit">userController</prop>
+				<prop key="pop_DeleteCreditOK">userController</prop>
 				
 				<prop key="modifyMyInfo">userController</prop>
 				<prop key="editMyInfo">userController</prop>

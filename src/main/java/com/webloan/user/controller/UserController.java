@@ -589,6 +589,23 @@ public class UserController extends MultiActionController {
 	}
 
 	/**
+	 * 删除兴勇评分记录确认
+	 * @param request
+	 * @param response
+	 * @return
+	 * @throws Exception
+	 */
+	public ModelAndView pop_DeleteCreditOK(HttpServletRequest request,
+			HttpServletResponse response) throws Exception {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("member/pop_DeleteCredit");
+		mav.addObject("deleteOK", "true");
+
+		return mav;
+	}
+
+	
+	/**
 	 * 编辑用户信息-回显用户信息
 	 * 
 	 * @param request

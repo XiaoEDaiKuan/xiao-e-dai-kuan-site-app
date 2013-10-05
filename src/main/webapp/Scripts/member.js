@@ -18,7 +18,7 @@ $(document).ready(
 					});
 			$("#pop_del").click(
 					function() {
-						tipsWindown("提示", "iframe:iframe:pop_删除记录.html", "345",
+						tipsWindown("提示", "iframe:iframe:pop_DeleteCredit", "345",
 								"145", "true", "", "false", "text", "");
 					});
 			$("#pop_information").click(
