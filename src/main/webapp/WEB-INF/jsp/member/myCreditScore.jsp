@@ -44,7 +44,7 @@
 						</td>
 						<td><fmt:formatDate value="${credit.calTime}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
 						<td><a href="#" data="${credit.id}" class="pop_del">删除记录</a>
-						    <a href="score_choose.html" target="_blank">再测一次</a>
+						    <a href="scoreChoose" target="_blank">再测一次</a>
 						</td>
 					</tr>
                </c:forEach>
