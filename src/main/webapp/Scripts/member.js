@@ -30,7 +30,7 @@ $(document).ready(
 			$("#pop_contact").click(
 					function() {
 						tipsWindown("联系方式", "iframe:iframe:modifyMyInfo",
-								"420", "250", "true", "", "false", "text", "");
+								"420", "250", "true", "", "false", "text", function(){location.reload();});
 					});
 		});
 

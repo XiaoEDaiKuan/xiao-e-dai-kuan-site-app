@@ -631,7 +631,7 @@ public class UserController extends MultiActionController {
 	}
 
 	/**
-	 * 保存用户编辑的联系信息
+	 * 用户编辑的联系信息-回显
 	 * 
 	 * @param request
 	 * @param response
@@ -639,6 +639,28 @@ public class UserController extends MultiActionController {
 	 * @throws Exception
 	 */
 	public ModelAndView modifyMyInfo(HttpServletRequest request,
+			HttpServletResponse response) throws Exception {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("member/pop_contact");
+
+		Long custId = (Long) request.getSession().getAttribute("custId");
+		if (null == custId) {
+			mav.setViewName("user/login");
+			return mav;
+		}
+		Cust cust = userService.findCustById(custId);
+		mav.addObject("cust", cust);
+		return mav;
+	}
+
+	/**
+	 * 保存编辑后的信息
+	 * @param request
+	 * @param response
+	 * @return
+	 * @throws Exception
+	 */
+	public ModelAndView updateMyInfo(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("member/pop_contact");
@@ -665,10 +687,13 @@ public class UserController extends MultiActionController {
 
 		String strCustId = String.valueOf(custId);
 		userService.modifyUser(strCustId, mobileNO, email, postCode, address);
-
+		mav.addObject("editOK", "true");
+		
 		return mav;
 	}
 
+	
+	
 	public ModelAndView myQuestion(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 		ModelAndView mav = new ModelAndView();

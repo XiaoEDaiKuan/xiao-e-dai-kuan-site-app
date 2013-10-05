@@ -70,6 +70,8 @@
 				<prop key="editMyInfo">userController</prop>
 				<prop key="myQuestion">userController</prop>
 				<prop key="changePassword">userController</prop>
+				<prop key="updateMyInfo">userController</prop>
+				
 
 				<!-- 邮箱验证 -->
 				<prop key="mailAuthentication">userController</prop>
