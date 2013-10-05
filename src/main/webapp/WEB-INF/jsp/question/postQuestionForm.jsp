@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -11,6 +12,10 @@
 </head>
 
 <body style="background: #fff;">
+	<c:if test= "${not empty saveOK}">
+		<div class="pop_tx" style="font-size:32px; text-align:center"><b>您的问题提交成功！</b></div>
+	</c:if>
+	<c:if test="${empty saveOK}">
 	<form action="postQuestionFormSave" method="post">
 		<div class="pop_contact">
 			<div class="pop_question">
@@ -57,11 +62,12 @@
 			</div>
 		</div>
 	</form>
+	
 	<script type="text/javascript" language="JavaScript">
     function reloadCaptcha() {  
         var obj = document.getElementById('captchaimg');  
         obj.src = "handleCaptcha?time=" + (new Date()).getTime();
     }  
-  </script>
+  </script></c:if>
 </body>
 </html>

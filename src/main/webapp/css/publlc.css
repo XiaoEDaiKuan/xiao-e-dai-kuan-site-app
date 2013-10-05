@@ -20,9 +20,9 @@ a:hover{text-decoration:underline;color:#569bc2;}
 
 .clear{ clear:both; overflow:hidden;}
 .clearall{ clear:both; height:0px; overflow:hidden;}
-.font_f{ font-family:"微软雅黑";}
-.font_f_hei{ font-family:"黑体";}
-.font_f_song{ font-family:"宋体";}
+.font_f{ font-family:"寰蒋闆呴粦";}
+.font_f_hei{ font-family:"榛戜綋";}
+.font_f_song{ font-family:"瀹嬩綋";}
 .f_underline{ text-decoration:underline;}
 .float_r{float:right;}
 .ground{border:1px solid #e6e6e6;background:#fff;margin-bottom:15px;}
@@ -33,21 +33,21 @@ a:hover{text-decoration:underline;color:#569bc2;}
 .reg_btn{width:94px;height:29px;background:url(../images/btn.jpg) no-repeat left top; cursor:pointer;}
 
 
-/*==========顶部公用模块 开始=============*/
+/*==========椤堕儴鍏敤妯″潡 寮�=============*/
 .top{width:1000px;height:112px;margin:0 auto;}
 .logo{float:left;width:93px;height:57px;padding:33px 0 0 6px;}
 .logo a{display:block;width:93px;height:57px;background:url(../images/logo.jpg) no-repeat left top;}
 .city{float:left;width:130px;padding:54px 0 0 17px;}
 .city font{font-size:14px;color:#000;text-align:center;padding:0 5px;}
 .city a{color:#02a0ea;margin:0;padding:0; }
-.top_right{float:right;width:595px;height:112px;}
-.top_right1{float:right;width:382px;height:55px;line-height:55px;font-size:12px;color:#000;}
+.top_right{float:right;width:695px;height:112px;}
+.top_right1{float:right;width:582px;height:55px;line-height:55px;font-size:12px;color:#000;text-align:right}
 .top_right1 a{color:#000;}
 .top_right1 a:hover{color:#02a0ea;}
 .top_right1 font{font-size:12px;padding:0 10px;}
 .btn1{width:94px;height:29px;background:url(../images/search_btn.png) no-repeat;float:right;margin-right:7px; cursor:pointer;}
 
-/*菜单*/
+/*鑿滃崟*/
 .underPmenu { float:right; width:595px; height:56px;}
 .underPmenu ul {float:right; position:relative; z-index:9999;}
 .underPmenu ul li {float:left; position:relative;}
@@ -58,7 +58,7 @@ a:hover{text-decoration:underline;color:#569bc2;}
 
 .underPmenu ul li ul {display: none;}
 
-.underPmenu ul li:hover ul {display:block; position:absolute; top:56px; left:0; width:87px;padding:0 6px; border:1px solid #abccdf; background:#fff; z-index:1000;font-family:"宋体";}
+.underPmenu ul li:hover ul {display:block; position:absolute; top:56px; left:0; width:87px;padding:0 6px; border:1px solid #abccdf; background:#fff; z-index:1000;font-family:"瀹嬩綋";}
 .underPmenu ul li:hover ul li.subline{  width:87px; height:5px; overflow:hidden;}
 .underPmenu ul li:hover ul li a,.underPmenu ul li:hover ul li a:visited { font-size:12px; display:block; width:86px;_width:80px;height:27px;line-height:27px;color:#818181;border-bottom:1px solid #e3e3e3; text-align:center;background:none; text-decoration:none;}
 .underPmenu ul li:hover ul li a:hover {height:27px; line-height:27px; font-size:14px; font-weight:bold; color:#2992cc; background:none; text-decoration:none;}
@@ -71,7 +71,7 @@ a:hover{text-decoration:underline;color:#569bc2;}
 .underPmenu ul li ul li.border_bt{border-bottom:none;}
 .underPmenu ul li.underMenuLast a, .underPmenu ul li.underMenuLast a:visited { border-right:0px solid #fff; _background:none;}
 
-/*底部*/
+/*搴曢儴*/
 .footer1{width:968px;margin:0 auto; clear:both; overflow:hidden;padding:0 15px 5px 15px;}
 .about{float:left;padding-left:20px;width:120px;}
 .about p{height:50px;line-height:50px;font-size:14px;font-weight:bold;color:#000;}
@@ -98,5 +98,5 @@ a:hover{text-decoration:underline;color:#569bc2;}
 .footer2_2{width:1000px;text-align:center;line-height:20px;color:#595757;margin:0 auto;padding-top:20px;height:105px;}
 .footer2_2 font{color:#000;font-size:12px;}
 
-/*==========顶部公用模块 结束=============*/
+/*==========椤堕儴鍏敤妯″潡 缁撴潫=============*/
 
