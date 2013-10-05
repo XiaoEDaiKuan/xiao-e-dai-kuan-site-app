@@ -31,7 +31,12 @@
 			  <c:forEach var="credit" items="${creditPage.items}" >
 					<tr>
 						<td>${credit.id}</td>
-						<td>${credit.creditMin/10000}万元-${credit.creditMax/10000}万元</td>
+						<td>
+						    <fmt:formatNumber value="${credit.creditMin/10000}" pattern="#,#00.0#"/>
+						     -
+						    <fmt:formatNumber value="${credit.creditMax/10000}" pattern="#,#00.0#"/>
+						          万元
+						</td>
 						<td>
 						<fmt:bundle basename="dict/dict-mapping" prefix="CREDIT_TYPE.">
 							<fmt:message key="${credit.creditType}" />

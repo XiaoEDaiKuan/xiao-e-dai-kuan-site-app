@@ -26,7 +26,13 @@
 
 	  <c:forEach var="question" items="${questionPage.items}" varStatus="vst">
 
-        <div class="title" id="menu1" onclick="showmenu('${vst.index+1}') "><a>${question.subject}【${question.productID}】</a><span>${question.status}</span><font><fmt:formatDate value="${question.askTime}" pattern="yyyy-MM-dd HH:mm:ss"/></font></div>
+        <div class="title" id="menu1" onclick="showmenu('${vst.index+1}') "><a>${question.subject}【${question.productID}】</a>
+        <span>
+        	<fmt:bundle basename="dict/dict-mapping" prefix="QUESTION_STATUS.">
+			<fmt:message key="${question.status}" />
+			</fmt:bundle>
+        </span>
+        <font><fmt:formatDate value="${question.askTime}" pattern="yyyy-MM-dd HH:mm:ss"/></font></div>
         <div id="list${vst.index+1}" class="content" style="display:none">
           <ul>
             <li><strong>问题：</strong>${question.detail}</li>
