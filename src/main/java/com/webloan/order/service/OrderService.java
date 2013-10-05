@@ -17,7 +17,7 @@ public interface OrderService {
    //删除订单
    void deleteOrder(String orderId);
    //生成订单
-   void createOrder(String productId,String custId,String applyName,String  applyTelephone,String applyAmt,String  custRegion);
+   void createOrder(String productId,String custId,String applyName,String  applyTelephone,String applyAmt,String  regionId);
    //发邮件
    void orderEmail(String email,String productId);
    //根据产品id查询关联的问答
