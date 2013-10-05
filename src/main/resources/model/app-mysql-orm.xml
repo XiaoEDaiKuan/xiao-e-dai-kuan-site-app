@@ -478,7 +478,7 @@
 
 			
 			<basic name="subject">
-				<column name="SUBJECT" length="100"  />
+				<column name="subject" length="100"  />
 			</basic>
 			
 			<basic name="type">
@@ -520,7 +520,7 @@
 			</basic>
 			
 			<basic name="answerContent">
-				<column name="ANSWER_CONTENT" length="1024"  />
+				<column name="answer_content" length="1024"  />
 			</basic>
 			
 			<basic name="email">
