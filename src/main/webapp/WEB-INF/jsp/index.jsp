@@ -26,7 +26,6 @@
           <th width="20%">职业身份：</th>
           <td><div id="tm2008style">
 	<select name="identity" id="identity" class="proSearch">
-		<option value="">请选择</option>
 		<option value="0" >无固定职业</option>
 		<option value="1">企业主</option>
 		<option value="2" >个体户</option>
@@ -84,18 +83,6 @@
           <td>&nbsp;</td>
         </tr>
       </table>
-      <script type="text/javascript">
-      	var searchProduct = function(){
-      		var url = "queryProduct?";
-      		$(".proSearch").each(function(){
-            	var val = $(this).attr("value");
-            	if (val) {
-            		url += $(this).attr("id") + "=" + val + "&";
-            	}
-            });
-      		document.location.href = url;
-      	};
-      </script>
     </div>
   </div>
 </div>

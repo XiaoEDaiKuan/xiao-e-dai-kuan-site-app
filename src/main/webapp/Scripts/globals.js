@@ -30,3 +30,14 @@ setTimeout('_magicTimeout()',20*1000);
 function _magicTimeout(){
    $('.time_box').hide();
 }
+
+var searchProduct = function(){
+		var url = "queryProduct?";
+		$(".proSearch").each(function(){
+    	var val = $(this).attr("value");
+    	if (val) {
+    		url += $(this).attr("id") + "=" + val + "&";
+    	}
+    });
+		document.location.href = url;
+};
