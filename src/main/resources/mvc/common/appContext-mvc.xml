@@ -77,6 +77,10 @@
 				<prop key="requestProductCheck">productController</prop>
 				<prop key="inputOrderInfoForm">productController</prop>
 				<prop key="saveOrderInfo">orderController</prop>
+				<prop key="TG">productController</prop>
+				<prop key="KS">productController</prop>
+				<prop key="POS">productController</prop>
+				<prop key="XX">productController</prop>
 				
 				<prop key="ask">questionController</prop>
 				<prop key="viewAnswer">questionController</prop>
