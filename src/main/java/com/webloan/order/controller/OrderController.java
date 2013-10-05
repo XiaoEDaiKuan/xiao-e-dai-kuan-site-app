@@ -60,4 +60,18 @@ public class OrderController extends MultiActionController{
 		
 		return new ModelAndView("order/inputOrderInfoSuccess");
 	}
+	
+	public ModelAndView  orderEmail(HttpServletRequest request, HttpServletResponse response){
+		
+		String productId = request.getParameter("productId");
+		String email = request.getParameter("email");
+		
+		String ip = request.getRemoteAddr();
+		String custId = request.getSession().getAttribute("custId").toString();
+		
+		orderService.orderEmail(email, productId);
+		
+		return new ModelAndView("order/inputOrderInfoSuccess");
+		
+	}
 }
