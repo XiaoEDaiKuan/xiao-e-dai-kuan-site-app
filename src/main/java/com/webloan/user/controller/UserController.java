@@ -267,7 +267,8 @@ public class UserController extends MultiActionController {
 	public ModelAndView modifyPasswd(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 		ModelAndView mav = new ModelAndView();
-		mav.setViewName("user/modifypasswd");
+		mav.setViewName("user/changePassword");
+		mav.addObject("success", "密码修改成功！");
 		String originalPassword = request.getParameter("originalPassword");
 		String newPassword = request.getParameter("newPassword");
 		// 从session中获取ciustId
