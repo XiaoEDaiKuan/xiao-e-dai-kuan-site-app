@@ -13,6 +13,7 @@ import com.webloan.model.Cust;
 import com.webloan.model.Order;
 import com.webloan.model.Product;
 import com.webloan.model.Question;
+import com.webloan.model.Region;
 import com.webloan.model.RequireInfo;
 import com.webloan.order.dao.OrderRepository;
 
@@ -50,7 +51,7 @@ public class OrderRepositoryImpl extends BaseJpaRepositoryImpl implements
 
 	@Override
 	public void createOrder(Long productId, Long custId, String applyName,
-			String applyTelephone, BigDecimal applyAmt, String custRegion) {
+			String applyTelephone, BigDecimal applyAmt, Long regionId) {
 		Product product = this.load(Product.class, productId);
 		Cust cust = this.load(Cust.class, custId);
 		Order order = new Order();
@@ -59,7 +60,8 @@ public class OrderRepositoryImpl extends BaseJpaRepositoryImpl implements
 		order.setApplyName(applyName);
 		order.setApplyAmt(applyAmt);
 		order.setApplyTelephone(applyTelephone);
-		order.setCustRegion(custRegion);
+		Region region=this.load(Region.class, regionId);
+		order.setRegion(region);
 		this.save(order);
 	}
 

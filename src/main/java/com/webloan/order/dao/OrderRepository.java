@@ -17,7 +17,7 @@ public interface OrderRepository extends BaseJpaRepository  {
 	int orderCount();
 	void deleteOrder(Long orderId);
 	public void createOrder(Long productId, Long custId, String applyName,
-			String applyTelephone, BigDecimal applyAmt, String custRegion) ;
+			String applyTelephone, BigDecimal applyAmt, Long regionId) ;
    //获得产品
 	public   Product getProduct(Long productId);
 
