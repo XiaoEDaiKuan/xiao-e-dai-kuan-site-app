@@ -12,6 +12,7 @@ import com.webloan.model.RequireInfo;
 
 public interface OrderRepository extends BaseJpaRepository  {
 
+	
 	Page orderListByUser(Long custId,int pageIndex,int pageSize);
 	void modifyOrderStatus(Long orderId);
 	int orderCount();
