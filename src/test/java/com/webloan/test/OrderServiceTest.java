@@ -28,7 +28,7 @@ public class OrderServiceTest {
 	public void testOrderListByUser() {
 		OrderService orderService = appContext.getBean("orderService",
 				OrderService.class);
-		Page orderpage= orderService.orderListByUser("1",1,10);
+		Page orderpage= orderService.orderListByUser(Long.valueOf(1),1,10);
 		for (int i = 0; i < orderpage.getItems().size(); i++) {
 
 			System.out.println(((Order) orderpage.getItems().get(i)).getId());
