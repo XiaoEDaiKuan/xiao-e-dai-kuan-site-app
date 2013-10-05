@@ -90,13 +90,13 @@
 </div>
 <div class="main1">
   <ul>
-    <li class="short"><a href="快速贷款专区.html" target="_blank"><b>快速贷款专区</b><br />
+    <li class="short"><a href="KS" target="_blank"><b>快速贷款专区</b><br />
       资金要得急 还款期限短</a></li>
-    <li class="high"><a href="提高额度专区.html" target="_blank"><b>提高额度专区</b><br />
+    <li class="high"><a href="TG" target="_blank"><b>提高额度专区</b><br />
       分级评分 逐级增加额度</a></li>
-    <li class="pos"><a href="#"><b>POS贷款专区</b><br />
+    <li class="pos"><a href="POS"><b>POS贷款专区</b><br />
       POS流水评估 简便贷款</a></li>
-    <li class="loan"><a href="#"><b>XX贷款专区</b><br />
+    <li class="loan"><a href="XX"><b>XX贷款专区</b><br />
       简单说明</a></li>
   </ul>
 </div>
