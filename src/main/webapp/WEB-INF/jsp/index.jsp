@@ -25,7 +25,7 @@
         <tr>
           <th width="20%">职业身份：</th>
           <td><div id="tm2008style">
-	<select name="language_tm20081" id="language_tm2008">
+	<select name="identity" id="identity" class="proSearch">
 		<option value="">请选择</option>
 		<option value="0" >无固定职业</option>
 		<option value="1">企业主</option>
@@ -38,8 +38,7 @@
         <tr>
           <th>贷款用途：</th>
           <td><div id="tm2008style">
-	<select name="language_tm20082" id="language_tm2008">
-		<option value="">请选择</option>
+	<select name="loanUse" id="loanUse" class="proSearch">
 		<option value="0">不限</option>
 		<option value="1" >经营贷款</option>
 		<option value="2" >消费贷款</option>
@@ -52,8 +51,7 @@
         <tr>
           <th>贷款金额：</th>
           <td><div id="tm2008style">
-	<select name="language_tm20083" id="language_tm2008">
-		<option value="">请选择</option>
+	<select name="loanAmt" id="loanAmt" class="proSearch">
 		<option value="3" >3万元</option>
 		<option value="5" >5万元</option>
 		<option value="10" >10万元</option>
@@ -68,8 +66,7 @@
         <tr>
           <th>贷款期限：</th>
           <td><div id="tm2008style">
-	<select name="language_tm20084" id="language_tm2008">
-		<option value="">请选择</option>
+	<select name="loanIssue" id="loanIssue" class="proSearch">
 		<option value="3">3个月</option>
 		<option value="6" >6个月</option>
 		<option value="12">12个月</option>
@@ -83,10 +80,22 @@
         </tr>
         <tr>
           <td>&nbsp;</td>
-          <td><input name="" type="button" value="" class="btn1" /></td>
+          <td><input name="" type="button" value="" class="btn1" onclick="searchProduct()" /></td>
           <td>&nbsp;</td>
         </tr>
       </table>
+      <script type="text/javascript">
+      	var searchProduct = function(){
+      		var url = "queryProduct?";
+      		$(".proSearch").each(function(){
+            	var val = $(this).attr("value");
+            	if (val) {
+            		url += $(this).attr("id") + "=" + val + "&";
+            	}
+            });
+      		document.location.href = url;
+      	};
+      </script>
     </div>
   </div>
 </div>
