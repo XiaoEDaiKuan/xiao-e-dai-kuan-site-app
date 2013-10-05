@@ -253,6 +253,16 @@ public class UserController extends MultiActionController {
 		String newPassword = request.getParameter("newPassword");
 		// 从session中获取ciustId
 		String strCustId = (String) request.getSession().getAttribute("custId");
+
+		//测试用
+		strCustId="1";
+
+		
+		if(null==strCustId || "".equals(strCustId)){
+			log.error(UserConstant.EXCEPTION_ACCT_NOT_EXISIT);
+			throw new BizException(UserConstant.EXCEPTION_ACCT_NOT_EXISIT);
+		}
+		
 		userService.modifyPassword(strCustId, originalPassword, newPassword);
 		return mav;
 	}
@@ -669,6 +679,14 @@ public class UserController extends MultiActionController {
 		
 		return mav;
 	}
+
+	/**
+	 * 修改密码
+	 * @param request
+	 * @param response
+	 * @return
+	 * @throws Exception
+	 */
 	public ModelAndView changePassword(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 		ModelAndView mav = new ModelAndView();
