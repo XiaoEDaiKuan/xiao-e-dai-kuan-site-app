@@ -535,10 +535,8 @@ public class UserController extends MultiActionController {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("member/myCreditScore");
 
-		String custId = (String) request.getSession().getAttribute("custId");
+		Long custId = (Long) request.getSession().getAttribute("custId");
 
-		// 测试
-		custId = "1";
 
 		if (null == custId || "".equals(custId)) {
 			log.error(UserConstant.EXCEPTION_CUST_NOT_FOUND);
@@ -556,8 +554,8 @@ public class UserController extends MultiActionController {
 			strPageSize = "10";
 		}
 		int pageSize = Integer.parseInt(strPageSize);
-
-		Page creditPage = creditService.creditListByUser(custId, pageIndex,
+         String strCustId =String.valueOf(custId);
+		Page creditPage = creditService.creditListByUser(strCustId, pageIndex,
 				pageSize);
 
 		mav.addObject("creditPage", creditPage);
@@ -600,15 +598,13 @@ public class UserController extends MultiActionController {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("member/editMyInfo");
 
-		String strCustId = (String) request.getSession().getAttribute("custId");
-		// 测试
-		strCustId = "1";
-		if (null == strCustId || "".equals(strCustId)) {
+		Long custId = (Long) request.getSession().getAttribute("custId");
+
+		if (null == custId ) {
 			log.error(UserConstant.EXCEPTION_CUST_NOT_FOUND);
 			throw new BizException(UserConstant.EXCEPTION_CUST_NOT_FOUND);
 		}
 
-		Long custId = Long.valueOf(strCustId);
 		Cust cust = userService.findCustById(custId);
 		mav.addObject("cust", cust);
 		return mav;
@@ -627,10 +623,8 @@ public class UserController extends MultiActionController {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("member/pop_contact");
 
-		String strCustId = (String) request.getSession().getAttribute("custId");
-		// 测试
-		strCustId = "1";
-		if (null == strCustId || "".equals(strCustId)) {
+		Long custId = (Long) request.getSession().getAttribute("custId");
+		if (null == custId ) {
 			log.error(UserConstant.EXCEPTION_CUST_NOT_FOUND);
 			throw new BizException(UserConstant.EXCEPTION_CUST_NOT_FOUND);
 		}
@@ -649,6 +643,7 @@ public class UserController extends MultiActionController {
 		String postCode = request.getParameter("postCode");
 		String address = request.getParameter("address");
 
+		String strCustId=String.valueOf(custId);
 		userService.modifyUser(strCustId, mobileNO, email, postCode, address);
 
 		return mav;
@@ -659,23 +654,12 @@ public class UserController extends MultiActionController {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("member/myQuestion");
 
-		String strCustId = (String) request.getSession().getAttribute("custId");
-		// 测试
-		strCustId = "1";
-		if (null == strCustId || "".equals(strCustId)) {
+		Long custId = (Long) request.getSession().getAttribute("custId");
+		if (null == custId ) {
 			log.error(UserConstant.EXCEPTION_CUST_NOT_FOUND);
 			throw new BizException(UserConstant.EXCEPTION_CUST_NOT_FOUND);
 		}
 
-		String custId = (String) request.getSession().getAttribute("custId");
-
-		// 测试
-		custId = "1";
-
-		if (null == custId || "".equals(custId)) {
-			log.error(UserConstant.EXCEPTION_CUST_NOT_FOUND);
-			throw new BizException(UserConstant.EXCEPTION_CUST_NOT_FOUND);
-		}
 		String strPageIndex = request.getParameter("pageIndex");
 		String strPageSize = request.getParameter("pageSize");
 
@@ -689,6 +673,7 @@ public class UserController extends MultiActionController {
 		}
 		int pageSize = Integer.parseInt(strPageSize);
 
+		String strCustId=String.valueOf(custId);
 		Page questionPage = questionService.qryQuestionByCustId(strCustId,
 				pageIndex, pageSize);
 		mav.addObject("questionPage", questionPage);
