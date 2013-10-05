@@ -18,7 +18,7 @@ public class Order implements Serializable {
 	   private String     applyTelephone;//贷款申请人联系电话
 	   private BigDecimal applyAmt;//申请金额
 	   private BigDecimal approvAmt;//批准金额
-	   private String     custRegion;//申请人所处地区
+	   private Region     region;//申请人所处地区
 	   private String     status="0";//订单状态,0-等待预审,1-等待审批,2-等待签约,3-等待放款,4-申贷成功,5-完结,6-审核未通过,7-订单失效,8-已取消
 	   private Timestamp  orderTime;//订单时间
 	   private String     approvOper;//审核人
@@ -66,12 +66,6 @@ public class Order implements Serializable {
 	public void setApprovAmt(BigDecimal approvAmt) {
 		this.approvAmt = approvAmt;
 	}
-	public String getCustRegion() {
-		return custRegion;
-	}
-	public void setCustRegion(String custRegion) {
-		this.custRegion = custRegion;
-	}
 	public String getStatus() {
 		return status;
 	}
@@ -104,6 +98,12 @@ public class Order implements Serializable {
 	}
 	public static long getSerialversionuid() {
 		return serialVersionUID;
+	}
+	public Region getRegion() {
+		return region;
+	}
+	public void setRegion(Region region) {
+		this.region = region;
 	}
 
 
