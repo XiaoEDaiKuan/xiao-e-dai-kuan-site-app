@@ -209,7 +209,7 @@ public class UserController extends MultiActionController {
 	
 	
 	
-	public ModelAndView forgetPassword(HttpServletRequest request,
+	public ModelAndView forgetPasswd(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 
 		ModelAndView mav = new ModelAndView();
