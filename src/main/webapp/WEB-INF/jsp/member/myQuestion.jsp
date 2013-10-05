@@ -26,7 +26,7 @@
 
 	  <c:forEach var="question" items="${questionPage.items}" varStatus="vst">
 
-        <div class="title" id="menu1" onclick="showmenu('${vst.index+1}') "><a>${question.subject}【${question.productID}】</a>
+        <div class="title" id="menu1" onclick="showmenu('${vst.index+1}') "><a>${question.subject}【${question.product.name}】</a>
         <span>
         	<fmt:bundle basename="dict/dict-mapping" prefix="QUESTION_STATUS.">
 			<fmt:message key="${question.status}" />
