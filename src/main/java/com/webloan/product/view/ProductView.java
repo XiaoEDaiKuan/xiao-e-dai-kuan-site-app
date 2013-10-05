@@ -5,6 +5,7 @@ import java.math.BigDecimal;
 import com.webloan.model.Product;
 import com.webloan.model.ProductAttach;
 
+
 public class ProductView {
 	
 	private Product product;
