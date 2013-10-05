@@ -68,8 +68,13 @@ public class OrderController extends MultiActionController{
 		
 		
 		orderService.orderEmail(email, productId);
+
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("order/inputEmail"); 
 		
-		return new ModelAndView("order/inputOrderInfoSuccess");
+		mav.addObject("emailOK", true);
+		
+		return mav;
 		
 	}
 	
