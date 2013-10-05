@@ -3,7 +3,7 @@
 
 <div class="credit_title">
 	<span class="credit_title1 font_f">贷款攻略</span> <a target="_blank"
-		href="贷款攻略.html">更多</a>
+		href="gonglue">更多</a>
 </div>
 <ul class="strategy_list">
 	<li><a href="贷款攻略2.html" target="_blank">得不偿失？信用卡购车小心捆绑保险</a></li>
