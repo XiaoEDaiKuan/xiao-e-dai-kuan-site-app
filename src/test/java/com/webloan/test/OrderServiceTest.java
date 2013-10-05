@@ -51,7 +51,7 @@ public class OrderServiceTest {
 	public void testOrderCount() {
 		OrderService orderService = appContext.getBean("orderService",
 				OrderService.class);
-		int count=orderService.orderCount();
+		int count=orderService.getOrderCount(null);
 		System.out.println("order count="+count);
 	}
 	

@@ -42,7 +42,7 @@
 	<div class="Cont" id="ISL_Cont_1">
 	<!-- 图片列表 begin -->
 	<c:forEach var="gp" items="${groupProducts}">
-		<div class="box"><a class="imgBorder" href="productView?productId=${gp.id}" target="_blank"><img src="images/${gp.icon}" width="130" height="79" /></a> </div>
+		<div class="box"><a class="imgBorder" href="viewProduct?productId=${gp.id}" target="_blank"><img src="images/${gp.icon}" width="130" height="79" /></a> </div>
 	</c:forEach>
 	<!-- 图片列表 end -->
   </div>

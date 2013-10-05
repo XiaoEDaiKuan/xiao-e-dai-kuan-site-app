@@ -11,7 +11,8 @@ public class ProductView {
 	private ProductAttach attach;
 	
 	private int numOrders = 0;
-	private BigDecimal interest = new BigDecimal("0");
+	private BigDecimal interest;
+	private BigDecimal monthlyPay;
 	
 	public Product getProduct() {
 		return product;
@@ -37,5 +38,10 @@ public class ProductView {
 	public void setInterest(BigDecimal interest) {
 		this.interest = interest;
 	}
-
+	public BigDecimal getMonthlyPay() {
+		return monthlyPay;
+	}
+	public void setMonthlyPay(BigDecimal monthlyPay) {
+		this.monthlyPay = monthlyPay;
+	}
 }

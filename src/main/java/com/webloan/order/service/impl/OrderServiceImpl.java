@@ -67,8 +67,8 @@ public class OrderServiceImpl implements OrderService {
 	}
 
 	@Override
-	public int orderCount() {
-		return orderRepository.orderCount();
+	public int getOrderCount(Long productId) {
+		return orderRepository.getOrderCount(productId);
 	}
 
 	@Override

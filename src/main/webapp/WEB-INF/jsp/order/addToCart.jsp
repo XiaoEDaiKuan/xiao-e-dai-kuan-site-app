@@ -72,8 +72,8 @@ con.style.display=i==cursel?"block":"none";
       	<ul class="applicationleft4">
       		<li>贷款金额 <span>${pq.loanAmt}</span> 万元</li>
             <li>期限 <span>${pq.loanIssue}</span> 月</li>
-            <li>总利息 <span>100</span> 万元</li>
-            <li>月供 <span>100</span> 元</li>
+            <li>总利息 <span><fmt:formatNumber pattern="#,##0.00" value="${pv.interest}" /></span> 万元</li>
+            <li>月供 <span><fmt:formatNumber pattern="#,##0.00" value="${pv.monthlyPay * 10000}" /></span> 元</li>
             <li>利率说明: 月利率 <span><fmt:formatNumber type="percent" pattern="0.00%" value="${prod.product.intrRate}" /></span></li>
             <li>提前还款说明</li>
         </ul>

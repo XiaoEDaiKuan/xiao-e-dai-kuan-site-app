@@ -15,7 +15,9 @@ public interface OrderRepository extends BaseJpaRepository  {
 	
 	Page orderListByUser(Long custId,int pageIndex,int pageSize);
 	void modifyOrderStatus(Long orderId);
-	int orderCount();
+	
+	int getOrderCount(Long productId);
+	
 	void deleteOrder(Long orderId);
 	public void createOrder(Long productId, Long custId, String applyName,
 			String applyTelephone, BigDecimal applyAmt, Long regionId) ;

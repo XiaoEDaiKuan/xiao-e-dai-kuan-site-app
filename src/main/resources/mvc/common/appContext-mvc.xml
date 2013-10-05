@@ -115,6 +115,7 @@
 			<bean class="org.springframework.web.servlet.mvc.multiaction.InternalPathMethodNameResolver" />
 		</property>
 	</bean>
+	<bean id="productViewHelper" class="com.webloan.product.view.ProductViewHelper" />
 	
 	<bean id="userController" class="com.webloan.user.controller.UserController">
 		<property name="methodNameResolver">

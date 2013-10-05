@@ -18,6 +18,7 @@ import com.webloan.model.Region;
 import com.webloan.order.service.OrderService;
 import com.webloan.product.service.ProductService;
 import com.webloan.product.view.ProductQuery;
+import com.webloan.product.view.ProductViewHelper;
 import com.webloan.region.service.RegionService;
 
 public class ProductController extends MultiActionController {
@@ -25,6 +26,7 @@ public class ProductController extends MultiActionController {
 	@Resource ProductService productService;
 	@Resource OrderService orderService;
 	@Resource RegionService regionService;
+	@Resource ProductViewHelper productViewHelper;
 	
 	public ModelAndView queryProduct(HttpServletRequest request, 
 			HttpServletResponse response, ProductQuery pq) {
@@ -33,6 +35,7 @@ public class ProductController extends MultiActionController {
 		if (pq.getLoanAmt() != null) {
 			Page page = productService.pagingProduct(pq);
 			mav.addObject("products", page);
+//			mav.addObject("pvs", productViewHelper.transferPageToView(page, pq));
 		}
 		return mav;
 	}
@@ -67,6 +70,7 @@ public class ProductController extends MultiActionController {
 		
 		ProductAttach prod = productService.getAttachByProductId(productId);
 		mav.addObject("prod", prod);
+		mav.addObject("pv", productViewHelper.transferAttachToView(prod, pq));
 		
 		List<Question> questions = orderService.listQuestionByPrdId(productId.toString());
 		mav.addObject("questions", questions);
@@ -90,6 +94,7 @@ public class ProductController extends MultiActionController {
 		Page purchasedProds = productService.pagingPurchasedProducts(
 				pq.getPageIndex(), pq.getPageSize(), pq.getRegionId());
 		mav.addObject("purchasedProds", purchasedProds);
+//		mav.addObject("pvs", productViewHelper.transferPageToView(purchasedProds, pq));
 		
 		return mav;
 	}

@@ -1,7 +1,9 @@
 package com.webloan.order.dao.impl;
 
 import java.math.BigDecimal;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.persistence.Query;
 
@@ -36,10 +38,16 @@ public class OrderRepositoryImpl extends BaseJpaRepositoryImpl implements
 	}
 
 	@Override
-	public int orderCount() {
-		String countJpql = "select count(*) from Order o ";
-		Query countQuery = entityManager.createQuery(countJpql);
-		Object count = countQuery.getSingleResult();
+	public int getOrderCount(Long productId) {
+		StringBuilder jpql = new StringBuilder("select count(*) from Order o where 1=1 ");
+		Map<String, Object> params = new HashMap<String, Object>();
+		
+		if (productId != null) {
+			jpql.append(" and o.product.id=:productId ");
+			params.put("productId", productId);
+		}
+		
+		Object count = querySingleResult(jpql.toString(), params);
 		return ((Number) count).intValue();
 	}
 

@@ -11,7 +11,7 @@ public interface OrderService {
 	//查询订单
    Page orderListByUser(Long custId,int pageIndex,int pageSize);
    //查询记录条数
-   int orderCount();
+   int getOrderCount(Long productId);
    //取消订单
    void modifyOrderStatus(String orderId);
    //删除订单
