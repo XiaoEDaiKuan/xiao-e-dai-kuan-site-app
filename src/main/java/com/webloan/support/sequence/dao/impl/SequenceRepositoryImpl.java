@@ -30,7 +30,7 @@ public class SequenceRepositoryImpl extends BaseJpaRepositoryImpl implements Seq
 		   	vl=s.getValue();
 		   	s.setValue(vl+1);
 		   	this.update(s);
-		}
+		}else return null;
 
 		Sequence s2=new Sequence();
         s2.setId(s.getId());

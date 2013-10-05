@@ -64,11 +64,14 @@
 				
 				<prop key="myCreditScore">userController</prop>
 				<prop key="pop_DeleteCredit">userController</prop>
+				<prop key="pop_DeleteCreditOK">userController</prop>
 				
 				<prop key="modifyMyInfo">userController</prop>
 				<prop key="editMyInfo">userController</prop>
 				<prop key="myQuestion">userController</prop>
 				<prop key="changePassword">userController</prop>
+				<prop key="updateMyInfo">userController</prop>
+				
 
 				<!-- 邮箱验证 -->
 				<prop key="mailAuthentication">userController</prop>

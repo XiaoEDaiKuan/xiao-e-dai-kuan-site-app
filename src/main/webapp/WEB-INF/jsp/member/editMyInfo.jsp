@@ -22,7 +22,7 @@
     <div class="opinion"></div>
     <div class="edit">
     
-      <div class="editd1"><font>身份信息</font><a href="#" id="pop_information">编辑</a></div>
+      <div class="editd1"><font>身份信息</font></div>
       <div class="editd2">
         <p><font>姓名：</font><span>${cust.custName}</span></p>
         <p><font>身份证号：</font><span>${cust.idNO}</span></p>

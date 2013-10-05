@@ -5,7 +5,7 @@
 <html xmlns:wb="http://open.weibo.com/wb"  xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>无标题文档</title>
+<title>删除信用评分</title>
 <link href="css/publlc.css" type="text/css" rel="stylesheet" />
 <link href="css/style.css" type="text/css" rel="stylesheet" />
 <link href="css/tipswindown.css" type="text/css" rel="stylesheet" />
@@ -14,24 +14,20 @@
 <body style="background: #fff;">
 
 	<c:if test= "${not empty deleteOK}">
-		<div class="pop_tx" style="font-size:32px; text-align:center"><b>订单已取消！</b></div>
+		<div class="pop_tx" style="font-size:32px; text-align:center"><b>信用评分已删除！</b></div>
 	</c:if>
 	
 	<c:if test="${empty deleteOK}">
    
 	<div class="pop_cancel">
 		<!-- 取消前确认界面 -->
-		<div class="pop_cancel1 font_f">您确定要取消该订单吗？</div>
-		<form action="pop_CancelOrderOK" method="post">
-			<input value="${orderid}" type="hidden" />
+		<div class="pop_cancel1 font_f">确定要删除该信用评分吗？</div>
+		<form action="pop_DeleteCreditOK" method="post">
+			<input value="${creditid}" type="hidden" />
 			<div class="pop_cancel2">
 				<input name="" type="submit" value="" class="cancel_det"  />
 			</div>
 		</form>
-		<!-- 
-		取消后界面
-		<div class="pop_cancel1 font_f">您的订单已经成功取消？</div>
-		 -->
 	</div>
    </c:if>
 </body>

@@ -274,13 +274,36 @@ public class UserController extends MultiActionController {
 		mav.addObject("success", "密码修改成功！");
 		String originalPassword = request.getParameter("originalPassword");
 		String newPassword = request.getParameter("newPassword");
+		String newPasswordRep = request.getParameter("newPasswordRep");
+
 		// 从session中获取ciustId
 		Long custId = (Long) request.getSession().getAttribute("custId");
 
 		if (null == custId) {
 			log.error(UserConstant.EXCEPTION_ACCT_NOT_EXISIT);
-			throw new BizException(UserConstant.EXCEPTION_ACCT_NOT_EXISIT);
+			mav.setViewName("user/login");
+            return mav;
 		}
+
+		if (null == newPassword || "".equals(newPassword)) {
+			log.error(UserConstant.EXCEPTION_PASSWD_CONFIRM);
+			throw new BizException(UserConstant.EXCEPTION_PASSWD_CONFIRM);
+		}
+		
+		if (null == originalPassword || "".equals(originalPassword)) {
+			log.error(UserConstant.EXCEPTION_PASSWD_CONFIRM);
+			throw new BizException(UserConstant.EXCEPTION_PASSWD_CONFIRM);
+		}
+		if (null == newPasswordRep || "".equals(newPasswordRep)) {
+			log.error(UserConstant.EXCEPTION_PASSWD_CONFIRM);
+			throw new BizException(UserConstant.EXCEPTION_PASSWD_CONFIRM);
+		}
+		
+		if (!newPasswordRep.equals(newPassword)) {
+			log.error(UserConstant.EXCEPTION_PASSWD_CONFIRM);
+			throw new BizException(UserConstant.EXCEPTION_PASSWD_CONFIRM);
+		}
+		
 
 		String strCustId = String.valueOf(custId);
 		userService.modifyPassword(strCustId, originalPassword, newPassword);
@@ -436,7 +459,9 @@ public class UserController extends MultiActionController {
 			HttpServletResponse response) throws Exception {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("member/pop_CancelOrder");
+
 		String orderid = request.getParameter("orderid");
+		mav.addObject("orderid", orderid);
 		if (null == orderid || "".equals(orderid)) {
 			log.error(UserConstant.EXCEPTION_MY_LOAN);
 			throw new BizException(UserConstant.EXCEPTION_MY_LOAN);
@@ -458,6 +483,8 @@ public class UserController extends MultiActionController {
 			HttpServletResponse response) throws Exception {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("member/pop_CancelOrder");
+		mav.addObject("deleteOK", "true");
+
 		return mav;
 	}
 
@@ -585,6 +612,23 @@ public class UserController extends MultiActionController {
 	}
 
 	/**
+	 * 删除兴勇评分记录确认
+	 * 
+	 * @param request
+	 * @param response
+	 * @return
+	 * @throws Exception
+	 */
+	public ModelAndView pop_DeleteCreditOK(HttpServletRequest request,
+			HttpServletResponse response) throws Exception {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("member/pop_DeleteCredit");
+		mav.addObject("deleteOK", "true");
+
+		return mav;
+	}
+
+	/**
 	 * 编辑用户信息-回显用户信息
 	 * 
 	 * @param request
@@ -610,7 +654,7 @@ public class UserController extends MultiActionController {
 	}
 
 	/**
-	 * 保存用户编辑的联系信息
+	 * 用户编辑的联系信息-回显
 	 * 
 	 * @param request
 	 * @param response
@@ -618,6 +662,29 @@ public class UserController extends MultiActionController {
 	 * @throws Exception
 	 */
 	public ModelAndView modifyMyInfo(HttpServletRequest request,
+			HttpServletResponse response) throws Exception {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("member/pop_contact");
+
+		Long custId = (Long) request.getSession().getAttribute("custId");
+		if (null == custId) {
+			mav.setViewName("user/login");
+			return mav;
+		}
+		Cust cust = userService.findCustById(custId);
+		mav.addObject("cust", cust);
+		return mav;
+	}
+
+	/**
+	 * 保存编辑后的信息
+	 * 
+	 * @param request
+	 * @param response
+	 * @return
+	 * @throws Exception
+	 */
+	public ModelAndView updateMyInfo(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("member/pop_contact");
@@ -644,6 +711,7 @@ public class UserController extends MultiActionController {
 
 		String strCustId = String.valueOf(custId);
 		userService.modifyUser(strCustId, mobileNO, email, postCode, address);
+		mav.addObject("editOK", "true");
 
 		return mav;
 	}

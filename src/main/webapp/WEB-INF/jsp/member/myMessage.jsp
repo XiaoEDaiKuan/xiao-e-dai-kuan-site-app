@@ -42,7 +42,7 @@
 
 				<div class="mes_tit" id="n_menu${vst.index+1}">
 					<span> <input name="" type="checkbox" value="" />
-					</span><span  onclick="n_showmenu('${vst.index+1}') "><img src="images/message2.jpg" width="14" height="11" /></span><font  onclick="n_showmenu('${vst.index+1}') ">${message.toPerson}</font>
+					</span><span  onclick="n_showmenu('${vst.index+1}') "><img src="images/message2.jpg" width="14" height="11" /></span><font  onclick="n_showmenu('${vst.index+1}') ">${message.cust.custName}</font>
 					<p onclick="n_showmenu('${vst.index+1}') ">${message.subject}</p>
 					<a><fmt:formatDate value="${message.sendTime}" pattern="yyyy-MM-dd HH:mm:ss"/></a>
 			 	</div>

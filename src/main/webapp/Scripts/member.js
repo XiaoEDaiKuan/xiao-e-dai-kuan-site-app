@@ -13,11 +13,12 @@ $(document).ready(
 										+ $(this).attr("data"), "345", "140",
 								"true", "", "false", "text", function() {
 									location.reload();
+									
 								});
 					});
 			$("#pop_del").click(
 					function() {
-						tipsWindown("提示", "iframe:iframe:pop_删除记录.html", "345",
+						tipsWindown("提示", "iframe:iframe:pop_DeleteCredit", "345",
 								"145", "true", "", "false", "text", "");
 					});
 			$("#pop_information").click(
@@ -29,11 +30,16 @@ $(document).ready(
 			$("#pop_contact").click(
 					function() {
 						tipsWindown("联系方式", "iframe:iframe:modifyMyInfo",
-								"420", "250", "true", "", "false", "text", "");
+								"420", "250", "true", "", "false", "text", function(){location.reload();});
 					});
 		});
 
 setTimeout('_magicTimeout()', 20 * 1000);
 function _magicTimeout() {
 	$('.time_box').hide();
+}
+
+tipsWindown.close = function () {
+  $(".pop_cancel").remove();
+  $("#windown-box").fadeOut("slow", function () { $(this).remove(); });
 }

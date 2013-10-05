@@ -23,6 +23,8 @@
     <c:if test= "${not empty success}">
     	<div class="pop_tx" style="font-size:32px; text-align:center"><b>密码修改成功！</b></div>
     </c:if>
+    <c:if test="${empty success}">
+    
       <table width="100%" border="0" cellspacing="0" cellpadding="0">
         <tr>
           <th width="18%">输入当前密码：</th>
@@ -41,6 +43,7 @@
           <td colspan="2" height="70"><input name="" type="submit" value="" class="p_save" /></td>
         </tr>
       </table>
+      </c:if>
       </form>
     </div>
   </div>
