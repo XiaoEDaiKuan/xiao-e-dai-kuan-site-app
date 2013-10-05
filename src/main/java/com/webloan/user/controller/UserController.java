@@ -373,15 +373,23 @@ public class UserController extends MultiActionController {
 			HttpServletResponse response) throws Exception {
 
 		String sessionId = request.getSession().getId();
-		String captcha = request.getParameter("captcha");
+		String captcha = request.getParameter("txtVerifyCode");
+
+		boolean flag = false;
 		try {
-			captchaService.validateResponseForID(sessionId, captcha);
+			flag = captchaService.validateResponseForID(sessionId, captcha);
 		} catch (Exception e) {
 			e.printStackTrace();
 			log.error(UserConstant.EXCEPTION_CAPTCHA_CODE);
 			throw new BizException(UserConstant.EXCEPTION_CAPTCHA_CODE);
 		}
+		if (!flag) {
+			log.error(UserConstant.EXCEPTION_CAPTCHA_CODE);
+			throw new BizException(UserConstant.EXCEPTION_CAPTCHA_CODE);
+		}
 
+		
+		
 		String logonName = request.getParameter("logonName");
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("user/passwdConfirm");
