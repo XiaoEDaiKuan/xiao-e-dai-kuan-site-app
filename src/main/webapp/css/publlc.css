@@ -80,9 +80,8 @@ a:hover{text-decoration:underline;color:#569bc2;}
 .about ul li a{color:#595757;}
 .weibo{float:left;width:245px;background:url(../images/weibo_bj.jpg) no-repeat;margin-top:35px;}
 .weibo a{float:left;width:114px;height:30px;padding-top:73px;text-align:center;color:#000;font-size:14px;}
-.weibo a.weibo1{background:url(../images/sina.jpg) no-repeat center 10px;}
-.weibo a.weixin1{background:url(../images/weixin.jpg) no-repeat center 10px;}
-
+div.weibo span.weibo1 a{background:url(../images/sina.jpg) no-repeat center 10px;}
+div.weibo span.weixin1 a{background:url(../images/weixin.jpg) no-repeat center 10px;}
 .service{float:right;width:280px;margin-top:10px;border-left:1px solid #e0edf4;}
 .service p{height:25px;line-height:25px;font-size:14px;color:#000;font-weight:bold;padding-left:20px;}
 .service1{width:235px;margin:0 auto; position:relative;height:130px;}
