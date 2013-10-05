@@ -474,12 +474,9 @@ public class UserController extends MultiActionController {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("member/myMessage");
 
-		String custId = (String) request.getSession().getAttribute("custId");
+		Long custId = (Long) request.getSession().getAttribute("custId");
 
-		// 测试
-		custId = "1";
-
-		if (null == custId || "".equals(custId)) {
+		if (null == custId ) {
 			log.error(UserConstant.EXCEPTION_CUST_NOT_FOUND);
 			throw new BizException(UserConstant.EXCEPTION_CUST_NOT_FOUND);
 		}
@@ -495,13 +492,13 @@ public class UserController extends MultiActionController {
 			strPageSize = "10";
 		}
 		int pageSize = Integer.parseInt(strPageSize);
-
-		Page messagePage = messageService.messageListByUser(custId, pageIndex,
+        String strCustId=String.valueOf(custId);
+		Page messagePage = messageService.messageListByUser(strCustId, pageIndex,
 				pageSize);
 
 		mav.addObject("messagePage", messagePage);
 
-		List<Object> ls = messageService.messageCountByStatus(custId);
+		List<Object> ls = messageService.messageCountByStatus(strCustId);
 
 		int messageCnt = 0;
 		int unreadCnt = 0;
