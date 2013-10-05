@@ -74,4 +74,14 @@ public class OrderController extends MultiActionController{
 		return new ModelAndView("order/inputOrderInfoSuccess");
 		
 	}
+	
+	
+	public ModelAndView  popSave(HttpServletRequest request, HttpServletResponse response){
+		
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("order/inputEmail"); 
+		return mav;
+		
+	}
+
 }

@@ -15,7 +15,7 @@ function reloadCaptcha() {
 }
 $(document).ready(function(){  
 	$("#pop_save").click(function(){
-		tipsWindown("产品信息保存到邮箱","iframe:iframe:pop_save.html","580","215","true","","false","text","");
+		tipsWindown("产品信息保存到邮箱","iframe:iframe:popSave","580","215","true","","false","text","");
 	});
 	$("#pop_city").click(function(){
 		tipsWindown("您可以选择以下地区：","iframe:iframe:pop_city.html","500","200","true","","false","text","");

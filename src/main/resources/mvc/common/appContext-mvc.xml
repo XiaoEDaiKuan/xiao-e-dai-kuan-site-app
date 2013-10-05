@@ -44,6 +44,9 @@
 				<prop key="matchProduct">productController</prop>
 				<prop key="matchProduct">productController</prop>
 				
+				<!-- 订单 -->
+				<prop key="popSave">orderController</prop>
+				
 				<!-- 用户注册 -->
 				<prop key="createUser">userController</prop>
 				<prop key="login">userController</prop>
