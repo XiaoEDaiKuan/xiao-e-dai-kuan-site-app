@@ -33,7 +33,7 @@
         </tr>
         <tr>
           <th></th>
-          <td colspan="2" height="70"><input name="" type="button" value="" class="p_save" /></td>
+          <td colspan="2" height="70"><input name="" type="submit" value="" class="p_save" /></td>
         </tr>
       </table>
     </div>

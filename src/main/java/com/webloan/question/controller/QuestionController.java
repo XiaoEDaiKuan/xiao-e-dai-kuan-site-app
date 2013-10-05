@@ -76,6 +76,7 @@ public class QuestionController extends MultiActionController{
 		String ip = request.getRemoteAddr();
 		questionService.saveQuestion(qv, ip);
 		ModelAndView mav = new ModelAndView();
+		mav.addObject("saveOK", "true");
 		mav.setViewName("question/postQuestionForm");
 		return mav;
 	}
