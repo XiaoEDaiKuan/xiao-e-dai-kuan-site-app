@@ -22,7 +22,7 @@ public class RegionRepositoryImpl extends BaseJpaRepositoryImpl implements Regio
 			params.put("areaCode", areaCode);
 		}
 		if (status != null && !"".equals(status)) {
-			jpql.append(" and p.status=:status ");
+			jpql.append(" and c.status=:status ");
 			params.put("status", status);
 		}
 		
