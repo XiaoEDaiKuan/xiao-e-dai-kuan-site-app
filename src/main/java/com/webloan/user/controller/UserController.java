@@ -458,6 +458,8 @@ public class UserController extends MultiActionController {
 			HttpServletResponse response) throws Exception {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("member/pop_CancelOrder");
+		mav.addObject("deleteOK", "true");
+
 		return mav;
 	}
 

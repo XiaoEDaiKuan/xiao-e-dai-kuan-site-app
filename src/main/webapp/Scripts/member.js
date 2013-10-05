@@ -13,6 +13,7 @@ $(document).ready(
 										+ $(this).attr("data"), "345", "140",
 								"true", "", "false", "text", function() {
 									location.reload();
+									
 								});
 					});
 			$("#pop_del").click(
@@ -36,4 +37,9 @@ $(document).ready(
 setTimeout('_magicTimeout()', 20 * 1000);
 function _magicTimeout() {
 	$('.time_box').hide();
+}
+
+tipsWindown.close = function () {
+  $(".pop_cancel").remove();
+  $("#windown-box").fadeOut("slow", function () { $(this).remove(); });
 }
