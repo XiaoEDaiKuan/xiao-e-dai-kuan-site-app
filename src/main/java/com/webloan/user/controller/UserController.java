@@ -281,26 +281,27 @@ public class UserController extends MultiActionController {
 
 		if (null == custId) {
 			log.error(UserConstant.EXCEPTION_ACCT_NOT_EXISIT);
-			mav.setViewName("usr/login");
+			mav.setViewName("user/login");
+            return mav;
 		}
 
 		if (null == newPassword || "".equals(newPassword)) {
 			log.error(UserConstant.EXCEPTION_PASSWD_CONFIRM);
-			throw new BizException();
+			throw new BizException(UserConstant.EXCEPTION_PASSWD_CONFIRM);
 		}
 		
 		if (null == originalPassword || "".equals(originalPassword)) {
 			log.error(UserConstant.EXCEPTION_PASSWD_CONFIRM);
-			throw new BizException();
+			throw new BizException(UserConstant.EXCEPTION_PASSWD_CONFIRM);
 		}
 		if (null == newPasswordRep || "".equals(newPasswordRep)) {
 			log.error(UserConstant.EXCEPTION_PASSWD_CONFIRM);
-			throw new BizException();
+			throw new BizException(UserConstant.EXCEPTION_PASSWD_CONFIRM);
 		}
 		
-		if (!newPasswordRep.equals(newPasswordRep)) {
+		if (!newPasswordRep.equals(newPassword)) {
 			log.error(UserConstant.EXCEPTION_PASSWD_CONFIRM);
-			throw new BizException();
+			throw new BizException(UserConstant.EXCEPTION_PASSWD_CONFIRM);
 		}
 		
 
