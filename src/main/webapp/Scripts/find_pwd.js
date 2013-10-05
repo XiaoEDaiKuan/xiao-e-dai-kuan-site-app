@@ -63,6 +63,7 @@ function OnVcodeFocus(){
 
 function  OnVcodeBlur(obj,HTMLid,msgnum)
 {
+/* 
   jQuery.ajax(
     {
        url:'verifyCaptcha',
@@ -85,7 +86,8 @@ function  OnVcodeBlur(obj,HTMLid,msgnum)
          }             
         }
     });
-}
+*/
+ }
 
 function $(id){return document.getElementById(id);};
 function $F(id){
