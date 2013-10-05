@@ -70,7 +70,7 @@ con.style.display=i==cursel?"block":"none";
       <div class="credit_title"> <span class="credit_title1 font_f">${prod.product.issueOrgan} - ${prod.product.name}</span></div>
       <div class="applicationleft1 ClearFix">
       	<ul class="applicationleft4">
-      		<li>贷款金额 <span><fmt:formatNumber pattern="#,##0.00" value="${pq.loanAmt div 10000}" /></span> 万元</li>
+      		<li>贷款金额 <span>${pq.loanAmt}</span> 万元</li>
             <li>期限 <span>${pq.loanIssue}</span> 月</li>
             <li>总利息 <span>100</span> 万元</li>
             <li>月供 <span>100</span> 元</li>
@@ -126,7 +126,10 @@ con.style.display=i==cursel?"block":"none";
         <div class="applicationleft9">
         	<div class="applicationleft10"><span>${q.askTime}</span><p>问题: ${q.detail}</p></div>
         	<c:forEach var="a" items="${q.answers}">
-            <div class="applicationleft10 applicationleft11"><span>${a.answerTime}</span><p>回答: ${a.answerContent}</p></div>
+            <div class="applicationleft10 applicationleft11">
+            	<span><fmt:formatDate value="${a.answerTime}" pattern="yyyy-MM-dd HH:mm:ss" /></span>
+            	<p>回答: ${a.answerContent}</p>
+            </div>
         	</c:forEach>
         </div>
     	</c:forEach>
