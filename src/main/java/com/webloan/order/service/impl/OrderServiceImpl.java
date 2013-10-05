@@ -47,8 +47,7 @@ public class OrderServiceImpl implements OrderService {
 	}
 
 	@Override
-	public Page orderListByUser(String strCustId,int pageIndex,int pageSize) {
-		Long custId = strCustId == null ? null : Long.valueOf(strCustId);
+	public Page orderListByUser(Long custId,int pageIndex,int pageSize) {
 		return orderRepository.orderListByUser(custId,pageIndex,pageSize);
 	}
 

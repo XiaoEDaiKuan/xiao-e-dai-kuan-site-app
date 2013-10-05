@@ -38,7 +38,7 @@ public class UserController extends MultiActionController {
 	CreditService creditService;
 	@Resource
 	QuestionService questionService;
-	
+
 	protected transient Logger log = LoggerFactory.getLogger(this.getClass());
 
 	/*
@@ -128,15 +128,18 @@ public class UserController extends MultiActionController {
 		String sessionId = request.getSession().getId();
 		String captcha = request.getParameter("captcha");
 
-		/*
-		 * boolean flag=false; try{
-		 * flag=captchaService.validateResponseForID(sessionId, captcha); }
-		 * catch(Exception e){ e.printStackTrace();
-		 * log.error(UserConstant.EXCEPTION_CAPTCHA_CODE); throw new
-		 * BizException(UserConstant.EXCEPTION_CAPTCHA_CODE); } if(!flag){
-		 * log.error(UserConstant.EXCEPTION_CAPTCHA_CODE); throw new
-		 * BizException(UserConstant.EXCEPTION_CAPTCHA_CODE); }
-		 */
+		boolean flag = false;
+		try {
+			flag = captchaService.validateResponseForID(sessionId, captcha);
+		} catch (Exception e) {
+			e.printStackTrace();
+			log.error(UserConstant.EXCEPTION_CAPTCHA_CODE);
+			throw new BizException(UserConstant.EXCEPTION_CAPTCHA_CODE);
+		}
+		if (!flag) {
+			log.error(UserConstant.EXCEPTION_CAPTCHA_CODE);
+			throw new BizException(UserConstant.EXCEPTION_CAPTCHA_CODE);
+		}
 
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("index");
@@ -151,6 +154,7 @@ public class UserController extends MultiActionController {
 
 	/**
 	 * 跳转到登录页面
+	 * 
 	 * @param request
 	 * @param response
 	 * @return
@@ -162,15 +166,15 @@ public class UserController extends MultiActionController {
 		mav.setViewName("user/login");
 		return mav;
 	}
-	
-	
-/**
- * 跳转到注册页面
- * @param request
- * @param response
- * @return
- * @throws Exception
- */
+
+	/**
+	 * 跳转到注册页面
+	 * 
+	 * @param request
+	 * @param response
+	 * @return
+	 * @throws Exception
+	 */
 	public ModelAndView reg(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 		ModelAndView mav = new ModelAndView();
@@ -209,45 +213,45 @@ public class UserController extends MultiActionController {
 	 */
 	public ModelAndView forgetPasswd(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
-		
+
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("user/forgetPasswdOk");
 
 		String newPassword = request.getParameter("NewPassword");
 		String reNewPassword = request.getParameter("ReNewPassword");
-		if(null==newPassword || "".equals(newPassword)){
+		if (null == newPassword || "".equals(newPassword)) {
 			log.error(UserConstant.EXCEPTION_PASSWD_ERROR);
 			throw new BizException(UserConstant.EXCEPTION_PASSWD_ERROR);
 		}
-		if(null==reNewPassword || "".equals(reNewPassword)){
+		if (null == reNewPassword || "".equals(reNewPassword)) {
 			log.error(UserConstant.EXCEPTION_PASSWD_ERROR);
 			throw new BizException(UserConstant.EXCEPTION_PASSWD_ERROR);
 		}
-		
-		if(!reNewPassword.equals(reNewPassword) ){
+
+		if (!reNewPassword.equals(reNewPassword)) {
 			log.error(UserConstant.EXCEPTION_PASSWD_ERROR);
 			throw new BizException(UserConstant.EXCEPTION_PASSWD_ERROR);
 		}
-		
-		
-		String email=request.getParameter("email");
-		String verifyCode=request.getParameter("verifyCode");
-		
+
+		String email = request.getParameter("email");
+		String verifyCode = request.getParameter("verifyCode");
+
 		// 从session中获取email和verifyCode
 		String sesEmail = (String) request.getSession().getAttribute("email");
-		String sesVerifyCode=(String) request.getSession().getAttribute("verifyCode");
-		
-		if(null==email || !email.equals(sesEmail)){
+		String sesVerifyCode = (String) request.getSession().getAttribute(
+				"verifyCode");
+
+		if (null == email || !email.equals(sesEmail)) {
 			log.error(UserConstant.EXCEPTION_PASSWD_ERROR);
 			throw new BizException(UserConstant.EXCEPTION_PASSWD_ERROR);
 		}
 
-		if(null==verifyCode || !verifyCode.equals(sesVerifyCode)){
+		if (null == verifyCode || !verifyCode.equals(sesVerifyCode)) {
 			log.error(UserConstant.EXCEPTION_PASSWD_ERROR);
 			throw new BizException(UserConstant.EXCEPTION_PASSWD_ERROR);
 		}
 
-		userService.forgetPasswd(email,newPassword);
+		userService.forgetPasswd(email, newPassword);
 
 		return mav;
 	}
@@ -269,15 +273,14 @@ public class UserController extends MultiActionController {
 		// 从session中获取ciustId
 		String strCustId = (String) request.getSession().getAttribute("custId");
 
-		//测试用
-		strCustId="1";
+		// 测试用
+		strCustId = "1";
 
-		
-		if(null==strCustId || "".equals(strCustId)){
+		if (null == strCustId || "".equals(strCustId)) {
 			log.error(UserConstant.EXCEPTION_ACCT_NOT_EXISIT);
 			throw new BizException(UserConstant.EXCEPTION_ACCT_NOT_EXISIT);
 		}
-		
+
 		userService.modifyPassword(strCustId, originalPassword, newPassword);
 		return mav;
 	}
@@ -327,6 +330,7 @@ public class UserController extends MultiActionController {
 
 	/**
 	 * 产生验证码发给客户邮箱
+	 * 
 	 * @param request
 	 * @param response
 	 * @return
@@ -335,35 +339,34 @@ public class UserController extends MultiActionController {
 	public ModelAndView verifyPasswd(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 
-//		String sessionId = request.getSession().getId();
-//		String captcha = request.getParameter("captcha");
-//		try{
-//		    captchaService.validateResponseForID(sessionId, captcha);
-//		}
-//		catch(Exception e){
-//			e.printStackTrace();
-//			log.error(UserConstant.EXCEPTION_CAPTCHA_CODE);
-//			throw new BizException(UserConstant.EXCEPTION_CAPTCHA_CODE);
-//		}
+		// String sessionId = request.getSession().getId();
+		// String captcha = request.getParameter("captcha");
+		// try{
+		// captchaService.validateResponseForID(sessionId, captcha);
+		// }
+		// catch(Exception e){
+		// e.printStackTrace();
+		// log.error(UserConstant.EXCEPTION_CAPTCHA_CODE);
+		// throw new BizException(UserConstant.EXCEPTION_CAPTCHA_CODE);
+		// }
 
-		
 		String logonName = request.getParameter("logonName");
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("user/passwdConfirm");
 
-	    HashMap hm = userService.verifyPasswd(logonName);
-	    mav.addObject("email", hm.get("email"));
-        request.getSession().setAttribute("email", hm.get("email"));
-        request.getSession().setAttribute("verifyCode", hm.get("verifyCode"));
-	    
+		HashMap hm = userService.verifyPasswd(logonName);
+		mav.addObject("email", hm.get("email"));
+		request.getSession().setAttribute("email", hm.get("email"));
+		request.getSession().setAttribute("verifyCode", hm.get("verifyCode"));
+
 		return mav;
 	}
-	
-	///////////////////////弹出页面登录/////////////////////
-	
+
+	// /////////////////////弹出页面登录/////////////////////
+
 	public ModelAndView loginForm(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
-		ModelAndView mav = new ModelAndView(); //login(request, response);
+		ModelAndView mav = new ModelAndView(); // login(request, response);
 		mav.setViewName("user/loginForm");
 		return mav;
 	}
@@ -374,11 +377,11 @@ public class UserController extends MultiActionController {
 		mav.setViewName("order/requestProductInfo");
 		return mav;
 	}
-	
-	
-	///////////////////////// 会员中心/////////////////////
+
+	// /////////////////////// 会员中心/////////////////////
 	/**
 	 * 我的贷款
+	 * 
 	 * @param request
 	 * @param response
 	 * @return
@@ -389,42 +392,41 @@ public class UserController extends MultiActionController {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("member/myDaikuan");
 
-		Long custId=(Long)request.getSession().getAttribute("custId");
+		Long custId = (Long) request.getSession().getAttribute("custId");
 
-		//测试    custId="1";
+		// 测试 custId="1";
 
-		
-		if(null==custId||"".equals(custId)){
+		if (null == custId) {
 			log.error(UserConstant.EXCEPTION_CUST_NOT_FOUND);
 			mav.setViewName("user/login");
 			return mav;
-			
-		}
-		
-		
-		String strPageIndex=request.getParameter("pageIndex");
-		String strPageSize=request.getParameter("pageSize");
-		
-		if(null==strPageIndex||"".equals(strPageIndex)){
-           strPageIndex="1";
-		}
-		int pageIndex=Integer.parseInt(strPageIndex);
-		
-		if(null==strPageSize||"".equals(strPageSize)){
-           strPageSize="10";
-		}
-		int pageSize=Integer.parseInt(strPageSize);
-		
-		Page orderPage=orderService.orderListByUser("1",pageIndex,pageSize);
-		
-		mav.addObject("orderPage",orderPage);
 
-		
+		}
+
+		String strPageIndex = request.getParameter("pageIndex");
+		String strPageSize = request.getParameter("pageSize");
+
+		if (null == strPageIndex || "".equals(strPageIndex)) {
+			strPageIndex = "1";
+		}
+		int pageIndex = Integer.parseInt(strPageIndex);
+
+		if (null == strPageSize || "".equals(strPageSize)) {
+			strPageSize = "10";
+		}
+		int pageSize = Integer.parseInt(strPageSize);
+
+		Page orderPage = orderService.orderListByUser(custId, pageIndex,
+				pageSize);
+
+		mav.addObject("orderPage", orderPage);
+
 		return mav;
 	}
-	
+
 	/**
 	 * 取消订单
+	 * 
 	 * @param request
 	 * @param response
 	 * @return
@@ -434,18 +436,19 @@ public class UserController extends MultiActionController {
 			HttpServletResponse response) throws Exception {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("member/pop_CancelOrder");
-        String orderid=request.getParameter("orderid");
-		if(null==orderid ||"".equals(orderid)){
+		String orderid = request.getParameter("orderid");
+		if (null == orderid || "".equals(orderid)) {
 			log.error(UserConstant.EXCEPTION_MY_LOAN);
 			throw new BizException(UserConstant.EXCEPTION_MY_LOAN);
 		}
 		orderService.deleteOrder(orderid);
-		
+
 		return mav;
 	}
-	
+
 	/**
 	 * 取消订单成功
+	 * 
 	 * @param request
 	 * @param response
 	 * @return
@@ -460,6 +463,7 @@ public class UserController extends MultiActionController {
 
 	/**
 	 * 我的消息
+	 * 
 	 * @param request
 	 * @param response
 	 * @return
@@ -470,59 +474,59 @@ public class UserController extends MultiActionController {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("member/myMessage");
 
-		String custId=(String)request.getSession().getAttribute("custId");
+		String custId = (String) request.getSession().getAttribute("custId");
 
-		//测试
-		custId="1";
+		// 测试
+		custId = "1";
 
-		
-		if(null==custId||"".equals(custId)){
+		if (null == custId || "".equals(custId)) {
 			log.error(UserConstant.EXCEPTION_CUST_NOT_FOUND);
 			throw new BizException(UserConstant.EXCEPTION_CUST_NOT_FOUND);
 		}
-		String strPageIndex=request.getParameter("pageIndex");
-		String strPageSize=request.getParameter("pageSize");
-		
-		if(null==strPageIndex||"".equals(strPageIndex)){
-           strPageIndex="1";
+		String strPageIndex = request.getParameter("pageIndex");
+		String strPageSize = request.getParameter("pageSize");
+
+		if (null == strPageIndex || "".equals(strPageIndex)) {
+			strPageIndex = "1";
 		}
-		int pageIndex=Integer.parseInt(strPageIndex);
-		
-		if(null==strPageSize||"".equals(strPageSize)){
-           strPageSize="10";
+		int pageIndex = Integer.parseInt(strPageIndex);
+
+		if (null == strPageSize || "".equals(strPageSize)) {
+			strPageSize = "10";
 		}
-		int pageSize=Integer.parseInt(strPageSize);
-		
-		
-		Page messagePage=messageService.messageListByUser(custId,pageIndex,pageSize);
-		
-		mav.addObject("messagePage",messagePage);
-		
-		List<Object> ls=messageService.messageCountByStatus(custId);
-		
-		int messageCnt=0;
-		int unreadCnt=0;
-		int readCnt=0;
-		
-		if(null !=ls && ls.size() ==2){
-				unreadCnt=((Number) ls.get(0)).intValue();
-				readCnt=((Number) ls.get(1)).intValue();
-				messageCnt=unreadCnt+readCnt;
+		int pageSize = Integer.parseInt(strPageSize);
+
+		Page messagePage = messageService.messageListByUser(custId, pageIndex,
+				pageSize);
+
+		mav.addObject("messagePage", messagePage);
+
+		List<Object> ls = messageService.messageCountByStatus(custId);
+
+		int messageCnt = 0;
+		int unreadCnt = 0;
+		int readCnt = 0;
+
+		if (null != ls && ls.size() == 2) {
+			unreadCnt = ((Number) ls.get(0)).intValue();
+			readCnt = ((Number) ls.get(1)).intValue();
+			messageCnt = unreadCnt + readCnt;
 		}
-		if(null !=ls && ls.size() ==1){
-			unreadCnt=((Number) ls.get(0)).intValue();
-			messageCnt=unreadCnt+readCnt;
-     	}
-		
-		mav.addObject("unreadCnt",unreadCnt );
-		mav.addObject("readCnt",readCnt );
-		mav.addObject("messageCnt",messageCnt );
-		
+		if (null != ls && ls.size() == 1) {
+			unreadCnt = ((Number) ls.get(0)).intValue();
+			messageCnt = unreadCnt + readCnt;
+		}
+
+		mav.addObject("unreadCnt", unreadCnt);
+		mav.addObject("readCnt", readCnt);
+		mav.addObject("messageCnt", messageCnt);
+
 		return mav;
 	}
-	
+
 	/**
 	 * 我的信用评分
+	 * 
 	 * @param request
 	 * @param response
 	 * @return
@@ -532,41 +536,40 @@ public class UserController extends MultiActionController {
 			HttpServletResponse response) throws Exception {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("member/myCreditScore");
-		
-		String custId=(String)request.getSession().getAttribute("custId");
 
-		//测试
-		custId="1";
+		String custId = (String) request.getSession().getAttribute("custId");
 
-		
-		if(null==custId||"".equals(custId)){
+		// 测试
+		custId = "1";
+
+		if (null == custId || "".equals(custId)) {
 			log.error(UserConstant.EXCEPTION_CUST_NOT_FOUND);
 			throw new BizException(UserConstant.EXCEPTION_CUST_NOT_FOUND);
 		}
-		String strPageIndex=request.getParameter("pageIndex");
-		String strPageSize=request.getParameter("pageSize");
-		
-		if(null==strPageIndex||"".equals(strPageIndex)){
-           strPageIndex="1";
+		String strPageIndex = request.getParameter("pageIndex");
+		String strPageSize = request.getParameter("pageSize");
+
+		if (null == strPageIndex || "".equals(strPageIndex)) {
+			strPageIndex = "1";
 		}
-		int pageIndex=Integer.parseInt(strPageIndex);
-		
-		if(null==strPageSize||"".equals(strPageSize)){
-           strPageSize="10";
+		int pageIndex = Integer.parseInt(strPageIndex);
+
+		if (null == strPageSize || "".equals(strPageSize)) {
+			strPageSize = "10";
 		}
-		int pageSize=Integer.parseInt(strPageSize);
-		
-		
-		Page creditPage=creditService.creditListByUser(custId,pageIndex,pageSize);
-		
-		mav.addObject("creditPage",creditPage);
-		
-		
+		int pageSize = Integer.parseInt(strPageSize);
+
+		Page creditPage = creditService.creditListByUser(custId, pageIndex,
+				pageSize);
+
+		mav.addObject("creditPage", creditPage);
+
 		return mav;
-	}	
+	}
 
 	/**
 	 * 删除兴勇评分记录
+	 * 
 	 * @param request
 	 * @param response
 	 * @return
@@ -576,19 +579,19 @@ public class UserController extends MultiActionController {
 			HttpServletResponse response) throws Exception {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("member/pop_DeleteCredit");
-        String creditId=request.getParameter("creditId");
-		if(null==creditId ||"".equals(creditId)){
+		String creditId = request.getParameter("creditId");
+		if (null == creditId || "".equals(creditId)) {
 			log.error(UserConstant.EXCEPTION_MY_LOAN);
 			throw new BizException(UserConstant.EXCEPTION_MY_LOAN);
 		}
 		creditService.deleteCredit(creditId);
-		
+
 		return mav;
 	}
-	
-	
+
 	/**
 	 * 编辑用户信息-回显用户信息
+	 * 
 	 * @param request
 	 * @param response
 	 * @return
@@ -599,107 +602,105 @@ public class UserController extends MultiActionController {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("member/editMyInfo");
 
-		String strCustId=(String)request.getSession().getAttribute("custId");
-		//测试
-		strCustId="1";
-		if(null==strCustId||"".equals(strCustId)){
+		String strCustId = (String) request.getSession().getAttribute("custId");
+		// 测试
+		strCustId = "1";
+		if (null == strCustId || "".equals(strCustId)) {
 			log.error(UserConstant.EXCEPTION_CUST_NOT_FOUND);
 			throw new BizException(UserConstant.EXCEPTION_CUST_NOT_FOUND);
 		}
 
-		Long custId=Long.valueOf(strCustId);
-		Cust cust=userService.findCustById(custId);
+		Long custId = Long.valueOf(strCustId);
+		Cust cust = userService.findCustById(custId);
 		mav.addObject("cust", cust);
 		return mav;
 	}
 
-   /**
-    * 保存用户编辑的联系信息
-    * @param request
-    * @param response
-    * @return
-    * @throws Exception
-    */
+	/**
+	 * 保存用户编辑的联系信息
+	 * 
+	 * @param request
+	 * @param response
+	 * @return
+	 * @throws Exception
+	 */
 	public ModelAndView modifyMyInfo(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("member/pop_contact");
 
-		String strCustId=(String)request.getSession().getAttribute("custId");
-		//测试
-		strCustId="1";
-		if(null==strCustId||"".equals(strCustId)){
+		String strCustId = (String) request.getSession().getAttribute("custId");
+		// 测试
+		strCustId = "1";
+		if (null == strCustId || "".equals(strCustId)) {
 			log.error(UserConstant.EXCEPTION_CUST_NOT_FOUND);
 			throw new BizException(UserConstant.EXCEPTION_CUST_NOT_FOUND);
 		}
 
-		
-		String mobileNO=request.getParameter("mobileNO");
-		if(null==mobileNO||"".equals(mobileNO)){
+		String mobileNO = request.getParameter("mobileNO");
+		if (null == mobileNO || "".equals(mobileNO)) {
 			log.error(UserConstant.MobileIsNull);
 			throw new BizException(UserConstant.MobileIsNull);
 		}
-		String email=request.getParameter("email");
-		if(null==email||"".equals(email)){
+		String email = request.getParameter("email");
+		if (null == email || "".equals(email)) {
 			log.error(UserConstant.EmailIsNull);
 			throw new BizException(UserConstant.EmailIsNull);
 		}
-		
-		
-		String postCode=request.getParameter("postCode");
-		String address=request.getParameter("address");
-		
-        userService.modifyUser(strCustId, mobileNO, email, postCode, address);
-		
+
+		String postCode = request.getParameter("postCode");
+		String address = request.getParameter("address");
+
+		userService.modifyUser(strCustId, mobileNO, email, postCode, address);
+
 		return mav;
 	}
-	
 
-	
 	public ModelAndView myQuestion(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("member/myQuestion");
 
-		String strCustId=(String)request.getSession().getAttribute("custId");
-		//测试
-		strCustId="1";
-		if(null==strCustId||"".equals(strCustId)){
+		String strCustId = (String) request.getSession().getAttribute("custId");
+		// 测试
+		strCustId = "1";
+		if (null == strCustId || "".equals(strCustId)) {
 			log.error(UserConstant.EXCEPTION_CUST_NOT_FOUND);
 			throw new BizException(UserConstant.EXCEPTION_CUST_NOT_FOUND);
 		}
-		
-		String custId=(String)request.getSession().getAttribute("custId");
 
-		//测试
-		custId="1";
+		String custId = (String) request.getSession().getAttribute("custId");
 
-		
-		if(null==custId||"".equals(custId)){
+		// 测试
+		custId = "1";
+
+		if (null == custId || "".equals(custId)) {
 			log.error(UserConstant.EXCEPTION_CUST_NOT_FOUND);
 			throw new BizException(UserConstant.EXCEPTION_CUST_NOT_FOUND);
 		}
-		String strPageIndex=request.getParameter("pageIndex");
-		String strPageSize=request.getParameter("pageSize");
-		
-		if(null==strPageIndex||"".equals(strPageIndex)){
-           strPageIndex="1";
-		}
-		int pageIndex=Integer.parseInt(strPageIndex);
-		
-		if(null==strPageSize||"".equals(strPageSize)){
-           strPageSize="10";
-		}
-		int pageSize=Integer.parseInt(strPageSize);
+		String strPageIndex = request.getParameter("pageIndex");
+		String strPageSize = request.getParameter("pageSize");
 
-        Page questionPage=questionService.qryQuestionByCustId(strCustId, pageIndex, pageSize);
-        mav.addObject("questionPage", questionPage);		
-		
+		if (null == strPageIndex || "".equals(strPageIndex)) {
+			strPageIndex = "1";
+		}
+		int pageIndex = Integer.parseInt(strPageIndex);
+
+		if (null == strPageSize || "".equals(strPageSize)) {
+			strPageSize = "10";
+		}
+		int pageSize = Integer.parseInt(strPageSize);
+
+		Page questionPage = questionService.qryQuestionByCustId(strCustId,
+				pageIndex, pageSize);
+		mav.addObject("questionPage", questionPage);
+
 		return mav;
 	}
 
 	/**
 	 * 修改密码
+	 * 
 	 * @param request
 	 * @param response
 	 * @return

@@ -9,7 +9,7 @@ import com.webloan.model.RequireInfo;
 
 public interface OrderService {
 	//查询订单
-   Page orderListByUser(String strCustId,int pageIndex,int pageSize);
+   Page orderListByUser(Long custId,int pageIndex,int pageSize);
    //查询记录条数
    int orderCount();
    //取消订单

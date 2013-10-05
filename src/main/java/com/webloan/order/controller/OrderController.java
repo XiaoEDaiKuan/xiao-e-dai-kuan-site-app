@@ -25,10 +25,10 @@ public class OrderController extends MultiActionController{
 		mav.setViewName("order/orderlistbyuser");
 		String strPageIndex=request.getParameter("pageIndex");
 		String strPageSize=request.getParameter("pageSize");
-		String custId=(String)request.getSession().getAttribute("custId");
+		Long custId=(Long)request.getSession().getAttribute("custId");
 
 		
-		if(null==custId||"".equals(custId)){
+		if(null==custId){
 			log.error(UserConstant.EXCEPTION_CUST_NOT_FOUND);
 			throw new BizException(UserConstant.EXCEPTION_CUST_NOT_FOUND);
 		}
