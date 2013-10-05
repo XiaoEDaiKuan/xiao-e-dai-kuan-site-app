@@ -53,7 +53,7 @@ public class QuestionRepositoryImpl extends BaseJpaRepositoryImpl implements
 	@Override
 	public Page qryQuestionByCustId(Long custId,int pageIndex,int pageSize) {
         
-        return this.queryPage(pageIndex, pageSize, Question.class, new String[]{"custID"}, new Object[]{custId});
+        return this.queryPage(pageIndex, pageSize, Question.class, new String[]{"cust"}, new Object[]{custId});
 		
 	}
 	

@@ -272,16 +272,15 @@ public class UserController extends MultiActionController {
 		String originalPassword = request.getParameter("originalPassword");
 		String newPassword = request.getParameter("newPassword");
 		// 从session中获取ciustId
-		String strCustId = (String) request.getSession().getAttribute("custId");
+		Long custId = (Long) request.getSession().getAttribute("custId");
 
-		// 测试用
-		strCustId = "1";
 
-		if (null == strCustId || "".equals(strCustId)) {
+		if (null == custId ) {
 			log.error(UserConstant.EXCEPTION_ACCT_NOT_EXISIT);
 			throw new BizException(UserConstant.EXCEPTION_ACCT_NOT_EXISIT);
 		}
 
+		String strCustId=String.valueOf(custId);
 		userService.modifyPassword(strCustId, originalPassword, newPassword);
 		return mav;
 	}
