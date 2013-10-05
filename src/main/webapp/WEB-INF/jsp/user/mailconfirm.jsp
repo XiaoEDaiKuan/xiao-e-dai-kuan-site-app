@@ -27,7 +27,7 @@
     请妥善保管您的账号和密码，勿轻易泄漏给他人！</div>
 </div>
 <div class="btn2">
-  <input name="" type="button" value="" class="reg_ok_btn" onClick="location.href='login.html'" />
+  <input name="" type="button" value="" class="reg_ok_btn" onClick="location.href='loginView'" />
 </div>
 <div class="kong"></div>
 <div class="footer2">

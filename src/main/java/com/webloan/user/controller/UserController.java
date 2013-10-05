@@ -149,13 +149,28 @@ public class UserController extends MultiActionController {
 		return mav;
 	}
 
+	/**
+	 * 跳转到登录页面
+	 * @param request
+	 * @param response
+	 * @return
+	 * @throws Exception
+	 */
 	public ModelAndView loginView(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("user/login");
 		return mav;
 	}
-
+	
+	
+/**
+ * 跳转到注册页面
+ * @param request
+ * @param response
+ * @return
+ * @throws Exception
+ */
 	public ModelAndView reg(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 		ModelAndView mav = new ModelAndView();
@@ -374,7 +389,7 @@ public class UserController extends MultiActionController {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("member/myDaikuan");
 
-		String custId=(String)request.getSession().getAttribute("custId");
+		Long custId=(Long)request.getSession().getAttribute("custId");
 
 		//测试    custId="1";
 
@@ -385,6 +400,8 @@ public class UserController extends MultiActionController {
 			return mav;
 			
 		}
+		
+		
 		String strPageIndex=request.getParameter("pageIndex");
 		String strPageSize=request.getParameter("pageSize");
 		
@@ -398,7 +415,7 @@ public class UserController extends MultiActionController {
 		}
 		int pageSize=Integer.parseInt(strPageSize);
 		
-		Page orderPage=orderService.orderListByUser(custId,pageIndex,pageSize);
+		Page orderPage=orderService.orderListByUser("1",pageIndex,pageSize);
 		
 		mav.addObject("orderPage",orderPage);
 
