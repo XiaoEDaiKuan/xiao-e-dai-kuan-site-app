@@ -26,7 +26,7 @@ public class OrderRepositoryImpl extends BaseJpaRepositoryImpl implements
 		return this.queryPage(pageIndex, pageSize, Order.class,new String[] { "cust.id" },new Object[] { custId });
     
 	}
-
+	
 	@Override
 	public void modifyOrderStatus(Long orderId) {
 		Order orderObj = this.load(Order.class, orderId);
