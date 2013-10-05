@@ -54,6 +54,7 @@
 				<prop key="verifyAccount">userController</prop>
 			    <prop key="verifyPasswd">userController</prop>
 			    <prop key="forgetPasswd">userController</prop>
+			    <prop key="forgetPasswdConfirm">userController</prop>
   			    <prop key="modifyPasswd">userController</prop>
   			    <prop key="myMessage">userController</prop>
   			    
