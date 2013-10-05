@@ -7,7 +7,9 @@
 <%@include file="../inc/globalScript.jsp" %>
 </head>
 <body>
-<%@include file="../inc/globalHeader.jsp" %>
+<jsp:include page="../inc/globalHeader.jsp">
+	<jsp:param name="index" value="1" />
+</jsp:include>
 <div id="full-screen-slider">
   <ul id="slides">
     <li class="pic1"><a href="#"></a></li>

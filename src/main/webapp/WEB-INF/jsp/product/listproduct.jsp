@@ -156,7 +156,9 @@
 </head>
 
 <body>
-<%@include file="../../inc/globalHeader.jsp" %>
+<jsp:include page="../../inc/globalHeader.jsp">
+	<jsp:param name="index" value="2" />
+</jsp:include>
 
 <div class="Fuzzysearch">
 	<div class="top Fuzzysearch1">

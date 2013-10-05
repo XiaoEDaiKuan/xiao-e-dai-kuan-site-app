@@ -8,7 +8,9 @@
 </head>
 
 <body>
-<%@include file="WEB-INF/inc/globalHeader.jsp" %>
+<jsp:include page="WEB-INF/inc/globalHeader.jsp">
+	<jsp:param name="index" value="1" />
+</jsp:include>
 <div id="full-screen-slider">
   <ul id="slides">
     <li class="pic1"><a href="#"></a></li>
