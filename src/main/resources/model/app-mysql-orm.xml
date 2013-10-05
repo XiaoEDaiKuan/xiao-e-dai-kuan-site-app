@@ -493,9 +493,9 @@
 				<join-column name="cust_ID"  />
 			</many-to-one>
 
-			<basic name="product">
+			<many-to-one name="product">
 				<column name="product_ID"   />
-			</basic>
+			</many-to-one>
 			
 			<one-to-many name="answers" target-entity="com.webloan.model.Answer" mapped-by="question" fetch="EAGER"></one-to-many>
 			
