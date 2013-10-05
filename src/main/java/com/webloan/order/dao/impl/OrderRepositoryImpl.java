@@ -50,7 +50,7 @@ public class OrderRepositoryImpl extends BaseJpaRepositoryImpl implements
 	}
 
 	
-	
+
 	@Override
 	public void createOrder(Long productId, Long custId, String applyName,
 			String applyTelephone, BigDecimal applyAmt, Long regionId) {

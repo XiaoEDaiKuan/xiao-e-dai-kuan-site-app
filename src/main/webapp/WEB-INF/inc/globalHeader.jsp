@@ -46,8 +46,8 @@
 
 		<div class="underPmenu font_f" id="w_nav">
 			<ul>
-				<li class="hover"><a href="index.html">首页</a></li>
-				<li><a href="queryProduct" target="_blank">贷款搜索</a>
+				<li <%if(request.getParameter("index") == null || request.getParameter("index").equals("1")){%>class="hover"<%}%>><a href="index.html">首页</a></li>
+				<li <%if(request.getParameter("index") != null && request.getParameter("index").equals("2")){%>class="hover"<%}%>><a href="queryProduct" target="_blank">贷款搜索</a>
 					<ul>
 						<li class="subline"></li>
 						<li><a href="贷款搜索.html" class="w_a1" target="_blank">消费贷款</a></li>
@@ -55,10 +55,10 @@
 						<li><a href="贷款搜索.html" class="w_a1" target="_blank">购车贷款</a></li>
 						<li><a href="贷款搜索.html" class="w_a1" target="_blank">购房贷款</a></li>
 					</ul></li>
-				<li><a href="scoreChoose" target="_blank">信用评分</a></li>
-				<li><a target="_blank">金融团</a> <i></i></li>
-				<li><a href="gonglue" target="_blank">贷款攻略</a></li>
-				<li class="border-bt"><a href="ask" target="_blank">贷款问答</a></li>
+				<li  <%if(request.getParameter("index") != null && request.getParameter("index").equals("3")){%>class="hover"<%}%>><a href="scoreChoose" target="_blank">信用评分</a></li>
+				<li  <%if(request.getParameter("index") != null && request.getParameter("index").equals("4")){%>class="hover"<%}%>><a target="_blank">金融团</a> <i></i></li>
+				<li  <%if(request.getParameter("index") != null && request.getParameter("index").equals("5")){%>class="hover"<%}%>><a href="gonglue" target="_blank">贷款攻略</a></li>
+				<li class="border-bt <%if(request.getParameter("index") != null && request.getParameter("index").equals("6")){%> hover<%}%>"><a href="ask" target="_blank">贷款问答</a></li>
 			</ul>
 		</div>
 	</div>

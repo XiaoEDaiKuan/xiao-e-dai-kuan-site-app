@@ -8,7 +8,9 @@
 </head>
 
 <body>
-<%@include file="WEB-INF/inc/globalHeader.jsp" %>
+<jsp:include page="WEB-INF/inc/globalHeader.jsp">
+	<jsp:param name="index" value="1" />
+</jsp:include>
 
 <!--===========页面内容部分 开始===========-->
 <form action="login" method="post">
