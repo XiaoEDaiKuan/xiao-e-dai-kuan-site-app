@@ -478,7 +478,7 @@
 
 			
 			<basic name="subject">
-				<column name="subject" length="100"  />
+				<column name="SUBJECT" length="100"  />
 			</basic>
 			
 			<basic name="type">
@@ -486,15 +486,15 @@
 			</basic>
 			
 			<many-to-one name="region">
-				<join-column name="region_id"  />
+				<join-column name="REGION_ID"  />
 			</many-to-one>
 
 			<many-to-one name="cust">
-				<join-column name="cust_ID"  />
+				<join-column name="CUST_ID"  />
 			</many-to-one>
 
 			<many-to-one name="product">
-				<column name="product_ID"   />
+				<column name="PRODUCT_ID"   />
 			</many-to-one>
 			
 			<one-to-many name="answers" target-entity="com.webloan.model.Answer" mapped-by="question" fetch="EAGER"></one-to-many>
@@ -520,7 +520,7 @@
 			</basic>
 			
 			<basic name="answerContent">
-				<column name="answer_content" length="1024"  />
+				<column name="ANSWER_CONTENT" length="1024"  />
 			</basic>
 			
 			<basic name="email">
