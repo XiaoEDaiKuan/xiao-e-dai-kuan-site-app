@@ -31,8 +31,12 @@
 			  <c:forEach var="credit" items="${creditPage.items}" >
 					<tr>
 						<td>${credit.id}</td>
-						<td>${credit.creditMin}-${credit.creditMax}</td>
-						<td>${credit.creditType}</td>
+						<td>${credit.creditMin/10000}万元-${credit.creditMax/10000}万元</td>
+						<td>
+						<fmt:bundle basename="dict/dict-mapping" prefix="CREDIT_TYPE.">
+							<fmt:message key="${credit.creditType}" />
+				        </fmt:bundle>
+						</td>
 						<td><fmt:formatDate value="${credit.calTime}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
 						<td><a href="#" data="${credit.id}" class="pop_del">删除记录</a>
 						    <a href="score_choose.html" target="_blank">再测一次</a>
