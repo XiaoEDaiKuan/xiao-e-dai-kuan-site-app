@@ -46,7 +46,7 @@
 						<tr>
 							<th>验证码：</th>
 							<td><input name="" type="text" class="input pop_question7" />
-								<img src="images/code4.jpg" width="73" height="27" /></td>
+								<img style="width:110px;height:28px" id="captchaimg" src="handleCaptcha" alt="captcha" onclick="javascript:reloadCaptcha()"/></td>
 							<td>&nbsp;</td>
 						</tr>
 					</table>
@@ -57,5 +57,11 @@
 			</div>
 		</div>
 	</form>
+	<script type="text/javascript" language="JavaScript">
+    function reloadCaptcha() {  
+        var obj = document.getElementById('captchaimg');  
+        obj.src = "handleCaptcha?time=" + (new Date()).getTime();
+    }  
+  </script>
 </body>
 </html>

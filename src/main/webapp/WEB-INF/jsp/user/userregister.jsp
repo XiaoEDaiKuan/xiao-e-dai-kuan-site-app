@@ -64,7 +64,7 @@
     <tr>
     	<th>验证码：</th>
        	<td><input type="text" name="captcha" id="cf" class="input" style="width:90px"/>
-       	<img style="width:107px;height:28px" id="captcha" src="handleCaptcha" alt="captcha" onclick="javascript:reloadCaptcha()"/>
+       	<img style="width:107px;height:28px" id="captchaimg" src="handleCaptcha" alt="captcha" onclick="javascript:reloadCaptcha()"/>
        </td>
 	</tr> 
 	
@@ -92,7 +92,7 @@
 
 <script type="text/javascript" language="JavaScript">
     function reloadCaptcha() {  
-        var obj = document.getElementById('captcha');  
+        var obj = document.getElementById('captchaimg');  
         obj.src = "handleCaptcha?time=" + (new Date()).getTime();
     }  
   </script>
