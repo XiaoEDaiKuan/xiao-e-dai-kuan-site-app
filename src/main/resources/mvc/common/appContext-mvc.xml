@@ -42,7 +42,6 @@
 				<prop key="productView">productController</prop>
 				<prop key="viewProduct">productController</prop>
 				<prop key="matchProduct">productController</prop>
-				<prop key="matchProduct">productController</prop>
 				
 				<!-- 订单 -->
 				<prop key="popSave">orderController</prop>
