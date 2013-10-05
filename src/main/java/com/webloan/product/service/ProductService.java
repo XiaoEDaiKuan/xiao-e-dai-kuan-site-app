@@ -19,4 +19,7 @@ public interface ProductService {
 	
 	Page pagingProductRecommend(int pageIndex, int pageSize, String recommendType);
 	
+	Page pagingPurchasedProducts(int pageIndex, int pageSize, Long regionId);
+	
+	List<Product> queryGroupBuyingProducts(Long regionId, String identity);
 }

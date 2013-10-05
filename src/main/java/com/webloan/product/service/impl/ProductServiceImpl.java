@@ -15,6 +15,9 @@ import static com.webloan.common.Queriable.*;
 
 public class ProductServiceImpl implements ProductService {
 	
+	public static final String GROUP_BUYING = "0";
+	public static final String NON_GROUP_BUYING = "1";
+	
 	private ProductRepository productRepository;
 
 	public ProductRepository getProductRepository() {
@@ -35,6 +38,14 @@ public class ProductServiceImpl implements ProductService {
 
 	public Page pagingProductRecommend(int pageIndex, int pageSize, String recommendType) {
 		return productRepository.pagingProductByRecommend(pageIndex, pageSize, recommendType);
+	}
+	
+	public Page pagingPurchasedProducts(int pageIndex, int pageSize, Long regionId) {
+		return productRepository.pagingProductByRegion(pageIndex, pageSize, regionId);
+	}
+	
+	public List<Product> queryGroupBuyingProducts(Long regionId, String identity) {
+		return productRepository.queryProducts(regionId, identity, GROUP_BUYING);
 	}
 	
 	public Page pagingProduct(ProductQuery pq) {
