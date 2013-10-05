@@ -436,7 +436,9 @@ public class UserController extends MultiActionController {
 			HttpServletResponse response) throws Exception {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("member/pop_CancelOrder");
+		
 		String orderid = request.getParameter("orderid");
+		mav.addObject("orderid", orderid);
 		if (null == orderid || "".equals(orderid)) {
 			log.error(UserConstant.EXCEPTION_MY_LOAN);
 			throw new BizException(UserConstant.EXCEPTION_MY_LOAN);

@@ -23,7 +23,7 @@
 		<!-- 取消前确认界面 -->
 		<div class="pop_cancel1 font_f">您确定要取消该订单吗？</div>
 		<form action="pop_CancelOrderOK" method="post">
-			<input value="<%=request.getParameter("orderid")%>" type="hidden" />
+			<input value="${orderid}" type="hidden" />
 			<div class="pop_cancel2">
 				<input name="" type="submit" value="" class="cancel_det" onclick="tipsWindown.close" />
 			</div>
