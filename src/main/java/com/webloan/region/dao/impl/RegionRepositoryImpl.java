@@ -4,8 +4,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import javax.persistence.TypedQuery;
-
 import com.webloan.common.BaseJpaRepositoryImpl;
 import com.webloan.model.Region;
 import com.webloan.region.dao.RegionRepository;
@@ -26,12 +24,7 @@ public class RegionRepositoryImpl extends BaseJpaRepositoryImpl implements Regio
 			params.put("status", status);
 		}
 		
-		TypedQuery<Region> query = entityManager.createQuery(jpql.toString(), Region.class);
-		for (Map.Entry<String, Object> param : params.entrySet()) {
-			query.setParameter(param.getKey(), param.getValue());
-		}
-		
-		return query.getResultList();
+		return queryListResult(Region.class, jpql.toString(), params);
 	}
 
 }

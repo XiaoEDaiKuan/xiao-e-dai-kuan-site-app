@@ -132,23 +132,44 @@ public class BaseJpaRepositoryImpl implements BaseJpaRepository {
 		return queryPageResult(pageIndex, pageSize, pageJpql, countJpql, params);
 	}
 	
+	private void fillQueryParams(Query query, Map<?, ?> params) {
+		for (Map.Entry<?, ?> param : params.entrySet()) {
+			Object key = param.getKey();
+			if (key instanceof Number) {
+				int indexKey = ((Number) key).intValue();
+				query.setParameter(indexKey, param.getValue());
+			} 
+			else if (key != null) {
+				query.setParameter(key.toString(), param.getValue());
+			}
+		}
+	}
+	
+	protected Object querySingleResult(String jpql, Map<?, ?> params) {
+		Query query = entityManager.createQuery(jpql);
+		fillQueryParams(query, params);
+		return query.getSingleResult();
+	}
+	
+	protected List<?> queryListResult(String jpql, Map<?, ?> params) {
+		Query query = entityManager.createQuery(jpql);
+		fillQueryParams(query, params);
+		return query.getResultList();
+	}
+	
+	protected <T> List<T> queryListResult(Class<T> clazz, String jpql, Map<?, ?> params) {
+		TypedQuery<T> query = entityManager.createQuery(jpql, clazz);
+		fillQueryParams(query, params);
+		return query.getResultList();
+	}
+	
 	protected Page queryPageResult(int pageIndex, int pageSize, 
 			String pageJpql, String countJpql, Map<?, ?> params) {
 		Query pageQuery = entityManager.createQuery(pageJpql);
 		Query countQuery = entityManager.createQuery(countJpql);
 
-		for (Map.Entry<?, ?> param : params.entrySet()) {
-			Object key = param.getKey();
-			if (key instanceof Number) {
-				int indexKey = ((Number) key).intValue();
-				countQuery.setParameter(indexKey, param.getValue());
-				pageQuery.setParameter(indexKey, param.getValue());
-			} 
-			else if (key != null) {
-				countQuery.setParameter(key.toString(), param.getValue());
-				pageQuery.setParameter(key.toString(), param.getValue());
-			}
-		}
+		fillQueryParams(pageQuery, params);
+		fillQueryParams(countQuery, params);
 		
 		Object count = countQuery.getSingleResult();
 		
