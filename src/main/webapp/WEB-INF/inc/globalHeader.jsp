@@ -50,10 +50,10 @@
 				<li <%if(request.getParameter("index") != null && request.getParameter("index").equals("2")){%>class="hover"<%}%>><a href="queryProduct" target="_blank">贷款搜索</a>
 					<ul>
 						<li class="subline"></li>
-						<li><a href="贷款搜索.html" class="w_a1" target="_blank">消费贷款</a></li>
-						<li><a href="贷款搜索.html" class="w_a1" target="_blank">经营贷款</a></li>
-						<li><a href="贷款搜索.html" class="w_a1" target="_blank">购车贷款</a></li>
-						<li><a href="贷款搜索.html" class="w_a1" target="_blank">购房贷款</a></li>
+						<li><a href="queryProduct?loanUse=2" class="w_a1" target="_blank">消费贷款</a></li>
+						<li><a href="queryProduct?loanUse=1" class="w_a1" target="_blank">经营贷款</a></li>
+						<li><a href="queryProduct?loanUse=4" class="w_a1" target="_blank">购车贷款</a></li>
+						<li><a href="queryProduct?loanUse=3" class="w_a1" target="_blank">购房贷款</a></li>
 					</ul></li>
 				<li  <%if(request.getParameter("index") != null && request.getParameter("index").equals("3")){%>class="hover"<%}%>><a href="scoreChoose" target="_blank">信用评分</a></li>
 				<li  <%if(request.getParameter("index") != null && request.getParameter("index").equals("4")){%>class="hover"<%}%>><a target="_blank">金融团</a> <i></i></li>

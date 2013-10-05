@@ -60,4 +60,32 @@ public class OrderController extends MultiActionController{
 		
 		return new ModelAndView("order/inputOrderInfoSuccess");
 	}
+	
+	public ModelAndView  orderEmail(HttpServletRequest request, HttpServletResponse response){
+		
+		String productId =(String) request.getSession().getAttribute("productId");
+		String email = request.getParameter("email");
+		
+		
+		orderService.orderEmail(email, productId);
+
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("order/inputEmail"); 
+		
+		mav.addObject("emailOK", true);
+		
+		return mav;
+		
+	}
+	
+	
+	public ModelAndView  popSave(HttpServletRequest request, HttpServletResponse response){
+		String productId=request.getParameter("productId");
+		request.getSession().setAttribute("productId", productId);
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("order/inputEmail"); 
+		return mav;
+		
+	}
+
 }
