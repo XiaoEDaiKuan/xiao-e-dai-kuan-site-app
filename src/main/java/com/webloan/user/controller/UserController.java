@@ -376,13 +376,14 @@ public class UserController extends MultiActionController {
 
 		String custId=(String)request.getSession().getAttribute("custId");
 
-		//测试
-		custId="1";
+		//测试    custId="1";
 
 		
 		if(null==custId||"".equals(custId)){
 			log.error(UserConstant.EXCEPTION_CUST_NOT_FOUND);
-			throw new BizException(UserConstant.EXCEPTION_CUST_NOT_FOUND);
+			mav.setViewName("user/login");
+			return mav;
+			
 		}
 		String strPageIndex=request.getParameter("pageIndex");
 		String strPageSize=request.getParameter("pageSize");

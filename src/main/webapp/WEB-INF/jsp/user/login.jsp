@@ -46,9 +46,13 @@
           </tr>
           <tr>
             <th>验证码：</th>
-            <td><input name="" type="text" class="input code" />
-            <img src="images/code2.jpg" width="57" height="30" /></td>
+            <td><input name="captcha" type="text" class="input code" /></td>
           </tr>
+          <tr>
+             <th></th>
+            <td><img id="captchaimg" src="handleCaptcha" alt="captcha"  class="input code" onclick="reloadCaptcha()" /></td>
+          </tr>
+
         </table>
         <div class="login3"><input name="" type="submit" value="" /><a href="forgetPassword.jsp">忘记密码？</a></div>
         <div class="login4">没有账号？立即<a href="reg">免费注册</a></div>
