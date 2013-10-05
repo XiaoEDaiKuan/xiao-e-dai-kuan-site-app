@@ -99,4 +99,31 @@ public class ProductController extends MultiActionController {
 		return mav;
 	}
 	
+	public ModelAndView KS(HttpServletRequest request, 
+			HttpServletResponse response, ProductQuery pq) {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("zhuanqu/KS");
+		return mav;
+	}
+	
+	public ModelAndView POS(HttpServletRequest request, 
+			HttpServletResponse response, ProductQuery pq) {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("zhuanqu/POS");
+		return mav;
+	}
+	
+	public ModelAndView TG(HttpServletRequest request, 
+			HttpServletResponse response, ProductQuery pq) {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("zhuanqu/TG");
+		return mav;
+	}
+	
+	public ModelAndView XX(HttpServletRequest request, 
+			HttpServletResponse response, ProductQuery pq) {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("zhuanqu/XX");
+		return mav;
+	}
 }
