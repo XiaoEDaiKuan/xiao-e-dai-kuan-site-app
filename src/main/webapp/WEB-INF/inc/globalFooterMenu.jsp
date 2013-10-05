@@ -32,8 +32,15 @@
     </ul>
   </div>
   <div class="weibo">
-    <a href="#" class="weibo1 font_f">官方微博</a>
-    <a href="#" class="weixin1 font_f">微信</a>
+	<span class="jiathis_style_64x64" class="weibo1">
+		<a class="jiathis_follow_tsina" style="background:url(images/sina.jpg) no-repeat center 10px;" rel="http://weibo.com/jiathis">微博</a>
+	</span>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+
+    <span id="jiathis_style_64x64" class="weixin1">
+		<a class="jiathis_follow_weixin">微信</a>
+	</span>
+	<script type="text/javascript" src="http://v2.jiathis.com/code/jia.js?uid=undefined" charset="utf-8"></script>
   </div>
   <div class="service">
     <p>银行会员服务</p>

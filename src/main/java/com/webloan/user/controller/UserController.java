@@ -51,15 +51,19 @@ public class UserController extends MultiActionController {
 		String sessionId = request.getSession().getId();
 		String captcha = request.getParameter("captcha");
 
-		/*
-		 * boolean flag=false; try{
-		 * flag=captchaService.validateResponseForID(sessionId, captcha); }
-		 * catch(Exception e){ e.printStackTrace();
-		 * log.error(UserConstant.EXCEPTION_CAPTCHA_CODE); throw new
-		 * BizException(UserConstant.EXCEPTION_CAPTCHA_CODE); } if(!flag){
-		 * log.error(UserConstant.EXCEPTION_CAPTCHA_CODE); throw new
-		 * BizException(UserConstant.EXCEPTION_CAPTCHA_CODE); }
-		 */
+		boolean flag = false;
+		try {
+			flag = captchaService.validateResponseForID(sessionId, captcha);
+		} catch (Exception e) {
+			e.printStackTrace();
+			log.error(UserConstant.EXCEPTION_CAPTCHA_CODE);
+			throw new BizException(UserConstant.EXCEPTION_CAPTCHA_CODE);
+		}
+		if (!flag) {
+			log.error(UserConstant.EXCEPTION_CAPTCHA_CODE);
+			throw new BizException(UserConstant.EXCEPTION_CAPTCHA_CODE);
+		}
+
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("user/registerok");
 		String custName = request.getParameter("custName");
@@ -71,7 +75,6 @@ public class UserController extends MultiActionController {
 		String postCode = request.getParameter("postCode");
 		String address = request.getParameter("address");
 
-		// String setupIP=request.getParameter("setupIP");
 		String setupIP = request.getHeader("Remote_Addr");
 		if (setupIP == null) {
 			setupIP = request.getHeader("HTTP_X_FORWARDED_FOR");
@@ -274,13 +277,12 @@ public class UserController extends MultiActionController {
 		// 从session中获取ciustId
 		Long custId = (Long) request.getSession().getAttribute("custId");
 
-
-		if (null == custId ) {
+		if (null == custId) {
 			log.error(UserConstant.EXCEPTION_ACCT_NOT_EXISIT);
 			throw new BizException(UserConstant.EXCEPTION_ACCT_NOT_EXISIT);
 		}
 
-		String strCustId=String.valueOf(custId);
+		String strCustId = String.valueOf(custId);
 		userService.modifyPassword(strCustId, originalPassword, newPassword);
 		return mav;
 	}
@@ -394,8 +396,6 @@ public class UserController extends MultiActionController {
 
 		Long custId = (Long) request.getSession().getAttribute("custId");
 
-		// 测试 custId="1";
-
 		if (null == custId) {
 			log.error(UserConstant.EXCEPTION_CUST_NOT_FOUND);
 			mav.setViewName("user/login");
@@ -469,7 +469,7 @@ public class UserController extends MultiActionController {
 	 * @return
 	 * @throws Exception
 	 */
-	
+
 	public ModelAndView myMessage(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 		ModelAndView mav = new ModelAndView();
@@ -477,9 +477,9 @@ public class UserController extends MultiActionController {
 
 		Long custId = (Long) request.getSession().getAttribute("custId");
 
-		if (null == custId ) {
-			log.error(UserConstant.EXCEPTION_CUST_NOT_FOUND);
-			throw new BizException(UserConstant.EXCEPTION_CUST_NOT_FOUND);
+		if (null == custId) {
+			mav.setViewName("user/login");
+			return mav;
 		}
 		String strPageIndex = request.getParameter("pageIndex");
 		String strPageSize = request.getParameter("pageSize");
@@ -493,9 +493,9 @@ public class UserController extends MultiActionController {
 			strPageSize = "10";
 		}
 		int pageSize = Integer.parseInt(strPageSize);
-        String strCustId=String.valueOf(custId);
-		Page messagePage = messageService.messageListByUser(strCustId, pageIndex,
-				pageSize);
+		String strCustId = String.valueOf(custId);
+		Page messagePage = messageService.messageListByUser(strCustId,
+				pageIndex, pageSize);
 
 		mav.addObject("messagePage", messagePage);
 
@@ -537,10 +537,9 @@ public class UserController extends MultiActionController {
 
 		Long custId = (Long) request.getSession().getAttribute("custId");
 
-
 		if (null == custId || "".equals(custId)) {
-			log.error(UserConstant.EXCEPTION_CUST_NOT_FOUND);
-			throw new BizException(UserConstant.EXCEPTION_CUST_NOT_FOUND);
+			mav.setViewName("user/login");
+			return mav;
 		}
 		String strPageIndex = request.getParameter("pageIndex");
 		String strPageSize = request.getParameter("pageSize");
@@ -554,7 +553,7 @@ public class UserController extends MultiActionController {
 			strPageSize = "10";
 		}
 		int pageSize = Integer.parseInt(strPageSize);
-         String strCustId =String.valueOf(custId);
+		String strCustId = String.valueOf(custId);
 		Page creditPage = creditService.creditListByUser(strCustId, pageIndex,
 				pageSize);
 
@@ -600,9 +599,9 @@ public class UserController extends MultiActionController {
 
 		Long custId = (Long) request.getSession().getAttribute("custId");
 
-		if (null == custId ) {
-			log.error(UserConstant.EXCEPTION_CUST_NOT_FOUND);
-			throw new BizException(UserConstant.EXCEPTION_CUST_NOT_FOUND);
+		if (null == custId) {
+			mav.setViewName("user/login");
+			return mav;
 		}
 
 		Cust cust = userService.findCustById(custId);
@@ -624,9 +623,9 @@ public class UserController extends MultiActionController {
 		mav.setViewName("member/pop_contact");
 
 		Long custId = (Long) request.getSession().getAttribute("custId");
-		if (null == custId ) {
-			log.error(UserConstant.EXCEPTION_CUST_NOT_FOUND);
-			throw new BizException(UserConstant.EXCEPTION_CUST_NOT_FOUND);
+		if (null == custId) {
+			mav.setViewName("user/login");
+			return mav;
 		}
 
 		String mobileNO = request.getParameter("mobileNO");
@@ -643,7 +642,7 @@ public class UserController extends MultiActionController {
 		String postCode = request.getParameter("postCode");
 		String address = request.getParameter("address");
 
-		String strCustId=String.valueOf(custId);
+		String strCustId = String.valueOf(custId);
 		userService.modifyUser(strCustId, mobileNO, email, postCode, address);
 
 		return mav;
@@ -655,9 +654,9 @@ public class UserController extends MultiActionController {
 		mav.setViewName("member/myQuestion");
 
 		Long custId = (Long) request.getSession().getAttribute("custId");
-		if (null == custId ) {
-			log.error(UserConstant.EXCEPTION_CUST_NOT_FOUND);
-			throw new BizException(UserConstant.EXCEPTION_CUST_NOT_FOUND);
+		if (null == custId) {
+			mav.setViewName("user/login");
+			return mav;
 		}
 
 		String strPageIndex = request.getParameter("pageIndex");
@@ -673,7 +672,7 @@ public class UserController extends MultiActionController {
 		}
 		int pageSize = Integer.parseInt(strPageSize);
 
-		String strCustId=String.valueOf(custId);
+		String strCustId = String.valueOf(custId);
 		Page questionPage = questionService.qryQuestionByCustId(strCustId,
 				pageIndex, pageSize);
 		mav.addObject("questionPage", questionPage);
