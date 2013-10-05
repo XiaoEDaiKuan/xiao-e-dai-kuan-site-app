@@ -26,15 +26,15 @@
       <table width="100%" border="0" cellspacing="0" cellpadding="0">
         <tr>
           <th width="18%">输入当前密码：</th>
-          <td width="47%"><input name="" type="password" class="input" /></td>
+          <td width="47%"><input name="originalPassword" type="password" class="input" /></td>
         </tr>
         <tr>
           <th>输入新密码：</th>
-          <td><input name="" type="password" class="input" /></td>
+          <td><input name="newPassword" type="password" class="input" /></td>
         </tr>
         <tr>
           <th>确认新密码：</th>
-          <td><input name="" type="password" class="input" /></td>
+          <td><input name="newPasswordRep" type="password" class="input" /></td>
         </tr>
         <tr>
           <th></th>
