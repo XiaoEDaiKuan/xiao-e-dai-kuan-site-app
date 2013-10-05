@@ -206,9 +206,6 @@ public class UserController extends MultiActionController {
 		return mav;
 	}
 
-	
-	
-	
 	public ModelAndView forgetPasswd(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 
@@ -217,8 +214,7 @@ public class UserController extends MultiActionController {
 
 		return mav;
 	}
-	
-	
+
 	/**
 	 * 忘记密码
 	 * 
@@ -295,14 +291,14 @@ public class UserController extends MultiActionController {
 		if (null == custId) {
 			log.error(UserConstant.EXCEPTION_ACCT_NOT_EXISIT);
 			mav.setViewName("user/login");
-            return mav;
+			return mav;
 		}
 
 		if (null == newPassword || "".equals(newPassword)) {
 			log.error(UserConstant.EXCEPTION_PASSWD_CONFIRM);
 			throw new BizException(UserConstant.EXCEPTION_PASSWD_CONFIRM);
 		}
-		
+
 		if (null == originalPassword || "".equals(originalPassword)) {
 			log.error(UserConstant.EXCEPTION_PASSWD_CONFIRM);
 			throw new BizException(UserConstant.EXCEPTION_PASSWD_CONFIRM);
@@ -311,12 +307,11 @@ public class UserController extends MultiActionController {
 			log.error(UserConstant.EXCEPTION_PASSWD_CONFIRM);
 			throw new BizException(UserConstant.EXCEPTION_PASSWD_CONFIRM);
 		}
-		
+
 		if (!newPasswordRep.equals(newPassword)) {
 			log.error(UserConstant.EXCEPTION_PASSWD_CONFIRM);
 			throw new BizException(UserConstant.EXCEPTION_PASSWD_CONFIRM);
 		}
-		
 
 		String strCustId = String.valueOf(custId);
 		userService.modifyPassword(strCustId, originalPassword, newPassword);
@@ -377,16 +372,15 @@ public class UserController extends MultiActionController {
 	public ModelAndView verifyPasswd(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 
-		// String sessionId = request.getSession().getId();
-		// String captcha = request.getParameter("captcha");
-		// try{
-		// captchaService.validateResponseForID(sessionId, captcha);
-		// }
-		// catch(Exception e){
-		// e.printStackTrace();
-		// log.error(UserConstant.EXCEPTION_CAPTCHA_CODE);
-		// throw new BizException(UserConstant.EXCEPTION_CAPTCHA_CODE);
-		// }
+		String sessionId = request.getSession().getId();
+		String captcha = request.getParameter("captcha");
+		try {
+			captchaService.validateResponseForID(sessionId, captcha);
+		} catch (Exception e) {
+			e.printStackTrace();
+			log.error(UserConstant.EXCEPTION_CAPTCHA_CODE);
+			throw new BizException(UserConstant.EXCEPTION_CAPTCHA_CODE);
+		}
 
 		String logonName = request.getParameter("logonName");
 		ModelAndView mav = new ModelAndView();

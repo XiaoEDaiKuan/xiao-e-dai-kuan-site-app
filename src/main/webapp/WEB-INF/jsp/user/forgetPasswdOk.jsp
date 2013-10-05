@@ -25,7 +25,7 @@
             <div class="success">
                 <span class="icon i_success"></span>您的新密码已设置成功！</div>
             <div class="todo">
-                您可以去<a href="index.jsp">首页逛逛&nbsp;&gt;&gt;</a></div>
+                您可以去<a href="./">首页&nbsp;&gt;&gt;</a></div>
         </div>
     </div>
 </body>
