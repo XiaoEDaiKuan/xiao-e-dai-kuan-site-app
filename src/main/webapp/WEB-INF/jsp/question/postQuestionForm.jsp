@@ -16,7 +16,7 @@
 		<div class="pop_tx" style="font-size:32px; text-align:center"><b>您的问题提交成功！</b></div>
 	</c:if>
 	<c:if test="${empty saveOK}">
-	<form action="postQuestionFormSave" method="post">
+	<form action="postQuestionFormSave" method="post" onSubmit="return check();">
 		<div class="pop_contact">
 			<div class="pop_question">
 				<div class="pop_question1">
@@ -50,15 +50,16 @@
 						</tr>
 						<tr>
 							<th>验证码：</th>
-							<td><input name="captcha" type="text"  class="input pop_question7" />
-								<img style="width:110px;height:28px" id="captchaimg" src="handleCaptcha" alt="captcha" onclick="javascript:reloadCaptcha()"/></td>
+							<td><input name="captcha" type="text" class="input pop_question7"  />
+								<img style="width:110px;height:28px" id="captchaimg" src="handleCaptcha" alt="captcha" onclick="javascript:reloadCaptcha()"/>
+								</td>
 							<td>&nbsp;</td>
 						</tr>
 					</table>
 				</div>
 			</div>
 			<div class="pop_contact1">
-				<input type="submit" value="" class="pop_submit" />
+				<input type="submit" value="" class="pop_submit" onclick="" />
 			</div>
 		</div>
 	</form>
@@ -68,6 +69,7 @@
         var obj = document.getElementById('captchaimg');  
         obj.src = "handleCaptcha?time=" + (new Date()).getTime();
     }  
+
   </script></c:if>
 </body>
 </html>
