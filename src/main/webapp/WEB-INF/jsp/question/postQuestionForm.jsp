@@ -59,7 +59,7 @@
 				</div>
 			</div>
 			<div class="pop_contact1">
-				<input type="submit" value="" class="pop_submit" onclick="" />
+				<input type="submit" value="" class="pop_submit"  />
 			</div>
 		</div>
 	</form>
