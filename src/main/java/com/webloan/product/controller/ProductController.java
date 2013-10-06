@@ -35,8 +35,7 @@ public class ProductController extends MultiActionController {
 		mav.setViewName("product/listproduct");
 		if (pq.getLoanAmt() != null) {
 			Page page = productService.pagingProduct(pq);
-			mav.addObject("products", page);
-//			mav.addObject("pvs", productViewHelper.transferPageToView(page, pq));
+			mav.addObject("pvs", productViewHelper.transferPageToView(page, pq));
 		}
 		
 		Page hotRcdProds = productService.pagingProductRecommend(1, 5, RecommendType.HOT_CREDIT);
@@ -76,9 +75,8 @@ public class ProductController extends MultiActionController {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("order/addToCart");
 		
-		ProductAttach prod = productService.getAttachByProductId(productId);
-		mav.addObject("prod", prod);
-		mav.addObject("pv", productViewHelper.transferAttachToView(prod, pq));
+		ProductAttach pa = productService.getAttachByProductId(productId);
+		mav.addObject("pv", productViewHelper.transferAttachToView(pa, pq));
 		
 		Page hotRcdProds = productService.pagingProductRecommend(1, 5, RecommendType.HOT_CHARACTER);
 		mav.addObject("hotRcdProds", hotRcdProds.getItems());
@@ -102,10 +100,9 @@ public class ProductController extends MultiActionController {
 				pq.getRegionId(), pq.getIdentity());
 		mav.addObject("groupProducts", grpBuyProds);
 		
-		Page purchasedProds = productService.pagingPurchasedProducts(
+		Page pchdProds = productService.pagingPurchasedProducts(
 				pq.getPageIndex(), pq.getPageSize(), pq.getRegionId());
-		mav.addObject("purchasedProds", purchasedProds);
-//		mav.addObject("pvs", productViewHelper.transferPageToView(purchasedProds, pq));
+		mav.addObject("pvs", productViewHelper.transferPageToView(pchdProds, pq));
 		
 		return mav;
 	}
