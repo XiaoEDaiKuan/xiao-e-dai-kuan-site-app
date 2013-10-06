@@ -73,22 +73,22 @@
     <span class="credit_title1 font_f">大家都在贷</span>
   </div>
   
-  <c:forEach var="prod" items="${purchasedProds.items}">
+  <c:forEach var="pv" items="${pvs.items}">
   <div class="Loansearch11 ClearFix">
-  	<div class="Loansearch19"><a href="viewProduct?&productId=${prod.product.id}"><img src="images/img18.jpg" width="94" height="29" /></a></div>
+  	<div class="Loansearch19"><a href="viewProduct?&productId=${pv.product.id}"><img src="images/img18.jpg" width="94" height="29" /></a></div>
   	<div class="Loansearch12">
     	<div class="Loansearch13">
-        	<h1>${prod.product.issueOrgan}</h1>
+        	<h1>${pv.product.issueOrgan}</h1>
             <p>
             	<span class="Loansearch14">
             	<fmt:bundle basename="dict/dict-mapping" prefix="PRD_GRNT_TYPE.">
-            		<fmt:message key="${prod.product.guarantyType}" />
+            		<fmt:message key="${pv.product.guarantyType}" />
 				</fmt:bundle>
             	</span><br />
             	<span class="Loansearch14 Loansearch15">
             	<fmt:bundle basename="dict/dict-mapping" prefix="PRD_IDENTITY.">
 	            	<c:set var="hasIden" value="0" />
-	            	<c:forTokens var="iden" items="${prod.identity}" delims="|">
+	            	<c:forTokens var="iden" items="${pv.attach.identity}" delims="|">
 	            		<c:if test="${not empty iden}">
 	            			<c:if test="${hasIden == '1'}">,</c:if>
 	            			<fmt:message key="${iden}" />
@@ -97,7 +97,7 @@
 	            	</c:forTokens>
 				</fmt:bundle>
             	</span><br />
-            	<span class="Loansearch14 Loansearch16">${prod.product.paidDays}天放款</span>
+            	<span class="Loansearch14 Loansearch16">${pv.product.paidDays}天放款</span>
             </p>
         </div>
     	<img src="images/img13.jpg" width="42" height="42" />
@@ -110,14 +110,14 @@
     <div class="Loansearch12 Loansearch17">
     	<div class="Loansearch18">
             <p>
-            	利率：<fmt:formatNumber type="percent" pattern="0.00%" value="${prod.product.intrRate}" /><br />
-            	总利息：${prod.product.intrFormula}<span>万元</span><br />
+            	利率: <fmt:formatNumber type="percent" pattern="0.00%" value="${pv.product.intrRate}" /><br />
+            	总利息: <fmt:formatNumber pattern="#,##0.00" value="${pv.interest}" /><span> 万元</span><br />
             </p>
         </div>
     </div>
     <div class="Loansearch12 Loansearch17">
     	<div class="Loansearch18">
-            <p><br />有<span>205</span>人申请<br /></p>
+            <p><br />有<span>${pv.numOrders}</span>人申请<br /></p>
         </div>
     </div>
   </div>
