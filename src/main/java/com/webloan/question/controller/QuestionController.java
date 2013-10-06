@@ -8,6 +8,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.multiaction.MultiActionController;
 
 import com.webloan.common.Page;
+import com.webloan.credit.service.CreditService;
 import com.webloan.model.Question;
 import com.webloan.model.RegionIP;
 import com.webloan.order.service.OrderService;
@@ -19,6 +20,7 @@ public class QuestionController extends MultiActionController{
 
 	@Resource QuestionService questionService;
 	@Resource OrderService orderService;
+	@Resource CreditService creditService;	
 	
 	public ModelAndView questionListByUser(HttpServletRequest request, HttpServletResponse response) {
 		ModelAndView mav = new ModelAndView();
@@ -104,9 +106,15 @@ public class QuestionController extends MultiActionController{
 	public ModelAndView scoreSave(HttpServletRequest request, HttpServletResponse response) {
 		ModelAndView mav = new ModelAndView();
 		//没有登录，导向登录页面
-		mav.setViewName("user/login");
+		Long custId = (Long) request.getSession().getAttribute("custId");
+		if (null == custId) {
+			mav.setViewName("user/login");
+		}else{
+		//creditService.saveCredit(strCustId, strCreditType, strCustName, strCustTelephone, strCreditMin, strCreditMax);
+		
 		//保存成功，返回会员
-		//mav.setViewName("member/myCreditScore");
+			mav.setViewName("member/myCreditScore");
+		}
 		return mav;
 	}
 }
