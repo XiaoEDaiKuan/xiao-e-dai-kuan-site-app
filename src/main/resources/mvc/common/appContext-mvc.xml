@@ -99,6 +99,9 @@
 				<prop key="questionSearch">questionController</prop>
 				<prop key="postQuestionForm">questionController</prop>
 				<prop key="postQuestionFormSave">questionController</prop>
+				<prop key="postQuestionAnswerSave">questionController</prop>
+				<prop key="answerPostForm">questionController</prop>
+				
 				<prop key="scoreChoose">questionController</prop>
 				<prop key="scorePerson">questionController</prop>
 				<prop key="scoreCompany">questionController</prop>
