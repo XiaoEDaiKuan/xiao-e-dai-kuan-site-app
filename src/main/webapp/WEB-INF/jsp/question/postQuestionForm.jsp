@@ -50,7 +50,7 @@
 						</tr>
 						<tr>
 							<th>验证码：</th>
-							<td><input name="" type="text" class="input pop_question7" />
+							<td><input name="captcha" type="text"  class="input pop_question7" />
 								<img style="width:110px;height:28px" id="captchaimg" src="handleCaptcha" alt="captcha" onclick="javascript:reloadCaptcha()"/></td>
 							<td>&nbsp;</td>
 						</tr>
