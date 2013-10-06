@@ -53,7 +53,7 @@ con.style.display=i==cursel?"block":"none";
 					</c:forEach>		
   					</p>
 					<div>
-						${q.askTime}<em>来自${q.region.name}的问题</em>
+						${q.askTime} <em>来自${q.region.name}的问题</em>
 					</div>
 				</div>
 				</c:forEach>

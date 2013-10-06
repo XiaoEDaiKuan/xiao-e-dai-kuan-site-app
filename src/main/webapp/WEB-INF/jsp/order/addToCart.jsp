@@ -28,7 +28,7 @@ con.style.display=i==cursel?"block":"none";
 		});
 		<%}else{%>
 		$("#pop_login").click(function(){
-			tipsWindown("请填写贷款信息","iframe:iframe:requestProductInfo?productId=${prod.product.id}","450","215","true","","false","text","");
+			tipsWindown("请填写贷款信息","iframe:iframe:requestProductInfo?productId=${pv.product.id}","450","215","true","","false","text","");
 		});
 		<%}%>
 	});	
@@ -54,14 +54,14 @@ con.style.display=i==cursel?"block":"none";
             </div>
         	<div class="applicationleft">
             	<div class="credit ground Loansearch3 clear">
-      <div class="credit_title"> <span class="credit_title1 font_f">${prod.product.issueOrgan} - ${prod.product.name}</span></div>
+      <div class="credit_title"> <span class="credit_title1 font_f">${pv.product.issueOrgan} - ${pv.product.name}</span></div>
       <div class="applicationleft1 ClearFix">
       	<ul class="applicationleft4">
       		<li>贷款金额 <span>${pq.loanAmt}</span> 万元</li>
             <li>期限 <span>${pq.loanIssue}</span> 月</li>
             <li>总利息 <span><fmt:formatNumber pattern="#,##0.00" value="${pv.interest}" /></span> 万元</li>
             <li>月供 <span><fmt:formatNumber pattern="#,##0.00" value="${pv.monthlyPay * 10000}" /></span> 元</li>
-            <li>利率说明: 月利率 <span><fmt:formatNumber type="percent" pattern="0.00%" value="${prod.product.intrRate}" /></span></li>
+            <li>利率说明: 月利率 <span><fmt:formatNumber type="percent" pattern="0.00%" value="${pv.product.intrRate}" /></span></li>
             <li>提前还款说明</li>
         </ul>
       	<div class="applicationleft2"><img src="images/img19.jpg" width="110" height="67" /></div>
@@ -69,22 +69,22 @@ con.style.display=i==cursel?"block":"none";
             <p>
             <span class="Loansearch14">
            	<fmt:bundle basename="dict/dict-mapping" prefix="PRD_GRNT_TYPE.">
-           		<fmt:message key="${prod.product.guarantyType}" />
+           		<fmt:message key="${pv.product.guarantyType}" />
 			</fmt:bundle>
 			</span><br />
             <span class="Loansearch14 Loansearch15">
             <fmt:bundle basename="dict/dict-mapping" prefix="PRD_IDENTITY.">
-	            	<c:set var="hasIden" value="0" />
-	            	<c:forTokens var="iden" items="${prod.identity}" delims="|">
-	            		<c:if test="${not empty iden}">
-	            			<c:if test="${hasIden == '1'}">,</c:if>
-	            			<fmt:message key="${iden}" />
-	            			<c:set var="hasIden" value="1" />
-	            		</c:if>
-	            	</c:forTokens>
-				</fmt:bundle>
+            	<c:set var="hasIden" value="0" />
+            	<c:forTokens var="iden" items="${prod.identity}" delims="|">
+            		<c:if test="${not empty iden}">
+            			<c:if test="${hasIden == '1'}">,</c:if>
+            			<fmt:message key="${iden}" />
+            			<c:set var="hasIden" value="1" />
+            		</c:if>
+            	</c:forTokens>
+			</fmt:bundle>
             </span><br />
-            <span class="Loansearch14 Loansearch16">${prod.product.paidDays}天放款</span>
+            <span class="Loansearch14 Loansearch16">${pv.product.paidDays}天放款</span>
             </p>
             <a href="#"><img src="images/img21.jpg" width="94" height="29" id="pop_login" /></a>
         </div>
@@ -97,15 +97,15 @@ con.style.display=i==cursel?"block":"none";
   <div class="applicationleft6">
   	<div class="applicationleft7">
     	<h1>申请条件</h1>
-        <p>${prod.product.appReq}</p>
+        <p>${pv.product.appReq}</p>
     </div>
     <div class="applicationleft7">
     	<h1>所需材料</h1>
-        <p>${prod.product.appMaterial}</p>
+        <p>${pv.product.appMaterial}</p>
     </div>
     <div class="applicationleft7">
     	<h1>利率说明</h1>
-        <p>${prod.product.intrDesc}</p>
+        <p>${pv.product.intrDesc}</p>
     </div>
     <div class="applicationleft7 applicationleft8">
     	<h1>常见问题</h1>
