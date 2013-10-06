@@ -54,8 +54,14 @@
 								<li><a href="viewAnswer?id=${k1.id}" target="_blank">${k1.detail}</a></li>
 							</c:forEach>
 							</ul>
-							<!--<div class="Loansquiz6"><a href="#">更多抵押贷款问题>></a></div>-->
+							${nonMort.totalPages}
+     						<div class="me_next padd">
+	     			           <c:forEach var="i" begin="1" end="${nonMort.totalPages}" step="1">
+                        	       <a  href="ask?pageIndex1=${i}" <c:if test="${i == nonMort.pageIndex}">class="currentPager"</c:if> ><em>${i}</em></a>
+                                </c:forEach>
+			                 </div>
 						</div>
+
 						<div id="con_two_2" style="display: none">
 							<ul class="question_list Loansquiz5">
 							<c:forEach var="k2" items="${mortage.items}">
@@ -64,6 +70,11 @@
 							</ul>
 							<!--<div class="Loansquiz6"><a href="贷款问答2.html" target="_blank">更多抵押贷款问题>></a></div>-->
 						</div>
+						<div class="me_next padd">
+				           <c:forEach var="i" begin="1" end="${mortage.totalPages}" step="1">
+                    	       <a  href="ask?pageIndex2=${i}" <c:if test="${i == mortage.pageIndex}">class="currentPager"</c:if> ><em>${i}</em></a>
+                           </c:forEach>
+			            </div>
 					</div>
 				</div>
 			</div>
@@ -76,8 +87,16 @@
 			      <li><a href="viewAnswer?id=${hiQust.id}" target="_blank">${hiQust.detail}</a></li>
 			    </c:forEach>
 				</ul>
-				<!--<div class="Loansquiz6"><a href="#">更多问题>></a></div>-->
+     		   
+	    		<div class="me_next padd">
+	 			  <c:forEach var="i" begin="1" end="${hiQusts.totalPages}" step="1">
+                    	<a  href="ask?pageIndex3=${i}" <c:if test="${i == hiQusts.pageIndex}">class="currentPager"</c:if> ><em>${i}</em></a>
+                   </c:forEach>
+     			</div>
+     			
 			</div>
+			
+			
 		</div>
 	</div>
 	<%@include file="../../inc/globalFooterMenu.jsp"%>
