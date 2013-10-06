@@ -114,7 +114,7 @@ var reset = function(){
         <form action="scoreSave" target="_top" method="post">
             <input type="hidden" id="strCreditMin" name="strCreditMin"/>
             <input type="hidden" id="strCreditMax" name="strCreditMax"/>
-            <input type="hidden" id="strCreditType" name="strCreditType" value="person"/>
+            <input type="hidden" id="strCreditType" name="strCreditType" value="0"/>
             <input name="" type="submit" id="shenqingBtn" value="" style="background:url('images/img21.jpg')" class="score_btn1" />
         </form>
         <input name="" type="button" value="" class="score_btn2" onclick="reset()"/>

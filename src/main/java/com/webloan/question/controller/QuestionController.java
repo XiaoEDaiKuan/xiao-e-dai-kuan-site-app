@@ -9,18 +9,21 @@ import org.springframework.web.servlet.mvc.multiaction.MultiActionController;
 
 import com.webloan.common.Page;
 import com.webloan.credit.service.CreditService;
+import com.webloan.model.Cust;
 import com.webloan.model.Question;
 import com.webloan.model.RegionIP;
 import com.webloan.order.service.OrderService;
 import com.webloan.question.QuestionConstant;
 import com.webloan.question.service.QuestionService;
 import com.webloan.question.view.QuestionView;
+import com.webloan.user.service.UserService;
 
 public class QuestionController extends MultiActionController{
 
 	@Resource QuestionService questionService;
 	@Resource OrderService orderService;
 	@Resource CreditService creditService;	
+	@Resource UserService userService;	
 	
 	public ModelAndView questionListByUser(HttpServletRequest request, HttpServletResponse response) {
 		ModelAndView mav = new ModelAndView();
@@ -110,9 +113,13 @@ public class QuestionController extends MultiActionController{
 		if (null == custId) {
 			mav.setViewName("user/login");
 		}else{
-		//creditService.saveCredit(strCustId, strCreditType, strCustName, strCustTelephone, strCreditMin, strCreditMax);
-		
-		//保存成功，返回会员
+			Cust user = userService.findCustById(custId);
+			creditService.saveCredit(custId.toString(), 
+					request.getParameter("strCreditType"), 
+					user.getCustName(), 
+					user.getMobileNO(), 
+					request.getParameter("strCreditMin"), 
+					request.getParameter("strCreditMax"));
 			mav.setViewName("member/myCreditScore");
 		}
 		return mav;
