@@ -61,8 +61,12 @@ con.style.display=i==cursel?"block":"none";
 				</c:forEach>
 			</div>
 		</div>
+		<%if(request.getSession().getAttribute("custName") == null){ %>
+		<iframe width="690px" height="300px" style="border:none" src="answerPostForm"frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no" allowtransparency="yes">
+		</iframe>
+		<%} %>
 	</div>
-
+	
 
 	<%@include file="../../inc/globalFooterMenu.jsp"%>
 	<%@include file="../../inc/globalFooter.jsp"%>

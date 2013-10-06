@@ -86,6 +86,22 @@ public class QuestionController extends MultiActionController{
 		return mav;
 	}
 	
+	public ModelAndView postQuestionAnswerSave(HttpServletRequest request, HttpServletResponse response,
+			QuestionView qv) {
+		String ip = request.getRemoteAddr();
+		//questionService.(qv, ip);
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("saveOK", "true");
+		mav.setViewName("question/postQuestionForm");
+		return mav;
+	}
+	
+	public ModelAndView answerPostForm(HttpServletRequest request, HttpServletResponse response,
+			QuestionView qv) {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("question/answerPostForm");
+		return mav;
+	}	
 	/////////////////////////////////////////////////// 评分器的Controller
 	
 	public ModelAndView scoreChoose(HttpServletRequest request, HttpServletResponse response) {
