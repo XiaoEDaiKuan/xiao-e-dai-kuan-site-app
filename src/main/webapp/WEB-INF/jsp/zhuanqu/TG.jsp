@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns:wb="http://open.weibo.com/wb"  xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -66,44 +67,37 @@ function setTab(name,cursel,n){
   <div class="credit_title Fuzzysearch7 Loansearch2"> 
     <span class="credit_title1 Fuzzysearch8">根据您的需求，我们推荐以下贷款产品</span>
   </div>
+  
+  <c:forEach var="prod" items="${incrProds.items}">
   <div class="quickloan2 ClearFix">
-  	<div class="Loansearch19"><a href="#"><img src="images/img18.jpg" width="94" height="29" /></a></div>
-  	 <img src="images/img49.jpg" width="119" height="99" />
+  	<div class="Loansearch19"><a href="viewProduct?productId=${prod.product.id}"><img src="images/img18.jpg" width="94" height="29" /></a></div>
+  	 <img src="images/img50.jpg" width="119" height="99" />
      <div class="Loansearch12 quickloan3">
     	<div class="Loansearch13 quickloan4">
-        	<h1>宜信 - 宜车贷</h1>
-            <p><strong>额度：</strong><span>1万--200万</span> 2天放款<br /><strong>费用：</strong>月利率0%+月管理费2.38%+一次性收费2%<br /><em><strong>说明：</strong>押车，不押车均可</em></p>
+        	<h1>${prod.product.issueOrgan} - ${prod.product.name}</h1>
+            <p>
+            	<strong>额度：</strong>
+            	<span>
+            		<fmt:formatNumber pattern="#0.#" value="${prod.minLoanAmt div 10000}" /> 万 -
+            		<fmt:formatNumber pattern="#0.#" value="${prod.maxLoanAmt div 10000}"/> 万
+            	</span> ${prod.product.paidDays} 天放款 <br />
+            	<strong>费用：</strong> ${prod.product.intrDesc} <br />
+            	<strong>说明：</strong>
+            	<em>
+            	<fmt:bundle basename="dict/dict-mapping" prefix="PRD_GRNT_TYPE.">
+           			<fmt:message key="${prod.product.guarantyType}" />
+				</fmt:bundle>
+				</em>
+            </p>
         </div>
     	<img src="images/img13.jpg" width="42" height="42" />
     </div>
   </div>
-  <div class="quickloan2 ClearFix">
-  	<div class="Loansearch19"><a href="#"><img src="images/img18.jpg" width="94" height="29" /></a></div>
-  	 <img src="images/img49.jpg" width="119" height="99" />
-     <div class="Loansearch12 quickloan3">
-    	<div class="Loansearch13 quickloan4">
-        	<h1>宜信 - 宜车贷</h1>
-            <p><strong>额度：</strong><span>1万--200万</span> 2天放款<br /><strong>费用：</strong>月利率0%+月管理费2.38%+一次性收费2%<br /><em><strong>说明：</strong>押车，不押车均可</em></p>
-        </div>
-    	<img src="images/img13.jpg" width="42" height="42" />
-    </div>
-  </div>
-  <div class="quickloan2 Fuzzysearch6 ClearFix">
-  	<div class="Loansearch19"><a href="#"><img src="images/img18.jpg" width="94" height="29" /></a></div>
-  	 <img src="images/img49.jpg" width="119" height="99" />
-     <div class="Loansearch12 quickloan3">
-    	<div class="Loansearch13 quickloan4">
-        	<h1>宜信 - 宜车贷</h1>
-            <p><strong>额度：</strong><span>1万--200万</span> 2天放款<br /><strong>费用：</strong>月利率0%+月管理费2.38%+一次性收费2%<br /><em><strong>说明：</strong>押车，不押车均可</em></p>
-        </div>
-    	<img src="images/img13.jpg" width="42" height="42" />
-    </div>
-  </div>
+  </c:forEach>
+  
 </div>
             </div>
-            
         </div>
-
     </div>
 </div>
 

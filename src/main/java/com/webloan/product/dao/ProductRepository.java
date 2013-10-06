@@ -10,7 +10,11 @@ public interface ProductRepository extends BaseJpaRepository {
 	
 	Page pagingProductByRecommend(int pageIndex, int pageSize, String recommendType);
 	
+	Page pagingAttachByRecommend(int pageIndex, int pageSize, String recommendType);
+	
 	Page pagingProductByRegion(int pageIndex, int pageSize, Long regionId);
+	
+	Page pagingProductByPaidDays(int pageIndex, int pageSize, List<Integer> paidDays);
 	
 	List<Product> queryProducts(Long regionId, String identity, String groupBuying);
 }

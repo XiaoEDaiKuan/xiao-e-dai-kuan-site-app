@@ -353,38 +353,16 @@
   <div class="credit_title"> 
     <span class="credit_title1 font_f">热门贷款推荐</span>
   </div>
-  <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table">
-        <tr>
-          <td width="8%"><img src="images/credit01.jpg" width="40" height="21" /></td>
-          <td width="20%">平安银行-新一贷</td>
-          <td width="65%">有1年以上房贷记录即可申请，条件宽松，当天放款</td>
-          <td width="7%"><a href="产品申请.html" target="_blank">查看</a></td>
-        </tr>
-        <tr>
-          <td><img src="images/credit02.jpg" width="39" height="22" /></td>
-          <td>平安金融-薪金贷</td>
-          <td>有1年以上房贷记录即可申请，条件宽松，当天放款</td>
-          <td><a href="产品申请.html" target="_blank">查看</a></td>
-        </tr>
-        <tr>
-          <td><img src="images/credit03.jpg" width="25" height="24" /></td>
-          <td>平安金融-薪金贷</td>
-          <td>有1年以上房贷记录即可申请，条件宽松，当天放款</td>
-          <td><a href="产品申请.html" target="_blank">查看</a></td>
-        </tr>
-        <tr>
-          <td><img src="images/credit04.jpg" width="18" height="22" /></td>
-          <td>平安金融-薪金贷</td>
-          <td>有1年以上房贷记录即可申请，条件宽松，当天放款</td>
-          <td><a href="产品申请.html" target="_blank">查看</a></td>
-        </tr>
-        <tr>
-          <td><img src="images/credit05.jpg" width="25" height="12" /></td>
-          <td>平安金融-薪金贷</td>
-          <td>有1年以上房贷记录即可申请，条件宽松，当天放款</td>
-          <td><a href="产品申请.html" target="_blank">查看</a></td>
-        </tr>
-      </table>
+	<table width="100%" border="0" cellspacing="0" cellpadding="0" class="table">
+		<c:forEach var="hrp" items="${hotRcdProds}">
+		<tr>
+			<td width="8%"><img src="images/${hrp.icon}" width="40" height="21" /></td>
+			<td width="20%">${hrp.name}</td>
+			<td width="65%">${hrp.desc}</td>
+			<td width="7%"><a href="viewProduct?productId=${hrp.id}" target="_blank">查看</a></td>
+		</tr>
+		</c:forEach>
+	</table>
 </div>
     </div>
 </div>

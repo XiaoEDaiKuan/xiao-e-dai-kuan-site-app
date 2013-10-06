@@ -89,10 +89,10 @@
 				<prop key="requestProductCheck">productController</prop>
 				<prop key="inputOrderInfoForm">productController</prop>
 				<prop key="saveOrderInfo">orderController</prop>
-				<prop key="TG">productController</prop>
-				<prop key="KS">productController</prop>
-				<prop key="POS">productController</prop>
-				<prop key="XX">productController</prop>
+				<prop key="incramt">productController</prop>
+				<prop key="quickloan">productController</prop>
+				<prop key="posloan">productController</prop>
+				<prop key="xxloan">productController</prop>
 				
 				<prop key="ask">questionController</prop>
 				<prop key="viewAnswer">questionController</prop>
@@ -104,11 +104,7 @@
 				<prop key="scoreCompany">questionController</prop>
 				<prop key="scoreSave">questionController</prop>
 				
-				
 				<prop key="gonglue">gonelueController</prop>
-				<prop key="kuaisu">gonelueController</prop>
-				<prop key="tigao">gonelueController</prop>
-				<prop key="pos">gonelueController</prop>
 			</props>
 		</property>
 	</bean>

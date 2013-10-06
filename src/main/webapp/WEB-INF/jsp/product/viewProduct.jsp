@@ -130,10 +130,19 @@ con.style.display=i==cursel?"block":"none";
             
         </div>
 <div class="main3 ground  Fuzzysearch6">
-  <div class="credit_title"> 
-    <span class="credit_title1 font_f">热门贷款推荐</span>
-  </div>
-  <%@include file="../../inc/productInRow.jsp" %>
+	<div class="credit_title"> 
+		<span class="credit_title1 font_f">热门贷款推荐</span>
+	</div>
+	<table width="100%" border="0" cellspacing="0" cellpadding="0" class="table">
+		<c:forEach var="hrp" items="${hotRcdProds}">
+		<tr>
+			<td width="8%"><img src="images/${hrp.icon}" width="40" height="21" /></td>
+			<td width="20%">${hrp.name}</td>
+			<td width="65%">${hrp.desc}</td>
+			<td width="7%"><a href="viewProduct?productId=${hrp.id}" target="_blank">查看</a></td>
+		</tr>
+		</c:forEach>
+	</table>
 </div>
     </div>
 </div>
