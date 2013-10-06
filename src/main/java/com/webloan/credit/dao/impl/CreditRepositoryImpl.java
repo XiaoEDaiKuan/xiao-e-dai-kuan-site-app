@@ -8,6 +8,7 @@ import com.webloan.common.Page;
 import com.webloan.credit.dao.CreditRepository;
 import com.webloan.model.Credit;
 import com.webloan.model.Cust;
+import com.webloan.util.DateUtils;
 
 public class CreditRepositoryImpl extends BaseJpaRepositoryImpl implements CreditRepository {
 
@@ -36,6 +37,8 @@ public class CreditRepositoryImpl extends BaseJpaRepositoryImpl implements Credi
          credit.setCustTelephone(custTelephone);
          credit.setCreditMin(creditMin);
          credit.setCreditMax(creditMax);
+         credit.setStatus("0");
+         credit.setCalTime(DateUtils.getTimeStamp());
          this.save(credit);  
 	}
 
