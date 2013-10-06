@@ -27,7 +27,6 @@
 						<th>时间</th>
 						<th>操作</th>
 					</tr>
-
 			  <c:forEach var="credit" items="${creditPage.items}" >
 					<tr>
 						<td>${credit.id}</td>
