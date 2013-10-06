@@ -115,6 +115,7 @@ public class QuestionRepositoryImpl extends BaseJpaRepositoryImpl implements
 		q.setRegion(r);
 		q.setEmail(email);
 		q.setTelephone(telephone);
+		q.setType("1");
 		this.save(q);
 	}
 

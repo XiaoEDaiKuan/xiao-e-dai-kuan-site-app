@@ -11,12 +11,12 @@
 		</layout>
 	</appender>
 
-	<logger name="com.webloan" level="debug" additivity="false">
+	<logger name="com.webloan" level="error" additivity="false">
 	 	<appender-ref ref="ROOT_CONSOLE"/>
 	</logger>
 	
 	
-	<root level="debug">
+	<root level="error">
 		<appender-ref ref="ROOT_CONSOLE"/>
 	</root>
 </configuration>
