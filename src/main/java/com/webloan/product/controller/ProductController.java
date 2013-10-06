@@ -74,15 +74,6 @@ public class ProductController extends MultiActionController {
 			HttpServletResponse response, ProductQuery pq) {
 		
 		ModelAndView mav = new ModelAndView();
-		
-		// 从session中获取ciustId
-		Long custId = (Long) request.getSession().getAttribute("custId");
-
-		if (null == custId) {
-			log.error(UserConstant.EXCEPTION_ACCT_NOT_EXISIT);
-			mav.setViewName("user/login");
-			return mav;
-		}
 
 		Long productId = pq.getProductId();
 		Asserts.notNull(productId);
