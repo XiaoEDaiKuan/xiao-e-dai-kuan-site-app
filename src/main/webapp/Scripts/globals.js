@@ -19,7 +19,7 @@ $(document).ready(function(){
 						                          + $(this).attr("data"),"580","215","true","","false","text","");
 	});
 	$("#pop_city").click(function(){
-		tipsWindown("您可以选择以下地区：","iframe:iframe:pop_city.html","500","200","true","","false","text","");
+		tipsWindown("您可以选择以下地区：","iframe:iframe:pop_city.jsp","500","200","true","","false","text","");
 	});
 	$("#pop_question").click(function(){
 		tipsWindown("我要提问：", "iframe:iframe:postQuestionForm",
