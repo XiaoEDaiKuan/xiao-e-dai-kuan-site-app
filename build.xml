@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="webloan" basedir="." default="package-war">
+
+	<property name="filename" value="webloan" />
+	<property name="name" value="webloan" />
+	
+	<property name="src.dir" value="src/main/java" />
+	<property name="resources.dir" value="src/main/resources" />
+	<property name="webapp.dir" value="src/main/webapp" />
+	<property name="classes.dir" value="${webapp.dir}/WEB-INF/classes" />
+	<property name="lib.dir" value="${webapp.dir}/WEB-INF/lib" />
+	
+	<property name="build.dir" value="build" />
+	<property name="dist.dir" value="dist" />
+	<property name="webapp.target" value="${build.dir}/${name}" />
+	<property name="target.WEB-INF" value="${webapp.target}/WEB-INF" />
+	<property name="target.classes" value="${target.WEB-INF}/classes" />
+	<property name="target.lib" value="${target.WEB-INF}/lib" />
+
+	<delete dir="${build.dir}" />
+	<delete dir="${dist.dir}" />
+	
+	<mkdir dir="${build.dir}" />
+	<mkdir dir="${dist.dir}" />
+	
+	<!-- DEFINE PROJECT CLASSPATH -->
+	<path id="project.path">
+		<fileset dir="${lib.dir}">
+			<include name="**/*.jar" />
+		</fileset>
+		<pathelement location="${classes.dir}" />
+	</path>
+	
+	<!-- COPY web content base -->
+	<echo message="copy project base file start..."/>
+	<copy todir="${webapp.target}" overwrite="true" includeemptydirs="false">
+		<fileset dir="${webapp.dir}" excludes=".gitignore">
+			<include name="css**/*" />
+			<include name="images/**/*" />
+			<include name="Scripts/**/*" />
+			<include name="WEB-INF/**/*" />
+			<include name="*.*"/>
+		</fileset>
+	</copy>
+	
+	<!-- COPY resources -->
+	<echo message="copy project resources start..." />
+	<copy todir="${target.classes}" overwrite="true" includeemptydirs="false">
+		<fileset dir="${resources.dir}" includes="**/*" />
+	</copy>
+	<echo message="copy project resources end..." />
+	
+	<!-- COPY jar -->
+	<echo message="copy jar start..." />
+	<copy todir="${target.lib}">
+		<fileset dir="${lib.dir}" includes="*.jar" />
+	</copy>
+	<echo message="copy jar end..." />
+		
+	<!-- COPY classes -->
+	<echo message="copy classes start..." />
+	<copy todir="${target.classes}" overwrite="true" includeemptydirs="false">
+		<fileset dir="${classes.dir}">
+			<include name="**/*" />
+		</fileset>
+	</copy>
+	<echo message="copy classes end..." />
+
+	<!-- MAKE WAR -->
+	<target name="package-war" description="Build the web application archive">
+		<echo message="package start..." />
+		<war warfile="${dist.dir}/${filename}.war" basedir="${webapp.target}">
+			<include name="**/*" />
+		</war>
+		<echo message="package end..." />
+		
+		<!-- DELETE TEMP FILES -->
+		<delete dir="${build.dir}" />
+	</target>
+	
+	<echo message="compile complete!" />
+	
+</project>
+
