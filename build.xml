@@ -31,7 +31,7 @@
 		<pathelement location="${classes.dir}" />
 	</path>
 	
-	<!-- 复制 web工程基础内容 -->
+	<!-- COPY web content base -->
 	<echo message="copy project base file start..."/>
 	<copy todir="${webapp.target}" overwrite="true" includeemptydirs="false">
 		<fileset dir="${webapp.dir}" excludes=".gitignore">
@@ -43,22 +43,22 @@
 		</fileset>
 	</copy>
 	
-	<!-- 复制 resources -->
+	<!-- COPY resources -->
 	<echo message="copy project resources start..." />
 	<copy todir="${target.classes}" overwrite="true" includeemptydirs="false">
 		<fileset dir="${resources.dir}" includes="**/*" />
 	</copy>
 	<echo message="copy project resources end..." />
 	
-	<!-- 复制 jar -->
+	<!-- COPY jar -->
 	<echo message="copy jar start..." />
 	<copy todir="${target.lib}">
 		<fileset dir="${lib.dir}" includes="*.jar" />
 	</copy>
 	<echo message="copy jar end..." />
 		
-	<!-- 复制 classes -->
-	<echo message="copy classes start..."/>
+	<!-- COPY classes -->
+	<echo message="copy classes start..." />
 	<copy todir="${target.classes}" overwrite="true" includeemptydirs="false">
 		<fileset dir="${classes.dir}">
 			<include name="**/*" />
@@ -66,7 +66,7 @@
 	</copy>
 	<echo message="copy classes end..." />
 
-	<!-- 打包 -->
+	<!-- MAKE WAR -->
 	<target name="package-war" description="Build the web application archive">
 		<echo message="package start..." />
 		<war warfile="${dist.dir}/${filename}.war" basedir="${webapp.target}">
@@ -74,7 +74,7 @@
 		</war>
 		<echo message="package end..." />
 		
-		<!-- 删除临时文件 -->
+		<!-- DELETE TEMP FILES -->
 		<delete dir="${build.dir}" />
 	</target>
 	
