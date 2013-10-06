@@ -9,7 +9,7 @@ $(document).ready(
 			$("#pop_question").click(
 					function() {
 						tipsWindown("我要提问：", "iframe:iframe:postQuestionForm",
-								"550", "465", "true", "", "false", "text", "");
+								"550", "465", "true", "", "false", "text", function(){location.reload();});
 					});
 
 		});
