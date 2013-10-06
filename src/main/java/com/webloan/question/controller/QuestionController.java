@@ -36,6 +36,7 @@ public class QuestionController extends MultiActionController {
 	@Resource
 	ImageCaptchaService captchaService;
 
+
 	protected transient Logger log = LoggerFactory.getLogger(this.getClass());
 
 	public ModelAndView questionListByUser(HttpServletRequest request,
