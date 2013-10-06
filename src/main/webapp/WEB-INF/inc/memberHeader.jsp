@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <div class="top">
 	<div class="logo">
-		<a href="index.html"></a>
+		<a href=""></a>
 	</div>
 	<div class="registered font_f">会员中心</div>
 </div>
