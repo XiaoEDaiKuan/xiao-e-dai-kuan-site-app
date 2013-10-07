@@ -18,6 +18,8 @@ public class ProductQuery {
 	
 	private Long regionId;
 	
+	private Integer paidDay;
+	
 	private String orderRate;
 	private String orderMonthly;
 	
@@ -95,6 +97,12 @@ public class ProductQuery {
 	}
 	public void setRegionId(Long regionId) {
 		this.regionId = regionId;
+	}
+	public Integer getPaidDay() {
+		return paidDay;
+	}
+	public void setPaidDay(Integer paidDay) {
+		this.paidDay = paidDay;
 	}
 	public String getOrderRate() {
 		return orderRate;

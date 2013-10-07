@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!--================== 自动弹出框 城市切换 开始 ==================-->
 <div id="brg"></div>
 <div id="showdiv">
@@ -37,28 +37,32 @@
 		<font>北京</font><a href="#" id="pop_city">[切换城市]</a>
 	</div>
 	<div class="top_right">
-		<div class="top_right1"><%=request.getSession().getAttribute("custName") == null ? "":request.getSession().getAttribute("custName") + ", 欢迎您！<font>|</font>"%>
-			<%if(request.getSession().getAttribute("custName") == null){ %><a
-				href="reg">注册</a><font>|</font><a href="loginView">登录</a><font>|<%} %></font><a
-				href="myDaikuan">我的会员中心</a><font>|</font><a>信贷经理登录</a><font>|</font>
-				<a>信贷经理入驻</a>
+		<div class="top_right1">
+			<c:if test="${not empty sessionScope.custName}">${sessionScope.custName}, </c:if>欢迎您！<font>|</font>
+			<c:if test="${empty sessionScope.custName}">
+				<a href="reg">注册</a><font>|</font><a href="loginView">登录</a><font>|</font>
+			</c:if>
+			<a href="myDaikuan">我的会员中心</a><font>|</font>
+			<a>信贷经理登录</a><font>|</font>
+			<a>信贷经理入驻</a>
 		</div>
 
 		<div class="underPmenu font_f" id="w_nav">
 			<ul>
-				<li <%if(request.getParameter("index") == null || request.getParameter("index").equals("1")){%>class="hover"<%}%>><a href="index.html">首页</a></li>
-				<li <%if(request.getParameter("index") != null && request.getParameter("index").equals("2")){%>class="hover"<%}%>><a href="queryProduct" target="_blank">贷款搜索</a>
+				<li <c:if test="${param.index eq '1'}">class="hover"</c:if>><a href="index.html">首页</a></li>
+				<li <c:if test="${param.index eq '2'}">class="hover"</c:if>><a href="queryProduct" target="_blank">贷款搜索</a>
 					<ul>
 						<li class="subline"></li>
 						<li><a href="queryProduct?loanUse=2" class="w_a1" target="_blank">消费贷款</a></li>
 						<li><a href="queryProduct?loanUse=1" class="w_a1" target="_blank">经营贷款</a></li>
 						<li><a href="queryProduct?loanUse=4" class="w_a1" target="_blank">购车贷款</a></li>
 						<li><a href="queryProduct?loanUse=3" class="w_a1" target="_blank">购房贷款</a></li>
-					</ul></li>
-				<li  <%if(request.getParameter("index") != null && request.getParameter("index").equals("3")){%>class="hover"<%}%>><a href="scoreChoose" target="_blank">信用评分</a></li>
-				<li  <%if(request.getParameter("index") != null && request.getParameter("index").equals("4")){%>class="hover"<%}%>><a target="_blank">金融团</a> <i></i></li>
-				<li  <%if(request.getParameter("index") != null && request.getParameter("index").equals("5")){%>class="hover"<%}%>><a href="gonglue" target="_blank">贷款攻略</a></li>
-				<li class="border-bt <%if(request.getParameter("index") != null && request.getParameter("index").equals("6")){%> hover<%}%>"><a href="ask" target="_blank">贷款问答</a></li>
+					</ul>
+				</li>
+				<li <c:if test="${param.index eq '3'}">class="hover"</c:if>><a href="scoreChoose" target="_blank">信用评分</a></li>
+				<li <c:if test="${param.index eq '4'}">class="hover"</c:if>><a target="_blank">金融团</a> <i></i></li>
+				<li <c:if test="${param.index eq '5'}">class="hover"</c:if>><a href="gonglue" target="_blank">贷款攻略</a></li>
+				<li <c:if test="${param.index eq '6'}">class="hover"</c:if>><a href="ask" target="_blank">贷款问答</a></li>
 			</ul>
 		</div>
 	</div>

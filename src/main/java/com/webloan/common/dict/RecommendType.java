@@ -9,6 +9,7 @@ public class RecommendType {
 	public static final String NEW = "4";
 	public static final String POS = "5";
 	public static final String RECOMMEND = "6";
+	public static final String INCR_AMT = "7";
 	
 //	0-	二次抵押产品推荐;
 //	1-	补充贷款产品推荐;
@@ -17,5 +18,6 @@ public class RecommendType {
 //	4-	新产品
 //	5-	POS贷款
 //	6-	XX贷款	
+//	7-	提高额度	
 	
 }

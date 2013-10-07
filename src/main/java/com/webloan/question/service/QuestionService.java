@@ -25,7 +25,7 @@ public interface QuestionService {
 	//根据问题id查询
 	Question qryQuestionById(Long id);
 	//保存问题
-	void saveQuestion(String subject,String detail,String regionId,String email,String telephone);
+	void saveQuestion(Long custId,String subject,String detail,String regionId,String email,String telephone);
 	//根据IP查询所属城市
 	RegionIP qryCityByIP(String ip);
 	//查询大区所拥有的城市
@@ -33,7 +33,7 @@ public interface QuestionService {
 	//大家都在问列表
 	List<Question> qryHighQuest();
 	
-	void saveQuestion(QuestionView qv, String ipAddr);
+	void saveQuestion(Long custId,QuestionView qv, String ipAddr);
 	
 	Page pagingQuestions(int pageIndex, int pageSize, String type);
 	

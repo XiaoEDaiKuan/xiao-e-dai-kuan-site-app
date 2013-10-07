@@ -30,6 +30,24 @@ public class ProductRepositoryImpl extends BaseJpaRepositoryImpl implements
 		return queryPageResult(pageIndex, pageSize, pageJpql, countJpql, params);
 	}
 	
+	public Page pagingAttachByRecommend(int pageIndex, int pageSize,
+			String recommendType) {
+		StringBuilder jpql = new StringBuilder(" from ProductAttach a, ProductRecommend pr ")
+				.append(" where a.product.id=pr.product.id ");
+		
+		Map<String, Object> params = new HashMap<String, Object>();
+		
+		if (recommendType != null && !"".equals(recommendType)) {
+			jpql.append(" and pr.type=:recommendType ");
+			params.put("recommendType", recommendType);
+		}
+		
+		String pageJpql = "select distinct a " + jpql;
+		String countJpql = "select count(distinct a)" + jpql;
+		
+		return queryPageResult(pageIndex, pageSize, pageJpql, countJpql, params);
+	}
+	
 	public Page pagingProductByRegion(int pageIndex, int pageSize, Long regionId) {
 		StringBuilder jpql = new StringBuilder(" from ProductAttach a, Order o ")
 				.append(" where a.product.id=o.product.id ");
@@ -68,5 +86,19 @@ public class ProductRepositoryImpl extends BaseJpaRepositoryImpl implements
 		
 		return queryListResult(Product.class, jpql.toString(), params);
 	}
+	
+	public Page pagingProductByPaidDays(int pageIndex, int pageSize, List<Integer> paidDays) {
+		StringBuilder jpql = new StringBuilder(" from ProductAttach a where 1=1 ");
+		Map<String, Object> params = new HashMap<String, Object>();
 
+		if (paidDays != null && !paidDays.isEmpty()) {
+			jpql.append(" and a.product.paidDays in (:paidDays) ");
+			params.put("paidDays", paidDays);
+		}
+
+		String pageJpql = "select a " + jpql;
+		String countJpql = "select count(*) " + jpql;
+
+		return queryPageResult(pageIndex, pageSize, pageJpql, countJpql, params);
+	}
 }

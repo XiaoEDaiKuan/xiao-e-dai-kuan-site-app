@@ -15,22 +15,4 @@ public class GonelueController extends MultiActionController{
 		mav.setViewName("zhuanqu/gonglue");
 		return mav;
 	}
-
-	public ModelAndView kuaisu(HttpServletRequest request, HttpServletResponse response) {
-		ModelAndView mav = new ModelAndView();
-		mav.setViewName("zhuanqu/KS");
-		return mav;
-	}
-	
-	public ModelAndView tigao(HttpServletRequest request, HttpServletResponse response) {
-		ModelAndView mav = new ModelAndView();
-		mav.setViewName("zhuanqu/TG");
-		return mav;
-	}
-	
-	public ModelAndView pos(HttpServletRequest request, HttpServletResponse response) {
-		ModelAndView mav = new ModelAndView();
-		mav.setViewName("zhuanqu/POS");
-		return mav;
-	}
 }

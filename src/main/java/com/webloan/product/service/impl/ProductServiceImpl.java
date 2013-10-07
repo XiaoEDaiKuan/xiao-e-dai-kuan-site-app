@@ -2,6 +2,7 @@ package com.webloan.product.service.impl;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import com.webloan.product.dao.ProductRepository;
@@ -39,9 +40,23 @@ public class ProductServiceImpl implements ProductService {
 	public Page pagingProductRecommend(int pageIndex, int pageSize, String recommendType) {
 		return productRepository.pagingProductByRecommend(pageIndex, pageSize, recommendType);
 	}
+
+	public Page pagingAttachByRecType(int pageIndex, int pageSize, String recommendType) {
+		return productRepository.pagingAttachByRecommend(pageIndex, pageSize, recommendType);
+	}
 	
 	public Page pagingPurchasedProducts(int pageIndex, int pageSize, Long regionId) {
 		return productRepository.pagingProductByRegion(pageIndex, pageSize, regionId);
+	}
+	
+	public Page pagingQuickLoanProducts(int pageIndex, int pageSize, Integer paidDay) {
+		List<Integer> paidDays = new ArrayList<Integer>();
+		if (paidDay == null) {
+			paidDays.addAll(Arrays.asList(1, 3, 5));
+		} else {
+			paidDays.add(paidDay);
+		}
+		return productRepository.pagingProductByPaidDays(pageIndex, pageSize, paidDays);
 	}
 	
 	public List<Product> queryGroupBuyingProducts(Long regionId, String identity) {

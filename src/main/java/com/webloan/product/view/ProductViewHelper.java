@@ -108,8 +108,7 @@ public class ProductViewHelper {
 		if (formula == null || "".equals(formula)) {
 			return null;
 		}
-		System.out.println(formula);
-		System.out.println(vars);
+		
 		formula = formula.replace("^", "**");
 		BigDecimal ret = null;
 		

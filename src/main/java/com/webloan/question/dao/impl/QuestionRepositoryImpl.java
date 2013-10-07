@@ -14,6 +14,7 @@ import com.webloan.common.Page;
 import com.webloan.common.Queriable;
 import com.webloan.exception.BizException;
 import com.webloan.model.Answer;
+import com.webloan.model.Cust;
 import com.webloan.model.QstPrd;
 import com.webloan.model.Question;
 import com.webloan.model.Region;
@@ -106,7 +107,7 @@ public class QuestionRepositoryImpl extends BaseJpaRepositoryImpl implements
 	 * 保存问题
 	 */
 	@Override
-	public void saveQuestion(String subject, String detail, Long regionId,
+	public void saveQuestion(Long custId,String subject, String detail, Long regionId,
 			String email, String telephone) {
 		Question q = new Question();
 		q.setDetail(detail);
@@ -115,7 +116,13 @@ public class QuestionRepositoryImpl extends BaseJpaRepositoryImpl implements
 		q.setRegion(r);
 		q.setEmail(email);
 		q.setTelephone(telephone);
-		q.setType("1");
+		q.setType(QuestionConstant.TYPE_HIGH);
+		q.setKindTwo(QuestionConstant.NONMORTAGE);
+		if(null != custId){
+			Cust cust=this.load(Cust.class, custId);
+			q.setCust(cust);
+		}
+		
 		this.save(q);
 	}
 

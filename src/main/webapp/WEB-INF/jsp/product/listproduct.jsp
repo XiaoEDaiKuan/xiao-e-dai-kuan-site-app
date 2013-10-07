@@ -228,7 +228,7 @@
 </div>
 <div class="main3 ground  Fuzzysearch6 Loansearch2 Loansearch3">
   <div class="credit_title Fuzzysearch7 Loansearch2"> 
-    <span class="credit_title1 Fuzzysearch8">为您找到<em>${products.totalRecords}</em>款贷款产品，请根据你的条件进行筛选</span>
+    <span class="credit_title1 Fuzzysearch8">为您找到<em>${pvs.totalRecords}</em>款贷款产品，请根据你的条件进行筛选</span>
   </div>
   <div class="Fuzzysearch3">
   	<div class="Fuzzysearch4 Loansearch4 ClearFix">
@@ -293,22 +293,22 @@
      </div>
   </div>
   
-  <c:forEach var="prod" items="${products.items}">
+  <c:forEach var="pv" items="${pvs.items}">
   <div class="Loansearch11 ClearFix">
-  	<div class="Loansearch19"><a style="cursor: pointer; cursor:hand" onclick="javascript:document.location.href=document.location.href.replace('queryProduct','productView') + '?&productId=${prod.product.id}'" target="_blank"><img src="images/img18.jpg" width="94" height="29" /></a></div>
+  	<div class="Loansearch19"><a style="cursor: pointer; cursor:hand" onclick="javascript:document.location.href=document.location.href.replace('queryProduct','productView') + '?&productId=${pv.product.id}'" target="_blank"><img src="images/img18.jpg" width="94" height="29" /></a></div>
   	<div class="Loansearch12">
     	<div class="Loansearch13">
-        	<h1>${prod.product.issueOrgan}</h1>
+        	<h1>${pv.product.issueOrgan}</h1>
             <p>
             	<span class="Loansearch14">
             	<fmt:bundle basename="dict/dict-mapping" prefix="PRD_GRNT_TYPE.">
-            		<fmt:message key="${prod.product.guarantyType}" />
+            		<fmt:message key="${pv.product.guarantyType}" />
 				</fmt:bundle>
             	</span><br />
             	<span class="Loansearch14 Loansearch15">
             	<fmt:bundle basename="dict/dict-mapping" prefix="PRD_IDENTITY.">
 	            	<c:set var="hasIden" value="0" />
-	            	<c:forTokens var="iden" items="${prod.identity}" delims="|">
+	            	<c:forTokens var="iden" items="${pv.attach.identity}" delims="|">
 	            		<c:if test="${not empty iden}">
 	            			<c:if test="${hasIden == '1'}">,</c:if>
 	            			<fmt:message key="${iden}" />
@@ -317,74 +317,52 @@
 	            	</c:forTokens>
 				</fmt:bundle>
             	</span><br />
-            	<span class="Loansearch14 Loansearch16">${prod.product.paidDays}天放款</span>
+            	<span class="Loansearch14 Loansearch16">${pv.product.paidDays}天放款</span>
             </p>
         </div>
     	<img src="images/img13.jpg" width="42" height="42" />
     </div>
     <div class="Loansearch12 Loansearch17">
     	<div class="Loansearch18">
-            <p>${prod.product.desc}</p>
+            <p>${pv.product.desc}</p>
         </div>
     </div>
     <div class="Loansearch12 Loansearch17">
     	<div class="Loansearch18">
             <p>
-            	利率：<fmt:formatNumber type="percent" pattern="0.00%" value="${prod.product.intrRate}" /><br />
-            	总利息：${prod.product.intrFormula}<span>万元</span><br />
+            	利率: <fmt:formatNumber type="percent" pattern="0.00%" value="${pv.product.intrRate}" /><br />
+            	总利息: <fmt:formatNumber pattern="#,##0.00" value="${pv.interest}" /><span> 万元</span><br />
             </p>
         </div>
     </div>
     <div class="Loansearch12 Loansearch17">
     	<div class="Loansearch18">
-            <p><br />有<span>88</span>人申请<br /></p>
+            <p><br />有<span>${pv.numOrders}</span>人申请<br /></p>
         </div>
     </div>
   </div>
   </c:forEach>
   
   <div class="me_next">
-  <c:forEach var="i" begin="1" end="${products.totalPages}" step="1">
-	<a onclick="pager(this)" data="pageIndex" value="${i}" <c:if test="${i == products.pageIndex}">class="currentPager"</c:if>><em>${i}</em></a>
+  <c:forEach var="i" begin="1" end="${pvs.totalPages}" step="1">
+	<a onclick="pager(this)" data="pageIndex" value="${i}" <c:if test="${i == pvs.pageIndex}">class="currentPager"</c:if>><em>${i}</em></a>
   </c:forEach>
-  <span>共<font>${products.totalRecords}</font>个结果</span></div>
+  <span>共<font>${pvs.totalRecords}</font>个结果</span></div>
   </div>
 <div class="main3 ground  Fuzzysearch6">
   <div class="credit_title"> 
     <span class="credit_title1 font_f">热门贷款推荐</span>
   </div>
-  <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table">
-        <tr>
-          <td width="8%"><img src="images/credit01.jpg" width="40" height="21" /></td>
-          <td width="20%">平安银行-新一贷</td>
-          <td width="65%">有1年以上房贷记录即可申请，条件宽松，当天放款</td>
-          <td width="7%"><a href="产品申请.html" target="_blank">查看</a></td>
-        </tr>
-        <tr>
-          <td><img src="images/credit02.jpg" width="39" height="22" /></td>
-          <td>平安金融-薪金贷</td>
-          <td>有1年以上房贷记录即可申请，条件宽松，当天放款</td>
-          <td><a href="产品申请.html" target="_blank">查看</a></td>
-        </tr>
-        <tr>
-          <td><img src="images/credit03.jpg" width="25" height="24" /></td>
-          <td>平安金融-薪金贷</td>
-          <td>有1年以上房贷记录即可申请，条件宽松，当天放款</td>
-          <td><a href="产品申请.html" target="_blank">查看</a></td>
-        </tr>
-        <tr>
-          <td><img src="images/credit04.jpg" width="18" height="22" /></td>
-          <td>平安金融-薪金贷</td>
-          <td>有1年以上房贷记录即可申请，条件宽松，当天放款</td>
-          <td><a href="产品申请.html" target="_blank">查看</a></td>
-        </tr>
-        <tr>
-          <td><img src="images/credit05.jpg" width="25" height="12" /></td>
-          <td>平安金融-薪金贷</td>
-          <td>有1年以上房贷记录即可申请，条件宽松，当天放款</td>
-          <td><a href="产品申请.html" target="_blank">查看</a></td>
-        </tr>
-      </table>
+	<table width="100%" border="0" cellspacing="0" cellpadding="0" class="table">
+		<c:forEach var="hrp" items="${hotRcdProds}">
+		<tr>
+			<td width="8%"><img src="images/${hrp.icon}" width="40" height="21" /></td>
+			<td width="20%">${hrp.name}</td>
+			<td width="65%">${hrp.desc}</td>
+			<td width="7%"><a href="viewProduct?productId=${hrp.id}" target="_blank">查看</a></td>
+		</tr>
+		</c:forEach>
+	</table>
 </div>
     </div>
 </div>

@@ -6,11 +6,14 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.multiaction.MultiActionController;
 
 import com.webloan.common.Asserts;
 import com.webloan.common.Page;
+import com.webloan.common.dict.RecommendType;
 import com.webloan.model.Product;
 import com.webloan.model.ProductAttach;
 import com.webloan.model.Question;
@@ -20,6 +23,7 @@ import com.webloan.product.service.ProductService;
 import com.webloan.product.view.ProductQuery;
 import com.webloan.product.view.ProductViewHelper;
 import com.webloan.region.service.RegionService;
+import com.webloan.user.UserConstant;
 
 public class ProductController extends MultiActionController {
 
@@ -27,6 +31,7 @@ public class ProductController extends MultiActionController {
 	@Resource OrderService orderService;
 	@Resource RegionService regionService;
 	@Resource ProductViewHelper productViewHelper;
+	protected transient Logger log = LoggerFactory.getLogger(this.getClass());
 	
 	public ModelAndView queryProduct(HttpServletRequest request, 
 			HttpServletResponse response, ProductQuery pq) {
@@ -34,9 +39,12 @@ public class ProductController extends MultiActionController {
 		mav.setViewName("product/listproduct");
 		if (pq.getLoanAmt() != null) {
 			Page page = productService.pagingProduct(pq);
-			mav.addObject("products", page);
-//			mav.addObject("pvs", productViewHelper.transferPageToView(page, pq));
+			mav.addObject("pvs", productViewHelper.transferPageToView(page, pq));
 		}
+		
+		Page hotRcdProds = productService.pagingProductRecommend(1, 5, RecommendType.HOT_CREDIT);
+		mav.addObject("hotRcdProds", hotRcdProds.getItems());
+		
 		return mav;
 	}
 	
@@ -51,6 +59,9 @@ public class ProductController extends MultiActionController {
 		ProductAttach prod = productService.getAttachByProductId(productId);
 		mav.addObject("prod", prod);
 		
+		Page hotRcdProds = productService.pagingProductRecommend(1, 5, RecommendType.HOT_CHARACTER);
+		mav.addObject("hotRcdProds", hotRcdProds.getItems());
+		
 		List<Question> questions = orderService.listQuestionByPrdId(productId.toString());
 		mav.addObject("questions", questions);
 		
@@ -61,16 +72,21 @@ public class ProductController extends MultiActionController {
 	
 	public ModelAndView productView(HttpServletRequest request, 
 			HttpServletResponse response, ProductQuery pq) {
+		
+		ModelAndView mav = new ModelAndView();
+
 		Long productId = pq.getProductId();
 		Asserts.notNull(productId);
 		Asserts.notNull(pq.getLoanAmt(), "请选择贷款金额!");
 		
-		ModelAndView mav = new ModelAndView();
+		
 		mav.setViewName("order/addToCart");
 		
-		ProductAttach prod = productService.getAttachByProductId(productId);
-		mav.addObject("prod", prod);
-		mav.addObject("pv", productViewHelper.transferAttachToView(prod, pq));
+		ProductAttach pa = productService.getAttachByProductId(productId);
+		mav.addObject("pv", productViewHelper.transferAttachToView(pa, pq));
+		
+		Page hotRcdProds = productService.pagingProductRecommend(1, 5, RecommendType.HOT_CHARACTER);
+		mav.addObject("hotRcdProds", hotRcdProds.getItems());
 		
 		List<Question> questions = orderService.listQuestionByPrdId(productId.toString());
 		mav.addObject("questions", questions);
@@ -91,10 +107,9 @@ public class ProductController extends MultiActionController {
 				pq.getRegionId(), pq.getIdentity());
 		mav.addObject("groupProducts", grpBuyProds);
 		
-		Page purchasedProds = productService.pagingPurchasedProducts(
+		Page pchdProds = productService.pagingPurchasedProducts(
 				pq.getPageIndex(), pq.getPageSize(), pq.getRegionId());
-		mav.addObject("purchasedProds", purchasedProds);
-//		mav.addObject("pvs", productViewHelper.transferPageToView(purchasedProds, pq));
+		mav.addObject("pvs", productViewHelper.transferPageToView(pchdProds, pq));
 		
 		return mav;
 	}
@@ -145,31 +160,47 @@ public class ProductController extends MultiActionController {
 		return mav;
 	}
 	
-	public ModelAndView KS(HttpServletRequest request, 
+	public ModelAndView quickloan(HttpServletRequest request, 
 			HttpServletResponse response, ProductQuery pq) {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("zhuanqu/KS");
+
+		Page quickProds = productService.pagingQuickLoanProducts(
+				pq.getPageIndex(), pq.getPageSize(), pq.getPaidDay());
+		mav.addObject("quickProds", quickProds);
+		
 		return mav;
 	}
 	
-	public ModelAndView POS(HttpServletRequest request, 
+	public ModelAndView posloan(HttpServletRequest request, 
 			HttpServletResponse response, ProductQuery pq) {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("zhuanqu/POS");
+
+		Page posProds = productService.pagingAttachByRecType(
+				pq.getPageIndex(), pq.getPageSize(), RecommendType.POS);
+		mav.addObject("posProds", posProds);
+		
 		return mav;
 	}
 	
-	public ModelAndView TG(HttpServletRequest request, 
+	public ModelAndView incramt(HttpServletRequest request, 
 			HttpServletResponse response, ProductQuery pq) {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("zhuanqu/TG");
+
+		Page incrProds = productService.pagingAttachByRecType(
+				pq.getPageIndex(), pq.getPageSize(), RecommendType.INCR_AMT);
+		mav.addObject("incrProds", incrProds);
+		
 		return mav;
 	}
 	
-	public ModelAndView XX(HttpServletRequest request, 
+	public ModelAndView xxloan(HttpServletRequest request, 
 			HttpServletResponse response, ProductQuery pq) {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("zhuanqu/XX");
+		
 		return mav;
 	}
 }

@@ -19,7 +19,11 @@ public interface ProductService {
 	
 	Page pagingProductRecommend(int pageIndex, int pageSize, String recommendType);
 	
+	Page pagingAttachByRecType(int pageIndex, int pageSize, String recommendType);
+	
 	Page pagingPurchasedProducts(int pageIndex, int pageSize, Long regionId);
+	
+	Page pagingQuickLoanProducts(int pageIndex, int pageSize, Integer paidDays);
 	
 	List<Product> queryGroupBuyingProducts(Long regionId, String identity);
 }
