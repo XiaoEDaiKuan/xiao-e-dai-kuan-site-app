@@ -121,6 +121,7 @@ public class QuestionRepositoryImpl extends BaseJpaRepositoryImpl implements
 		q.setType(QuestionConstant.TYPE_HIGH);
 		q.setKindTwo(QuestionConstant.NONMORTAGE);
 		q.setAskTime(DateUtils.getTimeStamp());
+		q.setStatus("0");
 		if(null != custId){
 			Cust cust=this.load(Cust.class, custId);
 			q.setCust(cust);
