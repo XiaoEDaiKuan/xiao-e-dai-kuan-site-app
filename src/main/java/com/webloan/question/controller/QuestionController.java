@@ -160,14 +160,13 @@ public class QuestionController extends MultiActionController {
 		}
 
 		
-		
+		Long custId =(Long) request.getSession().getAttribute("custId");
 		String ip = request.getRemoteAddr();
-		questionService.saveQuestion(qv, ip);
+		questionService.saveQuestion(custId,qv, ip);
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("saveOK", "true");
 		mav.setViewName("question/postQuestionForm");
 		
-		log.info("=====question has been save======");
 		return mav;
 	}
 
