@@ -6,6 +6,8 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.multiaction.MultiActionController;
 
@@ -21,6 +23,7 @@ import com.webloan.product.service.ProductService;
 import com.webloan.product.view.ProductQuery;
 import com.webloan.product.view.ProductViewHelper;
 import com.webloan.region.service.RegionService;
+import com.webloan.user.UserConstant;
 
 public class ProductController extends MultiActionController {
 
@@ -28,6 +31,7 @@ public class ProductController extends MultiActionController {
 	@Resource OrderService orderService;
 	@Resource RegionService regionService;
 	@Resource ProductViewHelper productViewHelper;
+	protected transient Logger log = LoggerFactory.getLogger(this.getClass());
 	
 	public ModelAndView queryProduct(HttpServletRequest request, 
 			HttpServletResponse response, ProductQuery pq) {
@@ -68,11 +72,14 @@ public class ProductController extends MultiActionController {
 	
 	public ModelAndView productView(HttpServletRequest request, 
 			HttpServletResponse response, ProductQuery pq) {
+		
+		ModelAndView mav = new ModelAndView();
+
 		Long productId = pq.getProductId();
 		Asserts.notNull(productId);
 		Asserts.notNull(pq.getLoanAmt(), "请选择贷款金额!");
 		
-		ModelAndView mav = new ModelAndView();
+		
 		mav.setViewName("order/addToCart");
 		
 		ProductAttach pa = productService.getAttachByProductId(productId);

@@ -3,9 +3,12 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>登录</title>
+<%@include file="../../inc/globalScript.jsp" %>
+
 </head>
 <body>
+<div class="login2_2">
 	<form action="loginFormAction" method="post">
 		<table width="100%" border="0" cellspacing="0" cellpadding="0">
 			<tr>
@@ -21,16 +24,25 @@
 			</tr>
 			<tr>
 				<th>验证码：</th>
-				<td><input name="" type="text" class="input code" /> <img
-					src="images/code2.jpg" width="57" height="30" /></td>
+				<td><input name="captcha" type="text" class="input code" /></td>
 			</tr>
+			<tr>
+				<th>图形：</th>
+				<td><img id="captchaimg" src="handleCaptcha" alt="captcha"  class="input code" style="margin:0px;width:112px;height:32px" onclick="reloadCaptcha()" /></td>
+			</tr>
+			
 		</table>
 		<div class="login3">
-			<input type="submit" value="登录" /><a href="forgetPassowrd.jsp">忘记密码？</a>
-		</div>
-		<div class="login4">
-			没有账号？立即<a href="reg">免费注册</a>
+			<input type="submit" value="登录" />
 		</div>
 	</form>
+</div>
+<script type="text/javascript" language="JavaScript">
+    function reloadCaptcha() {  
+        var obj = document.getElementById('captchaimg');  
+        obj.src = "handleCaptcha?time=" + (new Date()).getTime();
+    }  
+</script>
+
 </body>
 </html>

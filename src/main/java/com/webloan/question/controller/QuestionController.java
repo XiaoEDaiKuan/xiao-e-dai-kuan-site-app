@@ -36,6 +36,7 @@ public class QuestionController extends MultiActionController {
 	@Resource
 	ImageCaptchaService captchaService;
 
+
 	protected transient Logger log = LoggerFactory.getLogger(this.getClass());
 
 	public ModelAndView questionListByUser(HttpServletRequest request,
@@ -61,14 +62,48 @@ public class QuestionController extends MultiActionController {
 
 	public ModelAndView ask(HttpServletRequest request,
 			HttpServletResponse response) {
+		
+		String strPageIndex1 = request.getParameter("pageIndex1");
+		String strPageSize = request.getParameter("pageSize");
+
+		if (null == strPageIndex1 || "".equals(strPageIndex1)) {
+			strPageIndex1 = "1";
+		}
+		int pageIndex1 = Integer.parseInt(strPageIndex1);
+
+		if (null == strPageSize || "".equals(strPageSize)) {
+			strPageSize = "10";
+		}
+		int pageSize = Integer.parseInt(strPageSize);
+
+
+		
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("question/QA");
 
-		mav.addObject("nonMort", questionService.pagingQuestions(1,
-				Integer.MAX_VALUE, null, QuestionConstant.NONMORTAGE));
-		mav.addObject("mortage", questionService.pagingQuestions(1,
-				Integer.MAX_VALUE, null, QuestionConstant.MORTAGE));
-		mav.addObject("hiQusts", questionService.pagingQuestions(1, 5,
+		mav.addObject("nonMort", questionService.pagingQuestions(pageIndex1,
+				pageSize, null, QuestionConstant.NONMORTAGE));
+		
+		
+		String strPageIndex2 = request.getParameter("pageIndex2");
+
+		if (null == strPageIndex2 || "".equals(strPageIndex2)) {
+			strPageIndex2 = "1";
+		}
+		int pageIndex2 = Integer.parseInt(strPageIndex2);
+		
+		mav.addObject("mortage", questionService.pagingQuestions(pageIndex2,
+				pageSize, null, QuestionConstant.MORTAGE));
+		
+		
+		String strPageIndex3 = request.getParameter("pageIndex3");
+
+		if (null == strPageIndex3 || "".equals(strPageIndex3)) {
+			strPageIndex3 = "1";
+		}
+		int pageIndex3 = Integer.parseInt(strPageIndex3);
+		
+		mav.addObject("hiQusts", questionService.pagingQuestions(pageIndex3, pageSize,
 				QuestionConstant.TYPE_HIGH));
 
 		return mav;
@@ -125,12 +160,13 @@ public class QuestionController extends MultiActionController {
 		}
 
 		
-		
+		Long custId =(Long) request.getSession().getAttribute("custId");
 		String ip = request.getRemoteAddr();
-		questionService.saveQuestion(qv, ip);
+		questionService.saveQuestion(custId,qv, ip);
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("saveOK", "true");
 		mav.setViewName("question/postQuestionForm");
+		
 		return mav;
 	}
 
@@ -188,6 +224,8 @@ public class QuestionController extends MultiActionController {
 					user.getMobileNO(), request.getParameter("strCreditMin"),
 					request.getParameter("strCreditMax"));
 			mav.setViewName("member/myCreditScore");
+			
+			log.info("===========save credit =========");
 		}
 		return mav;
 	}
