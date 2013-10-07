@@ -5,38 +5,43 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>登录</title>
 <%@include file="../../inc/globalScript.jsp" %>
-
+<style type="text/css">
+ table tr th{font-size:14px}
+  table tr{margin-bottom:6px}
+</style>
 </head>
-<body>
-<div class="login2_2">
+<body style="padding:20px">
 	<form action="loginFormAction" method="post">
-		<table width="100%" border="0" cellspacing="0" cellpadding="0">
+		<table width="100%" border="0" cellspacing="4" cellpadding="3">
 			<tr>
 				<th>账&nbsp;&nbsp;&nbsp;号：</th>
-				<td><input name="logonName" id="logonName" type="text"
-					class="input" /><br />
-				<br /> <em style="color: #CCC">Email/手机/身份证/客户号</em></td>
+				<td><input name="logonName" id="logonName" type="text" style="height:28px;width:200px;margin-bottom:8px"
+					class="input" />&nbsp;&nbsp;<em style="color: #CCC">Email/手机/身份证/客户号</em></td>
 			</tr>
 			<tr>
 				<th>密&nbsp;&nbsp;&nbsp;码：</th>
 				<td><input name="passwd" id="passwd" type="password"
-					class="input" /></td>
+					class="input"  style="height:28px;width:200px;margin-bottom:8px"/></td>
 			</tr>
 			<tr>
 				<th>验证码：</th>
-				<td><input name="captcha" type="text" class="input code" /></td>
+				<td><input name="captcha" type="text" class="input code"  style="height:28px;width:108px;margin-bottom:8px"/></td>
 			</tr>
 			<tr>
-				<th>图形：</th>
+				<th></th>
 				<td><img id="captchaimg" src="handleCaptcha" alt="captcha"  class="input code" style="margin:0px;width:112px;height:32px" onclick="reloadCaptcha()" /></td>
 			</tr>
-			
+			<tr>
+				<th></th>
+				<td>
+				<div class="login3" style="padding:0px;margin:0px;margin-top:15px">
+					<input type="submit" value="" />
+				</div>
+				</td>
+			</tr>
 		</table>
-		<div class="login3">
-			<input type="submit" value="登录" />
-		</div>
+		
 	</form>
-</div>
 <script type="text/javascript" language="JavaScript">
     function reloadCaptcha() {  
         var obj = document.getElementById('captchaimg');  
