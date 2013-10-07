@@ -28,7 +28,7 @@ public class Page {
 		this.totalRecords = totalRecords;
 	}
 	public int getTotalPages() {
-		return totalRecords == 0 ? 0 : (totalRecords - 1) / pageSize + 1;
+		return totalRecords <= 0 ? 0 : (totalRecords - 1) / pageSize + 1;
 	}
 	public List<?> getItems() {
 		return items;
