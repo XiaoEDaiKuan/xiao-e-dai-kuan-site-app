@@ -17,7 +17,7 @@
     <div class="pop_tx">我们讲致力保护您的个人隐私，您提供的个人信息将不会以任何形式公布，有何疑问，请致电<b>云金融客服：400-810-2599</b></div>
   </div>
   <div class="loan_no2">
-    <input name="" type="button" value="" class="loan_imme"  onClick="top.location.href='score_choose.html'" />
+    <input name="" type="button" value="" class="loan_imme"  onClick="top.location.href='scoreChoose'" />
   </div>
 </div>
 </body>
