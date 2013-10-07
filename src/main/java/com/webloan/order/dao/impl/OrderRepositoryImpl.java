@@ -18,6 +18,7 @@ import com.webloan.model.Question;
 import com.webloan.model.Region;
 import com.webloan.model.RequireInfo;
 import com.webloan.order.dao.OrderRepository;
+import com.webloan.util.DateUtils;
 
 public class OrderRepositoryImpl extends BaseJpaRepositoryImpl implements
 		OrderRepository {
@@ -72,6 +73,7 @@ public class OrderRepositoryImpl extends BaseJpaRepositoryImpl implements
 		order.setApplyTelephone(applyTelephone);
 		Region region=this.load(Region.class, regionId);
 		order.setRegion(region);
+		order.setOrderTime(DateUtils.getTimeStamp());
 		this.save(order);
 	}
 
