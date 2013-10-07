@@ -2,6 +2,7 @@ package com.webloan.question.dao.impl;
 
 import java.net.InetAddress;
 import java.net.UnknownHostException;
+import java.sql.Timestamp;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -21,6 +22,7 @@ import com.webloan.model.Region;
 import com.webloan.model.RegionIP;
 import com.webloan.question.QuestionConstant;
 import com.webloan.question.dao.QuestionRepository;
+import com.webloan.util.DateUtils;
 
 public class QuestionRepositoryImpl extends BaseJpaRepositoryImpl implements
 		QuestionRepository {
@@ -118,6 +120,7 @@ public class QuestionRepositoryImpl extends BaseJpaRepositoryImpl implements
 		q.setTelephone(telephone);
 		q.setType(QuestionConstant.TYPE_HIGH);
 		q.setKindTwo(QuestionConstant.NONMORTAGE);
+		q.setAskTime(DateUtils.getTimeStamp());
 		if(null != custId){
 			Cust cust=this.load(Cust.class, custId);
 			q.setCust(cust);
