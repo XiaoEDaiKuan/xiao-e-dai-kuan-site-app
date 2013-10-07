@@ -2,8 +2,13 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns:wb="http://open.weibo.com/wb"  xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<title>404</title>
+<title>错误</title>
 <%@include file="../inc/globalScript.jsp" %>
+<script type="text/javascript">
+	$(document).ready(function() {
+		setTimeout("history.back()", 5000);
+	});	
+</script>
 </head>
 <body>
 <jsp:include page="../inc/globalHeader.jsp">
@@ -12,8 +17,8 @@
 <div class="main3 padding-bt ground mt20">
   <div class="error clear">
     <div class="error1"> <img src="images/404_1.jpg" width="283" height="131" />
-      <input name="" type="button" value="" onClick="location.href='index.html'" />
-      <p>5秒钟后将自动跳转到网站首页</p>
+      <input name="" type="button" value="" onclick="javascript:history.back()" />
+      <p>5秒钟后将自动返回到上一个页面</p>
     </div>
     <div class="error2">${errorMessage}</div>
   </div>

@@ -23,7 +23,6 @@ import com.webloan.product.service.ProductService;
 import com.webloan.product.view.ProductQuery;
 import com.webloan.product.view.ProductViewHelper;
 import com.webloan.region.service.RegionService;
-import com.webloan.user.UserConstant;
 
 public class ProductController extends MultiActionController {
 
@@ -78,7 +77,6 @@ public class ProductController extends MultiActionController {
 		Long productId = pq.getProductId();
 		Asserts.notNull(productId);
 		Asserts.notNull(pq.getLoanAmt(), "请选择贷款金额!");
-		
 		
 		mav.setViewName("order/addToCart");
 		

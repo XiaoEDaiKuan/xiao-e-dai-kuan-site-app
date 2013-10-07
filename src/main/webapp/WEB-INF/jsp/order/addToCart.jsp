@@ -22,15 +22,16 @@ con.style.display=i==cursel?"block":"none";
 
 <script type="text/javascript">
 	$(document).ready(function() {
-		<%if(request.getSession().getAttribute("custName") == null){%>
+		<c:if test="${empty sessionScope.custName}">
 		$("#pop_login").click(function(){
-			tipsWindown("申请贷款","iframe:iframe:loginForm?productId=${pv.product.id}","450","320","true","","false","text","");
+			tipsWindown("申请贷款","iframe:iframe:loginForm?productId=${pv.product.id}","450","300","true","","false","text","");
 		});
-		<%}else{%>
+		</c:if>
+		<c:if test="${not empty sessionScope.custName}">
 		$("#pop_login").click(function(){
-			tipsWindown("请填写贷款信息","iframe:iframe:requestProductInfo?productId=${pv.product.id}","450","215","true","","false","text","");
+			tipsWindown("请填写贷款信息","iframe:iframe:requestProductInfo?productId=${pv.product.id}","450","300","true","","false","text","");
 		});
-		<%}%>
+		</c:if>
 	});	
 </script>
 
