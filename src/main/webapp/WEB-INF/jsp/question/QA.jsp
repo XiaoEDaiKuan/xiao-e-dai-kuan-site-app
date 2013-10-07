@@ -54,8 +54,7 @@
 								<li><a href="viewAnswer?id=${k1.id}" target="_blank">${k1.detail}</a></li>
 							</c:forEach>
 							</ul>
-							${nonMort.totalPages}
-     						<div class="me_next padd">
+	 						<div class="me_next padd">
 	     			           <c:forEach var="i" begin="1" end="${nonMort.totalPages}" step="1">
                         	       <a  href="ask?pageIndex1=${i}" <c:if test="${i == nonMort.pageIndex}">class="currentPager"</c:if> ><em>${i}</em></a>
                                 </c:forEach>
