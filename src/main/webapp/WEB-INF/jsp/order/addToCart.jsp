@@ -75,7 +75,7 @@ con.style.display=i==cursel?"block":"none";
             <span class="Loansearch14 Loansearch15">
             <fmt:bundle basename="dict/dict-mapping" prefix="PRD_IDENTITY.">
             	<c:set var="hasIden" value="0" />
-            	<c:forTokens var="iden" items="${prod.identity}" delims="|">
+            	<c:forTokens var="iden" items="${pv.attach.identity}" delims="|">
             		<c:if test="${not empty iden}">
             			<c:if test="${hasIden == '1'}">,</c:if>
             			<fmt:message key="${iden}" />
