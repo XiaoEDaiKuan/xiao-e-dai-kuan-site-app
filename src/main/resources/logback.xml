@@ -12,10 +12,10 @@
 	</appender>
 	
 	    <!-- 将信息写入文件 -->
-    <appender name="file" class="ch.qos.logback.core.rolling.RollingFileAppender">  
+    <appender name="logfile" class="ch.qos.logback.core.rolling.RollingFileAppender">  
     <file>strutsTestLogger.log</file>  
     <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">  
-      <fileNamePattern>D:/9f_new_web/logs/xxx.%d{yyyy-MM-dd}.log.txt</fileNamePattern>  
+      <fileNamePattern>D:/9f_new_web/logs/%d{yyyyMMdd}.log.txt</fileNamePattern>  
     </rollingPolicy>  
     <layout class="ch.qos.logback.classic.PatternLayout">  
       <pattern>%-20(%d{HH:mm:ss.SSS} [%thread]) %-5level %logger{80} - %msg%n</pattern>  
@@ -24,7 +24,7 @@
 
 	<logger name="com.webloan" level="info" additivity="false">
 	 	<appender-ref ref="ROOT_CONSOLE"/>
-	 	<appender-ref ref="file"/>
+	 	<appender-ref ref="logfile"/>
 	</logger>
 	
 	
