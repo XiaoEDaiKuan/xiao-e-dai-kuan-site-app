@@ -176,7 +176,7 @@ public class QuestionController extends MultiActionController {
 		//questionService.(qv, ip);
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("saveOK", "true");
-		mav.setViewName("question/postQuestionForm");
+		mav.setViewName("question/answerPostForm");
 		return mav;
 	}
 	

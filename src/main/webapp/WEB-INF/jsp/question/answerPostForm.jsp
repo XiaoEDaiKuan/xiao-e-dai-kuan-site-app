@@ -12,6 +12,10 @@
 </head>
 
 <body style="border:none;padding:0px">
+<c:if test= "${not empty saveOK}">
+		<div class="pop_tx" style="font-size:32px; text-align:center"><b>您的问题提交成功！</b></div>
+	</c:if>
+<c:if test="${empty saveOK}">
 <form action="postQuestionAnswerSave" method="post">
 		<div class="pop_contact">
 			<div class="pop_question" style="width:680px">
@@ -34,6 +38,6 @@
 				<input type="submit" value="" class="pop_submit" />
 			</div>
 		</div>
-	</form>
+	</form></c:if>
 </body>
 </html>
