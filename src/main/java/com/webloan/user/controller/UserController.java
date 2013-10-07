@@ -408,6 +408,9 @@ public class UserController extends MultiActionController {
 			HttpServletResponse response) throws Exception {
 		ModelAndView mav = new ModelAndView(); // login(request, response);
 		mav.setViewName("user/loginForm");
+		
+		String productId=request.getParameter("productId");
+		request.getSession().setAttribute("productId", productId);
 		return mav;
 	}
 

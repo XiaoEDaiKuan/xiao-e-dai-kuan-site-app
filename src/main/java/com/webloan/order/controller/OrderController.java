@@ -55,6 +55,10 @@ public class OrderController extends MultiActionController{
 	public ModelAndView saveOrderInfo(HttpServletRequest request, HttpServletResponse response) {
 
 		String productId = request.getParameter("productId");
+		if(null == productId ||"".equals(productId)){
+			productId=(String)request.getSession().getAttribute("productId");
+		}
+		
 		String loanAmt = request.getParameter("loanAmt");
 		
 		String ip = request.getRemoteAddr();

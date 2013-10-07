@@ -24,7 +24,7 @@ con.style.display=i==cursel?"block":"none";
 	$(document).ready(function() {
 		<%if(request.getSession().getAttribute("custName") == null){%>
 		$("#pop_login").click(function(){
-			tipsWindown("申请贷款","iframe:iframe:loginForm","450","320","true","","false","text","");
+			tipsWindown("申请贷款","iframe:iframe:loginForm?productId=${pv.product.id}","450","320","true","","false","text","");
 		});
 		<%}else{%>
 		$("#pop_login").click(function(){
