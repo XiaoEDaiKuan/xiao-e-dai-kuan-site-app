@@ -10,7 +10,9 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.multiaction.MultiActionController;
 
 import com.webloan.exception.BizException;
+import com.webloan.model.RegionIP;
 import com.webloan.order.service.OrderService;
+import com.webloan.question.service.QuestionService;
 import com.webloan.user.UserConstant;
 import com.webloan.user.service.UserService;
 
@@ -18,6 +20,8 @@ public class OrderController extends MultiActionController{
 
 	@Resource OrderService orderService;
 	@Resource UserService userService;
+	@Resource QuestionService questionService;
+	
 	protected transient Logger log = LoggerFactory.getLogger(this.getClass());
 	
 	public ModelAndView orderlistByUser(HttpServletRequest request, HttpServletResponse response) {
@@ -54,9 +58,12 @@ public class OrderController extends MultiActionController{
 		String loanAmt = request.getParameter("loanAmt");
 		
 		String ip = request.getRemoteAddr();
+		RegionIP rip = questionService.qryCityByIP(ip);
+		Long regionId = rip == null || rip.getRegion() == null ? null : rip.getRegion().getId();
+		
 		String custId = request.getSession().getAttribute("custId").toString();
 		
-		orderService.createOrder(productId, custId, "", "", loanAmt, ip);
+		orderService.createOrder(productId, custId, "", "", loanAmt, regionId.toString());
 		
 		return new ModelAndView("order/inputOrderInfoSuccess");
 	}

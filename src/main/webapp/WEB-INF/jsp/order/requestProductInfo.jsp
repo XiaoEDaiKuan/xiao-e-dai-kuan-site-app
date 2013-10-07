@@ -19,11 +19,11 @@
         <th width="27%">贷款用途：</th>
         <td width="59%">
           <select name="loanUse" class="input">
-			<option value="1" selected="selected">不限</option>
-			<option value="2" >经营贷款</option>
-			<option value="3" >消费贷款</option>
-			<option value="4" >购车贷款</option>
-			<option value="5" >购房贷款</option>
+			<option value="0" selected="selected">不限</option>
+			<option value="1" >经营贷款</option>
+			<option value="2" >消费贷款</option>
+			<option value="3" >购车贷款</option>
+			<option value="4" >购房贷款</option>
           </select></td>
         <td width="14%"></td>
       </tr>
