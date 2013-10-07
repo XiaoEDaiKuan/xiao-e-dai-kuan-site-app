@@ -82,15 +82,15 @@ public class ProductServiceImpl implements ProductService {
 		};
 		
 		Object[] vals = { 
-			pq.getIdentity(), 
+			pq.getIdentity() == null ? null : "|" + pq.getIdentity() + "|", 
 			pq.getLoanUse(), 
 			loanAmt, 
 			loanAmt, 
 			pq.getLoanIssue(), 
 			pq.getLoanIssue(), 
-			pq.getEstate(), 
-			pq.getVehicle(), 
-			pq.getCredit(), 
+			pq.getEstate() == null ? null : "|" + pq.getEstate() + "|", 
+			pq.getVehicle() == null ? null : "|" + pq.getVehicle() + "|", 
+			pq.getCredit() == null ? null : "|" + pq.getCredit() + "|", 
 			pq.getIssueType(), 
 			pq.getGuarantyType(), 
 			pq.getRepayType() 
@@ -103,9 +103,9 @@ public class ProductServiceImpl implements ProductService {
 			GE, 
 			LE, 
 			GE, 
-			EQ, 
-			EQ, 
-			EQ, 
+			LIKE, 
+			LIKE, 
+			LIKE, 
 			EQ, 
 			EQ, 
 			EQ 
