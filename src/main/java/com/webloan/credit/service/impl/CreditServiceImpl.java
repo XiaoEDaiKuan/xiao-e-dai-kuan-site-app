@@ -3,13 +3,16 @@ package com.webloan.credit.service.impl;
 import java.math.BigDecimal;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.webloan.common.Page;
 import com.webloan.credit.dao.CreditRepository;
 import com.webloan.credit.service.CreditService;
 import com.webloan.model.Credit;
 
 public class CreditServiceImpl implements CreditService {
-
+	protected transient Logger log = LoggerFactory.getLogger(this.getClass());
 	private CreditRepository creditRepository; 
 	@Override
 	public Page creditListByUser(String strCustId,int pageIndex,int pageSize) {
@@ -35,6 +38,7 @@ public class CreditServiceImpl implements CreditService {
 	    BigDecimal creditMin=strCreditMin==null?null:new BigDecimal(strCreditMin);
 	    BigDecimal creditMax=strCreditMin==null?null:new BigDecimal(strCreditMax);
 		this.creditRepository.saveCredit(custId, strCreditType, strCustName, strCustTelephone, creditMin, creditMax);
+		log.info("=========credit has been save====");
 	}
    
 }
