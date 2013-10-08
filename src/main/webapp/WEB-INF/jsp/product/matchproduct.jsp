@@ -8,6 +8,13 @@
 <title>推荐匹配</title>
 <%@include file="../../inc/globalScript.jsp" %>
 <script type="text/javascript" src="Scripts/ScrollPic.js"></script>
+<style type="text/css">
+.Fuzzysearch4 p a.R_<%=request.getParameter("regionId")%>{
+	color:#f68a55;
+	font-weight:bold;
+	border-bottom:solid #f68a55 1px;
+}
+</style>
 </head>
 
 <body>
@@ -25,7 +32,7 @@
   		<h1>请选择您的地区:</h1>
   		<p>
   		<c:forEach var="region" items="${regions}">
-  			<a href="?regionId=${region.id}">${region.name}</a>
+  			<a href="?regionId=${region.id}" class="R_${region.id}">${region.name}</a>
   		</c:forEach>
   		</p>
   	</div>
