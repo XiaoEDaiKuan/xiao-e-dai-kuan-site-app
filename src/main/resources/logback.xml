@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
 
+	<property name="USER_HOME" value="D:/eclipse-standard-kepler-R-win32-x86_64/eclipse/workspace/web_9f/logs" />
+
 	<property name="pattern" 
         value="%d{yyyyMMdd:HH:mm:ss.SSS} [%X{traceNo}] [%class.%method] %-5level  %msg%n" />
      
@@ -10,23 +12,50 @@
 			<pattern>${pattern}</pattern>
 		</layout>
 	</appender>
-	
-	    <!-- 将信息写入文件 -->
-    <appender name="logfile" class="ch.qos.logback.core.rolling.RollingFileAppender">  
-    <file>strutsTestLogger.log</file>  
-    <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">  
-      <fileNamePattern>D:/9f_new_web/logs/%d{yyyyMMdd}.log.txt</fileNamePattern>  
-    </rollingPolicy>  
-    <layout class="ch.qos.logback.classic.PatternLayout">  
-      <pattern>%-20(%d{HH:mm:ss.SSS} [%thread]) %-5level %logger{80} - %msg%n</pattern>  
-    </layout>  
-  </appender>  
 
-	<logger name="com.webloan" level="info" additivity="false">
+	<appender name="ROOT_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${USER_HOME}/ROOT_LOG.txt</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${USER_HOME}/%d{yyyyMMdd}/ROOT_LOG.txt.%i</fileNamePattern>
+			<timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+				<maxFileSize>5MB</maxFileSize>
+			</timeBasedFileNamingAndTriggeringPolicy>
+			<maxHistory>5</maxHistory> 
+		</rollingPolicy>
+
+		<layout>
+			<pattern>${pattern}</pattern>
+		</layout>
+	</appender>
+	
+	<appender name="WEB_LOAN_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${USER_HOME}/WEB_LOAN_LOG.txt</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${USER_HOME}/%d{yyyyMMdd}/WEB_LOAN_LOG.txt.%i</fileNamePattern>
+			<timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+				<maxFileSize>5MB</maxFileSize>
+			</timeBasedFileNamingAndTriggeringPolicy>
+			<maxHistory>5</maxHistory> 
+		</rollingPolicy>
+
+		<layout>
+			<pattern>${pattern}</pattern>
+		</layout>
+	</appender>
+	
+
+	<logger name="ROOT_CONSOLE" level="debug" additivity="false">
 	 	<appender-ref ref="ROOT_CONSOLE"/>
-	 	<appender-ref ref="logfile"/>
 	</logger>
 	
+	<logger name="com.webloan" level="debug" additivity="false">
+	 	<appender-ref ref="WEB_LOAN_FILE"/>
+	</logger>
+	
+	<logger name="ROOT_LOG" level="debug" additivity="false">
+	 	<appender-ref ref="ROOT_FILE"/>
+	</logger>
+
 	
 	<root level="info">
 		<appender-ref ref="ROOT_CONSOLE"/>

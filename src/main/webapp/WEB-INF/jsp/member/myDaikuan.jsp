@@ -34,7 +34,7 @@
 					<tr>
 						<td>${order.id}</td>
 						<td>${order.product.name}</td>
-						<td>${order.applyAmt/10000}万元</td>
+						<td>${order.applyAmt}万元</td>
 						<td><fmt:formatDate value="${order.orderTime}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
 						<td>
 						<fmt:bundle basename="dict/dict-mapping" prefix="ORDER_STATUS.">
