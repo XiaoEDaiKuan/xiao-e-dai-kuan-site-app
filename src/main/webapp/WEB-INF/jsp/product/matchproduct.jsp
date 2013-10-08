@@ -18,7 +18,7 @@
 	<div class="top Fuzzysearch1">
     	<div class="main3 padding-bt ground">
   <div class="credit_title"> 
-    <span class="credit_title1 font_f Fuzzysearch2">不知道自己的贷款需求？看看同地区同行业的人选择什么产品</span>
+    <span class="credit_title1 font_f Fuzzysearch2">不知道自己的贷款需求？看看同地区的人选择什么产品</span>
   </div>
   <div class="Fuzzysearch3">
   	<div class="Fuzzysearch4 ClearFix">
