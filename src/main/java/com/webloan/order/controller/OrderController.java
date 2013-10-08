@@ -30,7 +30,6 @@ public class OrderController extends MultiActionController{
 		String strPageIndex=request.getParameter("pageIndex");
 		String strPageSize=request.getParameter("pageSize");
 		Long custId=(Long)request.getSession().getAttribute("custId");
-
 		
 		if(null==custId){
 			log.error(UserConstant.EXCEPTION_CUST_NOT_FOUND);
@@ -53,21 +52,16 @@ public class OrderController extends MultiActionController{
 	
 	//信息提交处理
 	public ModelAndView saveOrderInfo(HttpServletRequest request, HttpServletResponse response) {
-
 		String productId = request.getParameter("productId");
-		if(null == productId ||"".equals(productId)){
-			productId=(String)request.getSession().getAttribute("productId");
-		}
-		
 		String loanAmt = request.getParameter("loanAmt");
 		
 		String ip = request.getRemoteAddr();
 		RegionIP rip = questionService.qryCityByIP(ip);
-		Long regionId = rip == null || rip.getRegion() == null ? null : rip.getRegion().getId();
+		String regionId = rip == null || rip.getRegion() == null ? "" : rip.getRegion().getId().toString();
 		
 		String custId = request.getSession().getAttribute("custId").toString();
 		
-		orderService.createOrder(productId, custId, "", "", loanAmt, regionId.toString());
+		orderService.createOrder(productId, custId, "", "", loanAmt, regionId);
 		
 		return new ModelAndView("order/inputOrderInfoSuccess");
 	}

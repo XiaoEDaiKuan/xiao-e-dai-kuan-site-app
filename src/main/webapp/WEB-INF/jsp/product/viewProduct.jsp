@@ -23,15 +23,16 @@ con.style.display=i==cursel?"block":"none";
 
 <script type="text/javascript">
 	$(document).ready(function() {
-		<%if(request.getSession().getAttribute("custName") == null){%>
+		<c:if test="${empty sessionScope.custName}">
 		$("#pop_login").click(function(){
-			tipsWindown("您当前尚未登录，若想要申请贷款，请先登录。","iframe:iframe:loginForm?productId=${prod.product.id}","450","320","true","","false","text","");
+			tipsWindown("您当前尚未登录，若想要申请贷款，请先登录。","iframe:iframe:loginForm?productId=${prod.product.id}","450","300","true","","false","text","");
 		});
-		<%}else{%>
+		</c:if>
+		<c:if test="${not empty sessionScope.custName}">
 		$("#pop_login").click(function(){
-			tipsWindown("请填写贷款信息","iframe:iframe:requestProductInfo?productId=${prod.product.id}","450","215","true","","false","text","");
+			tipsWindown("请填写贷款信息","iframe:iframe:requestProductInfo?productId=${prod.product.id}","450","300","true","","false","text","");
 		});
-		<%}%>
+		</c:if>
 	});	
 </script>
 

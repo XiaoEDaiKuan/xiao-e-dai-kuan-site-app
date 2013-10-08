@@ -406,11 +406,12 @@ public class UserController extends MultiActionController {
 
 	public ModelAndView loginForm(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
-		ModelAndView mav = new ModelAndView(); // login(request, response);
+		ModelAndView mav = new ModelAndView();
 		mav.setViewName("user/loginForm");
 		
-		String productId=request.getParameter("productId");
+		String productId = request.getParameter("productId");
 		request.getSession().setAttribute("productId", productId);
+		
 		return mav;
 	}
 
@@ -418,6 +419,11 @@ public class UserController extends MultiActionController {
 			HttpServletResponse response) throws Exception {
 		ModelAndView mav = login(request, response);
 		mav.setViewName("order/requestProductInfo");
+		
+		Object productId = request.getSession().getAttribute("productId");
+		mav.addObject("productId", productId);
+		request.getSession().removeAttribute("productId");
+		
 		return mav;
 	}
 
