@@ -181,7 +181,7 @@
 		<option value="3" >上班族</option>
 	</select>
 </div></td>
-    <th width="12%" align="right" valign="middle"><span style="color:red;padding-right:8px">*</span>贷款金额：</th>
+    <th width="12%" align="right" valign="middle">贷款金额：</th>
           <td width="20%"><div id="tm2008style">
 	<select name="loanAmt" id="loanAmt" class="formItem">
 		<option value="">请选择</option>
