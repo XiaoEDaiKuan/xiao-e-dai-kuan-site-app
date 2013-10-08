@@ -31,11 +31,11 @@
     </tr>
     <tr>
       <th><span style="color:red;padding-right:8px">*</span>密码：</th>
-      <td><input name="logonPasswd" type="password" class="input" /></td>
+      <td><input name="logonPasswd" type="password" class="input" MaxLength="18" /></td>
     </tr>
     <tr>
       <th><span style="color:red;padding-right:8px">*</span>确认密码：</th>
-      <td><input name="" type="password" class="input" /></td>
+      <td><input name="logonPasswd2" type="password" class="input" MaxLength="18" /></td>
     </tr>
     <tr>
       <th><span style="color:red;padding-right:8px">*</span>证件类型：</th>
