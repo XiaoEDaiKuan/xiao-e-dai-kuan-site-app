@@ -36,10 +36,9 @@ public class ProductController extends MultiActionController {
 			HttpServletResponse response, ProductQuery pq) {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("product/listproduct");
-		if (pq.getLoanAmt() != null) {
-			Page page = productService.pagingProduct(pq);
-			mav.addObject("pvs", productViewHelper.transferPageToView(page, pq));
-		}
+		
+		Page page = productService.pagingProduct(pq);
+		mav.addObject("pvs", productViewHelper.transferPageToView(page, pq));
 		
 		Page hotRcdProds = productService.pagingProductRecommend(1, 5, RecommendType.HOT_CREDIT);
 		mav.addObject("hotRcdProds", hotRcdProds.getItems());
@@ -71,12 +70,10 @@ public class ProductController extends MultiActionController {
 	
 	public ModelAndView productView(HttpServletRequest request, 
 			HttpServletResponse response, ProductQuery pq) {
-		
 		ModelAndView mav = new ModelAndView();
 
 		Long productId = pq.getProductId();
 		Asserts.notNull(productId);
-		Asserts.notNull(pq.getLoanAmt(), "请选择贷款金额!");
 		
 		mav.setViewName("order/addToCart");
 		
