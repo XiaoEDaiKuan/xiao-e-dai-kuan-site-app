@@ -4,7 +4,7 @@
   <div class="about">
     <p>平台说明</p>
     <ul>
-      <li><a href="financial.html" target="_blank">什么是9F云金融</a></li>
+      <li><a href="financial.jsp" target="_blank">什么是9F云金融</a></li>
       <li><a href="#">常见问题</a></li>
       <li><a href="#">服务条款</a></li>
       <li><a href="#">隐私保护</a></li>
