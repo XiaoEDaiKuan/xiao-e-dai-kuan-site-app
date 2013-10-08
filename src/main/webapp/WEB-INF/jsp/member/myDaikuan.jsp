@@ -29,8 +29,7 @@
 						<th>状态</th>
 						<th>操作</th>
 					</tr>
-			  <c:forEach var="order" items="${orderPage.items}">
-				
+			  <c:forEach var="order" items="${orderPage.items}">		
 					<tr>
 						<td>${order.id}</td>
 						<td>${order.product.name}</td>
