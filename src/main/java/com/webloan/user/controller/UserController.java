@@ -332,8 +332,8 @@ public class UserController extends MultiActionController {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("index");
 		// 从session中获取ciustId
-		String strCustId = (String) request.getSession().getAttribute("custId");
-		if (null != strCustId && !"".equals(strCustId)) {
+		Long custId = (Long) request.getSession().getAttribute("custId");
+		if (null != custId ) {
 			request.getSession().invalidate();
 		}
 		return mav;
