@@ -38,7 +38,7 @@
 	</div>
 	<div class="top_right">
 		<div class="top_right1">
-			<c:if test="${not empty sessionScope.custName}">${sessionScope.custName}, </c:if>欢迎您！<font>|</font>
+			<c:if test="${not empty sessionScope.custName}">${sessionScope.custName}, 欢迎您！<font>|</font> <a href="logOut">退出</a> <font>|</font></c:if>
 			<c:if test="${empty sessionScope.custName}">
 				<a href="reg">注册</a><font>|</font><a href="loginView">登录</a><font>|</font>
 			</c:if>

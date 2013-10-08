@@ -330,7 +330,7 @@ public class UserController extends MultiActionController {
 	public ModelAndView logOut(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 		ModelAndView mav = new ModelAndView();
-		mav.setViewName("user/logout");
+		mav.setViewName("index");
 		// 从session中获取ciustId
 		String strCustId = (String) request.getSession().getAttribute("custId");
 		if (null != strCustId && !"".equals(strCustId)) {
