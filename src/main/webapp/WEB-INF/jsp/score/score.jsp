@@ -121,7 +121,7 @@ var reset = function(){
       </div>
   </div>
 </div>
-<div class="score3"><a href="score_choose.html">返回重新选择评分器类型</a></div>
+<div class="score3"><a href="scoreChoose">返回重新选择评分器类型</a></div>
 <div class="kong2"></div>
 
 <!--===========页面内容部分 结束===========-->
