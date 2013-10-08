@@ -29,7 +29,6 @@
   		</c:forEach>
   		</p>
   	</div>
-  	<div class="Fuzzysearch5"><a href="?regionId="><img src="images/img4.jpg" width="109" height="29" /></a></div>
     </div>
 </div>
 <div class="main3 ground  Fuzzysearch6">
