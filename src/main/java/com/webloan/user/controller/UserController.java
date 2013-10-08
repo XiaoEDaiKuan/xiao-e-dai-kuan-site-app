@@ -24,6 +24,7 @@ import com.webloan.order.service.OrderService;
 import com.webloan.question.service.QuestionService;
 import com.webloan.user.UserConstant;
 import com.webloan.user.service.UserService;
+import com.webloan.util.MobileVerify;
 
 public class UserController extends MultiActionController {
 	@Resource
@@ -388,8 +389,6 @@ public class UserController extends MultiActionController {
 			throw new BizException(UserConstant.EXCEPTION_CAPTCHA_CODE);
 		}
 
-		
-		
 		String logonName = request.getParameter("logonName");
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("user/passwdConfirm");
@@ -408,10 +407,10 @@ public class UserController extends MultiActionController {
 			HttpServletResponse response) throws Exception {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("user/loginForm");
-		
+
 		String productId = request.getParameter("productId");
 		request.getSession().setAttribute("productId", productId);
-		
+
 		return mav;
 	}
 
@@ -419,11 +418,11 @@ public class UserController extends MultiActionController {
 			HttpServletResponse response) throws Exception {
 		ModelAndView mav = login(request, response);
 		mav.setViewName("order/requestProductInfo");
-		
+
 		Object productId = request.getSession().getAttribute("productId");
 		mav.addObject("productId", productId);
 		request.getSession().removeAttribute("productId");
-		
+
 		return mav;
 	}
 
@@ -785,5 +784,32 @@ public class UserController extends MultiActionController {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("member/changePassword");
 		return mav;
+	}
+
+	/**
+	 * 验证注册输入的手机号码
+	 * @param request
+	 * @param response
+	 * @return
+	 * @throws Exception
+	 */
+	public String verifyMobile(HttpServletRequest request,
+			HttpServletResponse response) throws Exception {
+		PrintWriter out = response.getWriter();
+		String result = "success";
+
+		String mobileNo = request.getParameter("mobileNo");
+		if (!MobileVerify.isNum(mobileNo)) {
+			result = "fail1";
+			out.print(result);
+			out.close();
+			return result;
+		}
+		if (!MobileVerify.isMobileNO(mobileNo)) {
+			result = "fail2";
+		}
+		out.print(result);
+		out.close();
+		return result;
 	}
 }
