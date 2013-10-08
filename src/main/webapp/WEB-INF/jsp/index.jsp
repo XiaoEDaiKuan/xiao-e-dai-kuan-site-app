@@ -128,7 +128,7 @@
     </div>
   </div>
   <div class="main2_right">
-    <div class="ad1"><a href="queryProduct" target="_blank"></a></div>
+    <div class="ad1"><a href="productView?&productId=7" target="_blank"></a></div>
     <div class="sina">
       <div class="sina_border">
       <div class="sina1"><a href="#" class="sina2"></a><p>平台微博加关注</p></div>
