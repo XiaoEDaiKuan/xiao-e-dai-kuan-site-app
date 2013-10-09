@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
 
-	<property name="USER_HOME" value="D:/eclipse-standard-kepler-R-win32-x86_64/eclipse/workspace/web_9f/logs" />
+	<property name="USER_HOME" value="D:/9f_new_web/logs" />
 
 	<property name="pattern" 
         value="%d{yyyyMMdd:HH:mm:ss.SSS} [%X{traceNo}] [%class.%method] %-5level  %msg%n" />
