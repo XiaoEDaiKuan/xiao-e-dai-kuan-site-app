@@ -172,12 +172,12 @@ msg[11] = "<span>您输入的用户名不存在,</span><span>请检查输入或<
                   return false;
               }
               
-              if (password.length < 6 || password.length > 20) {
+              if (password.length < 6 || password.length > 18) {
                   ShowConfirmErrorMsg("password_error_newpass", 4, "NewPassword");
                   return false;
               }
           
-              if (!/^\S{1,20}$/.test(password)) {
+              if (!/^\S{1,18}$/.test(password)) {
                   ShowConfirmErrorMsg("password_error_newpass", 4, "NewPassword");
                   return false;
               }
@@ -277,8 +277,8 @@ msg[11] = "<span>您输入的用户名不存在,</span><span>请检查输入或<
                   var msg_error=new Array();
                       msg_error[0] = "请输入您邮件中收到的验证码";
                       msg_error[2] = "验证码输入有误,请重新输入";
-                      msg_error[3] = "密码为6-20个字符,可由英文、数字及符号组成";
-                      msg_error[4] = "<span>密码长度6-20个字符,请重新输入</span>";
+                      msg_error[3] = "密码为6-18个字符,可由英文、数字及符号组成";
+                      msg_error[4] = "<span>密码长度6-18个字符,请重新输入</span>";
                       msg_error[5] = "验证码已过期,<a href=\"lostpassword.php\">重新收取邮件</a>"
                       msg_error[6] = "您今天的验证码发送次数已经超过限制,请明天再试";
                       msg_error[7] = "还是没有收到短信？请检查您的手机明天再试";
