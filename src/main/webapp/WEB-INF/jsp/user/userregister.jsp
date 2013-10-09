@@ -22,6 +22,7 @@
 <form  action="createUser"   autocomplete="off" id="login_form" >
 <div class="registered_main">
   <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table1">
+    <tr><td width="12%"></td><td width="88%">带<span style="color:red;padding-right:8px">*</span>项为必填</td></tr>
     <tr>
       <th width="12%"><span style="color:red;padding-right:8px">*</span>手机：</th>
       <td width="88%">
