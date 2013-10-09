@@ -20,8 +20,10 @@ import com.webloan.credit.service.CreditService;
 import com.webloan.exception.BizException;
 import com.webloan.message.service.MessageService;
 import com.webloan.model.Cust;
+import com.webloan.model.Region;
 import com.webloan.order.service.OrderService;
 import com.webloan.question.service.QuestionService;
+import com.webloan.region.service.RegionService;
 import com.webloan.user.UserConstant;
 import com.webloan.user.service.UserService;
 import com.webloan.util.EmailVerify;
@@ -41,6 +43,8 @@ public class UserController extends MultiActionController {
 	CreditService creditService;
 	@Resource
 	QuestionService questionService;
+	@Resource
+	RegionService regionService;
 
 	protected transient Logger log = LoggerFactory.getLogger(this.getClass());
 
@@ -878,5 +882,18 @@ public class UserController extends MultiActionController {
 
 		return result;
 	}
-
+	
+	public ModelAndView selectCity(HttpServletRequest request,
+			HttpServletResponse response) throws Exception {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("index");
+		
+		String strId = request.getParameter("setcity");
+		Long regionId = Long.valueOf(strId);
+		
+		Region region = regionService.getRegionById(regionId);
+		request.getSession().setAttribute("currentRegion", region);
+		
+		return mav;
+	}
 }

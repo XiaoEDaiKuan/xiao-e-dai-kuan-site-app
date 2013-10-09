@@ -11,7 +11,6 @@ public class RegionServiceImpl implements RegionService {
 	public static final String STATUS_KT = "0";
 	public static final String STATUS_WKT = "1";
 	
-
 	private RegionRepository regionRepository;
 	
 	public RegionRepository getRegionRepository() {
@@ -19,6 +18,10 @@ public class RegionServiceImpl implements RegionService {
 	}
 	public void setRegionRepository(RegionRepository regionRepository) {
 		this.regionRepository = regionRepository;
+	}
+	
+	public Region getRegionById(Long regionId) {
+		return regionRepository.load(Region.class, regionId);
 	}
 
 	public List<Region> queryProvinces() {

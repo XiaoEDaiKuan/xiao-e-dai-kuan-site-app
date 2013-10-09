@@ -14,7 +14,7 @@
 			<div class="testdiv3">请选择以下地区</div>
 			<div class="pop_city">
 				<c:forEach var="alr" items="${sessionScope.allowLoanRegions}">
-				<a href="selectCity/?setcity=${alr.id}" class="C_${alr.id}">${alr.name}</a>
+				<a href="selectCity?setcity=${alr.id}" class="C_${alr.id}">${alr.name}</a>
 				</c:forEach>
 			</div>
 			<div class="pop_city2">
@@ -32,7 +32,7 @@
 		<a href="index.html"></a>
 	</div>
 	<div class="city font_f">
-		<font>北京</font><a href="#" id="pop_city">[切换城市]</a>
+		<font>${sessionScope.currentRegion.name}</font><a href="#" id="pop_city">[切换城市]</a>
 	</div>
 	<div class="top_right">
 		<div class="top_right1">

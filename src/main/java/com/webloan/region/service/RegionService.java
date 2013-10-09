@@ -6,6 +6,8 @@ import com.webloan.model.Region;
 
 public interface RegionService {
 	
+	Region getRegionById(Long regionId);
+	
 	List<Region> queryProvinces();
 	
 	List<Region> queryCities(Long provinceId);
