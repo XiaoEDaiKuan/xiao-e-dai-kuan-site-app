@@ -24,6 +24,8 @@ import com.webloan.order.service.OrderService;
 import com.webloan.question.service.QuestionService;
 import com.webloan.user.UserConstant;
 import com.webloan.user.service.UserService;
+import com.webloan.util.EmailVerify;
+import com.webloan.util.IDCodeVerify;
 import com.webloan.util.MobileVerify;
 
 public class UserController extends MultiActionController {
@@ -48,6 +50,7 @@ public class UserController extends MultiActionController {
 	public ModelAndView createUser(HttpServletRequest request,
 			HttpServletResponse response) {
 
+		/*
 		// 验证验证码
 		String sessionId = request.getSession().getId();
 		String captcha = request.getParameter("captcha");
@@ -64,6 +67,7 @@ public class UserController extends MultiActionController {
 			log.error(UserConstant.EXCEPTION_CAPTCHA_CODE);
 			throw new BizException(UserConstant.EXCEPTION_CAPTCHA_CODE);
 		}
+		*/
 
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("user/registerok");
@@ -806,10 +810,71 @@ public class UserController extends MultiActionController {
 			return result;
 		}
 		if (!MobileVerify.isMobileNO(mobileNo)) {
+			result = "fail1";
+		}
+
+		if(userService.duplicatedMobileCheck(mobileNo)){
 			result = "fail2";
 		}
+		
 		out.print(result);
 		out.close();
 		return result;
 	}
+	
+	/**
+	 * 验证身份证
+	 * @param request
+	 * @param response
+	 * @return
+	 * @throws Exception
+	 */
+	public String verifyIdNo(HttpServletRequest request,
+			HttpServletResponse response) throws Exception {
+		PrintWriter out = response.getWriter();
+		String result = "success";
+
+		String idNO = request.getParameter("idNo");
+		IDCodeVerify idV = new IDCodeVerify(idNO);
+		if (!idV.validate()) {
+			result = "fail1";
+		}
+		
+		if(userService.duplicatedIdNoCheck(idNO)){
+			result = "fail2";
+		}
+		
+		out.print(result);
+		out.close();
+
+		return result;
+	}
+
+	/**
+	 * 检验邮件
+	 * @param request
+	 * @param response
+	 * @return
+	 * @throws Exception
+	 */
+	public String verifyEmail(HttpServletRequest request,
+			HttpServletResponse response) throws Exception {
+		PrintWriter out = response.getWriter();
+		String result = "success";
+
+		String email = request.getParameter("email");
+		if (!EmailVerify.checkEmail(email)) {
+			result = "fail1";
+		}
+		
+		if(userService.duplicatedEmailCheck(email)){
+			result="fail2";
+		}
+		
+		out.print(result);
+		out.close();
+
+		return result;
+	}
+
 }

@@ -1,0 +1,6 @@
+.tip_yes {background:url(../images/bg_findmsg.png) no-repeat -20px -280px;display:inline-block;height:16px;vertical-align:middle;margin-top:4px;width:16px;*margin-top:4px;}
+.e9 {color:#878787;*display:inline-block;*line-height:25px;}
+.wrong_box {background-color:#fef2f2;border:1px solid #ffb8b8;color:#f40000; display:inline-block;height:23px;line-height:23px;padding:0 6px;_padding-top:3px;_height:20px;}
+.wrong_box i {background:url(../images/bg_findmsg.png) no-repeat 0 -280px;display:inline-block;height:17px;margin-right:5px;vertical-align:middle;width:17px;position:relative;top:-1px;top:-1px\0;*top:0;_top:-2px; }
+.clearfix:after { clear: both; content: " "; display: block; font-size: 0; height: 0; visibility: hidden; }
+.clearfix { zoom: 1; }
