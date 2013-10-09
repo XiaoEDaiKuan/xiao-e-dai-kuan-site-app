@@ -261,6 +261,7 @@ $(document).ready(
                                                      &&  idno_flag &&  email_flag &&  captcha_flag && term_flag)
                                                   {
                                                     $('#login_form').submit();
+                                                    alert("请您前往注册邮箱进行账户激活");
 
                                                  }
                                           
