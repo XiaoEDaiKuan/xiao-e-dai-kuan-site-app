@@ -22,7 +22,7 @@
 	<div class="pop_contact">
 		<div class="pop_city">
 			<c:forEach var="alr" items="${sessionScope.allowLoanRegions}">
-				<a href="selectCity/?setcity=${alr.id}" class="C_${alr.id}">${alr.name}</a>
+				<a href="selectCity/?setcity=${alr.id}" class="C_${alr.id}" target="_top">${alr.name}</a>
 			</c:forEach>
 		</div>
 		<div class="pop_city2">
