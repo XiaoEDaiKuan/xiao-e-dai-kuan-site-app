@@ -337,7 +337,9 @@ public class UserController extends MultiActionController {
 		mav.setViewName("index");
 		// 从session中获取ciustId
 		Long custId = (Long) request.getSession().getAttribute("custId");
-		if (null != custId ) {
+		if (null != custId) {
+			request.getSession().removeAttribute("custId");
+			request.getSession().removeAttribute("custName");
 			request.getSession().invalidate();
 		}
 		return mav;
