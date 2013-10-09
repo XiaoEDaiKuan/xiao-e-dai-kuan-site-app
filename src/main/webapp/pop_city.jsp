@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns:wb="http://open.weibo.com/wb"  xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -8,16 +9,21 @@
 <link href="css/publlc.css" type="text/css" rel="stylesheet" />
 <link href="css/style.css" type="text/css" rel="stylesheet" />
 <link href="css/tipswindown.css" type="text/css" rel="stylesheet" />
+<style type="text/css">
+.pop_contact .pop_city a.C_${sessionScope.currentRegion.id}{
+	color:#f68a55;
+	font-weight:bold;
+	border-bottom:solid #f68a55 1px;
+}
+</style>
 </head>
 
 <body style="background: #fff;">
 	<div class="pop_contact">
 		<div class="pop_city">
-			<a href="#">北京</a><a href="#">上海</a><a href="#">常州</a><a href="#">佛山</a><a
-				href="#">成都</a><a href="#">广州</a><a href="#">南宁</a><a href="#">宁波</a><a
-				href="#">武汉</a><a href="#">青岛</a><a href="#">郑州</a><a href="#">重庆</a><a
-				href="#">石家庄</a><a href="#">洪泽</a><a href="#">贵阳</a><a href="#">攀枝花</a><a
-				href="#">江门</a><a href="#">南海</a>
+			<c:forEach var="alr" items="${sessionScope.allowLoanRegions}">
+				<a href="selectCity/?setcity=${alr.id}" class="C_${alr.id}">${alr.name}</a>
+			</c:forEach>
 		</div>
 		<div class="pop_city2">
 			<b>温馨提示：</b>请选择您的真实所在地，否则金融机构不能受理您的贷款申请。

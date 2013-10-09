@@ -15,4 +15,11 @@
 <script type="text/javascript" src="Scripts/pop_zidong.js"> </script>
 <script type="text/javascript" src="Scripts/globals.js"></script>
 <script type="text/javascript" src="Scripts/login.js"></script>
+<style type="text/css">
+.pop_contact .pop_city a.C_${sessionScope.currentRegion.id}{
+	color:#f68a55;
+	font-weight:bold;
+	border-bottom:solid #f68a55 1px;
+}
+</style>
 

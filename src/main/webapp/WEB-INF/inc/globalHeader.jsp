@@ -8,16 +8,14 @@
 		<div id="close"></div>
 	</div>
 	<div id="testdiv">
-		<div class="testdiv1">根据您的IP地址，您在杭州。</div>
+		<div class="testdiv1">根据您的IP地址，您在${sessionScope.currentRegion.name}。</div>
 		<div class="testdiv2">目前玖富云金融平台尚未在该地区开通线下贷款业务，金融机构无法接受您的贷款申请。您可以切换至以下地区浏览平台产品服务以及使用平台功能。</div>
 		<div class="pop_contact">
 			<div class="testdiv3">请选择以下地区</div>
 			<div class="pop_city">
-				<a href="#">北京</a><a href="#">上海</a><a href="#">常州</a><a href="#">佛山</a><a
-					href="#">成都</a><a href="#">广州</a><a href="#">南宁</a><a href="#">宁波</a><a
-					href="#">武汉</a><a href="#">青岛</a><a href="#">郑州</a><a href="#">重庆</a><a
-					href="#">石家庄</a><a href="#">洪泽</a><a href="#">贵阳</a><a href="#">攀枝花</a><a
-					href="#">江门</a><a href="#">南海</a>
+				<c:forEach var="alr" items="${sessionScope.allowLoanRegions}">
+				<a href="selectCity/?setcity=${alr.id}" class="C_${alr.id}">${alr.name}</a>
+				</c:forEach>
 			</div>
 			<div class="pop_city2">
 				<b>温馨提示：</b>请选择您的真实所在地，否则金融机构不能受理您的贷款申请。
