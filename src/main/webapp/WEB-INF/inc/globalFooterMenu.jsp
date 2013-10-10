@@ -8,7 +8,7 @@
       <li><a href="#">常见问题</a></li>
       <li><a href="#">服务条款</a></li>
       <li><a href="#">隐私保护</a></li>
-      <li><a href="fin_opinion.html" target="_blank">意见反馈</a></li>
+      <li><a href="fin_opinion.jsp" target="_blank">意见反馈</a></li>
     </ul>
   </div>
   <div class="about">

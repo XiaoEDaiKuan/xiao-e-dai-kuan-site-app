@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -26,11 +28,11 @@
     </div>
     <div class="members_left2">
       <ul>
-        <li><a href="financial.html" class="hover2">什么是云金融</a></li>
+        <li><a href="financial.jsp" class="hover2">什么是云金融</a></li>
         <li><a href="#">常见问题</a></li>
         <li><a href="#">服务条款</a></li>
         <li><a href="#">隐私保护</a></li>
-        <li><a href="fin_opinion.html">意见反馈</a></li>
+        <li><a href="fin_opinion.jsp">意见反馈</a></li>
       </ul>
     </div>
   </div>
@@ -54,3 +56,4 @@
 </div>
 </body>
 </html>
+    
