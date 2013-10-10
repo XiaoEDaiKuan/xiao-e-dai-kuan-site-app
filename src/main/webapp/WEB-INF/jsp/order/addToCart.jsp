@@ -93,7 +93,7 @@ con.style.display=i==cursel?"block":"none";
     </div>
     <div class="credit ground  applicationleft13">
   <div class="credit_title Fuzzysearch7"> 
-    <div class="credit_title font_f Fuzzysearch2 applicationleft5"> <span>贷款须知</span><a href="#" id="pop_save">保存此内容到我的邮箱</a> </div>
+    <div class="credit_title font_f Fuzzysearch2 applicationleft5"> <span>贷款须知</span><a href="#" data="${pv.product.id}"  id="pop_save">保存此内容到我的邮箱</a> </div>
   </div>
   <div class="applicationleft6">
   	<div class="applicationleft7">
