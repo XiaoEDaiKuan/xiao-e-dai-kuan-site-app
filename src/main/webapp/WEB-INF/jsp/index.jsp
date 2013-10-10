@@ -185,9 +185,15 @@
     <div class="credit_title"> <span class="credit_title1 font_f">大家都在问</span> <a target="_blank" href="ask">更多问题</a><input name="" type="button" value="我要提问" id="pop_question" /> </div>
     <ul class="question_list">
     <c:forEach var="hiQust" items="${hiQusts.items}">
-      <li><a href="viewAnswer?id=${hiQust.id}" target="_blank">${hiQust.detail}</a></li>
+      <!--li><a href="viewAnswer?id=${hiQust.id}" target="_blank"></a></li-->
+      <li><div onclick="showQuestion('Q_${hiQust.id}')" style="cursor: pointer;display: block;color:#727171">${hiQust.detail}</div>
+    		<div id="Q_${hiQust.id}" style="display:none;">dsfsdfdsf</div>
+    	</li>
     </c:forEach>
+    	
+    	
     </ul>
+    <div style="clear:both"></div>
   </div>
   <div class="strategy ground">
   <%@include file="../inc/gonglueList.jsp"%>

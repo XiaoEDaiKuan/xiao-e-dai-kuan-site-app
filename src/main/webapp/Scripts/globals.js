@@ -42,3 +42,6 @@ var searchProduct = function(){
     });
 		document.location.href = url;
 };
+ var showQuestion = function(target){
+	 $("#" + target).toggle();
+ };

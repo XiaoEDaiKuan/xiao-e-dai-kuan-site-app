@@ -1,4 +1,4 @@
-/*首页自动弹出框样式*/
+
 #showdiv{ width:600px; height:400px; position:absolute; left:50%; top:50%;margin-top:-220px;margin-left:-300px;border:5px solid #333; background:#fff; z-index:99999; display:none; }
 #testdiv{}
 .testdiv1{line-height:50px;font-size:14px;color:#ff5f01;font-weight:bold;padding:10px 20px 0 20px;}
@@ -8,7 +8,7 @@
 #close_bj{height:50px;background:url(../images/pop_bj.jpg) repeat-x left top;}
 #close_bj span{float:left;font-size:16px;line-height:50px;font-weight:bold;color:#333;padding-left:15px;}
 #close{float:right;width:16px;height:16px;background:url(../images/close.jpg) no-repeat left top;margin:15px 15px 0 0;}
-/*首页自动弹出框样式 结束*/
+
 
 #full-screen-slider { width:100%; height:362px; position:relative}
 #slides { display:block; width:100%; height:362px; list-style:none; padding:0; margin:0; position:relative}
@@ -66,7 +66,7 @@
 .sina_border{border:1px solid #fff;width:289px;height:92px;}
 .sina1{float:left;width:125px;text-align:center;padding:0 9px;padding-top:5px;}
 .sina1 a{display:block;width:65px;height:58px;margin:0 auto;}
-.sina1 p{color:#000;text-align:center;line-height:23px;font-family:"微软雅黑";}
+.sina1 p{color:#000;text-align:center;line-height:23px;font-family:"寰�蒋���";}
 .sina2{background:url(../images/sina.jpg) no-repeat center top;}
 .weixin{background:url(../images/weixin.jpg) no-repeat center top;}
 .assistant{width:291px;padding-bottom:16px;}
@@ -82,7 +82,7 @@
 .main3{width:998px;margin:0 auto;margin-bottom:15px;}
 .cloud{width:931px;height:81px;margin:0 auto;background:url(../images/bank.jpg) no-repeat;margin-top:15px;}
 
-/*图片滚动*/
+/*�剧�婊��*/
 #demo {background: #FFF;overflow:hidden;width: 931px;height:85px;}
 #demo img {border:1px solid #e6e6e6;margin:6px 9px;}
 #indemo {float: left;width: 800%;}
@@ -93,7 +93,7 @@
 .main4{width:1000px;margin:0 auto; clear:both; overflow:hidden;}
 .ask{float:left;width:693px;}
 .question_list{padding-top:3px;_padding-top:5px;}
-.question_list li{height:37px;line-height:37px;_line-height:35px;_height:35px;color:#727171;border-bottom:1px solid #e6e6e6;padding:0 25px 0 30px;background:url(../images/arrow.jpg) no-repeat 15px center;}
+.question_list li{line-height:37px;_line-height:35px;color:#727171;border-bottom:1px solid #e6e6e6;padding:0 25px 0 30px;background:url(../images/arrow.jpg) no-repeat 15px 16px;}
 .question_list li.border-bt{border-bottom:0;}
 .question_list li a{float:left;}
 .question_list li span{float:right;}
