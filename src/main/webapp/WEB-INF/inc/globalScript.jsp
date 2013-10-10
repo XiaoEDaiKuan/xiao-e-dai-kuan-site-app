@@ -1,3 +1,4 @@
+<%@page import="org.springframework.web.context.request.SessionScope"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -22,4 +23,10 @@
 	border-bottom:solid #f68a55 1px;
 }
 </style>
-
+<c:if test="${sessionScope.currentRegion.name ne '北京市'}">
+<script type="text/javascript">
+$(document).ready(function(){
+	  layer();
+});
+</script>
+</c:if>
