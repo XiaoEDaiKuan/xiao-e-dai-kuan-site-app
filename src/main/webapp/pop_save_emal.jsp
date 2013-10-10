@@ -11,17 +11,17 @@
 </head>
 
 <body style="background:#fff;">
+<form action="saveToEmail" method="post">
 <div class="pop_contact">
   <div class="pop_email">
     <div class="pop_email1">请留下邮箱，我们会把该产品的介绍和申请条件发给您。</div>
     <div class="pop_email2"><span>邮箱地址：</span>
-    <form action="saveToEmail" method="post">
-    <input name="email" type="text" class="input email" />
+    <input name="email" type="text" class="input email" />&nbsp;&nbsp;
     <input name="" type="submit" value="" class="pop_send"/>
-    </form>
     </div>
   </div>
 </div>
+</form>
 </body>
 </html>
 	

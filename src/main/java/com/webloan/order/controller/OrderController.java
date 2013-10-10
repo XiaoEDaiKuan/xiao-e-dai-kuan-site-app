@@ -68,12 +68,9 @@ public class OrderController extends MultiActionController{
 	
 	public ModelAndView  orderEmail(HttpServletRequest request, HttpServletResponse response){
 		
-		String productId =(String) request.getSession().getAttribute("productId");
+		String productId =(String) request.getParameter("productId");
 		String email = request.getParameter("email");
-		
-		
 		orderService.orderEmail(email, productId);
-
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("order/inputEmail"); 
 		

@@ -18,21 +18,17 @@
 	</c:if>
 	
 	<c:if test="${empty emailOK}">
-   
-	<div class="pop_cancel">
-		<form action="orderEmail" method="post">
-       <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table1">
-         <tr>
-             <th width="50%"><span style="color:red;padding-left:8px">*</span>邮箱</th>
-            <td width="50%"><input name="email" type="text" value="" class="input" /></td>
-         </tr>
-	  </table>
-	
-			<div class="pop_cancel2">
-				<input name="" type="submit" value="" class="cancel_det"  />
-			</div>
-		</form>
+	<form action="orderEmail?productId=${productId}" method="post">
+	<div class="pop_contact">
+	  <div class="pop_email">
+	    <div class="pop_email1">请留下邮箱，我们会把该产品的介绍和申请条件发给您。</div>
+	    <div class="pop_email2"><span>邮箱地址：</span>
+	    <input name="email" type="text" class="input email" />
+	    <input name="" type="submit" value="" class="pop_send"/>
+	    </div>
+	  </div>
 	</div>
+	</form>
    </c:if>
 </body>
 </html>
