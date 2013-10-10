@@ -38,11 +38,13 @@ public class HomePageController implements Controller {
 			session.setAttribute("userDefinedRegion", "0");
 		}
 		
-		String ip = request.getRemoteAddr();
-		RegionIP rip = questionService.qryCityByIP(ip);
-		
-		if (rip != null && rip.getRegion() != null) {
-			session.setAttribute("currentRegion", rip.getRegion());
+		if (session.getAttribute("currentRegion") == null) {
+			String ip = request.getRemoteAddr();
+			RegionIP rip = questionService.qryCityByIP(ip);
+
+			if (rip != null && rip.getRegion() != null) {
+				session.setAttribute("currentRegion", rip.getRegion());
+			}
 		}
 		
 		Page hcrProds = productService.pagingProductRecommend(1, 5, RecommendType.HOT_CREDIT);
