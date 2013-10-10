@@ -81,7 +81,7 @@
   
   <c:forEach var="pv" items="${pvs.items}">
   <div class="Loansearch11 ClearFix">
-  	<div class="Loansearch19"><a href="viewProduct?&productId=${pv.product.id}"><img src="images/img18.jpg" width="94" height="29" /></a></div>
+  	<div class="Loansearch19"><a href="viewProduct?&productId=${pv.product.id}" target="_blank"><img src="images/img18.jpg" width="94" height="29" /></a></div>
   	<div class="Loansearch12">
     	<div class="Loansearch13">
         	<h1>${pv.product.issueOrgan}</h1>
