@@ -263,31 +263,27 @@
      <div class="Loansearch21">
      	<div id="uboxstyle">
 	<select name="issueType" id="issueType" class="formItem smallItem">
-		<option value="">请选择</option>
+		<option value="">不限机构类型</option>
 		<option value="0">银行</option>
-		<option value="1" >小额贷款公司</option>
-		<option value="2" >典当行</option>
-		<option value="3" >其他</option>
+		<option value="1">玖富</option>
+		<option value="2">其他</option>
 	</select>
     </div>
     <div id="uboxstyle">
 	<select name="guarantyType" id="guarantyType" class="formItem smallItem">
-		<option value="">请选择</option>
+		<option value="1">不限抵押类型</option>
+		<option value="3">房屋抵押</option>
+		<option value="2">车辆抵押</option>
+		<option value="5">其他抵押</option>
 		<option value="0">不需要抵押</option>
-		<option value="1" >需要抵押，但不限抵押物</option>
-		<option value="2" >车辆抵押</option>
-		<option value="3" >房屋抵押</option>
-		<option value="4" >信用卡</option>
-		<option value="5" >其他抵押</option>
-		<option value="6" >担保</option>
 	</select>
     </div>
     <div id="uboxstyle">
 	<select name="repayType" id="repayType" class="formItem smallItem">
-		<option value="">请选择</option>
+		<option value="">不限还款方式</option>
 		<option value="0">分期还款</option>
-		<option value="1" >到期还款</option>
-		<option value="2" >随借随还</option>
+		<option value="1">到期还款</option>
+		<option value="2">随借随还</option>
 	</select>
     </div>
      </div>
