@@ -24,7 +24,7 @@
 </div>
 <div class="reg_ok font_f">
   <div class="reg_ok1"></div>
-  <div class="reg_ok2"><font>尊敬的用户${name}: 恭喜你，注册成功！</font><br />
+  <div class="reg_ok2"><font>尊敬的用户${name}: </br>恭喜您，注册成功！</font><br />
     请妥善保管您的账号和密码，勿轻易泄漏给他人！</div>
 </div>
 <div class="btn2">
