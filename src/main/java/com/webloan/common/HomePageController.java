@@ -33,7 +33,11 @@ public class HomePageController implements Controller {
 		
 		List<Region> regions = regionService.queryRegionByCityLoan();
 		session.setAttribute("allowLoanRegions", regions);
-
+		
+		if (session.getAttribute("userDefinedRegion") == null) {
+			session.setAttribute("userDefinedRegion", "0");
+		}
+		
 		String ip = request.getRemoteAddr();
 		RegionIP rip = questionService.qryCityByIP(ip);
 		

@@ -1,6 +1,5 @@
-<%@page import="org.springframework.web.context.request.SessionScope"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link href="css/publlc.css" type="text/css" rel="stylesheet" />
 <link href="css/home.css" type="text/css" rel="stylesheet" />
@@ -23,7 +22,7 @@
 	border-bottom:solid #f68a55 1px;
 }
 </style>
-<c:if test="${sessionScope.currentRegion.name ne '北京市'}">
+<c:if test="${sessionScope.userDefinedRegion ne '1' and sessionScope.currentRegion.name ne '北京市'}">
 <script type="text/javascript">
 $(document).ready(function(){
 	  layer();

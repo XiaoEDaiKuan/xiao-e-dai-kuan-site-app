@@ -893,6 +893,7 @@ public class UserController extends MultiActionController {
 		
 		Region region = regionService.getRegionById(regionId);
 		request.getSession().setAttribute("currentRegion", region);
+		request.getSession().setAttribute("userDefinedRegion", "1");
 		
 		return mav;
 	}
