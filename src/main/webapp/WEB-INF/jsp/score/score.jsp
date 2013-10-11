@@ -44,7 +44,7 @@ var questions = [
 var questionIndex = 0;
 $(document).ready(function(){
     showQuestion();
-    $("#resultData").css("background","url('images/score_pic_10.jpg') no-repeat right bottom");
+    $("#resultData").css("background","url('images/images/score_pic_0.png') no-repeat right bottom");
     $("#shenqingBtn").hide();
 });
 var _down = 0;
@@ -74,11 +74,11 @@ var next = function(){
     if(questionIndex < questions.length - 1){
         questionIndex++;
         showQuestion();
-        $("#resultData").css("background","url('images/score_pic_" + (questionIndex + 1) + "0.jpg') no-repeat right bottom");
+        $("#resultData").css("background","url('images/images/score_pic_9-" + questionIndex+ ".png') no-repeat right bottom");
     }else{
         $("#nextBtn").hide();
         $("#shenqingBtn").show();
-        $("#resultData").css("background","url('images/score_results.jpg') no-repeat right bottom");
+        $("#resultData").css("background","url('images/images/score_pic_9.png') no-repeat right bottom");
         $("#strCreditMin").val((_down/10000).toFixed(0));
         $("#strCreditMax").val((_up/10000).toFixed(0));
         $("#resultData").html("<font>预计贷款额度</font><p>" + (_down/10000).toFixed(0) + " ~ " + (_up/10000).toFixed(0) + "</p>");
@@ -90,7 +90,7 @@ var reset = function(){
     $("#nextBtn").show();
     $("#resultData").html("");
     $("#shenqingBtn").hide();
-    $("#resultData").css("background","url('images/score_pic_10.jpg') no-repeat right bottom");
+    $("#resultData").css("background","url('images/images/score_pic_9.png') no-repeat right bottom");
     showQuestion();
 }
 </script>
