@@ -182,12 +182,17 @@
 </div>
 <div class="main4">
   <div class="ask ground">
-    <div class="credit_title"> <span class="credit_title1 font_f">大家都在问</span> <a target="_blank" href="ask">更多问题</a><input name="" type="button" value="我要提问" id="pop_question" /> </div>
+    <div class="credit_title"> <span class="credit_title1 font_f">大家都在问</span> <!--<a target="_blank" href="ask">更多问题</a>-->
+    <input name="" type="button" value="我要提问" id="pop_question" /> </div>
     <ul class="question_list">
     <c:forEach var="hiQust" items="${hiQusts.items}">
       <!--li><a href="viewAnswer?id=${hiQust.id}" target="_blank"></a></li-->
-      <li><div onclick="showQuestion('Q_${hiQust.id}')" style="cursor: pointer;display: block;color:#727171">${hiQust.detail}</div>
-    		<div id="Q_${hiQust.id}" style="display:none;">dsfsdfdsf</div>
+      <li><div onclick="showQuestion('Q_${hiQust.id}')" style="cursor: pointer;display: block;color:#727171">${hiQust.detail} ${hiQust.askTime}</div>
+    		<div id="Q_${hiQust.id}" style="display:none;">
+    		<c:forEach var="a" items="${hiQust.answers}" varStatus="ast">
+				<c:if test="${ast.index == 0}">答: <a href="viewAnswer?id=${hiQust.id}" target="_blank">${a.answerContent}</a></c:if>
+			</c:forEach>
+			</div>
     	</li>
     </c:forEach>
     	
