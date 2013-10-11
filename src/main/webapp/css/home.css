@@ -92,11 +92,21 @@
 
 .main4{width:1000px;margin:0 auto; clear:both; overflow:hidden;}
 .ask{float:left;width:693px;}
+
 .question_list{padding-top:3px;_padding-top:5px;}
-.question_list li{line-height:37px;_line-height:35px;color:#727171;border-bottom:1px solid #e6e6e6;padding:0 25px 0 30px;background:url(../images/arrow.jpg) no-repeat 15px 16px;}
+.question_list li{height:37px;line-height:37px;_line-height:35px;_height:35px;color:#727171;border-bottom:1px solid #e6e6e6;padding:0 25px 0 30px;background:url(../images/arrow.jpg) no-repeat 15px center;}
 .question_list li.border-bt{border-bottom:0;}
 .question_list li a{float:left;}
 .question_list li span{float:right;}
+
+
+.homequestion_list{padding-top:3px;_padding-top:5px;}
+.homequestion_list li{line-height:37px;_line-height:35px;color:#727171;border-bottom:1px solid #e6e6e6;padding:0 25px 0 30px;background:url(../images/arrow.jpg) no-repeat 15px 16px;}
+.homequestion_list li.border-bt{border-bottom:0;}
+.homequestion_list li a{float:left;}
+.homequestion_list li span{float:right;}
+
+
 .strategy{float:right;width:292px;}
 
 .strategy_list{padding:15px 0 9px 0;}
