@@ -47,6 +47,7 @@ public class HomePageController implements Controller {
 		if (ip == null) {
 			ip = request.getHeader("HTTP_X_FORWARDED_FOR");
 		}
+		
 		if (ip == null) {
 			ip = request.getRemoteAddr();
 		}
