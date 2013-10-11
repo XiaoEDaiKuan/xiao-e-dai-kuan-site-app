@@ -94,8 +94,8 @@
       分级评分 逐级增加额度</a></li>
     <li class="pos"><a href="posloan" target="_blank"><b>POS贷款专区</b><br />
       POS流水评估 简便贷款</a></li>
-    <li class="loan"><a href="xxloan" target="_blank"><b>XX贷款专区</b><br />
-      简单说明</a></li>
+    <li class="loan"><a href="xxloan" target="_blank"><b>提现卡专区</b><br />
+      即将上线 尽请期待</a></li>
   </ul>
 </div>
 <div class="main2">

@@ -137,21 +137,21 @@ public class UserController extends MultiActionController {
 			HttpServletResponse response) throws Exception {
 
 		// 验证验证码
-		String sessionId = request.getSession().getId();
-		String captcha = request.getParameter("captcha");
-
-		boolean flag = false;
-		try {
-			flag = captchaService.validateResponseForID(sessionId, captcha);
-		} catch (Exception e) {
-			e.printStackTrace();
-			log.error(UserConstant.EXCEPTION_CAPTCHA_CODE);
-			throw new BizException(UserConstant.EXCEPTION_CAPTCHA_CODE);
-		}
-		if (!flag) {
-			log.error(UserConstant.EXCEPTION_CAPTCHA_CODE);
-			throw new BizException(UserConstant.EXCEPTION_CAPTCHA_CODE);
-		}
+//		String sessionId = request.getSession().getId();
+//		String captcha = request.getParameter("captcha");
+//
+//		boolean flag = false;
+//		try {
+//			flag = captchaService.validateResponseForID(sessionId, captcha);
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//			log.error(UserConstant.EXCEPTION_CAPTCHA_CODE);
+//			throw new BizException(UserConstant.EXCEPTION_CAPTCHA_CODE);
+//		}
+//		if (!flag) {
+//			log.error(UserConstant.EXCEPTION_CAPTCHA_CODE);
+//			throw new BizException(UserConstant.EXCEPTION_CAPTCHA_CODE);
+//		}
 
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("index");

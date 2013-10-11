@@ -4,7 +4,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns:wb="http://open.weibo.com/wb"  xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<title>XX贷款专区</title>
+<title>提现卡专区</title>
 <%@include file="../../inc/globalScript.jsp" %>
 <script>
 <!--
@@ -36,7 +36,7 @@ function setTab(name,cursel,n){
             </div>
         	<div class="applicationleft">
             	<div class="credit ground Loansearch3 quickloan9">
-      <div class="credit_title"><span class="credit_title1 font_f Theloanright6">XX贷款专区</span><span class="credit_title2">已有抵押贷，想提高贷款额度</span></div>
+      <div class="credit_title"><span class="credit_title1 font_f Theloanright6">提现卡专区</span><span class="credit_title2">已有抵押贷，想提高贷款额度</span></div>
       <div class="quickloan1">请选择方案，并从方案中挑选贷款</div>
       
       <div id="Tab1">

@@ -11,7 +11,7 @@
 </style>
 </head>
 <body style="padding:20px">
-	<form action="loginFormAction" method="post">
+	<form action="loginFormAction" method="post" id="login_form_2">
 		<table width="100%" border="0" cellspacing="4" cellpadding="3">
 			<tr>
 				<th>账&nbsp;&nbsp;&nbsp;号：</th>
@@ -25,15 +25,18 @@
 			</tr>
 			<tr>
 				<th>验证码：</th>
-				<td><input name="captcha" type="text" class="input code"  style="height:28px;width:108px;margin-bottom:0px;vertical-align: middle;"/>
+				<td><input name="captcha" type="text" class="input code"  style="height:28px;width:108px;margin-bottom:0px;vertical-align: middle; " id="login_form_captcha" />
 				<img id="captchaimg" src="handleCaptcha" alt="captcha"  class="input code" style="margin:0px;width:90px;height:28px;vertical-align: middle;" onclick="reloadCaptcha()" />
+				  <span id="login_form_captcha_ok" class="tip_yes" style="display:none;"></span>
+                  <span id="login_form_captcha_error" class="e9" style="display:none;"></span>
+				
 				</td>
 			</tr>
 			<tr>
 				<th></th>
 				<td>
 				<div class="login3" style="padding:0px;margin:0px;margin-top:15px">
-					<input type="submit" value="" /><a href="forgetPasswd" target="_top">忘记密码？</a>
+					<input type="button" value="" id="login_form_submit" /><a href="forgetPasswd" target="_top">忘记密码？</a>
 				</div>
 				</td>
 			</tr>

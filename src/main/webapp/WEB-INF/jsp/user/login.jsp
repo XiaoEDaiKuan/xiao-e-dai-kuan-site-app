@@ -19,7 +19,7 @@
     <div class="login2">
       <div class="login2_1 font_f">玖富云金融平台</div>
       <div class="login2_2">
-      <form action="login" method="post">
+      <form action="login" method="post" id="login_form_2">
         <table width="100%" border="0" cellspacing="0" cellpadding="0">
           <tr>
             <th>账&nbsp;&nbsp;&nbsp;号：</th>
@@ -33,15 +33,19 @@
           </tr>
           <tr>
             <th>验证码：</th>
-            <td><input name="captcha" type="text" class="input code" /></td>
+            <td><input name="captcha" type="text" class="input code" id="login_form_captcha" />
+            <span id="login_form_captcha_error" class="e9" style="display:none;"></span>
+            </td>
           </tr>
           <tr>
             <th>&nbsp;</th>
-            <td><img id="captchaimg" src="handleCaptcha" alt="captcha"  class="input code" style="margin:0px;width:112px;height:32px" onclick="reloadCaptcha()" /></td>
+            <td>
+               <img id="captchaimg" src="handleCaptcha" alt="captcha"  class="input code" style="margin:0px;width:112px;height:32px" onclick="reloadCaptcha()" />
+             </td>
           </tr>
 
         </table>
-        <div class="login3"><input name="" type="submit" value="" /><a href="forgetPasswd">忘记密码？</a></div>
+        <div class="login3"><input name="" type="button" value=""  id="login_form_submit" /><a href="forgetPasswd">忘记密码？</a></div>
         <div class="login4">没有账号？立即<a href="reg">免费注册</a></div>
         </form>
       </div>
