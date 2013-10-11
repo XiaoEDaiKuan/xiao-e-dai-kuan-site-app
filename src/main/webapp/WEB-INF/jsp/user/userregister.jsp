@@ -10,7 +10,7 @@
 
 <body>
 <div class="top">
-  <div class="logo"><a href="/"></a></div>
+  <div class="logo"><a href="index.html"></a></div>
   <div class="registered font_f">会员注册</div>
 </div>
 <div class="registered_title">

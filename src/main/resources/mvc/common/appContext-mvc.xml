@@ -26,10 +26,6 @@
 	<!-- Handle exceptions --> 
 	<bean id="exceptionResolver" class="com.webloan.common.ExceptionResolver" />
 	
-<!--	<bean id="paraMethodResolver" class="org.springframework.web.servlet.mvc.multiaction.ParameterMethodNameResolver">-->
-<!--		<property name="paramName" value="_m"/>-->
-<!--	</bean>-->
-	
 	<!-- Handler mapping -->
 	<bean id="simpleUrlHandlerMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
 		<property name="mappings">
@@ -111,6 +107,9 @@
 				<prop key="scoreSave">questionController</prop>
 				
 				<prop key="gonglue">gonelueController</prop>
+				
+				<prop key="feedback">opinionController</prop>
+				<prop key="addopinion">opinionController</prop>
 
 			</props>
 		</property>
@@ -151,6 +150,12 @@
 	</bean>
 	
 	<bean id="gonelueController" class="com.webloan.gonglue.controller.GonelueController">
+		<property name="methodNameResolver">
+			<bean class="org.springframework.web.servlet.mvc.multiaction.InternalPathMethodNameResolver" />
+		</property>
+	</bean>
+	
+	<bean id="opinionController" class="com.webloan.opinion.controller.OpinionController">
 		<property name="methodNameResolver">
 			<bean class="org.springframework.web.servlet.mvc.multiaction.InternalPathMethodNameResolver" />
 		</property>

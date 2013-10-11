@@ -1,22 +1,16 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns:wb="http://open.weibo.com/wb"  xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <title>404</title>
 <%@include file="WEB-INF/inc/globalScript.jsp" %>
-<meta http-equiv="Refresh" content="5;url=">
 </head>
-
 <body>
-<jsp:include page="WEB-INF/inc/globalHeader.jsp">
-	<jsp:param name="index" value="1" />
-</jsp:include>
 <div class="main3 padding-bt ground mt20">
   <div class="error clear">
     <div class="error1"> <img src="images/404_1.jpg" width="283" height="131" />
-      <input name="" type="button" value="" onClick="location.href='index.html'" />
-      <p>5秒钟后将自动跳转到网站首页</p>
+      <input name="" type="button" value="" onclick="location.href='index.html'" />
+      <p><a href="index.html">回到到网站首页</a></p>
     </div>
   </div>
   <div class="kong2"></div>
