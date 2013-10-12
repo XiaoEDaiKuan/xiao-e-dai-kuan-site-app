@@ -29,9 +29,9 @@
     <div class="members_left2">
       <ul>
         <li><a href="financial.jsp">什么是云金融</a></li>
-        <li><a href="#">常见问题</a></li>
-        <li><a href="#">服务条款</a></li>
-        <li><a href="#">隐私保护</a></li>
+        <li><a href="common_question.jsp">常见问题</a></li>
+        <li><a href="terms.jsp">服务条款</a></li>
+        <li><a href="private.jsp">隐私保护</a></li>
         <li><a href="fin_opinion.jsp" class="hover2">意见反馈</a></li>
       </ul>
     </div>
