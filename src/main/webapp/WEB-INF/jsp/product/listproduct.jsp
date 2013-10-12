@@ -316,7 +316,7 @@
             	<span class="Loansearch14 Loansearch16">${pv.product.paidDays}天放款</span>
             </p>
         </div>
-    	<img src="images/img13.jpg" width="42" height="42" />
+    	<img src="images/organ/${pv.product.icon}" width="42" height="42" />
     </div>
     <div class="Loansearch12 Loansearch17">
     	<div class="Loansearch18">
@@ -352,7 +352,7 @@
 	<table width="100%" border="0" cellspacing="0" cellpadding="0" class="table">
 		<c:forEach var="hrp" items="${hotRcdProds}">
 		<tr>
-			<td width="8%"><img src="images/${hrp.icon}" width="40" height="21" /></td>
+			<td width="8%"><img src="images/organ/${hrp.icon}" width="40" height="21" /></td>
 			<td width="20%">${hrp.name}</td>
 			<td width="65%">${hrp.desc}</td>
 			<td width="7%"><a href="viewProduct?productId=${hrp.id}" target="_blank">查看</a></td>

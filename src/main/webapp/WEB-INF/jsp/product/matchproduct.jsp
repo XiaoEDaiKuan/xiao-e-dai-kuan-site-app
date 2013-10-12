@@ -48,7 +48,11 @@
 	<div class="Cont" id="ISL_Cont_1">
 	<!-- 图片列表 begin -->
 	<c:forEach var="gp" items="${groupProducts}">
-		<div class="box"><a class="imgBorder" href="viewProduct?productId=${gp.id}" target="_blank"><img src="images/${gp.icon}" width="130" height="79" /></a> </div>
+		<div class="box">
+			<a class="imgBorder" href="viewProduct?productId=${gp.id}" target="_blank">
+			<img src="images/organ/${gp.icon}" alt="${gp.name}&#10;${gp.desc}" width="130" height="79" />
+			</a> 
+		</div>
 	</c:forEach>
 	<!-- 图片列表 end -->
   </div>
@@ -106,11 +110,11 @@
             	<span class="Loansearch14 Loansearch16">${pv.product.paidDays}天放款</span>
             </p>
         </div>
-    	<img src="images/img13.jpg" width="42" height="42" />
+    	<img src="images/organ/${pv.product.icon}" width="42" height="42" />
     </div>
     <div class="Loansearch12 Loansearch17">
     	<div class="Loansearch18">
-            <p>${prod.product.desc}</p>
+            <p>${pv.product.desc}</p>
         </div>
     </div>
     <div class="Loansearch12 Loansearch17">
