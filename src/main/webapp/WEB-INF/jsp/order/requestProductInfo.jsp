@@ -22,8 +22,9 @@
 			<option value="0" selected="selected">不限</option>
 			<option value="1" >经营贷款</option>
 			<option value="2" >消费贷款</option>
-			<option value="3" >购车贷款</option>
-			<option value="4" >购房贷款</option>
+			<option value="4" >购车贷款</option>
+			<option value="3" >购房贷款</option>
+			
           </select></td>
         <td width="14%"></td>
       </tr>
