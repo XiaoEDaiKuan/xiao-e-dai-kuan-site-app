@@ -11,8 +11,7 @@
       <li><a href="feedback" target="_blank">意见反馈</a></li>
     </ul>
   </div>
-  
-  <div class="about">
+   <div class="about">
     <p>银行服务</p>
     <ul>
       <li><a href="http://www.9fbank.com/Content/Shinkansen.html" target="_blank">玖富金融新干线</a></li>
