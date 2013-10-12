@@ -28,6 +28,7 @@ public class OpinionController extends MultiActionController{
 		opinionService.saveOpinion(opinion.getName(), opinion.getEmail(), 
 				opinion.getTelephone(), opinion.getContent());
 		
+		mav.addObject("response", "success");
 		return mav;
 	}
 

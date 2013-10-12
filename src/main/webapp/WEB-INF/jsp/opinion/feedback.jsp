@@ -1,14 +1,20 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>意见反馈</title>
+
 <link href="css/publlc.css" type="text/css" rel="stylesheet" />
 <link href="css/style.css" type="text/css" rel="stylesheet" />
+<link href="css/login.css" type="text/css" rel="stylesheet" />
+
 <script type="text/javascript" src="Scripts/lihover.js"></script>
 <script type="text/javascript" src="Scripts/jquery-1.8.0.min.js"></script>
 <script type="text/javascript" src="Scripts/jquery.jslides.js"></script>
+<script type="text/javascript" src="Scripts/opinion.js"></script>
 </head>
 
 <body>
@@ -35,17 +41,21 @@
       </ul>
     </div>
   </div>
-  <form action="addopinion" method="post">
+  <form action="addopinion" id="opinion_form"  method="post">
   <div class="financial ground">
     <div class="opinion"></div>
     <div class="opinion1 clear">
       <div class="opinion1_1">
         <p>您的姓名<b>*</b></p>
-        <input name="name" type="text" class="input" />
+        <input name="name" type="text" class="input" id="opinion_name" />
+      <span id="opinion_name_error" class="e9" style="display:none;"></span>
       </div>
+       
+      
       <div class="opinion1_2">
         <p>您的邮箱<b>*</b></p>
-        <input name="email" type="text" class="input" />
+        <input name="email" type="text" class="input" id="opinion_email" />
+        <span id="opinion_email_error" class="e9" style="display:none;"></span>
       </div>
       <div class="opinion1_3">
         <p>您的联系电话</p>
@@ -54,14 +64,18 @@
     </div>
     <div class="opinion2">
       <p>您的反馈意见<b>*</b></p>
-      <textarea name="content" cols="" rows="" class="input"></textarea>
+      <textarea name="content" cols="" rows="" class="input" id="opinion_content" ></textarea>
+      <span id="opinion_content_error" class="e9" style="display:none;"></span>
     </div>
     <div class="opinion3">
       <div class="opinion3_1"><p>输入验证码<b>*</b></p>
-      <img src="images/code3.jpg" width="115" height="35" /><a href="#">看不清换一张？</a></div>
-      <div class="opinion3_2"><input name="captcha" type="text" /></div>
+      <img id="captchaimg" src="handleCaptcha"  width="115" height="35" /><a href="javascript:reloadCaptcha();" /">看不清换一张？</a></div>
+      <div class="opinion3_2">
+               <input name="captcha" type="text" id="opinion_captcha" />				  
+               <span id="opinion_captcha_error" class="e9" style="display:none;"></span>
+      </div>
     </div>
-    <div class="opinion4"><input type="submit" value="提交" /></div>
+    <div class="opinion4"><input type="button" value="" id="opinion_submit" /></div>
   </div>
   </form>
 </div>
@@ -72,6 +86,18 @@
     公司总部地址：北京朝阳区麦子店街37号盛福大厦2580<br />
     传真：010-85276916&nbsp;&nbsp;&nbsp;&nbsp;邮编：100000</div>
 </div>
+<script type="text/javascript" language="JavaScript">
+    function reloadCaptcha() {  
+        var obj = document.getElementById('captchaimg');  
+        obj.src = "handleCaptcha?time=" + (new Date()).getTime();
+    } 
+    
+    var response="${response}";
+    if(response=="success"){
+         alert("提交成功，感谢您的反馈");
+    }
+</script>
+
 </body>
 </html>
     
