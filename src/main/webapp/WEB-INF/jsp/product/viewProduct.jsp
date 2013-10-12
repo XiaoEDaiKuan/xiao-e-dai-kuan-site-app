@@ -68,7 +68,7 @@ con.style.display=i==cursel?"block":"none";
             <li>利率说明: 月利率 <span><fmt:formatNumber type="percent" pattern="0.00%" value="${prod.product.intrRate}" /></span></li>
             <li>提前还款说明</li>
         </ul>
-      	<div class="applicationleft2"><img src="images/img19.jpg" width="110" height="67" /></div>
+      	<div class="applicationleft2"><img src="images/organ/${prod.product.icon}" width="110" height="67" /></div>
         <div class="Loansearch13 applicationleft3">
             <p>
             <span class="Loansearch14">
@@ -138,7 +138,7 @@ con.style.display=i==cursel?"block":"none";
 	<table width="100%" border="0" cellspacing="0" cellpadding="0" class="table">
 		<c:forEach var="hrp" items="${hotRcdProds}">
 		<tr>
-			<td width="8%"><img src="images/${hrp.icon}" width="40" height="21" /></td>
+			<td width="8%"><img src="images/organ/${hrp.icon}" width="40" height="21" /></td>
 			<td width="20%">${hrp.name}</td>
 			<td width="65%">${hrp.desc}</td>
 			<td width="7%"><a href="?productId=${hrp.id}" target="_blank">查看</a></td>
