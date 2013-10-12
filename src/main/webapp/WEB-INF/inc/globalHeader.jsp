@@ -55,7 +55,7 @@
 					</ul>
 				</li>
 				<li <c:if test="${param.index eq '3'}">class="hover"</c:if>><a href="scoreChoose" target="_blank">信用评分</a></li>
-				<li <c:if test="${param.index eq '4'}">class="hover"</c:if>><a target="_blank">金融团</a> <i></i></li>
+				<li <c:if test="${param.index eq '4'}">class="hover"</c:if>><a href="http://tuan.9fbank.com/front/common/index" target="_blank">金融团</a> <i></i></li>
 				<li <c:if test="${param.index eq '5'}">class="hover"</c:if>><a href="gonglue" target="_blank">贷款攻略</a></li>
 				<li <c:if test="${param.index eq '6'}">class="hover"</c:if>><a href="ask" target="_blank">贷款问答</a></li>
 			</ul>
