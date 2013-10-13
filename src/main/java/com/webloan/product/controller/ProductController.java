@@ -257,6 +257,22 @@ public class ProductController extends MultiActionController {
 		return mav;
 	}
 
+	/**
+	 * 接收贷款申请人的姓名和手机
+	 * @param request
+	 * @param response
+	 * @param pq
+	 * @return
+	 */
+	public ModelAndView inputNameTel(HttpServletRequest request,
+			HttpServletResponse response, ProductQuery pq) {
+		ModelAndView mav = new ModelAndView();
+			mav.setViewName("order/inputNameTel");
+            mav.addObject("pq", pq);
+			return mav;
+	}
+	
+	
 	public ModelAndView quickloan(HttpServletRequest request,
 			HttpServletResponse response, ProductQuery pq) {
 		ModelAndView mav = new ModelAndView();

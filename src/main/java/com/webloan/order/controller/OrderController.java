@@ -60,8 +60,10 @@ public class OrderController extends MultiActionController{
 		String regionId = rip == null || rip.getRegion() == null ? "" : rip.getRegion().getId().toString();
 		
 		String custId = request.getSession().getAttribute("custId").toString();
+        String custName=request.getParameter("custName");
+		String mobile=request.getParameter("mobile");
 		
-		orderService.createOrder(productId, custId, "", "", loanAmt, regionId);
+		orderService.createOrder(productId, custId, custName, mobile, loanAmt, regionId);
 		
 		return new ModelAndView("order/inputOrderInfoSuccess");
 	}
