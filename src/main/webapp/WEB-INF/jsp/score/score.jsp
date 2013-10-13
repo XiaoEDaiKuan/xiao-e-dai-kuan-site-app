@@ -13,32 +13,32 @@ var questions = [
         {content:"7000~15000",down:15000,up:50000},
         {content:"15000以上",down:20000,up:60000}]},
     {question:"您就职的公司类型？",choice:[
-        {content:"公务员/事业单位",down:1.2,up:1.5},
-        {content:"大型垄断企业",down:1.2,up:1.5},
-        {content:"世界500强或上市企业",down:1.1,up:1.2},
+        {content:"公务员/事业单位",down:1.5,up:1.2},
+        {content:"大型垄断企业",down:1.5,up:1.2},
+        {content:"世界500强或上市企业",down:1.2,up:1.1},
         {content:"普通企业",down:1,up:1}]},
     {question:"您的职位？",choice:[
-        {content:"高层领导",down:1.1,up:1.25},
-        {content:"中层管理人员",down:1.05,up:1.1},
-        {content:"一般员工",down:0.95,up:1}]},
+        {content:"高层领导",down:1.25,up:1.1},
+        {content:"中层管理人员",down:1.1,up:1.05},
+        {content:"一般员工",down:1,up:0.95}]},
     {question:"您是否有房产?",choice:[
-        {content:"无房产",down:0.95,up:1},
-        {content:"有房产（商品房）",down:1.2,up:1.3},
-        {content:"有房产（非商品房）",down:1.1,up:1.2}]},
+        {content:"无房产",down:1,up:0.95},
+        {content:"有房产（商品房）",down:1.3,up:1.2},
+        {content:"有房产（非商品房）",down:1.2,up:1.1}]},
     {question:"您是否是本地户籍?",choice:[
-        {content:"本地户籍",down:1.1,up:1.25},
-        {content:"外地户籍",down:0.9,up:1}]},
+        {content:"本地户籍",down:1.25,up:1.1},
+        {content:"外地户籍",down:1,up:0.9}]},
     {question:"您是否愿意提供实名认证（身份证，联系方式）?",choice:[
-        {content:"是",down:1.05,up:1.1},
+        {content:"是",down:1.1,up:1.05},
         {content:"否",down:1,up:1}]},
     {question:"您是否愿意提供信用认证（信用报告）?",choice:[
-        {content:"是",down:1.4,up:1.8},
+        {content:"是",down:1.8,up:1.4},
         {content:"否",down:1,up:1}]},
     {question:"您是否愿意提供流水认证（6个月银行流水）?",choice:[
-        {content:"是",down:1.05,up:1.2},
+        {content:"是",down:1.2,up:1.05},
         {content:"否",down:1,up:1}]},
     {question:"您是否愿意接受访谈（15分钟内的电话访谈）?",choice:[
-        {content:"是",down:1.2,up:1.3},
+        {content:"是",down:1.3,up:1.2},
         {content:"否",down:1,up:1}]}
 ];  
 var questionIndex = 0;
@@ -71,6 +71,8 @@ var next = function(){
         _down *= parseFloat(_data[0]);
         _up *= parseFloat(_data[1]);
     }
+   
+    
     if(questionIndex < questions.length - 1){
         questionIndex++;
         showQuestion();
