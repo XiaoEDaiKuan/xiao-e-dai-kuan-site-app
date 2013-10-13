@@ -23,7 +23,7 @@ function setTab(name,cursel,n){
 
 <body>
 <jsp:include page="../../inc/globalHeader.jsp">
-	<jsp:param name="index" value="5" />
+	<jsp:param name="index" value="0" />
 </jsp:include>
 
 <div class="Fuzzysearch">
