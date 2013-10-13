@@ -19,6 +19,8 @@ public class ProductQuery {
 	private Long regionId;
 	
 	private Integer paidDay;
+	private BigDecimal minLoanAmt;
+	private BigDecimal maxLoanAmt;
 	
 	private String orderRate;
 	private String orderMonthly;
@@ -103,6 +105,18 @@ public class ProductQuery {
 	}
 	public void setPaidDay(Integer paidDay) {
 		this.paidDay = paidDay;
+	}
+	public BigDecimal getMinLoanAmt() {
+		return minLoanAmt;
+	}
+	public void setMinLoanAmt(BigDecimal minLoanAmt) {
+		this.minLoanAmt = minLoanAmt;
+	}
+	public BigDecimal getMaxLoanAmt() {
+		return maxLoanAmt;
+	}
+	public void setMaxLoanAmt(BigDecimal maxLoanAmt) {
+		this.maxLoanAmt = maxLoanAmt;
 	}
 	public String getOrderRate() {
 		return orderRate;

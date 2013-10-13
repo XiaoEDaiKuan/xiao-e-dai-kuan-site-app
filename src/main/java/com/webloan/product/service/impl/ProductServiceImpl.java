@@ -209,4 +209,11 @@ public class ProductServiceImpl implements ProductService {
 		
 		return productRepository.queryList(ProductAttach.class, keys, vals, conds);
 	}
+	
+	public Page pagingProductBtwnAmount(ProductQuery pq) {
+		BigDecimal minLoanAmt = pq.getMinLoanAmt() == null ? null : new BigDecimal(10000).multiply(pq.getMinLoanAmt());
+		BigDecimal maxLoanAmt = pq.getMaxLoanAmt() == null ? null : new BigDecimal(10000).multiply(pq.getMaxLoanAmt());
+		return productRepository.pagingProductBtwnAmount(pq.getPageIndex(), 
+				pq.getPageSize(), minLoanAmt, maxLoanAmt);
+	}
 }

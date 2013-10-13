@@ -323,7 +323,7 @@ public class ProductController extends MultiActionController {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("product/queryForScore");
 
-		Page page = productService.pagingProduct(pq);
+		Page page = productService.pagingProductBtwnAmount(pq);
 		mav.addObject("pvs", productViewHelper.transferPageToView(page, pq));
 
 		Page hotRcdProds = productService.pagingProductRecommend(1, 5,

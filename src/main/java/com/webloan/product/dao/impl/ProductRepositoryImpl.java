@@ -1,5 +1,6 @@
 package com.webloan.product.dao.impl;
 
+import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -96,6 +97,32 @@ public class ProductRepositoryImpl extends BaseJpaRepositoryImpl implements
 			params.put("paidDays", paidDays);
 		}
 
+		String pageJpql = "select a " + jpql;
+		String countJpql = "select count(*) " + jpql;
+
+		return queryPageResult(pageIndex, pageSize, pageJpql, countJpql, params);
+	}
+	
+	public Page pagingProductBtwnAmount(int pageIndex, int pageSize, 
+			BigDecimal minLoanAmt, BigDecimal maxLoanAmt) {
+		StringBuilder jpql = new StringBuilder(" from ProductAttach a where 1=1 ");
+		Map<String, Object> params = new HashMap<String, Object>();
+
+		if (minLoanAmt != null && maxLoanAmt != null) {
+			jpql.append(" and (a.minLoanAmt between :minLoanAmt and :maxLoanAmt")
+				.append(" or a.maxLoanAmt between :minLoanAmt and :maxLoanAmt) ");
+			params.put("minLoanAmt", minLoanAmt);
+			params.put("maxLoanAmt", maxLoanAmt);
+		}
+		else if (minLoanAmt != null) {
+			jpql.append(" and a.minLoanAmt <= :minLoanAmt and a.maxLoanAmt >= :minLoanAmt) ");
+			params.put("minLoanAmt", minLoanAmt);
+		}
+		else if (maxLoanAmt != null) {
+			jpql.append(" and a.minLoanAmt <= :maxLoanAmt and a.maxLoanAmt >= :maxLoanAmt) ");
+			params.put("maxLoanAmt", maxLoanAmt);
+		}
+		
 		String pageJpql = "select a " + jpql;
 		String countJpql = "select count(*) " + jpql;
 
