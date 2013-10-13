@@ -219,7 +219,7 @@ public class ProductController extends MultiActionController {
 				.getProductId());
 
 		if(null==pa){
-			mav.setViewName("order/requestOrderFinished");
+			mav.setViewName("order/rejectOrderRequest2");
 			return mav;
 		}
 		
@@ -230,23 +230,23 @@ public class ProductController extends MultiActionController {
 		
 		if(identity.indexOf("|"+pq.getIdentity()+"|")<0){
 			mav.addObject("response", "贷款人身份不满足要求");
-			mav.setViewName("order/requestOrderFinished");
+			mav.setViewName("order/rejectOrderRequest2");
 			return mav;
 		}
 		if(easte.indexOf("|"+pq.getEstate()+"|")<0){
 			mav.addObject("response", "贷款人房产情况不满足要求");
-			mav.setViewName("order/requestOrderFinished");
+			mav.setViewName("order/rejectOrderRequest2");
 			return mav;
 		}
 		if(vehicle.indexOf("|"+pq.getVehicle()+"|")<0){
 			mav.addObject("response", "贷款人车辆情况不满足要求");
-			mav.setViewName("order/requestOrderFinished");
+			mav.setViewName("order/rejectOrderRequest2");
 			return mav;
 		}
 		
 		if(credit.indexOf("|"+pq.getCredit()+"|")<0){
 			mav.addObject("response", "贷款人信用情况不满足要求");
-			mav.setViewName("order/requestOrderFinished");
+			mav.setViewName("order/rejectOrderRequest2");
 			return mav;
 		}
 		
