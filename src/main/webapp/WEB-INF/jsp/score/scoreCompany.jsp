@@ -64,8 +64,8 @@ var next = function(){
         _down = parseInt(_data[0]);
         _up = parseInt(_data[1]);
     }else{
-        _down *= parseFloat(_data[0]);
-        _up *= parseFloat(_data[1]);
+        _down *= parseFloat(_data[1]);
+        _up *= parseFloat(_data[0]);
     }
     if(questionIndex < questions.length - 1){
         questionIndex++;
@@ -75,12 +75,12 @@ var next = function(){
         $("#nextBtn").hide();
         $("#shenqingBtn").show();
         $("#resultData").css("background","url('images/images/score_pic_9.png') no-repeat right bottom");
-        $("#strCreditMin").val((_down/10000).toFixed(2));
-        $("#strCreditMax").val((_up/10000).toFixed(2));
-        $("#resultData").html("<font>预计贷款额度</font><p>" + (_down/10000).toFixed(2) + " ~ " + (_up/10000).toFixed(2) + "</p>");
+        $("#strCreditMin").val((_down/10000).toFixed(1));
+        $("#strCreditMax").val((_up/10000).toFixed(1));
+        $("#resultData").html("<font>预计贷款额度</font><p>" + (_down/10000).toFixed(1) + " ~ " + (_up/10000).toFixed(1) + "</p>");
         $("#resultProduct").show();
         $("#resultTitle").show();
-        $("#resultProduct").attr("src","queryForScore?max=" + (_up/10000).toFixed(2) + "&min=" + (_down/10000).toFixed(2));
+        $("#resultProduct").attr("src","queryForScore?maxLoanAmt=" + (_up/10000).toFixed(1) + "&minLoanAmt=" + (_down/10000).toFixed(1));
     }
 };
 

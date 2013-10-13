@@ -15,6 +15,8 @@ import org.springframework.web.servlet.mvc.multiaction.MultiActionController;
 import com.webloan.common.Asserts;
 import com.webloan.common.Page;
 import com.webloan.common.dict.RecommendType;
+import com.webloan.credit.service.CreditService;
+import com.webloan.model.Cust;
 import com.webloan.model.Product;
 import com.webloan.model.ProductAttach;
 import com.webloan.model.Question;
@@ -24,6 +26,7 @@ import com.webloan.product.service.ProductService;
 import com.webloan.product.view.ProductQuery;
 import com.webloan.product.view.ProductViewHelper;
 import com.webloan.region.service.RegionService;
+import com.webloan.user.service.UserService;
 
 public class ProductController extends MultiActionController {
 
@@ -35,6 +38,10 @@ public class ProductController extends MultiActionController {
 	RegionService regionService;
 	@Resource
 	ProductViewHelper productViewHelper;
+	@Resource
+	UserService userService;
+	@Resource
+	CreditService creditService;
 	protected transient Logger log = LoggerFactory.getLogger(this.getClass());
 
 	public ModelAndView queryProduct(HttpServletRequest request,
@@ -330,6 +337,18 @@ public class ProductController extends MultiActionController {
 				RecommendType.HOT_CREDIT);
 		mav.addObject("hotRcdProds", hotRcdProds.getItems());
 
+		Long custId = (Long) request.getSession().getAttribute("custId");
+		if (null != custId) {
+			Cust user = userService.findCustById(custId);
+			creditService.saveCredit(custId.toString(),
+					request.getParameter("strCreditType"), user.getCustName(),
+					user.getMobileNO(), request.getParameter("minLoanAmt"),
+					request.getParameter("maxLoanAmt"));
+			
+			log.info("===========save credit =========");
+		}
+		
+		
 		return mav;
 	}
 }
