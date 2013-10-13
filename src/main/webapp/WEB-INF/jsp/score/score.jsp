@@ -79,9 +79,12 @@ var next = function(){
         $("#nextBtn").hide();
         $("#shenqingBtn").show();
         $("#resultData").css("background","url('images/images/score_pic_9.png') no-repeat right bottom");
-        $("#strCreditMin").val((_down/10000).toFixed(0));
-        $("#strCreditMax").val((_up/10000).toFixed(0));
-        $("#resultData").html("<font>预计贷款额度</font><p>" + (_down/10000).toFixed(0) + " ~ " + (_up/10000).toFixed(0) + "</p>");
+        $("#strCreditMin").val((_down/10000).toFixed(2));
+        $("#strCreditMax").val((_up/10000).toFixed(2));
+        $("#resultData").html("<font>预计贷款额度</font><p>" + (_down/10000).toFixed(2) + " ~ " + (_up/10000).toFixed(2) + "</p>");
+        $("#resultProduct").show();
+        $("#resultTitle").show();
+        $("#resultProduct").attr("src","queryForScore?max=" + (_up/10000).toFixed(2) + "&min=" + (_down/10000).toFixed(2));
     }
 };
 
@@ -115,15 +118,23 @@ var reset = function(){
             <input type="hidden" id="strCreditMin" name="strCreditMin"/>
             <input type="hidden" id="strCreditMax" name="strCreditMax"/>
             <input type="hidden" id="strCreditType" name="strCreditType" value="0"/>
-            <input name="" type="submit" id="shenqingBtn" value="" style="background:url('images/img21.jpg')" class="score_btn1" />
+            <!--input name="" type="submit" id="shenqingBtn" value="" style="background:url('images/img21.jpg')" class="score_btn1" /-->
         </form>
         <input name="" type="button" value="" class="score_btn2" onclick="reset()"/>
       </div>
   </div>
 </div>
 <div class="score3"><a href="scoreChoose">返回重新选择评分器类型</a></div>
-<div class="kong2"></div>
+<div>
+<div class="main3 ground"  style="background:#FFFFFF;padding-top:10px; padding-bottom:10px">
+<h3 id="resultTitle" style="display:none">&nbsp;&nbsp;根据您的信用额度，适合您的贷款产品如下：</h3>
+</div>
+<iframe id="resultProduct" name="resultProduct" style="display:none" width="100%" height="750px" src="" frameborder="no" 
+				border="0" marginwidth="0" marginheight="0" scrolling="no" allowtransparency="yes">
 
+</iframe>
+</div>
+<div class="kong2"></div>
 <!--===========页面内容部分 结束===========-->
 <%@include file="../../inc/memberFooter.jsp" %>
 </body>

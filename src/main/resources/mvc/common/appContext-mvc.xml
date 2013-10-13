@@ -93,6 +93,7 @@
 				<prop key="posloan">productController</prop>
 				<prop key="xxloan">productController</prop>
 				<prop key="inputNameTel">productController</prop>
+				<prop key="queryForScore">productController</prop>
 				
 				<prop key="ask">questionController</prop>
 				<prop key="viewAnswer">questionController</prop>
