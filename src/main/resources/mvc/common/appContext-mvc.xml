@@ -107,6 +107,7 @@
 				<prop key="scoreSave">questionController</prop>
 				
 				<prop key="gonglue">gonelueController</prop>
+				<prop key="gonglueDT">gonelueController</prop>
 				
 				<prop key="feedback">opinionController</prop>
 				<prop key="addopinion">opinionController</prop>

@@ -29,4 +29,24 @@ public class GonelueController extends MultiActionController {
 
 		return mav;
 	}
+	
+	/**
+	 * 每条攻略的详细信息
+	 * @param request
+	 * @param response
+	 * @return
+	 */
+	public ModelAndView gonglueDT(HttpServletRequest request,
+			HttpServletResponse response) {
+		ModelAndView mav = new ModelAndView();
+
+		String gonglueID = request.getParameter("gonglueID");
+		if (null == gonglueID || "".equals(gonglueID)) {
+			mav.setViewName("zhuanqu/gonglue");
+		} else  {
+			
+			mav.setViewName("zhuanqu/gongluedt_"+gonglueID);
+		}		return mav;
+	}
+
 }

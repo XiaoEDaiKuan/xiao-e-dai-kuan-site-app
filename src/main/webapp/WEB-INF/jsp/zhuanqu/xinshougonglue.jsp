@@ -45,7 +45,7 @@ function setTab(name,cursel,n){
                     	<div class="ask ground Loansquiz10">
                 	<div class="Theloanright10">
                     	<div class="Theloanright9 Theloanright11">
-                        	<h1><a href="贷款攻略2.html" target="_blank">个人贷款知识普及</a></h1>
+                        	<h1><a href="gonglueDT?gonglueID=1" name="" target="_blank">个人贷款知识普及</a></h1>
                             <h2>来源：9F整理        时间：2013/10/10</h2>
                             <p>9F带大家来普及一下个人贷款的基础知识。
                                                                                                           一、个人贷款的种类： 个人贷款按照产品用途分类，包括个人住房贷款、个人消费贷款、个人经营类贷款等；按照担保方式分类，包括个人信用贷款、个人质押贷款、个人抵押贷款、个人保证贷款等。
