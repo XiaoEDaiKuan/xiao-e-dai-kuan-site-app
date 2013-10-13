@@ -26,7 +26,7 @@
           <th width="20%">职业身份：</th>
           <td><div id="tm2008style">
 	<select name="identity" id="identity" class="proSearch">
-		<option value="0" >无固定职业</option>
+		<option value="">不限职业</option>
 		<option value="1">企业主</option>
 		<option value="2" >个体户</option>
 		<option value="3" >上班族</option>
@@ -38,6 +38,7 @@
           <th>贷款用途：</th>
           <td><div id="tm2008style">
 	<select name="loanUse" id="loanUse" class="proSearch">
+		<option value="">请选择</option>
 		<option value="0">不限</option>
 		<option value="1" >经营贷款</option>
 		<option value="2" >消费贷款</option>
