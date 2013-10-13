@@ -23,9 +23,9 @@ function setTab(name,cursel,n){
 
 <body>
 <jsp:include page="../../inc/globalHeader.jsp">
-	<jsp:param name="index" value="5" />
+	<jsp:param name="index" value="0" />
 </jsp:include>
-<%@include file="../../inc/zhuanquMenu.jsp" %>
+
 <div class="Fuzzysearch">
 	<div class="top Fuzzysearch1">
     	<div class="application ClearFix">
@@ -49,14 +49,14 @@ function setTab(name,cursel,n){
 	<div class="quickloan6">
     	<img src="images/img48.jpg" width="32" height="16" />
         <h1>方案说明：</h1>
-        <p>名下需有房产或车辆等有价资产，并进行抵押，从事该业务的一般是小贷公司和中介。</p>
+        <p>一般适用于需要提高额度较大的贷款客户。</p>
     </div>
 </div>
 <div id="con_one_2" style="display:none">
 	<div class="quickloan6 quickloan7">
     	<img src="images/img48.jpg" width="32" height="16" />
         <h1>方案说明：</h1>
-        <p>名下需有房产或车辆等有价资产，并进行抵押，从事该业务的一般是小贷公司和中介。</p>
+        <p>原有抵押贷款基础上增加信用贷产品，手续相对简单。</p>
     </div>
 </div>
 </div>

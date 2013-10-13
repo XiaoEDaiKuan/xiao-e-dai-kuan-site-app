@@ -146,18 +146,22 @@ public class ProductController extends MultiActionController {
 		}
 
 		// 低于最小贷款金额或高于最大贷款金额
-		if (pq.getLoanAmt().compareTo(pa.getMinLoanAmt().divide(BigDecimal.valueOf(10000))) < 0) {
+		if (pq.getLoanAmt().compareTo(
+				pa.getMinLoanAmt().divide(BigDecimal.valueOf(10000))) < 0) {
 			mav.setViewName("order/rejectOrderRequest");
 			mav.addObject("prdname", pa.getProduct().getName());
-			mav.addObject("response",  "该产品最低贷款金额为："
-					+ pa.getMinLoanAmt().divide(BigDecimal.valueOf(10000))+"万元");
+			mav.addObject("response", "该产品最低贷款金额为："
+					+ pa.getMinLoanAmt().divide(BigDecimal.valueOf(10000))
+					+ "万元");
 			return mav;
 
-		} else if (pq.getLoanAmt().compareTo(pa.getMaxLoanAmt().divide(BigDecimal.valueOf(10000))) > 0) {
+		} else if (pq.getLoanAmt().compareTo(
+				pa.getMaxLoanAmt().divide(BigDecimal.valueOf(10000))) > 0) {
 			mav.setViewName("order/rejectOrderRequest");
 			mav.addObject("prdname", pa.getProduct().getName());
 			mav.addObject("response", "该产品最高贷款金额为："
-					+ pa.getMaxLoanAmt().divide(BigDecimal.valueOf(10000))+"万元");
+					+ pa.getMaxLoanAmt().divide(BigDecimal.valueOf(10000))
+					+ "万元");
 			return mav;
 
 		}
@@ -165,15 +169,15 @@ public class ProductController extends MultiActionController {
 		if (pq.getLoanIssue().compareTo(pa.getMinLoanIssue()) < 0) {
 			mav.setViewName("order/rejectOrderRequest");
 			mav.addObject("prdname", pa.getProduct().getName());
-			mav.addObject("response",  "该产品最低贷款期限为："
-					+ pa.getMinLoanIssue() + "个月");
+			mav.addObject("response", "该产品最低贷款期限为：" + pa.getMinLoanIssue()
+					+ "个月");
 			return mav;
 
 		} else if (pq.getLoanIssue().compareTo(pa.getMaxLoanIssue()) > 0) {
 			mav.setViewName("order/rejectOrderRequest");
 			mav.addObject("prdname", pa.getProduct().getName());
-			mav.addObject("response",  "该产品最高贷款期限为："
-					+ pa.getMaxLoanIssue() + "个月");
+			mav.addObject("response", "该产品最高贷款期限为：" + pa.getMaxLoanIssue()
+					+ "个月");
 			return mav;
 
 		}
@@ -193,8 +197,7 @@ public class ProductController extends MultiActionController {
 				loanUse = "购车贷款";
 			}
 			mav.addObject("prdname", pa.getProduct().getName());
-			mav.addObject("response",  "该产品要求贷款用途为："
-					+ loanUse);
+			mav.addObject("response", "该产品要求贷款用途为：" + loanUse);
 			return mav;
 		}
 
@@ -209,24 +212,47 @@ public class ProductController extends MultiActionController {
 			HttpServletResponse response, ProductQuery pq) {
 		ModelAndView mav = new ModelAndView();
 
-		List<ProductAttach> attaches = productService.queryProductAttaches(pq);
+		// List<ProductAttach> attaches =
+		// productService.queryProductAttaches(pq);
 
-//		ProductAttach pa = productService.getAttachByProductId(pq
-//				.getProductId());
+		ProductAttach pa = productService.getAttachByProductId(pq
+				.getProductId());
 
+		if(null==pa){
+			mav.setViewName("order/rejectOrderRequest2");
+			return mav;
+		}
+		
+		String identity=pa.getIdentity();
+		String easte=pa.getEstate();
+		String vehicle=pa.getVehicle();
+		String credit=pa.getCredit();
+		
+		if(identity.indexOf("|"+pq.getIdentity()+"|")<0){
+			mav.addObject("response", "贷款人身份不满足要求");
+			mav.setViewName("order/rejectOrderRequest2");
+			return mav;
+		}
+		if(easte.indexOf("|"+pq.getEstate()+"|")<0){
+			mav.addObject("response", "贷款人房产情况不满足要求");
+			mav.setViewName("order/rejectOrderRequest2");
+			return mav;
+		}
+		if(vehicle.indexOf("|"+pq.getVehicle()+"|")<0){
+			mav.addObject("response", "贷款人车辆情况不满足要求");
+			mav.setViewName("order/rejectOrderRequest2");
+			return mav;
+		}
+		
+		if(credit.indexOf("|"+pq.getCredit()+"|")<0){
+			mav.addObject("response", "贷款人信用情况不满足要求");
+			mav.setViewName("order/rejectOrderRequest2");
+			return mav;
+		}
 		
 
-		// 不符合条件的就返回拒绝的页面
-		if (null==attaches ||attaches.size()==0 ) {
-			mav.setViewName("order/requestOrderFinished");
-		} else {// 符合条件的情况
-			
-			
-			
-			
 			mav.setViewName("order/inputOrderInfo");
 			mav.addObject("pq", pq);
-		}
 
 		return mav;
 	}

@@ -23,9 +23,9 @@ function setTab(name,cursel,n){
 
 <body>
 <jsp:include page="../../inc/globalHeader.jsp">
-	<jsp:param name="index" value="5" />
+	<jsp:param name="index" value="0" />
 </jsp:include>
-<%@include file="../../inc/zhuanquMenu.jsp" %>
+
 <div class="Fuzzysearch">
 	<div class="top Fuzzysearch1">
     	<div class="application ClearFix">
@@ -50,21 +50,21 @@ function setTab(name,cursel,n){
 	<div class="quickloan6">
     	<img src="images/img48.jpg" width="32" height="16" />
         <h1>方案说明：</h1>
-        <p>名下需有房产或车辆等有价资产，并进行抵押，从事该业务的一般是小贷公司和中介。</p>
+        <p>可选择无抵押或抵押贷款，最快可实现1天放款。</p>
     </div>
 </div>
 <div id="con_one_2" style="display:none">
 	<div class="quickloan6 quickloan7">
     	<img src="images/img48.jpg" width="32" height="16" />
         <h1>方案说明：</h1>
-        <p>名下需有房产或车辆等有价资产，并进行抵押，从事该业务的一般是小贷公司和中介。</p>
+        <p>可选择无抵押或抵押贷款，最快可实现3天放款。</p>
     </div>
 </div>
 <div id="con_one_3" style="display:none">
 	<div class="quickloan6 quickloan8">
     	<img src="images/img48.jpg" width="32" height="16" />
         <h1>方案说明：</h1>
-        <p>名下需有房产或车辆等有价资产，并进行抵押，从事该业务的一般是小贷公司和中介。</p>
+        <p>可选择无抵押或抵押贷款，最快可实现5天放款。</p>
     </div>
 </div>
 </div>

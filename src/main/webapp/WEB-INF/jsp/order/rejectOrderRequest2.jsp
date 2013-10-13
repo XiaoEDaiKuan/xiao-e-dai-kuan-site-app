@@ -20,7 +20,7 @@
     <div class="pop_tx">您暂不满足这个贷款的申请条件，原因：${response}</b></div>
   </div>
   <div class="loan_no2">
-    <input name="" type="button" value="" class="loan_imme"  onClick="top.location.href='scoreChoose'" />
+    <input name="" type="button" value="" class="loan_other" onClick="top.location.href='queryProduct'" />
   </div>
 </div>
 </body>
