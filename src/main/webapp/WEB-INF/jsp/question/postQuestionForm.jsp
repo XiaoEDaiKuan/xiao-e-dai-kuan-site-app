@@ -5,9 +5,17 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>我要提问</title>
+
+<link href="css/tipswindown.css" type="text/css" rel="stylesheet" />
 <link href="css/publlc.css" type="text/css" rel="stylesheet" />
 <link href="css/style.css" type="text/css" rel="stylesheet" />
-<link href="css/tipswindown.css" type="text/css" rel="stylesheet" />
+<link href="css/login.css" type="text/css" rel="stylesheet" />
+
+<script type="text/javascript" src="Scripts/lihover.js"></script>
+<script type="text/javascript" src="Scripts/jquery-1.8.0.min.js"></script>
+<script type="text/javascript" src="Scripts/jquery.jslides.js"></script>
+<script type="text/javascript" src="Scripts/question_post.js"></script>
+
 </head>
 
 <body style="background: #fff;">
@@ -15,7 +23,7 @@
 		<div class="pop_tx" style="font-size:32px; text-align:center"><b>您的问题提交成功！</b></div>
 	</c:if>
 	<c:if test="${empty saveOK}">
-	<form action="postQuestionFormSave" method="post" onSubmit="return check();">
+	<form action="postQuestionFormSave" method="post" id="question_form" >
 		<div class="pop_contact">
 			<div class="pop_question">
 				<div class="pop_question1">
@@ -38,28 +46,35 @@
 				<div class="pop_question4">
 					<textarea name="detail" cols="" rows="" class="n_srk2 pop_question5"></textarea>
 				</div>
-				<div class="pop_question6">
+				
 					<table width="100%" border="0" cellspacing="0" cellpadding="0" class="pop_table3">
 						<tr>
 							<td colspan="3"><span>建议您留下联系方式用于接收问题答复：</span></td>
 						</tr>
 						<tr>
-							<th width="17%">常用邮箱：</th>
-							<td width="30%"><input name="email" type="text" class="input" /></td>
-							<td width="53%"><font color="red">*</font></td>
+							<th width="30%">常用邮箱：<font color="red">*</font></th>
+							<td width="70%"><input name="email" type="text" class="input" id="question_email" />
+							        <span id="question_email_error" class="e9" style="display:none;"></span>
+							</td>
 						</tr>
 						<tr>
-							<th>手机号码：</th>
-							<td><input name="telephone" type="text" class="input" /></td>
-							<td>&nbsp;</td>
+							<th width="30%">手机号码：</th>
+							<td width="70%"><input name="telephone" type="text" class="input" /></td>
 						</tr>
 						<tr>
-							<th>验证码：</th>
-							<td><input name="captcha" type="text" class="input pop_question7" /></td>
-							<td><img style="width:110px;height:28px" id="captchaimg" src="handleCaptcha" alt="captcha" onclick="javascript:reloadCaptcha()"/></td>
+							<th width="30%">验证码：</th>
+							<td width="70%"><input name="captcha" type="text" class="input pop_question7" id="question_captcha"  /></td>
+					    </tr>
+					    <tr>
+					        <td width="30%">&nbsp;</td>
+							<td width="70%">
+							    <img  id="captchaimg" src="handleCaptcha" alt="captcha" onclick="javascript:reloadCaptcha()"/>
+							    <span id="question_captcha_error" class="e9" style="display:none;"></span>
+							
+							</td>
 						</tr>
 					</table>
-				</div>
+				
 			</div>
 			<div class="pop_question1">
 				注册9F并登录后，您可以在会员中心看到自己的贷款问答。
@@ -68,7 +83,7 @@
 				<a href="loginView" target="_top">立即登录</a> <a href="reg" target="_top">立即注册</a>
 			</div>
 			<div class="pop_contact1">
-				<input type="submit" value="" class="pop_submit" />
+				<input type="button" value="" class="pop_submit" id="question_submit" />
 			</div>
 		</div>
 	</form>

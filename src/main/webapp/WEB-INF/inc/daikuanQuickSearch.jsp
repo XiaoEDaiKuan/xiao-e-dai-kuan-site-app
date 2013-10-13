@@ -7,7 +7,7 @@
         <td width="31%" align="right" valign="middle">职业身份：</td>
         <td width="69%" align="left" valign="middle"><div id="tm2008style">
 	<select name="identity" id="identity" class="proSearch">
-		<option value="0" >无固定职业</option>
+		<option value="0" >不限职业</option>
 		<option value="1">企业主</option>
 		<option value="2" >个体户</option>
 		<option value="3" >上班族</option>

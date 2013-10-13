@@ -11,6 +11,8 @@ public interface ProductService {
 	
 	Page pagingProduct(ProductQuery pq);
 	
+	Page pagingProductBtwnAmount(ProductQuery pq);
+	
 	List<ProductAttach> queryProductAttaches(ProductQuery pq);
 	
 	Product getProductById(Long productId);
