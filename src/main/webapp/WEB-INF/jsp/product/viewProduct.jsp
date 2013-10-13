@@ -115,7 +115,10 @@ con.style.display=i==cursel?"block":"none";
     	<h1>常见问题</h1>
     	<c:forEach var="q" items="${questions}">
         <div class="applicationleft9">
-        	<div class="applicationleft10"><span>${q.askTime}</span><p>问题: ${q.detail}</p></div>
+        	<div class="applicationleft10">
+        		<span><fmt:formatDate value="${q.askTime}" pattern="yyyy-MM-dd HH:mm:ss" /></span>
+        		<p>问题: ${q.detail}</p>
+        	</div>
         	<c:forEach var="a" items="${q.answers}">
             <div class="applicationleft10 applicationleft11">
             	<span><fmt:formatDate value="${a.answerTime}" pattern="yyyy-MM-dd HH:mm:ss" /></span>

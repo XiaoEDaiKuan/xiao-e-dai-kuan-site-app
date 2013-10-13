@@ -10,12 +10,10 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.multiaction.MultiActionController;
 
 import com.octo.captcha.service.image.ImageCaptchaService;
-import com.webloan.common.Page;
 import com.webloan.credit.service.CreditService;
 import com.webloan.exception.BizException;
 import com.webloan.model.Cust;
 import com.webloan.model.Question;
-import com.webloan.model.RegionIP;
 import com.webloan.order.service.OrderService;
 import com.webloan.question.QuestionConstant;
 import com.webloan.question.service.QuestionService;

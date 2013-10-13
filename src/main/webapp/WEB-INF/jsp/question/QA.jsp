@@ -43,7 +43,7 @@
 				<div id="Tab2">
 					<div class="Menubox font_f">
 						<ul>
-							<li id="two1" onclick="setTab('two',1,2)" class="hover">无抵押贷</li>
+							<li id="two1" onclick="setTab('two',1,2)" class="hover">无抵押贷款</li>
 							<li id="two2" onclick="setTab('two',2,2)">抵押贷款</li>
 						</ul>
 					</div>
@@ -56,7 +56,7 @@
 							</ul>
 	 						<div class="me_next padd">
 	     			           <c:forEach var="i" begin="1" end="${nonMort.totalPages}" step="1">
-                        	       <a  href="ask?pageIndex1=${i}" <c:if test="${i == nonMort.pageIndex}">class="currentPager"</c:if> ><em>${i}</em></a>
+                        	       <a  href="ask?pageIndex1=${i}" <c:if test="${i == nonMort.pageIndex}">class="currentPager"</c:if>><em>${i}</em></a>
                                 </c:forEach>
 			                 </div>
 						</div>
@@ -67,13 +67,12 @@
 								<li><a href="viewAnswer?id=${k2.id}" target="_blank">${k2.detail}</a></li>
 							</c:forEach>
 							</ul>
-							<!--<div class="Loansquiz6"><a href="贷款问答2.html" target="_blank">更多抵押贷款问题>></a></div>-->
+							<div class="me_next padd">
+					           <c:forEach var="i" begin="1" end="${mortage.totalPages}" step="1">
+	                    	       <a  href="ask?pageIndex2=${i}" <c:if test="${i == mortage.pageIndex}">class="currentPager"</c:if>><em>${i}</em></a>
+	                           </c:forEach>
+				            </div>
 						</div>
-						<div class="me_next padd">
-				           <c:forEach var="i" begin="1" end="${mortage.totalPages}" step="1">
-                    	       <a  href="ask?pageIndex2=${i}" <c:if test="${i == mortage.pageIndex}">class="currentPager"</c:if> ><em>${i}</em></a>
-                           </c:forEach>
-			            </div>
 					</div>
 				</div>
 			</div>
@@ -88,14 +87,11 @@
 				</ul>
      		   
 	    		<div class="me_next padd">
-	 			  <c:forEach var="i" begin="1" end="${hiQusts.totalPages}" step="1">
-                    	<a  href="ask?pageIndex3=${i}" <c:if test="${i == hiQusts.pageIndex}">class="currentPager"</c:if> ><em>${i}</em></a>
-                   </c:forEach>
+				<c:forEach var="i" begin="1" end="${hiQusts.totalPages}" step="1">
+					<a href="ask?pageIndex3=${i}" <c:if test="${i == hiQusts.pageIndex}">class="currentPager"</c:if>><em>${i}</em></a>
+				</c:forEach>
      			</div>
-     			
 			</div>
-			
-			
 		</div>
 	</div>
 	<%@include file="../../inc/globalFooterMenu.jsp"%>

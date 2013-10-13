@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns:wb="http://open.weibo.com/wb"  xmlns="http://www.w3.org/1999/xhtml">
@@ -20,28 +19,34 @@
 		<div class="pop_contact">
 			<div class="pop_question">
 				<div class="pop_question1">
-					<span>简单描述您的问题</span> <font>您还可以输入<em>50</em>个字
-					</font>
+					问题标签：
+					<select name="tag" class="formItem">
+						<option value="">不限</option>
+						<option value="1">抵押贷款</option>
+						<option value="0">无抵押贷款</option>
+					</select>
+				</div>
+				<div class="pop_question1">
+					简单描述您的问题： <font>您还可以输入<em>50</em>个字</font>
 				</div>
 				<div class="pop_question4">
 					<input name="subject" type="text" class="n_srk2 pop_question2" />
 				</div>
-				<div class="pop_question3">
+				<div class="pop_question1">
 					问题详细描述（选填）：<font>问题描述的越详细，得到的解答也越精准</font>
 				</div>
 				<div class="pop_question4">
 					<textarea name="detail" cols="" rows="" class="n_srk2 pop_question5"></textarea>
 				</div>
 				<div class="pop_question6">
-					<table width="100%" border="0" cellspacing="0" cellpadding="0"
-						class="pop_table3">
+					<table width="100%" border="0" cellspacing="0" cellpadding="0" class="pop_table3">
 						<tr>
 							<td colspan="3"><span>建议您留下联系方式用于接收问题答复：</span></td>
 						</tr>
 						<tr>
 							<th width="17%">常用邮箱：</th>
-							<td width="47%"><input name="email" type="text" class="input" /></td>
-							<td width="36%">&nbsp;</td>
+							<td width="30%"><input name="email" type="text" class="input" /></td>
+							<td width="53%"><font color="red">*</font></td>
 						</tr>
 						<tr>
 							<th>手机号码：</th>
@@ -50,16 +55,20 @@
 						</tr>
 						<tr>
 							<th>验证码：</th>
-							<td><input name="captcha" type="text" class="input pop_question7"  />
-								<img style="width:110px;height:28px" id="captchaimg" src="handleCaptcha" alt="captcha" onclick="javascript:reloadCaptcha()"/>
-								</td>
-							<td>&nbsp;</td>
+							<td><input name="captcha" type="text" class="input pop_question7" /></td>
+							<td><img style="width:110px;height:28px" id="captchaimg" src="handleCaptcha" alt="captcha" onclick="javascript:reloadCaptcha()"/></td>
 						</tr>
 					</table>
 				</div>
 			</div>
+			<div class="pop_question1">
+				注册9F并登录后，您可以在会员中心看到自己的贷款问答。
+			</div>
+			<div class="pop_question1">
+				<a href="loginView" target="_top">立即登录</a> <a href="reg" target="_top">立即注册</a>
+			</div>
 			<div class="pop_contact1">
-				<input type="submit" value="" class="pop_submit"  />
+				<input type="submit" value="" class="pop_submit" />
 			</div>
 		</div>
 	</form>

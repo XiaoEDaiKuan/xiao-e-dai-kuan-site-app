@@ -79,10 +79,10 @@ public class QuestionServiceImpl implements QuestionService {
 	/**
 	 * 保存问题
 	 */
-	@Override
-	public void saveQuestion(Long custId,String subject, String detail, String regionId,
-			String email, String telephone) {
-      questionRepository.saveQuestion(custId,subject, detail, Long.valueOf(regionId), email, telephone);		
+	public void saveQuestion(Long custId, String tag, String subject, String detail, 
+			String regionId, String email, String telephone) {
+      questionRepository.saveQuestion(custId, tag, subject, detail, 
+    		  Long.valueOf(regionId), email, telephone);		
 	}
 
 	/**
@@ -110,12 +110,12 @@ public class QuestionServiceImpl implements QuestionService {
 		return questionRepository.qryHighQuest();
 	}
 	
-	public void saveQuestion(Long custId,QuestionView qv, String ipAddr) {
+	public void saveQuestion(Long custId, QuestionView qv, String ipAddr) {
 		RegionIP ipInfo = qryCityByIP(ipAddr);
 		if (ipInfo != null) {
 			Region region = ipInfo.getRegion();
 			if (region != null) {
-				saveQuestion(custId,qv.getSubject(), qv.getDetail(), 
+				saveQuestion(custId, qv.getTag(), qv.getSubject(), qv.getDetail(), 
 						region.getId().toString(), qv.getEmail(), qv.getTelephone());
 			}
 		}

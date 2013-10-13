@@ -174,8 +174,7 @@
     <th width="18%" align="right" valign="middle">职业身份：</th>
           <td width="20%"><div id="tm2008style">
 	<select name="identity" id="identity" class="formItem">
-		<option value="">请选择</option>
-		<option value="0" >无固定职业</option>
+		<option value="">不限职业</option>
 		<option value="1">企业主</option>
 		<option value="2" >个体户</option>
 		<option value="3" >上班族</option>
@@ -214,12 +213,12 @@
 	<select name="loanIssue" id="loanIssue" class="formItem">
 		<option value="">请选择</option>
 		<option value="3">3个月</option>
-		<option value="6" >6个月</option>
+		<option value="6">6个月</option>
 		<option value="12">12个月</option>
-		<option value="24" >2年</option>
-		<option value="36" >3年</option>
-		<option value="60" >5年</option>
-		<option value="120" >10年</option>
+		<option value="24">2年</option>
+		<option value="36">3年</option>
+		<option value="60">5年</option>
+		<option value="120">10年</option>
 	</select>
 </div></td>
           <td width="16%">&nbsp;</td>

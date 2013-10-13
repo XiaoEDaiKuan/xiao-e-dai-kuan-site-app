@@ -109,17 +109,17 @@ public class QuestionRepositoryImpl extends BaseJpaRepositoryImpl implements
 	 * 保存问题
 	 */
 	@Override
-	public void saveQuestion(Long custId,String subject, String detail, Long regionId,
-			String email, String telephone) {
+	public void saveQuestion(Long custId,String tag, String subject, 
+			String detail, Long regionId, String email, String telephone) {
 		Question q = new Question();
+		q.setTag("".equals(tag) ? null : tag);
 		q.setDetail(detail);
 		q.setSubject(subject);
 		Region r = this.load(Region.class, regionId);
 		q.setRegion(r);
 		q.setEmail(email);
 		q.setTelephone(telephone);
-		q.setType(QuestionConstant.TYPE_HIGH);
-		q.setKindTwo(QuestionConstant.NONMORTAGE);
+		q.setType(QuestionConstant.TYPE_NORMAL);
 		q.setAskTime(DateUtils.getTimeStamp());
 		q.setStatus("0");
 		if(null != custId){
@@ -177,7 +177,7 @@ public class QuestionRepositoryImpl extends BaseJpaRepositoryImpl implements
 	}
 	
 
-	public Page pagingQuestion(int pageIndex, int pageSize, String type, String title, String kindTwo) {
+	public Page pagingQuestion(int pageIndex, int pageSize, String type, String title, String tag) {
 		StringBuilder jpql = new StringBuilder(" from Question q where 1=1 ");
 		Map<String, Object> params = new HashMap<String, Object>();
 		
@@ -185,9 +185,9 @@ public class QuestionRepositoryImpl extends BaseJpaRepositoryImpl implements
 			jpql.append("and q.type=:qstType ");
 			params.put("qstType", type);
 		}
-		if (kindTwo != null && !"".equals(kindTwo)) {
-			jpql.append("and q.kindTwo=:kindTwo ");
-			params.put("kindTwo", kindTwo);
+		if (tag != null && !"".equals(tag)) {
+			jpql.append("and q.tag=:tag ");
+			params.put("tag", tag);
 		}
 		if (title != null && !"".equals(title)) {
 			jpql.append("and (q.subject like :title or q.detail like :title)");

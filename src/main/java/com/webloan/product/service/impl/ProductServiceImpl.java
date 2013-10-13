@@ -81,9 +81,18 @@ public class ProductServiceImpl implements ProductService {
 			"product.repayType" 
 		};
 		
+		List<String> loanUses = null;
+		if (pq.getLoanUse() != null && !"".equals(pq.getLoanUse())) {
+			loanUses = new ArrayList<String>();
+			loanUses.add(pq.getLoanUse());
+			if (!"0".equals(pq.getLoanUse())) {
+				loanUses.add("0");
+			}
+		}
+		
 		Object[] vals = { 
 			pq.getIdentity() == null ? null : "|" + pq.getIdentity() + "|", 
-			pq.getLoanUse(), 
+			loanUses, 
 			loanAmt, 
 			loanAmt, 
 			pq.getLoanIssue(), 
@@ -98,7 +107,7 @@ public class ProductServiceImpl implements ProductService {
 		
 		String[] conds = { 
 			LIKE, 
-			EQ, 
+			IN, 
 			LE, 
 			GE, 
 			LE, 
@@ -113,6 +122,11 @@ public class ProductServiceImpl implements ProductService {
 		
 		List<String> ordKeys = new ArrayList<String>();
 		List<String> ordVals = new ArrayList<String>();
+		
+		if (loanUses != null && loanUses.size() > 1) {
+			ordKeys.add("loanUse");
+			ordVals.add(DESC);
+		}
 		
 		if (pq.getOrderRate() != null) {
 			ordKeys.add("product.intrFormula");
@@ -151,10 +165,19 @@ public class ProductServiceImpl implements ProductService {
 			"product.guarantyType", 
 			"product.repayType" 
 		};
+
+		List<String> loanUses = null;
+		if (pq.getLoanUse() != null && !"".equals(pq.getLoanUse())) {
+			loanUses = new ArrayList<String>();
+			loanUses.add(pq.getLoanUse());
+			if (!"0".equals(pq.getLoanUse())) {
+				loanUses.add("0");
+			}
+		}
 		
 		Object[] vals = { 
 			pq.getIdentity() == null ? null : "|" + pq.getIdentity() + "|", 
-			pq.getLoanUse(), 
+			loanUses, 
 			loanAmt, 
 			loanAmt, 
 			pq.getLoanIssue(), 
@@ -170,7 +193,7 @@ public class ProductServiceImpl implements ProductService {
 		
 		String[] conds = { 
 			LIKE, 
-			EQ, 
+			IN, 
 			LE, 
 			GE, 
 			LE, 

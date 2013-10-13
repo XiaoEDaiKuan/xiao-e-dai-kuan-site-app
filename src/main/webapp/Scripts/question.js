@@ -3,7 +3,7 @@ $(document).ready(
 			$("#pop_city").click(
 					function() {
 						tipsWindown("您可以选择以下地区：",
-								"iframe:iframe:pop_city.html", "500", "200",
+								"iframe:iframe:pop_city.jsp", "500", "200",
 								"true", "", "false", "text", "");
 					});
 			$("#pop_question").click(

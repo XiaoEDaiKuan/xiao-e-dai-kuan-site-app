@@ -96,7 +96,7 @@ public class QuestionServiceTest {
         String regionId="11";
         String email="wenlinfeng@gmail.com";
         String  telephone="13917367496";
-		questionService.saveQuestion(Long.valueOf(1),subject, detail, regionId, email, telephone);
+		questionService.saveQuestion(Long.valueOf(1), "", subject, detail, regionId, email, telephone);
 		
 		System.out.println("save question ok");
 	}
