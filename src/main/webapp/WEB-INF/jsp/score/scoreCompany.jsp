@@ -80,7 +80,7 @@ var next = function(){
         $("#resultData").html("<font>预计贷款额度</font><p>" + (_down/10000).toFixed(2) + " ~ " + (_up/10000).toFixed(2) + "</p>");
         $("#resultProduct").show();
         $("#resultTitle").show();
-        $("#resultProduct").attr("src","queryForScore?max=" + (_up/10000).toFixed(2) + "&min=" + (_down/10000).toFixed(2));
+        $("#resultProduct").attr("src","queryForScore?maxLoanAmt=" + (_up/10000).toFixed(2) + "&minLoanAmt=" + (_down/10000).toFixed(2));
     }
 };
 
