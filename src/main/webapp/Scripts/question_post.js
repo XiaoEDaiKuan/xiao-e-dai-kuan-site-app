@@ -52,7 +52,7 @@ $(document).ready(function(){
                                                   var pattern = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
                                                   
                                                   email_flag=pattern.test($("#question_email").val());
-                                                    alert(email_flag);
+                                                    
                                                     if(!email_flag){
                                                         $("#question_email_error").html("请输入正确的邮箱");
                                                         $("#question_email_error").css('display','inline-block');
