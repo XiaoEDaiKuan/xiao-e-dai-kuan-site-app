@@ -24,7 +24,7 @@
 	border-bottom:solid #f68a55 1px;
 }
 </style>
-<c:if test="${sessionScope.userDefinedRegion ne '1' and sessionScope.currentRegion.name ne '北京市'}">
+<c:if test="${sessionScope.regionAvailable ne '1'}">
 <script type="text/javascript">
 $(document).ready(function(){
 	  layer();

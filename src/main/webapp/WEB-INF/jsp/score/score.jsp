@@ -7,37 +7,37 @@
 <%@include file="../../inc/globalScript.jsp" %>
 <script type="text/javascript">
 var questions = [
-    {question:"银行卡发放工资（月）",choice:[
+    {question:"您的月收入是多少？",choice:[
         {content:"小于3500",down:5000,up:20000},
         {content:"3500~7000",down:10000,up:30000},
         {content:"7000~15000",down:15000,up:50000},
         {content:"15000以上",down:20000,up:60000}]},
-    {question:"就职公司类型",choice:[
+    {question:"您就职的公司类型？",choice:[
         {content:"公务员/事业单位",down:1.2,up:1.5},
         {content:"大型垄断企业",down:1.2,up:1.5},
         {content:"世界500强或上市企业",down:1.1,up:1.2},
         {content:"普通企业",down:1,up:1}]},
-    {question:"职位",choice:[
+    {question:"您的职位？",choice:[
         {content:"高层领导",down:1.1,up:1.25},
         {content:"中层管理人员",down:1.05,up:1.1},
         {content:"一般员工",down:0.95,up:1}]},
-    {question:"房产",choice:[
+    {question:"您是否有房产?",choice:[
         {content:"无房产",down:0.95,up:1},
         {content:"有房产（商品房）",down:1.2,up:1.3},
         {content:"有房产（非商品房）",down:1.1,up:1.2}]},
-    {question:"户籍",choice:[
+    {question:"您是否是本地户籍?",choice:[
         {content:"本地户籍",down:1.1,up:1.25},
         {content:"外地户籍",down:0.9,up:1}]},
-    {question:"实名认证（身份证，联系方式）",choice:[
+    {question:"您是否愿意提供实名认证（身份证，联系方式）?",choice:[
         {content:"是",down:1.05,up:1.1},
         {content:"否",down:1,up:1}]},
-    {question:"信用认证（信用报告）",choice:[
+    {question:"您是否愿意提供信用认证（信用报告）?",choice:[
         {content:"是",down:1.4,up:1.8},
         {content:"否",down:1,up:1}]},
-    {question:"流水认证（6个月银行流水）",choice:[
+    {question:"您是否愿意提供流水认证（6个月银行流水）?",choice:[
         {content:"是",down:1.05,up:1.2},
         {content:"否",down:1,up:1}]},
-    {question:"访谈（15分钟内的电话访谈）",choice:[
+    {question:"您是否愿意接受访谈（15分钟内的电话访谈）?",choice:[
         {content:"是",down:1.2,up:1.3},
         {content:"否",down:1,up:1}]}
 ];  
@@ -79,9 +79,12 @@ var next = function(){
         $("#nextBtn").hide();
         $("#shenqingBtn").show();
         $("#resultData").css("background","url('images/images/score_pic_9.png') no-repeat right bottom");
-        $("#strCreditMin").val((_down/10000).toFixed(0));
-        $("#strCreditMax").val((_up/10000).toFixed(0));
-        $("#resultData").html("<font>预计贷款额度</font><p>" + (_down/10000).toFixed(0) + " ~ " + (_up/10000).toFixed(0) + "</p>");
+        $("#strCreditMin").val((_down/10000).toFixed(2));
+        $("#strCreditMax").val((_up/10000).toFixed(2));
+        $("#resultData").html("<font>预计贷款额度</font><p>" + (_down/10000).toFixed(2) + " ~ " + (_up/10000).toFixed(2) + "</p>");
+        $("#resultProduct").show();
+        $("#resultTitle").show();
+        $("#resultProduct").attr("src","queryForScore?max=" + (_up/10000).toFixed(2) + "&min=" + (_down/10000).toFixed(2));
     }
 };
 
@@ -115,15 +118,23 @@ var reset = function(){
             <input type="hidden" id="strCreditMin" name="strCreditMin"/>
             <input type="hidden" id="strCreditMax" name="strCreditMax"/>
             <input type="hidden" id="strCreditType" name="strCreditType" value="0"/>
-            <input name="" type="submit" id="shenqingBtn" value="" style="background:url('images/img21.jpg')" class="score_btn1" />
+            <!--input name="" type="submit" id="shenqingBtn" value="" style="background:url('images/img21.jpg')" class="score_btn1" /-->
         </form>
         <input name="" type="button" value="" class="score_btn2" onclick="reset()"/>
       </div>
   </div>
 </div>
 <div class="score3"><a href="scoreChoose">返回重新选择评分器类型</a></div>
-<div class="kong2"></div>
+<div>
+<div class="main3 ground"  style="background:#FFFFFF;padding-top:10px; padding-bottom:10px">
+<h3 id="resultTitle" style="display:none">&nbsp;&nbsp;根据您的信用额度，适合您的贷款产品如下：</h3>
+</div>
+<iframe id="resultProduct" name="resultProduct" style="display:none" width="100%" height="750px" src="" frameborder="no" 
+				border="0" marginwidth="0" marginheight="0" scrolling="no" allowtransparency="yes">
 
+</iframe>
+</div>
+<div class="kong2"></div>
 <!--===========页面内容部分 结束===========-->
 <%@include file="../../inc/memberFooter.jsp" %>
 </body>

@@ -316,4 +316,20 @@ public class ProductController extends MultiActionController {
 
 		return mav;
 	}
+	
+	//信用评分之后的查询
+	public ModelAndView queryForScore(HttpServletRequest request,
+			HttpServletResponse response, ProductQuery pq) {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("product/queryForScore");
+
+		Page page = productService.pagingProduct(pq);
+		mav.addObject("pvs", productViewHelper.transferPageToView(page, pq));
+
+		Page hotRcdProds = productService.pagingProductRecommend(1, 5,
+				RecommendType.HOT_CREDIT);
+		mav.addObject("hotRcdProds", hotRcdProds.getItems());
+
+		return mav;
+	}
 }
