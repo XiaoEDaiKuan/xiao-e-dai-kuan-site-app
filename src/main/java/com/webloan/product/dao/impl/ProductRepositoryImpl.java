@@ -115,11 +115,11 @@ public class ProductRepositoryImpl extends BaseJpaRepositoryImpl implements
 			params.put("maxLoanAmt", maxLoanAmt);
 		}
 		else if (minLoanAmt != null) {
-			jpql.append(" and a.minLoanAmt <= :minLoanAmt and a.maxLoanAmt >= :minLoanAmt) ");
+			jpql.append(" and a.minLoanAmt <= :minLoanAmt and a.maxLoanAmt >= :minLoanAmt ");
 			params.put("minLoanAmt", minLoanAmt);
 		}
 		else if (maxLoanAmt != null) {
-			jpql.append(" and a.minLoanAmt <= :maxLoanAmt and a.maxLoanAmt >= :maxLoanAmt) ");
+			jpql.append(" and a.minLoanAmt <= :maxLoanAmt and a.maxLoanAmt >= :maxLoanAmt ");
 			params.put("maxLoanAmt", maxLoanAmt);
 		}
 		
