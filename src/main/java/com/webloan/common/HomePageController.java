@@ -13,6 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.Controller;
 
 import com.webloan.common.dict.RecommendType;
+import com.webloan.model.CityLoan;
 import com.webloan.model.Region;
 import com.webloan.model.RegionIP;
 import com.webloan.product.service.ProductService;
@@ -36,31 +37,35 @@ public class HomePageController implements Controller {
 		mav.setViewName("index");
 
 		HttpSession session = request.getSession();
-
+		
 		List<Region> regions = regionService.queryRegionByCityLoan();
 		session.setAttribute("allowLoanRegions", regions);
-
-		if (session.getAttribute("userDefinedRegion") == null) {
-			session.setAttribute("userDefinedRegion", "0");
-		}
+		
 		String ip = request.getHeader("Remote_Addr");
 		if (ip == null) {
 			ip = request.getHeader("HTTP_X_FORWARDED_FOR");
 		}
-		
 		if (ip == null) {
 			ip = request.getRemoteAddr();
 		}
 
 		if (session.getAttribute("currentRegion") == null) {
-			
 			log.debug("===ip====" + ip);
 			RegionIP rip = questionService.qryCityByIP(ip);
-
+			
 			if (rip != null && rip.getRegion() != null) {
 				session.setAttribute("currentRegion", rip.getRegion());
 				log.debug("====region.name====" + rip.getRegion().getName());
+				
+				CityLoan cl = regionService.getCityLoanByRegionId(rip.getRegion().getId());
+				if (cl != null) {
+					session.setAttribute("regionAvailable", "1");
+				}
 			}
+		}
+
+		if (session.getAttribute("regionAvailable") == null) {
+			session.setAttribute("regionAvailable", "0");
 		}
 
 		Page hcrProds = productService.pagingProductRecommend(1, 5,
