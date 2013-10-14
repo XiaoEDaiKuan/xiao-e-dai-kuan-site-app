@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns:wb="http://open.weibo.com/wb"  xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -52,7 +53,7 @@ con.style.display=i==cursel?"block":"none";
 					</c:forEach>		
   					</p>
 					<div>
-						${q.askTime} <em>来自${q.region.name}的问题</em>
+						<fmt:formatDate value="${q.askTime}" pattern="yyyy-MM-dd HH:mm:ss" /> <em>来自${q.region.name}的问题</em>
 					</div>
 				</div>
 				</c:forEach>

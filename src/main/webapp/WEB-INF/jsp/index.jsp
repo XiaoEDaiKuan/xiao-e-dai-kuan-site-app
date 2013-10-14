@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns:wb="http://open.weibo.com/wb"  xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -148,13 +149,14 @@
     <div id="demo">
     <div id="indemo">
     <div id="demo1">
-    <div><img src="images/bank01.jpg" width="116" height="28" /><br /><img src="images/bank02.jpg" width="116" height="28" /></div>
-    <div><img src="images/bank01.jpg" width="116" height="28" /><br /><img src="images/bank02.jpg" width="116" height="28" /></div>
-    <div><img src="images/bank01.jpg" width="116" height="28" /><br /><img src="images/bank02.jpg" width="116" height="28" /></div>
-    <div><img src="images/bank01.jpg" width="116" height="28" /><br /><img src="images/bank02.jpg" width="116" height="28" /></div>
-    <div><img src="images/bank01.jpg" width="116" height="28" /><br /><img src="images/bank02.jpg" width="116" height="28" /></div>
-    <div><img src="images/bank01.jpg" width="116" height="28" /><br /><img src="images/bank02.jpg" width="116" height="28" /></div>
-    <div><img src="images/bank01.jpg" width="116" height="28" /><br /><img src="images/bank02.jpg" width="116" height="28" /></div>
+    <div><img src="images/bankicon/116x28/abc.jpg" width="116" height="28" /><br /><img src="images/bankicon/116x28/ceb.jpg" width="116" height="28" /></div>
+    <div><img src="images/bankicon/116x28/boc.jpg" width="116" height="28" /><br /><img src="images/bankicon/116x28/cmbc.jpg" width="116" height="28" /></div>
+    <div><img src="images/bankicon/116x28/bcm.jpg" width="116" height="28" /><br /><img src="images/bankicon/116x28/icbc.jpg" width="116" height="28" /></div>
+    <div><img src="images/bankicon/116x28/cgb.jpg" width="116" height="28" /><br /><img src="images/bankicon/116x28/cbc.jpg" width="116" height="28" /></div>
+    <div><img src="images/bankicon/116x28/hsb.jpg" width="116" height="28" /><br /><img src="images/bankicon/116x28/jiangsu.jpg" width="116" height="28" /></div>
+    <div><img src="images/bankicon/116x28/cmb.jpg" width="116" height="28" /><br /><img src="images/bankicon/116x28/psbc.jpg" width="116" height="28" /></div>
+    <div><img src="images/bankicon/116x28/chongqi.jpg" width="116" height="28" /><br /><img src="images/bankicon/116x28/hb.jpg" width="116" height="28" /></div>
+    <div><img src="images/bankicon/116x28/dalian.jpg" width="116" height="28" /><br /><img src="images/bankicon/116x28/btcb.jpg" width="116" height="28" /></div>
     </div>
     <div id="demo2"></div>
     </div>
@@ -188,7 +190,8 @@
     <ul class="homequestion_list">
     <c:forEach var="hiQust" items="${hiQusts.items}">
       <!--li><a href="viewAnswer?id=${hiQust.id}" target="_blank"></a></li-->
-      <li><div onclick="showQuestion('Q_${hiQust.id}')" style="cursor: pointer;display: block;color:#727171">${hiQust.detail} <span style="float:right">${hiQust.askTime}</span></div></li>
+      <li><div onclick="showQuestion('Q_${hiQust.id}')" style="cursor: pointer;display: block;color:#727171">${hiQust.detail} 
+      	<span style="float:right"><fmt:formatDate value="${hiQust.askTime}" pattern="yyyy-MM-dd" /></span></div></li>
     		<li id="Q_${hiQust.id}" style="display:none;background-color:#f2f7fd">
     		<c:forEach var="a" items="${hiQust.answers}" varStatus="ast">
 				<c:if test="${ast.index == 0}">&nbsp;<a href="viewAnswer?id=${hiQust.id}" style="display:block;background-color:#f2f7fd" target="_blank" >答: ${a.answerContent}</a></c:if>
