@@ -1,7 +1,7 @@
 .ClearFix:after{content:'.';display:block;height:0;clear:both;overflow:hidden;visibility:hidden;}
 .ClearFix {*zoom:1;}
 .Clear {clear:both;line-height:0;font-size:0;height:0;overflow:hidden;display:block;}
-/*妯＄硦鎼滅储*/
+
 .Fuzzysearch {background:url(../images/img1.jpg) repeat-x left top}
 .Fuzzysearch1 {height:100%; padding-top:53px;}
 .Fuzzysearch2 {color:#4293c0; font-weight:normal; font-size:18px}
@@ -15,7 +15,7 @@
 .Fuzzysearch7 {background:url(../images/img5.jpg) repeat-x left top;height:41px;line-height:41px;border:0px; border-top:4px solid #afd0df; border-bottom:1px solid #e6e6e6}
 .Fuzzysearch8 {font-size:12px;color:#000;font-weight:normal}
 .Fuzzysearch8 em {color:#fe6d00;margin:0 5px; font-weight:bold}
-/*璐锋鎼滅储*/
+
 a.Loansearch { float:none; padding:0px;a}
 .Loansearch1 {margin-top:15px}
 .Loansearch1 tr th{font-size:14px;color:#000;line-height:45px;height:45px;font-weight:normal;}
@@ -50,7 +50,7 @@ a.Loansearch10 {width:48px; padding-left:15px; background:url(../images/img12.pn
 .Loansearch19 a {margin-right:30px;}
 .Loansearch20 { background-color:#f7fbfe}
 .Loansearch21 {padding:7px 0 0 20px}
-/*浜у搧鐢宠*/
+
 .applicationleft {width:695px; float:left}
 .applicationleft1 {padding:17px 10px;}
 .applicationleft2 { float:left; min-height:105px; _height:105px; background:url(../images/img20.jpg) repeat-y right top; width:121px; text-align:center; padding-top:20px}
@@ -61,7 +61,7 @@ a.Loansearch10 {width:48px; padding-left:15px; background:url(../images/img12.pn
 .applicationleft4 li { float:left; width:153px; margin-right:10px; color:#585657; line-height:24px;}
 .applicationleft4 li span { color:#ff7100; margin:0 3px; font-weight:bold}
 .applicationleft5 {padding:0 15px;}
-.applicationleft5 a { font-size:12px; font-family:"瀹嬩綋"; display:block; background:url(../images/img22.jpg) no-repeat left center; padding:0 0 0 25px; color:#000}
+.applicationleft5 a { font-size:12px; font-family:"微软雅黑"; display:block; background:url(../images/img22.jpg) no-repeat left center; padding:0 0 0 25px; color:#000}
 .applicationleft6 {padding:0 35px;}
 .applicationleft7 {margin-top:15px;}
 .applicationleft7 h1 { font-size:14px; font-weight:bold; background:url(../images/img23.jpg) no-repeat 10px center; padding-left:30px; line-height:36px; border-bottom:1px solid #dcdcdc}
@@ -75,13 +75,13 @@ a.Loansearch10 {width:48px; padding-left:15px; background:url(../images/img12.pn
 .applicationleft12 { text-align:center; margin-top:5px;}
 .applicationleft13 {padding-bottom:25px; border-bottom:1px solid #e6e6e6}
 .applicationright {float:right;width:291px;}
-/*璐锋闂瓟*/
+
 .Loansquiz {background:url(../images/img28.jpg) repeat-x left top; background-color:#cee2ed}
 .Loansquiz1 { padding:0px;margin:20px auto 0;}
 .Loansquiz2 {font-size:18px;}
 .Loansquiz2 span {background:url(../images/img27.jpg) no-repeat left center; padding-left:40px; line-height:32px; display:inline-block}
 .Loansquiz2 input {width:306px; height:32px; line-height:32px;background:url(../images/img31.jpg) repeat-x left top;border:1px solid #aaaaaa;background-color:#fff;margin-left:10px;}
- a.Loansquiz3 {font-size:12px; font-weight:bold; font-family:"瀹嬩綋";color:#fff; display:inline-block; width:108px; line-height:27px;background:url(../images/img30.jpg) no-repeat left center;padding-left:40px;}
+ a.Loansquiz3 {font-size:12px; font-weight:bold; font-family:"微软雅黑";color:#fff; display:inline-block; width:108px; line-height:27px;background:url(../images/img30.jpg) no-repeat left center;padding-left:40px;}
 .Loansquiz4 {height:auto}
 .Loansquiz5 {margin:5px 20px 10px;}
 .Loansquiz5 li {background:url(../images/img32.jpg) repeat-x left bottom; border-bottom:0px; padding:0 0 0 10px;}
@@ -109,7 +109,7 @@ a.Loansearch10 {width:48px; padding-left:15px; background:url(../images/img12.pn
 .Loansquiz16 span {background:url(../images/img37.jpg) no-repeat left center; padding-left:30px;}
 .Loansquiz17 {padding:0 20px; margin-top:15px; color:#595758; line-height:18px;}
 .Loansquiz18 { text-align:right; padding:0 20px; color:#a2a2a2;margin-top:20px}
-/*璐锋鏀荤暐*/
+
 .Theloan {padding:0 20px; margin-top:18px}
 .Theloanleft { width:310px;}
 .Theloanleft h1 { font-size:14px; color:#595758; margin-bottom:10px;}
@@ -146,7 +146,7 @@ a.Loansearch10 {width:48px; padding-left:15px; background:url(../images/img12.pn
 .Theloanright11 h2 { text-align:left;}
 .Theloanright11 p {font-size:12px; text-indent:0em; line-height:18px;margin-top:8px;}
 .Theloanright12 {*margin-bottom:15px; _margin-bottom:0px;}
-/*蹇�璐锋涓撳尯*/
+
 .quickloan {padding:0 25px 5px;}
 .quickloan h1 { font-size:12px; font-weight:normal; color:#7f7f7f;margin:15px 0 8px}
 .quickloan a {color:#000;margin-right:10px;}
@@ -172,7 +172,7 @@ a.Loansearch10 {width:48px; padding-left:15px; background:url(../images/img12.pn
 .quickloan10 p {margin-top:15px;}
 .quickloan10 p a {margin:0 8px 0 5px; color:#008fd1}
 
-/*缈婚〉*/
+
 .me_next{text-align:right;height:26px;line-height:26px;padding:20px 0;}
 .me_next a{padding:5px 8px;margin-right:6px;border:1px solid #ebebeb;font-size:12px;color:#848381;font-weight:bold;}
 .me_next a:hover{padding:5px 1px;*padding:1px;border:1px solid #90bad2;color:#fff;}
@@ -182,7 +182,7 @@ a.Loansearch10 {width:48px; padding-left:15px; background:url(../images/img12.pn
 
 
 
-/*婊氬姩鍥剧墖浠ｇ爜*/
+
 .blk_29 {	BORDER-RIGHT: #a1d2fd 1px solid; PADDING-RIGHT: 0px; BORDER-TOP: #a1d2fd 0px solid; PADDING-LEFT: 0px; PADDING-BOTTOM: 20px; OVERFLOW: hidden; BORDER-LEFT: #a1d2fd 1px solid; PADDING-TOP: 10px; BORDER-BOTTOM: #a1d2fd 1px solid; ZOOM: 1; POSITION: relative}
 .blk_29 .LeftBotton {background:url(../images/img7.jpg) no-repeat left top; LEFT: 25px; FLOAT: left; WIDTH: 29px; CURSOR: pointer; POSITION: absolute; TOP: 30px; HEIGHT: 52px}
 .blk_29 .RightBotton {	RIGHT: 25px; background:url(../images/img8.jpg) no-repeat right top; FLOAT: right; WIDTH: 29px; CURSOR: pointer; POSITION: absolute; TOP: 30px; HEIGHT: 52px}
@@ -203,11 +203,24 @@ a.Loansearch10 {width:48px; padding-left:15px; background:url(../images/img12.pn
 .PhoTxt H1 {	FONT-WEIGHT: bold; FONT-SIZE: 12px; LINE-HEIGHT: 23px}
 .PhoTxt P {	COLOR: #545454; LINE-HEIGHT: 20px}
 
-/*涓嬫媺鑿滃崟*/
+
 #uboxstyle .select_box{width:123px;height:26px; float:left; margin-left:15px}
 #uboxstyle div.tag_select{display:block;color:#585858;width:103px;height:26px;background:transparent url("../images/ubox-select.gif") no-repeat 0 0;padding:0 10px;line-height:24px;}
 #uboxstyle div.tag_select_hover{display:block;color:#585858;width:103px;height:26px;background:transparent url("../images/ubox-select.gif") no-repeat 0 -26px;padding:0 10px;line-height:26px;}
 #uboxstyle div.tag_select_open{display:block;color:#585858;width:103px;height:26px;background:transparent url("../images/ubox-select.gif") no-repeat 0 -52px;padding:0 10px;line-height:26px;}
+
+
+
+
+#uboxstyle input.tag_select{display:block;color:#585858;width:103px;height:26px;background:transparent url("../images/ubox-select.gif") no-repeat 0 0;padding:0 10px;line-height:24px;}
+#uboxstyle input.tag_select_hover{display:block;color:#585858;width:103px;height:26px;background:transparent url("../images/ubox-select.gif") no-repeat 0 -26px;padding:0 10px;line-height:26px;}
+#uboxstyle input.tag_select_open{display:block;color:#585858;width:103px;height:26px;background:transparent url("../images/ubox-select.gif") no-repeat 0 -52px;padding:0 10px;line-height:26px;}
+#tm2008style input.tag_select{display:block;color:#a3a3a3;width:148px;height:28px;background:transparent url("../images/tm2008-select.gif") no-repeat -1px -1px;padding:0 10px;line-height:28px; _line-height:28px;}
+#tm2008style input.tag_select_hover{display:block;color:#a3a3a3;width:148px;height:28px;background:transparent url("../images/tm2008-select.gif") no-repeat -1px -31px;padding:0 10px;line-height:28px;}
+#tm2008style input.tag_select_open{display:block;color:#a3a3a3;width:148px;height:28px;background:transparent url("../images/tm2008-select.gif") no-repeat -1px -61px;padding:0 10px;line-height:28px;}
+
+
+
 
 #uboxstyle ul.tag_options{position:absolute;padding:0;margin:0;list-style:none;background:transparent url("../images/ubox-select.gif") no-repeat right bottom;width:123px;padding:0 0 5px;margin:0;}
 #uboxstyle ul.tag_options li{background:transparent url("../images/ubox-select.gif") repeat-y -123px 0;display:block;width:103px;padding:0 10px;height:26px;text-decoration:none;line-height:26px;color:#585858;}
@@ -234,7 +247,7 @@ margin:0px;
 padding:0px;
 margin:1px;
 }
-/*鑿滃崟class*/
+
 .Menubox {
 width:100%;
 height:38px;
@@ -280,7 +293,7 @@ margin:0px;
 padding:0px;
 margin:0 auto;}
 
-/*鑿滃崟class*/
+
 .Menubox1 {
 width:100%;
 height:85px;
@@ -333,4 +346,3 @@ background:url(../images/img46.jpg) no-repeat left top
 clear:both;
 margin-top:0px;
 }
--->

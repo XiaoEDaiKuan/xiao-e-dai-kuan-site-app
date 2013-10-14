@@ -24,7 +24,12 @@ function rSelects() {
 			select_tag.className = 'select_box';
 		selects[i].parentNode.insertBefore(select_tag,selects[i]);
 
-		select_info = document.createElement('div');	
+		//select_info = document.createElement('input');	/////////////////////////
+		if($(selects[i]).attr("readonly")=="readonly"){
+			select_info = document.createElement('div');
+		}else{
+			select_info = document.createElement('input')
+		}
 			select_info.id = 'select_info_' + selects[i].name;
 			select_info.className='tag_select';
 			select_info.style.cursor='pointer';
@@ -71,6 +76,9 @@ function rOptions(i, name) {
 			option_li.className='open_selected';
 			option_li.id='selected_' + name;
 			$id('select_info_' + name).appendChild(document.createTextNode(option_li.innerHTML));
+			try{
+				$('#select_info_' + name).val(option_li.innerHTML);
+			}catch(e){}
 		}
 		
 		option_li.onmouseover = function(){	this.className='open_hover';}
@@ -135,7 +143,7 @@ function clickOptions(i, n, name){
 	li[n].className='open_hover';
 	$id('select_' + name).removeChild($id('select_info_' + name));
 
-	select_info = document.createElement('div');
+	select_info = document.createElement('input'); //////////////////////////
 		select_info.id = 'select_info_' + name;
 		select_info.className='tag_select';
 		select_info.style.cursor='pointer';
@@ -144,6 +152,11 @@ function clickOptions(i, n, name){
 	mouseSelects(name);
 
 	$id('select_info_' + name).appendChild(document.createTextNode(li[n].innerHTML));
+	
+	try{
+		$('#select_info_' + name).val(li[n].innerHTML);
+	}catch(e){}
+	
 	$id( 'options_' + name ).style.display = 'none' ;
 	$id( 'select_info_' + name ).className = 'tag_select';
 	selects[i].options[n].selected = 'selected';

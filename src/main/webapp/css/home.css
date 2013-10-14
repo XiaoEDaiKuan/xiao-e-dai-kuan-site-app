@@ -66,7 +66,7 @@
 .sina_border{border:1px solid #fff;width:289px;height:92px;}
 .sina1{float:left;width:125px;text-align:center;padding:0 9px;padding-top:5px;}
 .sina1 a{display:block;width:65px;height:58px;margin:0 auto;}
-.sina1 p{color:#000;text-align:center;line-height:23px;font-family:"寰�蒋���";}
+.sina1 p{color:#000;text-align:center;line-height:23px;font-family:"微软雅黑";}
 .sina2{background:url(../images/sina.jpg) no-repeat center top;}
 .weixin{background:url(../images/weixin.jpg) no-repeat center top;}
 .assistant{width:291px;padding-bottom:16px;}
@@ -82,7 +82,6 @@
 .main3{width:998px;margin:0 auto;margin-bottom:15px;}
 .cloud{width:931px;height:81px;margin:0 auto;background:url(../images/bank.jpg) no-repeat;margin-top:15px;}
 
-/*�剧�婊��*/
 #demo {background: #FFF;overflow:hidden;width: 931px;height:85px;}
 #demo img {border:1px solid #e6e6e6;margin:6px 9px;}
 #indemo {float: left;width: 800%;}
