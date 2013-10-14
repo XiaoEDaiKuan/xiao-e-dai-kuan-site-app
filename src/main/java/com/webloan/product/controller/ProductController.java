@@ -71,7 +71,7 @@ public class ProductController extends MultiActionController {
 		mav.addObject("prod", prod);
 
 		Page hotRcdProds = productService.pagingProductRecommend(1, 5,
-				RecommendType.HOT_CHARACTER);
+				RecommendType.HOT_CREDIT);
 		mav.addObject("hotRcdProds", hotRcdProds.getItems());
 
 		List<Question> questions = orderService.listQuestionByPrdId(productId
@@ -96,7 +96,7 @@ public class ProductController extends MultiActionController {
 		mav.addObject("pv", productViewHelper.transferAttachToView(pa, pq));
 
 		Page hotRcdProds = productService.pagingProductRecommend(1, 5,
-				RecommendType.HOT_CHARACTER);
+				RecommendType.HOT_CREDIT);
 		mav.addObject("hotRcdProds", hotRcdProds.getItems());
 
 		List<Question> questions = orderService.listQuestionByPrdId(productId
