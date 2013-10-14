@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns:wb="http://open.weibo.com/wb"  xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -189,7 +190,8 @@
     <ul class="homequestion_list">
     <c:forEach var="hiQust" items="${hiQusts.items}">
       <!--li><a href="viewAnswer?id=${hiQust.id}" target="_blank"></a></li-->
-      <li><div onclick="showQuestion('Q_${hiQust.id}')" style="cursor: pointer;display: block;color:#727171">${hiQust.detail} <span style="float:right">${hiQust.askTime}</span></div></li>
+      <li><div onclick="showQuestion('Q_${hiQust.id}')" style="cursor: pointer;display: block;color:#727171">${hiQust.detail} 
+      	<span style="float:right"><fmt:formatDate value="${hiQust.askTime}" pattern="yyyy-MM-dd" /></span></div></li>
     		<li id="Q_${hiQust.id}" style="display:none;background-color:#f2f7fd">
     		<c:forEach var="a" items="${hiQust.answers}" varStatus="ast">
 				<c:if test="${ast.index == 0}">&nbsp;<a href="viewAnswer?id=${hiQust.id}" style="display:block;background-color:#f2f7fd" target="_blank" >答: ${a.answerContent}</a></c:if>

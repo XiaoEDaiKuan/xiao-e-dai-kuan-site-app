@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns:wb="http://open.weibo.com/wb"  xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -43,7 +44,13 @@ con.style.display=i==cursel?"block":"none";
 				<div class="Loansquiz13">
 					<h1>${question.subject}</h1>
 					<p>
-						<span>${question.askTime}</span>提问者:${question.askedBy}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;问答来自:${question.region.name}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;标签:${question.tag}
+						<span><fmt:formatDate value="${question.askTime}" pattern="yyyy-MM-dd HH:mm:ss" /></span>
+						提问者: ${empty question.askedBy ? '匿名' : question.askedBy}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						问答来自: ${question.region.name}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						标签: 
+						<fmt:bundle basename="dict/dict-mapping" prefix="QUESTION_TAG.">
+			           		<fmt:message key="${question.tag}" />
+						</fmt:bundle>
 					</p>
 				</div>
 				<p class="Loansquiz14">${question.detail}</p>
@@ -57,18 +64,14 @@ con.style.display=i==cursel?"block":"none";
 				</div>
 				<c:forEach var="ans" items="${question.answers}">
 				<p class="Loansquiz17">${ans.answerContent}</p>
-				<div class="Loansquiz18">${ans.answerBy}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${ans.answerTime}</div>
+				<div class="Loansquiz18">${ans.answerBy}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<fmt:formatDate value="${ans.answerTime}" pattern="yyyy-MM-dd HH:mm:ss" />
+				</div>
 				</c:forEach>
 			</div>
 		</div>
-		<c:if test="${empty sessionScope.custName}">
-		<iframe width="690px" height="300px" style="border:none;display:none" src="answerPostForm" frameborder="no" 
-				border="0" marginwidth="0" marginheight="0" scrolling="no" allowtransparency="yes">
-		</iframe>
-		</c:if>
 	</div>
 	
-
 	<%@include file="../../inc/globalFooterMenu.jsp"%>
 	<%@include file="../../inc/globalFooter.jsp"%>
 </body>
