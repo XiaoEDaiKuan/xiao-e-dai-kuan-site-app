@@ -46,25 +46,25 @@
         	$("<div class=\"Loansearch6\" data=\"credit\" value=\"" + credit + "\"><a><img src=\"images/img11.jpg\" onclick=\"removeSelected(this)\" width=\"23\" height=\"22\"/></a>" + $($("#credit p a")[credit]).attr("catalog") + ": <span>" + $($("#credit p a")[credit]).attr("vname") + "</span></div>").appendTo("#selectedString");
         }
         
-        var orderLx = $.getUrlParam('orderLx');
-        if(orderLx != null){
+        var orderRate = $.getUrlParam('orderRate');
+        if(orderRate != null){
         	$($("#orderBy a")[0]).removeClass("insort");
         	$($("#orderBy a")[0]).addClass("noinsort");
         	$($("#orderBy a")[1]).removeClass("noinsort");
         	$($("#orderBy a")[1]).addClass("insort");
-        	$($("#orderBy a")[1]).attr("value",orderLx);
-        	if (orderLx == 1){
+        	$($("#orderBy a")[1]).attr("value",orderRate);
+        	if (orderRate == 1){
         		$($("#orderBy a")[1]).addClass("sortDown");
         	}
         }
-        var orderYg = $.getUrlParam('orderYg');
-		if(orderYg != null){
+        var orderMonthly = $.getUrlParam('orderMonthly');
+		if(orderMonthly != null){
 			$($("#orderBy a")[0]).removeClass("insort");
 	    	$($("#orderBy a")[0]).addClass("noinsort");
 	    	$($("#orderBy a")[2]).removeClass("noinsort");
         	$($("#orderBy a")[2]).addClass("insort");
-        	$($("#orderBy a")[2]).attr("value",orderYg);
-			if (orderYg == 1){
+        	$($("#orderBy a")[2]).attr("value",orderMonthly);
+			if (orderMonthly == 1){
 				$($("#orderBy a")[2]).addClass("sortDown");
         	}
         }
@@ -290,7 +290,7 @@
   
   <c:forEach var="pv" items="${pvs.items}">
   <div class="Loansearch11 ClearFix">
-  	<div class="Loansearch19"><a style="cursor: pointer; cursor:hand" onclick="javascript:document.location.href=document.location.href.replace('queryProduct','productView') + '?&productId=${pv.product.id}'" target="_blank"><img src="images/img18.jpg" width="94" height="29" /></a></div>
+  	<div class="Loansearch19"><a style="cursor: pointer; cursor:hand" onclick="javascript:window.open(document.location.href.replace('queryProduct','productView') + '?&productId=${pv.product.id}')"><img src="images/img18.jpg" width="94" height="29" /></a></div>
   	<div class="Loansearch12">
     	<div class="Loansearch13">
         	<h1>${pv.product.issueOrgan}</h1>
