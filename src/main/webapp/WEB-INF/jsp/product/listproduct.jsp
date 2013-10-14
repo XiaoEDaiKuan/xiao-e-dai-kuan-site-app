@@ -83,7 +83,11 @@
         $(".formItem").each(function(){
         	var val = $(this).val();
         	if(val){
-        		url += $(this).attr("id") + "=" + val + "&";
+        		if($(this).attr("id") == "loanAmt"){
+        			url += "loanAmt=" + ($("#select_info_loanAmt").val() + "").replace("万元","") + "&";
+        		}else{
+        			url += $(this).attr("id") + "=" + val + "&";
+        		}
         	}
         });
         
@@ -173,7 +177,7 @@
   <tr>
     <th width="18%" align="right" valign="middle">职业身份：</th>
           <td width="20%"><div id="tm2008style">
-	<select name="identity" id="identity" class="formItem">
+	<select name="identity" id="identity" class="formItem" readonly="true">
 		<option value="">不限职业</option>
 		<option value="1">企业主</option>
 		<option value="2" >个体户</option>
@@ -199,7 +203,7 @@
   <tr>
     <th width="18%" align="right" valign="middle">贷款用途：</th>
           <td width="20%"><div id="tm2008style">
-	<select name="loanUse" id="loanUse" class="formItem">
+	<select name="loanUse" id="loanUse" class="formItem" readonly="true">
 		<option value="">请选择</option>
 		<option value="0">不限</option>
 		<option value="1" >经营贷款</option>
@@ -210,7 +214,7 @@
 </div></td>
     <th width="12%" align="right" valign="middle">贷款期限：</th>
           <td width="20%"><div id="tm2008style">
-	<select name="loanIssue" id="loanIssue" class="formItem">
+	<select name="loanIssue" id="loanIssue" class="formItem" readonly="true">
 		<option value="">请选择</option>
 		<option value="3">3个月</option>
 		<option value="6">6个月</option>

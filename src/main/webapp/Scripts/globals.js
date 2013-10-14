@@ -37,8 +37,14 @@ var searchProduct = function(){
 		$(".proSearch").each(function(){
     	var val = $(this).attr("value");
     	if (val) {
-    		url += $(this).attr("id") + "=" + val + "&";
+    		if($(this).attr("id") == "loanAmt"){
+    			//alert($("#select_info_loanIssue").val());
+    			url += "loanAmt=" + ($("#select_info_loanAmt").val() + "").replace("万元","") + "&";
+    		}else{
+    			url += $(this).attr("id") + "=" + val + "&";
+    		}
     	}
+    	
     });
 		document.location.href = url;
 };

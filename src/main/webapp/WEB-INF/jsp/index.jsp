@@ -26,7 +26,7 @@
         <tr>
           <th width="20%">职业身份：</th>
           <td><div id="tm2008style">
-	<select name="identity" id="identity" class="proSearch">
+	<select name="identity" id="identity" class="proSearch" readonly="true">
 		<option value="">不限职业</option>
 		<option value="1">企业主</option>
 		<option value="2" >个体户</option>
@@ -38,7 +38,7 @@
         <tr>
           <th>贷款用途：</th>
           <td><div id="tm2008style">
-	<select name="loanUse" id="loanUse" class="proSearch">
+	<select name="loanUse" id="loanUse" class="proSearch"  readonly="true">
 		<option value="">请选择</option>
 		<option value="0">不限</option>
 		<option value="1" >经营贷款</option>
@@ -67,7 +67,7 @@
         <tr>
           <th>贷款期限：</th>
           <td><div id="tm2008style">
-	<select name="loanIssue" id="loanIssue" class="proSearch">
+	<select name="loanIssue" id="loanIssue" class="proSearch"  readonly="true">
 		<option value="3">3个月</option>
 		<option value="6" >6个月</option>
 		<option value="12">12个月</option>
