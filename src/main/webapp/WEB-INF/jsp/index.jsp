@@ -148,13 +148,14 @@
     <div id="demo">
     <div id="indemo">
     <div id="demo1">
-    <div><img src="images/bank01.jpg" width="116" height="28" /><br /><img src="images/bank02.jpg" width="116" height="28" /></div>
-    <div><img src="images/bank01.jpg" width="116" height="28" /><br /><img src="images/bank02.jpg" width="116" height="28" /></div>
-    <div><img src="images/bank01.jpg" width="116" height="28" /><br /><img src="images/bank02.jpg" width="116" height="28" /></div>
-    <div><img src="images/bank01.jpg" width="116" height="28" /><br /><img src="images/bank02.jpg" width="116" height="28" /></div>
-    <div><img src="images/bank01.jpg" width="116" height="28" /><br /><img src="images/bank02.jpg" width="116" height="28" /></div>
-    <div><img src="images/bank01.jpg" width="116" height="28" /><br /><img src="images/bank02.jpg" width="116" height="28" /></div>
-    <div><img src="images/bank01.jpg" width="116" height="28" /><br /><img src="images/bank02.jpg" width="116" height="28" /></div>
+    <div><img src="images/bankicon/116x28/abc.jpg" width="116" height="28" /><br /><img src="images/bankicon/116x28/ceb.jpg" width="116" height="28" /></div>
+    <div><img src="images/bankicon/116x28/boc.jpg" width="116" height="28" /><br /><img src="images/bankicon/116x28/cmbc.jpg" width="116" height="28" /></div>
+    <div><img src="images/bankicon/116x28/bcm.jpg" width="116" height="28" /><br /><img src="images/bankicon/116x28/icbc.jpg" width="116" height="28" /></div>
+    <div><img src="images/bankicon/116x28/cgb.jpg" width="116" height="28" /><br /><img src="images/bankicon/116x28/cbc.jpg" width="116" height="28" /></div>
+    <div><img src="images/bankicon/116x28/hsb.jpg" width="116" height="28" /><br /><img src="images/bankicon/116x28/jiangsu.jpg" width="116" height="28" /></div>
+    <div><img src="images/bankicon/116x28/cmb.jpg" width="116" height="28" /><br /><img src="images/bankicon/116x28/psbc.jpg" width="116" height="28" /></div>
+    <div><img src="images/bankicon/116x28/chongqi.jpg" width="116" height="28" /><br /><img src="images/bankicon/116x28/hb.jpg" width="116" height="28" /></div>
+    <div><img src="images/bankicon/116x28/dalian.jpg" width="116" height="28" /><br /><img src="images/bankicon/116x28/btcb.jpg" width="116" height="28" /></div>
     </div>
     <div id="demo2"></div>
     </div>
