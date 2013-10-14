@@ -25,16 +25,16 @@ var questions = [
         {content:"本地户籍",down:1,up:1},
         {content:"外地户籍",down:0.9,up:0.9}]},
     {question:"您是否愿意提供实名认证（身份证，联系方式）",choice:[
-        {content:"是",down:1.05,up:1.1},
+        {content:"是",down:1.1,up:1.05},
         {content:"否",down:1,up:1}]},
     {question:"您是否愿意提供信用认证（信用报告）",choice:[
-        {content:"是",down:1.4,up:1.8},
+        {content:"是",down:1.8,up:1.4},
         {content:"否",down:1,up:1}]},
     {question:"您是否愿意提供流水认证（6个月银行流水）",choice:[
-        {content:"是",down:1.05,up:1.2},
+        {content:"是",down:1.2,up:1.05},
         {content:"否",down:1,up:1}]},
     {question:"您是否愿意接受访谈（15分钟内的电话访谈）",choice:[
-        {content:"是",down:1.2,up:1.3},
+        {content:"是",down:1.3,up:1.2},
         {content:"否",down:1,up:1}]}
 ];  
 var questionIndex = 0;
@@ -64,8 +64,8 @@ var next = function(){
         _down = parseInt(_data[0]);
         _up = parseInt(_data[1]);
     }else{
-        _down *= parseFloat(_data[1]);
-        _up *= parseFloat(_data[0]);
+        _down *= parseFloat(_data[0]);
+        _up *= parseFloat(_data[1]);
     }
     if(questionIndex < questions.length - 1){
         questionIndex++;
