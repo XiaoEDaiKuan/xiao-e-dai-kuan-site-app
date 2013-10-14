@@ -28,9 +28,6 @@
 		<div class="pop_city2">
 			<b>温馨提示：</b>请选择您的真实所在地，否则金融机构不能受理您的贷款申请。
 		</div>
-		<div class="pop_city3">
-			<input name="" type="button" value="" class="pop_switch" />
-		</div>
 	</div>
 </body>
 </html>
