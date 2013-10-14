@@ -31,19 +31,19 @@
         var estate = $.getUrlParam('estate');
         if(estate != null){
         	$("#estate").css("display","none");
-        	$("<div class=\"Loansearch6\" data=\"estate\" value=\"" + estate + "\"><a><img src=\"images/img11.jpg\" onclick=\"remove(this)\" width=\"23\" height=\"22\"/></a>" + $($("#estate p a")[estate]).attr("catalog") + ": <span>" + $($("#estate p a")[estate]).attr("vname") + "</span></div>").appendTo("#selectedString");
+        	$("<div class=\"Loansearch6\" data=\"estate\" value=\"" + estate + "\"><a><img src=\"images/img11.jpg\" onclick=\"removeSelected(this)\" width=\"23\" height=\"22\"/></a>" + $($("#estate p a")[estate]).attr("catalog") + ": <span>" + $($("#estate p a")[estate]).attr("vname") + "</span></div>").appendTo("#selectedString");
         }
         
         var vehicle = $.getUrlParam('vehicle');
         if(vehicle != null){
         	$("#vehicle").css("display","none");
-        	$("<div class=\"Loansearch6\" data=\"vehicle\" value=\"" + vehicle + "\"><a><img src=\"images/img11.jpg\" onclick=\"remove(this)\" width=\"23\" height=\"22\"/></a>" + $($("#vehicle p a")[vehicle]).attr("catalog") + ": <span>" + $($("#vehicle p a")[vehicle]).attr("vname") + "</span></div>").appendTo("#selectedString");
+        	$("<div class=\"Loansearch6\" data=\"vehicle\" value=\"" + vehicle + "\"><a><img src=\"images/img11.jpg\" onclick=\"removeSelected(this)\" width=\"23\" height=\"22\"/></a>" + $($("#vehicle p a")[vehicle]).attr("catalog") + ": <span>" + $($("#vehicle p a")[vehicle]).attr("vname") + "</span></div>").appendTo("#selectedString");
         }
         
         var credit = $.getUrlParam('credit');
         if(credit != null){
         	$("#credit").css("display","none");
-        	$("<div class=\"Loansearch6\" data=\"credit\" value=\"" + credit + "\"><a><img src=\"images/img11.jpg\" onclick=\"remove(this)\" width=\"23\" height=\"22\"/></a>" + $($("#credit p a")[credit]).attr("catalog") + ": <span>" + $($("#credit p a")[credit]).attr("vname") + "</span></div>").appendTo("#selectedString");
+        	$("<div class=\"Loansearch6\" data=\"credit\" value=\"" + credit + "\"><a><img src=\"images/img11.jpg\" onclick=\"removeSelected(this)\" width=\"23\" height=\"22\"/></a>" + $($("#credit p a")[credit]).attr("catalog") + ": <span>" + $($("#credit p a")[credit]).attr("vname") + "</span></div>").appendTo("#selectedString");
         }
         
         var orderLx = $.getUrlParam('orderLx');
@@ -113,10 +113,10 @@
     function search(){
         window.location = getParmasUrl();
     }
-    function remove(target){
+    var removeSelected = function(target){
     	var key = $(target).parent().parent().attr("data");
     	$("#" + key).css("display","inline-block");
-    	$(target).parent().parent().remove();
+    	$($(target).parent().parent()).remove();
     	search();
     }
     function clearAll(){
@@ -125,7 +125,7 @@
     }
     function add(target, key, value){
     	$("#" + key).css("display","none");
-    	$("<div class=\"Loansearch6\" data=\"" + key + "\" value=\"" + value + "\"><a><img src=\"images/img11.jpg\" onclick=\"remove(this)\" width=\"23\" height=\"22\"/></a>" + $(target).attr("catalog") + ": <span>" + $(target).attr("vname") + "</span></div>").appendTo("#selectedString");
+    	$("<div class=\"Loansearch6\" data=\"" + key + "\" value=\"" + value + "\"><img src=\"images/img11.jpg\" onclick=\"removeSelected(this)\" width=\"23\" height=\"22\"/>" + $(target).attr("catalog") + ": <span>" + $(target).attr("vname") + "</span></div>").appendTo("#selectedString");
     	search();
     }
     
