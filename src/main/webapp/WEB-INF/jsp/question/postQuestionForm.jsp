@@ -6,8 +6,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>我要提问</title>
 
-<link href="css/tipswindown.css" type="text/css" rel="stylesheet" />
-<link href="css/publlc.css" type="text/css" rel="stylesheet" />
 <link href="css/style.css" type="text/css" rel="stylesheet" />
 <link href="css/login.css" type="text/css" rel="stylesheet" />
 
@@ -27,21 +25,23 @@
 		<div class="pop_contact">
 			<div class="pop_question">
 				<div class="pop_question1">
+				<span>
 					问题标签：
-					<select name="tag" class="formItem">
+					<select name="tag" >
 						<option value="">不限</option>
 						<option value="1">抵押贷款</option>
 						<option value="0">无抵押贷款</option>
 					</select>
+				</span>	
 				</div>
 				<div class="pop_question1">
-					简单描述您的问题： <font>您还可以输入<em>50</em>个字</font>
+					<span>简单描述您的问题：</span> <font>您还可以输入<em>50</em>个字</font>
 				</div>
 				<div class="pop_question4">
 					<input name="subject" type="text" class="n_srk2 pop_question2" />
 				</div>
 				<div class="pop_question1">
-					问题详细描述（选填）：<font>问题描述的越详细，得到的解答也越精准</font>
+					<span>问题详细描述（选填）：</span><font>问题描述的越详细，得到的解答也越精准</font>
 				</div>
 				<div class="pop_question4">
 					<textarea name="detail" cols="" rows="" class="n_srk2 pop_question5"></textarea>
@@ -75,7 +75,7 @@
 						</tr>
 					</table>
 				
-			</div>
+			
 			<div class="pop_question1">
 				注册9F并登录后，您可以在会员中心看到自己的贷款问答。
 			</div>
@@ -85,6 +85,7 @@
 			<div class="pop_contact1">
 				<input type="button" value="" class="pop_submit" id="question_submit" />
 			</div>
+		</div>
 		</div>
 	</form>
 	
