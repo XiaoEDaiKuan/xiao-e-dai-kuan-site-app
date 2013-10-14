@@ -69,8 +69,8 @@ var next = function(){
         _down = Number(_data[0]);
         _up = Number(_data[1]);
     }else{
-        _down = _down * Number(_data[1]);
-        _up = _up * Number(_data[0]);
+        _down = _down * Number(_data[0]);
+        _up = _up * Number(_data[1]);
         //alert(_down + " , "+ _up);
     }
    
