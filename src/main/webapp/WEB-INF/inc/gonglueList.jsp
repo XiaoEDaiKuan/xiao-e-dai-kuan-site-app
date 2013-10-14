@@ -6,10 +6,10 @@
 		href="gonglue">更多</a>
 </div>
 <ul class="strategy_list">
-	<li><a href="贷款攻略2.html" target="_blank">得不偿失？信用卡购车小心捆绑保险</a></li>
-	<li><a href="贷款攻略2.html" target="_blank">新版信用报告的不良记录是怎么算的？</a></li>
-	<li><a href="贷款攻略2.html" target="_blank">看中介攻心术如何让你"非买不可"</a></li>
-	<li><a href="贷款攻略2.html" target="_blank">购买二手房 你可能忽视了这些</a></li>
-	<li><a href="贷款攻略2.html" target="_blank">5种贷款方式大汇总 谁是你心中的主角</a></li>
-	<li><a href="贷款攻略2.html" target="_blank">看中介攻心术如何让你"非买不可"</a></li>
+	<li><a href="gonglueDT?gonglueID=21" name="" target="_blank">消费贷款注意事项</a></li>
+	<li><a href="gonglueDT?gonglueID=16" name="" target="_blank">经营贷款定义以及如何申请</a></li>
+	<li><a href="gonglueDT?gonglueID=6" name="" target="_blank">申请个人小额无抵押贷款的一般流程</a></li>
+	<li><a href="gonglueDT?gonglueID=11"  target="_blank">申请汽车抵押贷款遇到的常见问题</a></li>
+	<li><a href="gonglueDT?gonglueID=1" name="" target="_blank">个人贷款知识普及</a></li>
+	<li><a href="gonglueDT?gonglueID=3" target="_blank">如何在征信系统中查询个人信用记录</a></li>
 </ul>
