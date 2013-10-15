@@ -77,7 +77,7 @@ var next = function(){
         $("#resultData").css("background","url('images/images/score_pic_9.png') no-repeat right bottom");
         $("#strCreditMin").val((_down/10000).toFixed(1));
         $("#strCreditMax").val((_up/10000).toFixed(1));
-        $("#resultData").html("<font>预计贷款额度</font><p>" + (_down/10000).toFixed(1) + " ~ " + (_up/10000).toFixed(1) + "</p>");
+        $("#resultData").html("<font>预计贷款额度</font><p style='line-height:30px;margin-top:10px'>" + (_down/10000).toFixed(1) + " ~ " + (_up/10000).toFixed(1) + "<br><span style='font-size:18px'>万元</span></p>");
         $("#resultProduct").show();
         $("#resultTitle").show();
         $("#resultProduct").attr("src","queryForScore?maxLoanAmt=" + (_up/10000).toFixed(1) + "&minLoanAmt=" + (_down/10000).toFixed(1));
@@ -99,7 +99,7 @@ var reset = function(){
 <%@include file="../../inc/scoreHeader.jsp" %>
 <!--===========页面内容部分 开始===========-->
 <div class="score"></div>
-<div class="score1 font_f clear"><b>9F云信用评分器<em>（回答9个问题&nbsp;看看您能贷多少）</em></b><span>已有<font>54555</font>人使用9F云信用信用评分器评估信用</span></div>
+<div class="score1 font_f clear"><b>9F云信用评分器<em>（回答8个问题&nbsp;看看您能贷多少）</em></b><span>已有<font>54555</font>人使用9F云信用信用评分器评估信用</span></div>
 <div class="score2 ground clear">
   <div class="score2_left font_f" id="resultData"></div>
   <div class="score2_right">

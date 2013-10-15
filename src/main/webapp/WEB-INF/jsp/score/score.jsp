@@ -85,7 +85,7 @@ var next = function(){
         $("#resultData").css("background","url('images/images/score_pic_9.png') no-repeat right bottom");
         $("#strCreditMin").val((_down/10000).toFixed(1));
         $("#strCreditMax").val((_up/10000).toFixed(1));
-        $("#resultData").html("<font>预计贷款额度</font><p>" + (_down/10000).toFixed(1) + " ~ " + (_up/10000).toFixed(1) + "</p>");
+        $("#resultData").html("<font>预计贷款额度</font><p style='line-height:30px;margin-top:10px'>" + (_down/10000).toFixed(1) + " ~ " + (_up/10000).toFixed(1) + "<br><span style='font-size:18px'>万元</span></p>");
         $("#resultProduct").show();
         $("#resultTitle").show();
         $("#resultProduct").attr("src","queryForScore?maxLoanAmt=" + (_up/10000).toFixed(1) + "&minLoanAmt=" + (_down/10000).toFixed(1));
