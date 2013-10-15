@@ -25,7 +25,7 @@ con.style.display=i==cursel?"block":"none";
 	$(document).ready(function() {
 		<c:if test="${empty sessionScope.custName}">
 		$("#pop_login").click(function(){
-			tipsWindown("您当前尚未登录，若想要申请贷款，请先登录。","iframe:iframe:loginForm?productId=${prod.product.id}","450","300","true","","false","text","");
+			tipsWindown("请填写贷款信息（如未登录，请先登录）","iframe:iframe:loginForm?productId=${prod.product.id}","450","300","true","","false","text","");
 		});
 		</c:if>
 		<c:if test="${not empty sessionScope.custName}">
