@@ -46,11 +46,16 @@ con.style.display=i==cursel?"block":"none";
 					<p>
 						<span><fmt:formatDate value="${question.askTime}" pattern="yyyy-MM-dd HH:mm:ss" /></span>
 						提问者: ${empty question.askedBy ? '匿名' : question.askedBy}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						问答来自: ${question.region.name}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						问答来自: 北京市<!--${question.region.name}-->&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 						标签: 
-						<fmt:bundle basename="dict/dict-mapping" prefix="QUESTION_TAG.">
-			           		<fmt:message key="${question.tag}" />
-						</fmt:bundle>
+						<c:choose>
+							<c:when test="${question.type eq '1'}">不限</c:when>
+							<c:otherwise>
+								<fmt:bundle basename="dict/dict-mapping" prefix="QUESTION_TAG.">
+					           		<fmt:message key="${question.tag}" />
+								</fmt:bundle>
+							</c:otherwise>
+						</c:choose>
 					</p>
 				</div>
 				<p class="Loansquiz14">${question.detail}</p>

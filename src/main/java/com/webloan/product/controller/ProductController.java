@@ -25,23 +25,20 @@ import com.webloan.order.service.OrderService;
 import com.webloan.product.service.ProductService;
 import com.webloan.product.view.ProductQuery;
 import com.webloan.product.view.ProductViewHelper;
+import com.webloan.question.service.QuestionService;
 import com.webloan.region.service.RegionService;
 import com.webloan.user.service.UserService;
 
 public class ProductController extends MultiActionController {
 
-	@Resource
-	ProductService productService;
-	@Resource
-	OrderService orderService;
-	@Resource
-	RegionService regionService;
-	@Resource
-	ProductViewHelper productViewHelper;
-	@Resource
-	UserService userService;
-	@Resource
-	CreditService creditService;
+	@Resource ProductService productService;
+	@Resource OrderService orderService;
+	@Resource RegionService regionService;
+	@Resource ProductViewHelper productViewHelper;
+	@Resource UserService userService;
+	@Resource CreditService creditService;
+	@Resource QuestionService questionService;
+	
 	protected transient Logger log = LoggerFactory.getLogger(this.getClass());
 
 	public ModelAndView queryProduct(HttpServletRequest request,
@@ -74,8 +71,10 @@ public class ProductController extends MultiActionController {
 				RecommendType.HOT_CREDIT);
 		mav.addObject("hotRcdProds", hotRcdProds.getItems());
 
-		List<Question> questions = orderService.listQuestionByPrdId(productId
-				.toString());
+//		List<Question> questions = orderService.listQuestionByPrdId(productId
+//				.toString());
+		Page questions = questionService.pagingQuestionsByProductId(
+				pq.getPageIndex(), 5, productId);
 		mav.addObject("questions", questions);
 
 		mav.addObject("pq", pq);
@@ -98,9 +97,11 @@ public class ProductController extends MultiActionController {
 		Page hotRcdProds = productService.pagingProductRecommend(1, 5,
 				RecommendType.HOT_CREDIT);
 		mav.addObject("hotRcdProds", hotRcdProds.getItems());
-
-		List<Question> questions = orderService.listQuestionByPrdId(productId
-				.toString());
+		
+//		List<Question> questions = orderService.listQuestionByPrdId(productId
+//				.toString());
+		Page questions = questionService.pagingQuestionsByProductId(
+				pq.getPageIndex(), 5, productId);
 		mav.addObject("questions", questions);
 
 		mav.addObject("pq", pq);
@@ -341,7 +342,7 @@ public class ProductController extends MultiActionController {
 		if (null != custId) {
 			Cust user = userService.findCustById(custId);
 			creditService.saveCredit(custId.toString(),
-					request.getParameter("strCreditType"), user.getCustName(),
+					request.getParameter("creditType"), user.getCustName(),
 					user.getMobileNO(), request.getParameter("minLoanAmt"),
 					request.getParameter("maxLoanAmt"));
 			

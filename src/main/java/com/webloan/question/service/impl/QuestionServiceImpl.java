@@ -121,6 +121,11 @@ public class QuestionServiceImpl implements QuestionService {
 		}
 	}
 	
+	public Page pagingQuestionsByProductId(int pageIndex, int pageSize, Long productId) {
+		return questionRepository.queryPage(pageIndex, pageSize, Question.class, 
+				new String[] { "product.id" }, new Object[] { productId });
+	}
+	
 	public Page pagingQuestions(int pageIndex, int pageSize, String type) {
 		return questionRepository.pagingQuestion(pageIndex, pageSize, type, null, null);
 	}
