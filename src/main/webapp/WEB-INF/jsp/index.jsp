@@ -51,14 +51,14 @@
         </tr>
         <tr>
           <th>贷款金额：</th>
-          <td><div id="tm2008style">
+          <td><div id="tm2008style2">
 	<select name="loanAmt" id="loanAmt" class="proSearch">
-		<option value="3" >3万元</option>
-		<option value="5" >5万元</option>
-		<option value="10" >10万元</option>
-		<option value="20" >20万元</option>
-		<option value="50" >50万元</option>
-		<option value="100" >100万元</option>
+		<option value="3" >3</option>
+		<option value="5" >5</option>
+		<option value="10" >10</option>
+		<option value="20" >20</option>
+		<option value="50" >50</option>
+		<option value="100" >100</option>
 		<option value="" >其他</option>
 	</select>
 </div></td>
