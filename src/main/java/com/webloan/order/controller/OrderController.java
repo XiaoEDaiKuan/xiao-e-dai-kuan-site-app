@@ -74,7 +74,7 @@ public class OrderController extends MultiActionController{
 		String email = request.getParameter("email");
 		orderService.orderEmail(email, productId);
 		ModelAndView mav = new ModelAndView();
-		mav.setViewName("order/inputEmail"); 
+		mav.setViewName("order/sendEmailok"); 
 		
 		mav.addObject("emailOK", true);
 		

@@ -9,6 +9,14 @@
 <link href="css/publlc.css" type="text/css" rel="stylesheet" />
 <link href="css/style.css" type="text/css" rel="stylesheet" />
 <link href="css/tipswindown.css" type="text/css" rel="stylesheet" />
+<link href="css/login.css" type="text/css" rel="stylesheet" />
+
+<script type="text/javascript" src="Scripts/lihover.js"></script>
+<script type="text/javascript" src="Scripts/jquery-1.8.0.min.js"></script>
+<script type="text/javascript" src="Scripts/jquery.jslides.js"></script>
+
+<script type="text/javascript" src="Scripts/product_email.js"></script>
+
 </head>
 
 <body style="background: #fff;">
@@ -18,15 +26,18 @@
 	</c:if>
 	
 	<c:if test="${empty emailOK}">
-	<form action="orderEmail?productId=${productId}" method="post">
+	<form action="orderEmail?productId=${productId}" method="post"  id="product_email_form" >
 	<div class="pop_contact">
 	  <div class="pop_email">
 	    <div class="pop_email1">请留下邮箱，我们会把该产品的介绍和申请条件发给您。</div>
 	    <div class="pop_email2"><span>邮箱地址：</span>
-	    <input name="email" type="text" class="input email" />
-	    <input name="" type="submit" value="" class="pop_send"/>
+     	     <input name="email" type="text" class="input email" id="product_email" />
+	         <input name="" type="button" value="" class="pop_send"  id="product_email_submit" />
+	         <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+            <span id="product_email_error" class="e9" style="display:none;"></span>
 	    </div>
-	  </div>
+
+   	  </div>
 	</div>
 	</form>
    </c:if>
