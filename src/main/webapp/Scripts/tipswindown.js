@@ -182,3 +182,8 @@ function tipsWindown(title, content, width, height, drag, time, showbg, cssName,
         setTimeout(closeWindown, time);
     }
 }
+tipsWindown.close=function(){
+            $("#windownbg").remove();
+            $("#windown-box").fadeOut("slow", function () { $(this).remove(); });
+
+}

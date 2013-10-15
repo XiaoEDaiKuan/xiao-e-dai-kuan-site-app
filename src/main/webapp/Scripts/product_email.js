@@ -14,7 +14,7 @@ $(document).ready(function(){
                                                 }
                                                                                           
                                      }
-                    )
+                    );
                     
                     
              $('#product_email').blur(
@@ -37,7 +37,13 @@ $(document).ready(function(){
 
 
                                      }
-                    )
+                    );
+
+             $('#send_email_ok_button').click(
+                                     function(){   
+                                      
+                                         }
+                    );
 
                   }
                   )
