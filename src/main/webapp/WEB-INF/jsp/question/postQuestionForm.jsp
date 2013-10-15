@@ -39,7 +39,8 @@
 					<span>简单描述您的问题：</span> <font>您还可以输入<em>50</em>个字</font>
 				</div>
 				<div class="pop_question4">
-					<input name="subject" type="text" class="n_srk2 pop_question2" />
+					<input name="subject" type="text" class="n_srk2 pop_question2" id="question_subject" />
+					<span id="question_subject_error" class="e9" style="display:none;"></span>
 				</div>
 				<div class="pop_question1">
 					<span>问题详细描述（选填）：</span><font>问题描述的越详细，得到的解答也越精准</font>

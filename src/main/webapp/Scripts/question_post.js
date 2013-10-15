@@ -3,6 +3,7 @@ $(document).ready(function(){
            
            var email_flag=false;
            var captcha_flag=false;
+           var subject_flag=false;
            
            $('#question_submit').click(
                                       function(){
@@ -32,6 +33,7 @@ $(document).ready(function(){
                                                             }
                                                      );
 
+                                                  $('#question_subject').blur();
                                                   $('#question_email').blur();
                                                
                                                 if( email_flag &&  captcha_flag){
@@ -62,6 +64,24 @@ $(document).ready(function(){
                                                         $("#question_email_error").css('display','none');
                                                         $("#question_email_error").removeClass("wrong_box clearfix");
                                                         email_flag=true;
+                                                     }
+
+
+                                     }
+                    )
+             $('#question_subject').blur(
+                                     function(){   
+                                                    
+                                                    if($("#question_subject").val()==null || $.trim($("#question_subject").val())==""){
+                                                        $("#question_subject_error").html("请填写问题");
+                                                        $("#question_subject_error").css('display','inline-block');
+                                                        $("#question_subject_error").addClass("wrong_box clearfix");
+                                                        subject_flag=false;
+                                                     }else {
+                                                        $("#question_subject_error").html("");
+                                                        $("#question_subject_error").css('display','none');
+                                                        $("#question_subject_error").removeClass("wrong_box clearfix");
+                                                        subject_flag=true;
                                                      }
 
 
