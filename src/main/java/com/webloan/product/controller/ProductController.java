@@ -341,7 +341,7 @@ public class ProductController extends MultiActionController {
 		if (null != custId) {
 			Cust user = userService.findCustById(custId);
 			creditService.saveCredit(custId.toString(),
-					request.getParameter("strCreditType"), user.getCustName(),
+					request.getParameter("creditType"), user.getCustName(),
 					user.getMobileNO(), request.getParameter("minLoanAmt"),
 					request.getParameter("maxLoanAmt"));
 			

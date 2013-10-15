@@ -80,7 +80,7 @@ var next = function(){
         $("#resultData").html("<font>预计贷款额度</font><p style='line-height:30px;margin-top:10px'>" + (_down/10000).toFixed(1) + " ~ " + (_up/10000).toFixed(1) + "<br><span style='font-size:18px'>万元</span></p>");
         $("#resultProduct").show();
         $("#resultTitle").show();
-        $("#resultProduct").attr("src","queryForScore?maxLoanAmt=" + (_up/10000).toFixed(1) + "&minLoanAmt=" + (_down/10000).toFixed(1));
+        $("#resultProduct").attr("src","queryForScore?creditType=1&maxLoanAmt=" + (_up/10000).toFixed(1) + "&minLoanAmt=" + (_down/10000).toFixed(1));
     }
 };
 
@@ -111,9 +111,9 @@ var reset = function(){
     <div class="score_right2">
         <input name="" type="button" id="nextBtn" value="" class="score_btn1" onclick="next()" />
         <form action="scoreSave" target="_top" method="post">
-            <input type="hidden" id="strCreditMin" name="strCreditMin"/>
-            <input type="hidden" id="strCreditMax" name="strCreditMax"/>
-            <input type="hidden" id="strCreditType" name="strCreditType" value="1"/>
+            <input type="hidden" id="strCreditMin" name="minLoanAmt"/>
+            <input type="hidden" id="strCreditMax" name="maxLoanAmt"/>
+            <input type="hidden" id="strCreditType" name="creditType" value="1"/>
             <!--input name="" type="submit" id="shenqingBtn" value="" style="background:url('images/img21.jpg')" class="score_btn1" /-->
         </form>
         <input name="" type="button" value="" class="score_btn2" onclick="reset()"/>
