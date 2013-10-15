@@ -36,6 +36,8 @@ public interface QuestionService {
 	
 	void saveQuestion(Long custId,QuestionView qv, String ipAddr);
 	
+	Page pagingQuestionsByProductId(int pageIndex, int pageSize, Long productId);
+	
 	Page pagingQuestions(int pageIndex, int pageSize, String type);
 	
 	Page pagingQuestions(int pageIndex, int pageSize, String title, String kindTwo);

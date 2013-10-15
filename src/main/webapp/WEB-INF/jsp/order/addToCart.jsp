@@ -110,21 +110,31 @@ con.style.display=i==cursel?"block":"none";
     </div>
     <div class="applicationleft7 applicationleft8">
     	<h1>常见问题</h1>
-    	<c:forEach var="q" items="${questions}">
-        <div class="applicationleft9">
-        	<div class="applicationleft10">
-        		<span><fmt:formatDate value="${q.askTime}" pattern="yyyy-MM-dd HH:mm:ss" /></span>
-        		<p>问题: ${q.detail}</p>
-        	</div>
-        	<c:forEach var="a" items="${q.answers}">
-            <div class="applicationleft10 applicationleft11">
-            	<span><fmt:formatDate value="${a.answerTime}" pattern="yyyy-MM-dd HH:mm:ss" /></span>
-            	<p>回答: ${a.answerContent}</p>
-            </div>
-        	</c:forEach>
+    	<ul class="homequestion_list">
+		<c:forEach var="q" items="${questions.items}">
+		<li>
+			<div onclick="showQuestion('Q_${q.id}')" style="cursor: pointer;display: block;color:#727171">${q.detail} 
+				<span style="float:right"><fmt:formatDate value="${q.askTime}" pattern="yyyy-MM-dd" /></span>
+			</div>
+		</li>
+		<li id="Q_${q.id}" style="display:none;background-color:#f2f7fd">
+			<c:forEach var="a" items="${q.answers}" varStatus="ast">
+				<c:if test="${ast.index == 0}">&nbsp;<a href="viewAnswer?id=${q.id}" style="display:block;background-color:#f2f7fd" target="_blank" >答: ${a.answerContent}</a></c:if>
+			</c:forEach>
+		</li>
+	    </c:forEach>
+	    </ul>
+	    
+	    <div>
+        <div class="applicationleft12" style="float:left">
+        	<a href="#" id="pop_question"><img src="images/img25.jpg" width="94" height="29" /></a>
         </div>
-    	</c:forEach>
-        <div class="applicationleft12"><a href="#" id="pop_question"><img src="images/img25.jpg" width="94" height="29" /></a></div>
+		<div class="me_next">
+		<c:forEach var="i" begin="1" end="${questions.totalPages}" step="1">
+			<a href="?pageIndex=${i}&productId=${pv.product.id}&loanAmt=${pq.loanAmt}&loanIssue=${pq.loanIssue}" <c:if test="${i == questions.pageIndex}">class="currentPager"</c:if>><em>${i}</em></a>
+		</c:forEach>
+		</div>
+        </div>
     </div>
   </div>
 </div>
