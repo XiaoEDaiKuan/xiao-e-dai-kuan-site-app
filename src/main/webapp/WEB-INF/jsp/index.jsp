@@ -138,6 +138,7 @@
       </div>   
     </div>
     <%@include file="../inc/daikuanTools.jsp"%>
+    <%@include file="../inc/scrollTools.jsp"%>
   </div>
 </div>
 <div class="main3 padding-bt ground">
