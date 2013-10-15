@@ -32,7 +32,7 @@
                 	<div class="Theloanright9">
             
                          <h1>房屋抵押贷款基础知识</h1>
-                        <h2>时间:2013-10-10&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;来源:9F整理&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h2>
+                        <h2>时间:2013-10-8&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;来源:9F整理&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h2>
 　<p>经常听到别人说房屋抵押贷款的事情，今天就给大家分享这方面的经验，希望能帮到有这方面需求的朋友。</p>
 　　<p>个人房屋抵押贷款：指具有完全民事行为能力的自然人，以所购城镇住房、商铺、写字楼等房产作抵押而申请的经营或消费贷。</p>
 　　<p>基本条件：</p>
@@ -46,7 +46,6 @@
 　　<p>5.公司拿到他项权证，发放贷款。</p>
 　　<p>需要注意的是，抵押房屋具有合法有效的《房屋所有权证》或《国有土地使用证》，且产权为个人私有，若为共有产权，须经共有人书面同意；抵押房屋须质量良好、合法使用，按时缴纳水、电、暖、煤气等费用</p>
    
-                        <div>责任编辑:叶文<br /><a href="#">打印</a>&nbsp;|&nbsp;<a href="#">投稿</a></div>
                     <div>
                 </div>
             </div>

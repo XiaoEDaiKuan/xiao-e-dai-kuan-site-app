@@ -32,7 +32,7 @@
                 	<div class="Theloanright9">
             
                          <h1>消费贷款申请过程</h1>
-                        <h2>时间:2013-10-10&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;来源:9F整理&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h2>
+                        <h2>时间:2013-10-14&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;来源:9F整理&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h2>
 <p>申请资料</p>
 <p>（1） 借款人的有效身份证件原件和复印件；</p>
 <p>（2） 当地常住户口或有效居住的证明材料；</p>
@@ -54,8 +54,6 @@
 <p>1）担保费：按贷款额的2%收取，但不低于4000元。</p>
 <p>2）	担保费：按贷款额的1.5%收取，但不低于3000元。</p>
 
-   
-                        <div>责任编辑:叶文<br /><a href="#">打印</a>&nbsp;|&nbsp;<a href="#">投稿</a></div>
                     <div>
                 </div>
             </div>

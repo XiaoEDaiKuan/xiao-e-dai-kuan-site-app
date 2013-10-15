@@ -32,7 +32,7 @@
                 	<div class="Theloanright9">
             
                          <h1>经营贷款定义以及如何申请</h1>
-                        <h2>时间:2013-10-10&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;来源:9F整理&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h2>
+                        <h2>时间:2013-10-16&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;来源:9F整理&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h2>
 <p>经营贷款是以中小企业主或个体工商户为服务对象的融资产品，借款人可以通过房产抵押等担保方式获得银行贷款，贷款资金用于其企业或个体户的经营需要。</p>
 <p>申请条件</p>
 <p>借款人申请个人投资经营贷款除必须具备产品有市场、经营有效益、还贷有保障等基本条件外，同时还必须具备以下条件：</p>
@@ -58,7 +58,6 @@
 <p>5. 生产经营或投资项目未取得环境保护部门许可；</p>
 <p>6. 在实行承包、租赁、联营、合并（兼并）、合作、分立、产权有偿转让、股份制改造等体制变更过程中，未清偿原有贷款债务、落实原有贷款债务或提供相应担保；</p>
    
-                        <div>责任编辑:叶文<br /><a href="#">打印</a>&nbsp;|&nbsp;<a href="#">投稿</a></div>
                     <div>
                 </div>
             </div>

@@ -32,7 +32,7 @@
                 	<div class="Theloanright9">
             
                          <h1>银行抵押贷款分类知识</h1>
-                        <h2>时间:2013-10-10&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;来源:9F整理&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h2>
+                        <h2>时间:2013-9-29&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;来源:9F整理&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h2>
 <p>一、个人住房贷款</p>
 <p>1、个人住房商业性贷款</p>
 <p>个人住房商业性贷款，是银行信贷资金所发放的自营贷款，指具有完全民事行为能力的自然人，购买 本市城镇自住住房时，以其所购产权住房为抵押物，作为偿还贷款的保证而向银行申请的住房商业性贷款。</p>
@@ -53,7 +53,6 @@
 <p>不动产信托</p>
 <p>Real Estate Investment Trusts简称“REITs”，直译为不动产投资信托，也称为房地产投资信托，其起源于美国。REITs一般分为三种类型：权益型(Equity REITs)、抵押型(Mortgage REITs)和混合型(Hybrid REITs)。</p>
    
-                        <div>责任编辑:叶文<br /><a href="#">打印</a>&nbsp;|&nbsp;<a href="#">投稿</a></div>
                     <div>
                 </div>
             </div>

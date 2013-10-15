@@ -32,7 +32,7 @@
                 	<div class="Theloanright9">
             
                          <h1>无抵押贷款需备手续</h1>
-                        <h2>时间:2013-10-10&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;来源:9F整理&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h2>
+                        <h2>时间:2013-9-30&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;来源:9F整理&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h2>
 <p>贷款需备手续第一步</p>
 <p>无抵押小额贷款，需要我们具有中国国籍（不含香港、澳门、台湾三地的居民）；</p>
 <p>同时你要满25-55周岁这个区间范围；</p>
@@ -46,7 +46,6 @@
 <p>（1）提供个人身份信息，包括身份证，居住证，户口本，结婚证等信息；（2）提供稳定的住址，房屋租赁合同，水电缴纳单，物业管理等相关资料；</p>
 <p>（3）提供稳定的收入来源，银行流水单，劳动合同等。</p>
 
-                        <div>责任编辑:叶文<br /><a href="#">打印</a>&nbsp;|&nbsp;<a href="#">投稿</a></div>
                     <div>
                 </div>
             </div>

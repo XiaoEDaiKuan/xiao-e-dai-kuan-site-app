@@ -32,7 +32,7 @@
                 	<div class="Theloanright9">
             
                          <h1>消费贷款注意事项</h1>
-                        <h2>时间:2013-10-10&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;来源:9F整理&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h2>
+                        <h2>时间:2013-10-16&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;来源:9F整理&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h2>
 <p>消费贷款需要准备的资料</p>
 <p>1）借款人夫妻双方、产权人(共有人)夫妻双方的身份证、户口本、婚姻证原件及复印件(借款人如离异提供离婚证及离婚协议；丧偶提供丧偶证明及继承公证书)</p>
 <p>2）收入证明和近3个月工资单、单位营业执照副本复印件加盖公章，且经过年检；</p>
@@ -54,7 +54,6 @@
 <p>10）取款时，借款人可带本人身份证到行取款或到我公司办理取卡手续。</p>
 <p>11）借款人必须是产权人。</p>
    
-                        <div>责任编辑:叶文<br /><a href="#">打印</a>&nbsp;|&nbsp;<a href="#">投稿</a></div>
                     <div>
                 </div>
             </div>

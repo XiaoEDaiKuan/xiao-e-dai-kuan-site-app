@@ -32,7 +32,7 @@
                 	<div class="Theloanright9">
             
                          <h1>经营贷款申请流程以及资料</h1>
-                        <h2>时间:2013-10-10&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;来源:9F整理&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h2>
+                        <h2>时间:2013-10-15&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;来源:9F整理&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h2>
  <p>申请所需材料</p>
 <p>1、资格证明文件，如身份证、户口簿或其他有效居留证件、营业执照等；</p>
 <p>2、贷款用途证明文件，如购销合同等：</p>
@@ -51,7 +51,6 @@
 <p>（6）总行审贷机构或授权机构终审</p>
 <p>（7）放款</p>
    
-                        <div>责任编辑:叶文<br /><a href="#">打印</a>&nbsp;|&nbsp;<a href="#">投稿</a></div>
                     <div>
                 </div>
             </div>
