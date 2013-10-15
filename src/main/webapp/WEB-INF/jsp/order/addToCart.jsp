@@ -124,7 +124,7 @@ con.style.display=i==cursel?"block":"none";
         	</c:forEach>
         </div>
     	</c:forEach>
-        <div class="applicationleft12"><a href="#" id="pop_question"><img src="images/img25.jpg" width="94" height="29" /></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="matchProduct"><img src="images/img26.jpg" width="94" height="29" /></a></div>
+        <div class="applicationleft12"><a href="#" id="pop_question"><img src="images/img25.jpg" width="94" height="29" /></a></div>
     </div>
   </div>
 </div>
