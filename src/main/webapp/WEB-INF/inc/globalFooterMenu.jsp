@@ -32,7 +32,7 @@
   </div>
   <div class="weibo">
 	<span class="jiathis_style_64x64" class="weibo1">
-		<a class="jiathis_follow_tsina" style="background:url(images/sina.jpg) no-repeat center 10px;" rel="http://weibo.com/jiathis">微博</a>
+		<a class="jiathis_follow_tsina" style="background:url(images/sina.jpg) no-repeat center 10px;" rel="http://e.weibo.com/jiufutougu?ref=http%3A%2F%2Fwww.9fgroup.com%2F">微博</a>
 	</span>
 	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
 
