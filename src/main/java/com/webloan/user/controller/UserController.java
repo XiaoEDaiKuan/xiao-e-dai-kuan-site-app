@@ -889,7 +889,7 @@ public class UserController extends MultiActionController {
 		String to = from == null ? "/" : (String) from;
 		
 		ModelAndView mav = new ModelAndView();
-		mav.setViewName("redirect:" + to);
+		mav.setViewName("redirect:" + to.replace("#", ""));
 		
 		String strId = request.getParameter("setcity");
 		Long regionId = Long.valueOf(strId);

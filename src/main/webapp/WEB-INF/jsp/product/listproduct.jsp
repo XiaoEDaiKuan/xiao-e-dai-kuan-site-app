@@ -156,6 +156,17 @@
     	$(target).addClass("currentPager");
     	search();
     }
+    function openNewWin(suffix) {
+    	var url = document.location.href.replace('queryProduct','productView');
+    	var endChar = url.substring(url.length-1);
+    	if (endChar == '#') 
+    		url = url.substring(0, url.length-1);
+    	if (url.indexOf("?") > 0) 
+    		url = url + (endChar == '&' ? '' : '&') + suffix;
+    	else 
+    		url = url + '?' + suffix;
+    	window.open(url);
+    }
 </script>
 </head>
 
@@ -294,7 +305,7 @@
   
   <c:forEach var="pv" items="${pvs.items}">
   <div class="Loansearch11 ClearFix">
-  	<div class="Loansearch19"><a style="cursor: pointer; cursor:hand" onclick="javascript:window.open(document.location.href.replace('queryProduct','productView') + '?&productId=${pv.product.id}')"><img src="images/img18.jpg" width="94" height="29" /></a></div>
+  	<div class="Loansearch19"><a style="cursor: pointer; cursor:hand" onclick="javascript:openNewWin('productId=${pv.product.id}')"><img src="images/img18.jpg" width="94" height="29" /></a></div>
   	<div class="Loansearch12">
     	<div class="Loansearch13">
         	<h1>${pv.product.issueOrgan}</h1>

@@ -70,8 +70,6 @@ public class ProductController extends MultiActionController {
 				RecommendType.HOT_CREDIT);
 		mav.addObject("hotRcdProds", hotRcdProds.getItems());
 
-//		List<Question> questions = orderService.listQuestionByPrdId(productId
-//				.toString());
 		Page questions = questionService.pagingQuestionsByProductId(
 				pq.getPageIndex(), 5, productId);
 		mav.addObject("questions", questions);
@@ -83,6 +81,10 @@ public class ProductController extends MultiActionController {
 
 	public ModelAndView productView(HttpServletRequest request,
 			HttpServletResponse response, ProductQuery pq) {
+		if (pq.getLoanAmt() == null || pq.getLoanIssue() == null) {
+			return viewProduct(request, response, pq);
+		}
+		
 		ModelAndView mav = new ModelAndView();
 
 		Long productId = pq.getProductId();
@@ -97,8 +99,6 @@ public class ProductController extends MultiActionController {
 				RecommendType.HOT_CREDIT);
 		mav.addObject("hotRcdProds", hotRcdProds.getItems());
 		
-//		List<Question> questions = orderService.listQuestionByPrdId(productId
-//				.toString());
 		Page questions = questionService.pagingQuestionsByProductId(
 				pq.getPageIndex(), 5, productId);
 		mav.addObject("questions", questions);
