@@ -885,9 +885,6 @@ public class UserController extends MultiActionController {
 	
 	public ModelAndView selectCity(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
-		System.out.println(request.getRequestURI());
-		System.out.println(request.getParameter("from"));
-		
 		Object from = request.getParameter("from");
 		String to = from == null ? "/" : (String) from;
 		

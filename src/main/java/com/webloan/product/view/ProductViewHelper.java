@@ -115,7 +115,7 @@ public class ProductViewHelper {
 		try {
 			Object result = MVEL.eval(formula, vars);
 			ret = new BigDecimal(result.toString()).setScale(6, RoundingMode.HALF_UP);
-			System.out.println(ret);
+//			System.out.println(ret);
 		} catch (Exception e) {}
 		
 		return ret;
