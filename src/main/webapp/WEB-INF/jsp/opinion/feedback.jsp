@@ -58,7 +58,7 @@
         <span id="opinion_email_error" class="e9" style="display:none;"></span>
       </div>
       <div class="opinion1_3">
-        <p>您的意见或建议</p>
+        <p>您的联系电话</p>
         <input name="telephone" type="text" class="input" />
       </div>
     </div>
