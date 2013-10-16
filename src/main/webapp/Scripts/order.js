@@ -98,7 +98,7 @@ $(document).ready(function(){
                                                   order_cust_tel_flag=pattern.test($("#order_cust_tel").val());
                                                
                                                     if(!order_cust_tel_flag){
-                                                        $("#order_cust_tel_error").html("请输入正确的贷款期限");
+                                                        $("#order_cust_tel_error").html("请输入正确的手机号码");
                                                         $("#order_cust_tel_error").css('display','inline-block');
                                                         $("#order_cust_tel_error").addClass("wrong_box");
                                                      }else {
