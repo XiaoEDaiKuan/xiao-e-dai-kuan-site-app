@@ -14,7 +14,7 @@
 		<param-name>contextConfigLocation</param-name>
 		<param-value>classpath*:beans/**/*.xml</param-value>
 	</context-param>
-
+	
 	<listener>
 		<listener-class>com.webloan.support.listener.LoggerContextListener</listener-class>
 	</listener>
@@ -32,6 +32,15 @@
 	</filter>
 	<filter-mapping>
 		<filter-name>webContextEncoding</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	
+	<filter>
+		<filter-name>userSessionDataInitializer</filter-name>
+		<filter-class>com.webloan.common.UserSessionDataInitializer</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>userSessionDataInitializer</filter-name>
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
 	

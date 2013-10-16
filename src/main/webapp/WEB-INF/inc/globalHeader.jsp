@@ -13,9 +13,10 @@
 		<div class="pop_contact">
 			<div class="testdiv3">请选择以下地区</div>
 			<div class="pop_city">
-				<c:forEach var="alr" items="${sessionScope.allowLoanRegions}">
-				<a href="selectCity?setcity=${alr.id}" class="C_${alr.id}">${alr.name}</a>
-				</c:forEach>
+			<c:forEach var="alr" items="${applicationScope.allowLoanRegions}">
+				<!--<a href="selectCity?setcity=${alr.id}" class="C_${alr.id}">${alr.name}</a>-->
+				<a href="#" onclick="location.href='selectCity?setcity=${alr.id}&from='+escape(location.href)" class="C_${alr.id}">${alr.name}</a>
+			</c:forEach>
 			</div>
 			<div class="pop_city2">
 				<b>温馨提示：</b>请选择您的真实所在地，否则金融机构不能受理您的贷款申请。

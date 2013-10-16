@@ -19,7 +19,6 @@ import com.webloan.credit.service.CreditService;
 import com.webloan.model.Cust;
 import com.webloan.model.Product;
 import com.webloan.model.ProductAttach;
-import com.webloan.model.Question;
 import com.webloan.model.Region;
 import com.webloan.order.service.OrderService;
 import com.webloan.product.service.ProductService;

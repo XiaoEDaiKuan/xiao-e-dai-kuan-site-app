@@ -885,8 +885,14 @@ public class UserController extends MultiActionController {
 	
 	public ModelAndView selectCity(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
+		System.out.println(request.getRequestURI());
+		System.out.println(request.getParameter("from"));
+		
+		Object from = request.getParameter("from");
+		String to = from == null ? "/" : (String) from;
+		
 		ModelAndView mav = new ModelAndView();
-		mav.setViewName("forward:/");
+		mav.setViewName("redirect:" + to);
 		
 		String strId = request.getParameter("setcity");
 		Long regionId = Long.valueOf(strId);
@@ -895,8 +901,6 @@ public class UserController extends MultiActionController {
 		request.getSession().setAttribute("currentRegion", region);
 		request.getSession().setAttribute("regionAvailable", "1");
 		
-//		request.getRequestDispatcher("/").forward(request, response);
-//		response.sendRedirect("./");
 		return mav;
 	}
 }
