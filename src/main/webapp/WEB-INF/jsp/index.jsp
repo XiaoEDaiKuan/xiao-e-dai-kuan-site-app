@@ -195,7 +195,7 @@
       	<span style="float:right"><fmt:formatDate value="${hiQust.askTime}" pattern="yyyy-MM-dd" /></span></div></li>
     		<li id="Q_${hiQust.id}" style="display:none;background-color:#f2f7fd">
     		<c:forEach var="a" items="${hiQust.answers}" varStatus="ast">
-				<c:if test="${ast.index == 0}">&nbsp;<a href="viewAnswer?id=${hiQust.id}" style="display:block;background-color:#f2f7fd" target="_blank" >答: ${a.answerContent}</a></c:if>
+				<c:if test="${ast.index == 0}"><a href="viewAnswer?id=${hiQust.id}" style="display:block;background-color:#f2f7fd" target="_blank" >答: ${a.answerContent}</a></c:if>&nbsp;
 			</c:forEach>
 			</li>
     </c:forEach>
