@@ -93,7 +93,7 @@ $(document).ready(function(){
              $('#order_cust_tel').blur(
                                      function(){   
 
-                                                   var pattern = /^1[3|4|5|8][0-9]\d{4,8}$/;
+                                                   var pattern = /^1[3|4|5|8][0-9]\d{8}$/;
                                                   
                                                   order_cust_tel_flag=pattern.test($("#order_cust_tel").val());
                                                
