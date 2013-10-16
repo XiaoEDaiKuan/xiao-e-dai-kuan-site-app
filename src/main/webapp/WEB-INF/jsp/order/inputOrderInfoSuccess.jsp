@@ -8,14 +8,20 @@
 <link href="css/publlc.css" type="text/css" rel="stylesheet" />
 <link href="css/style.css" type="text/css" rel="stylesheet" />
 <link href="css/tipswindown.css" type="text/css" rel="stylesheet" />
+
+<script type="text/javascript" src="Scripts/jquery-1.8.0.min.js"></script>
+<script type="text/javascript" src="Scripts/tipswindown_close.js"></script>
+
 </head>
 
 <body style="background:#fff;">
 <div class="pop_contact">
-  <div class="loan_yes"><font>云金融售贷员已经收到您的申请，会在24小时内联系您。</font><br />如遇到困难请致电云金融客服：400-810-2599；</div>
+  <div class="loan_yes"><font>云金融售贷员已经收到您的申请，会在24小时内联系您。</font><br />如遇到困难请致电云金融客服：400-810-2599；  ddddd</div>
   <div class="loan_no2">
-    <input name="" type="button" value="" class="cancel_det" />
+    <input name="" type="button" value="" class="cancel_det"   id="inputOrderInfoSuccess_close"    />
   </div>
 </div>
+
+
 </body>
 </html>
