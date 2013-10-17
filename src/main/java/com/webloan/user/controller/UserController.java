@@ -249,7 +249,7 @@ public class UserController extends MultiActionController {
 			throw new BizException(UserConstant.EXCEPTION_PASSWD_ERROR);
 		}
 
-		if (!reNewPassword.equals(reNewPassword)) {
+		if (!reNewPassword.equals(newPassword)) {
 			log.error(UserConstant.EXCEPTION_PASSWD_ERROR);
 			throw new BizException(UserConstant.EXCEPTION_PASSWD_ERROR);
 		}

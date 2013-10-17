@@ -32,6 +32,7 @@ import com.webloan.util.EmailVerify;
 import com.webloan.util.EncodeUtils;
 import com.webloan.util.IDCodeVerify;
 import com.webloan.util.Identities;
+import com.webloan.util.MD5;
 import com.webloan.util.MailEngine;
 import com.webloan.util.MobileVerify;
 import com.webloan.util.SecurityUtils;
@@ -129,9 +130,16 @@ public class UserServiceImpl implements UserService {
 			throw new BizException(UserConstant.EmailDuplicated);
 		}
 		// 对登录密码MD5加密
-		logonPasswd = EncodeUtils.encodeHex(SecurityUtils.DigestFunc.digest(
-				logonPasswd.getBytes(), DigestAlgorithm.MD5, null,
-				hashIterations));
+//		logonPasswd = EncodeUtils.encodeHex(SecurityUtils.DigestFunc.digest(
+//				logonPasswd.getBytes(), DigestAlgorithm.MD5, null,
+//				hashIterations));
+		
+		
+		//使用客户提供的MD5加密算法
+		MD5 md5=new MD5();
+		logonPasswd=md5.getMD5ofStr(logonPasswd);
+		
+		
 		// 产生客户账号
 		custNO = sequenceService.createSequence(ESeqType.CI_NO_SEQ);
 		// 注册时间
@@ -433,17 +441,26 @@ public class UserServiceImpl implements UserService {
 			throw new BizException(UserConstant.EXCEPTION_CUST_NOT_FOUND);
 		}
 		// 原始密码验证
-		originalPassword = EncodeUtils.encodeHex(SecurityUtils.DigestFunc
-				.digest(originalPassword.getBytes(), DigestAlgorithm.MD5, null,
-						hashIterations));
+//		originalPassword = EncodeUtils.encodeHex(SecurityUtils.DigestFunc
+//				.digest(originalPassword.getBytes(), DigestAlgorithm.MD5, null,
+//						hashIterations));
+		
+        //使用客户提供的md5加密算法
+		MD5 md5=new MD5();
+		originalPassword=md5.getMD5ofStr(originalPassword);
+		
 		if (!custs.get(0).getLogonPasswd().equals(originalPassword)) {
 			log.error(UserConstant.EXCEPTION_PASSWD_ERROR);
 			throw new BizException(UserConstant.EXCEPTION_PASSWD_ERROR);
 		}
 		// 加密新密码
-		newPassword = EncodeUtils.encodeHex(SecurityUtils.DigestFunc.digest(
-				newPassword.getBytes(), DigestAlgorithm.MD5, null,
-				hashIterations));
+//		newPassword = EncodeUtils.encodeHex(SecurityUtils.DigestFunc.digest(
+//				newPassword.getBytes(), DigestAlgorithm.MD5, null,
+//				hashIterations));
+
+        //使用客户提供的md5加密算法
+		newPassword=md5.getMD5ofStr(newPassword);
+		
 		// 保存新密码
 		userRepository.modifyPasswd(custId, newPassword);
 
@@ -462,10 +479,14 @@ public class UserServiceImpl implements UserService {
 		}
 
 		// 摘要密码
-		String strDigestPwd = EncodeUtils.encodeHex(SecurityUtils.DigestFunc
-				.digest(newPasswd.getBytes(), DigestAlgorithm.MD5, null,
-						hashIterations));
+//		String strDigestPwd = EncodeUtils.encodeHex(SecurityUtils.DigestFunc
+//				.digest(newPasswd.getBytes(), DigestAlgorithm.MD5, null,
+//						hashIterations));
 
+        //使用客户提供的md5加密算法
+         MD5 md5=new MD5();  
+         String strDigestPwd=md5.getMD5ofStr(newPasswd);
+         
 		// 更新客户信息
 		custs.get(0).setLogonPasswd(strDigestPwd);
 		userRepository.update(custs.get(0));
@@ -585,8 +606,13 @@ public class UserServiceImpl implements UserService {
 		}
 
 		// 密码验证
-		passwd = EncodeUtils.encodeHex(SecurityUtils.DigestFunc.digest(
-				passwd.getBytes(), DigestAlgorithm.MD5, null, hashIterations));
+//		passwd = EncodeUtils.encodeHex(SecurityUtils.DigestFunc.digest(
+//				passwd.getBytes(), DigestAlgorithm.MD5, null, hashIterations));
+		
+		//使用客户提供的MD5加密算法
+		MD5 md5=new MD5();
+		passwd=md5.getMD5ofStr(passwd);
+		
 		if (!custs.get(0).getLogonPasswd().equals(passwd)) {
 			log.error(UserConstant.EXCEPTION_ACCT_NOT_EXISIT);
 			throw new BizException(UserConstant.EXCEPTION_ACCT_NOT_EXISIT);
