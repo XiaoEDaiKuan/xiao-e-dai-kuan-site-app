@@ -154,7 +154,7 @@ public class UserController extends MultiActionController {
 //		}
 
 		ModelAndView mav = new ModelAndView();
-		mav.setViewName("index");
+		mav.setViewName("redirect:/");
 		String logonName = request.getParameter("logonName");
 		String passwd = request.getParameter("passwd");
 		Cust cust = userService.login(logonName, passwd);
