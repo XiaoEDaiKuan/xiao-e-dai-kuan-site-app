@@ -145,7 +145,7 @@ public class QuestionRepositoryImpl extends BaseJpaRepositoryImpl implements
 			return null;
 		}
 
-		log.info(ip);
+		log.info("=============ip======"+ip);
 		log.info(regionIPs.get(0).getRegion().getName());
 		return regionIPs.get(0);
 	}
