@@ -1,20 +1,16 @@
 package com.webloan.question.dao.impl;
 
-import java.net.InetAddress;
-import java.net.UnknownHostException;
-import java.sql.Timestamp;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import javax.persistence.Query;
 import javax.persistence.TypedQuery;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.webloan.common.BaseJpaRepositoryImpl;
 import com.webloan.common.Page;
-import com.webloan.common.Queriable;
-import com.webloan.exception.BizException;
-import com.webloan.model.Answer;
 import com.webloan.model.Cust;
 import com.webloan.model.QstPrd;
 import com.webloan.model.Question;
@@ -27,6 +23,8 @@ import com.webloan.util.DateUtils;
 public class QuestionRepositoryImpl extends BaseJpaRepositoryImpl implements
 		QuestionRepository {
 
+	protected transient Logger log = LoggerFactory.getLogger(this.getClass());
+	
 	/**
 	 * 根据客户id,查找该客户提交的问题
 	 */
@@ -147,6 +145,8 @@ public class QuestionRepositoryImpl extends BaseJpaRepositoryImpl implements
 			return null;
 		}
 
+		log.info(ip);
+		log.info(regionIPs.get(0).getRegion().getName());
 		return regionIPs.get(0);
 	}
 
