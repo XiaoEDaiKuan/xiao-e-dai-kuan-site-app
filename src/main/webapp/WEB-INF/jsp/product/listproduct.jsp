@@ -279,7 +279,7 @@
 	<select name="issueType" id="issueType" class="formItem smallItem">
 		<option value="">不限机构类型</option>
 		<option value="0">银行</option>
-		<option value="1">玖富</option>
+		<option value="1">9F小微金融直通车</option>
 		<option value="2">其他</option>
 	</select>
     </div>
