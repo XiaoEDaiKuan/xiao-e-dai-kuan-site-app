@@ -295,9 +295,11 @@
     <div id="uboxstyle">
 	<select name="repayType" id="repayType" class="formItem smallItem">
 		<option value="">不限还款方式</option>
+		<!--
 		<option value="0">分期还款</option>
 		<option value="1">到期还款</option>
 		<option value="2">随借随还</option>
+		-->
 	</select>
     </div>
      </div>
