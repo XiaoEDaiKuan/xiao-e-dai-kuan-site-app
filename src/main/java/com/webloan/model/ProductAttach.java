@@ -39,6 +39,21 @@ public class ProductAttach implements Serializable {
 	private Integer minLoanIssue;//MIN_LOAN_TIME
 	private Integer maxLoanIssue;//MAX_LOAN_TIME
 	
+	private String posJournal;//POS
+	private String operCert;//OPER_CERT
+	private String localCert;//LOCAL_CERT
+	private String operDevice;//OPER_DEVICE
+	
+	private String overdue;//OVERDUE
+	private BigDecimal annualIncome;//ANNUAL_INCOME
+	private String estateType;//ESTATE_TYPE
+	private Integer estateAge;//ESTATE_AGE
+	
+	private String incomeProof;//INCOME_PROOF
+	private String loanCert;//LOAN_CERT
+	private String vehicleCert;//VEHICLE_CERT
+	private String estateCert;//ESTATE_CERT
+	
 	private Product product;//PRODUCT_ID
 	
 	public Long getId() {
@@ -190,6 +205,78 @@ public class ProductAttach implements Serializable {
 	}
 	public void setMaxLoanIssue(Integer maxLoanIssue) {
 		this.maxLoanIssue = maxLoanIssue;
+	}
+	public String getPosJournal() {
+		return posJournal;
+	}
+	public void setPosJournal(String posJournal) {
+		this.posJournal = posJournal;
+	}
+	public String getOperCert() {
+		return operCert;
+	}
+	public void setOperCert(String operCert) {
+		this.operCert = operCert;
+	}
+	public String getLocalCert() {
+		return localCert;
+	}
+	public void setLocalCert(String localCert) {
+		this.localCert = localCert;
+	}
+	public String getOperDevice() {
+		return operDevice;
+	}
+	public void setOperDevice(String operDevice) {
+		this.operDevice = operDevice;
+	}
+	public String getOverdue() {
+		return overdue;
+	}
+	public void setOverdue(String overdue) {
+		this.overdue = overdue;
+	}
+	public BigDecimal getAnnualIncome() {
+		return annualIncome;
+	}
+	public void setAnnualIncome(BigDecimal annualIncome) {
+		this.annualIncome = annualIncome;
+	}
+	public String getEstateType() {
+		return estateType;
+	}
+	public void setEstateType(String estateType) {
+		this.estateType = estateType;
+	}
+	public Integer getEstateAge() {
+		return estateAge;
+	}
+	public void setEstateAge(Integer estateAge) {
+		this.estateAge = estateAge;
+	}
+	public String getIncomeProof() {
+		return incomeProof;
+	}
+	public void setIncomeProof(String incomeProof) {
+		this.incomeProof = incomeProof;
+	}
+	public String getLoanCert() {
+		return loanCert;
+	}
+	public void setLoanCert(String loanCert) {
+		this.loanCert = loanCert;
+	}
+	public String getVehicleCert() {
+		return vehicleCert;
+	}
+	public void setVehicleCert(String vehicleCert) {
+		this.vehicleCert = vehicleCert;
+	}
+	public String getEstateCert() {
+		return estateCert;
+	}
+	public void setEstateCert(String estateCert) {
+		this.estateCert = estateCert;
 	}
 	public Product getProduct() {
 		return product;

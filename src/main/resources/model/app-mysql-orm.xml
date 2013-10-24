@@ -199,6 +199,45 @@
 				<column name="MAX_LOAN_TIME" />
 			</basic>
 			
+			<basic name="posJournal">
+				<column name="POS" length="8" />
+			</basic>
+			<basic name="operCert">
+				<column name="OPER_CERT" length="8" />
+			</basic>
+			<basic name="localCert">
+				<column name="LOCAL_CERT" length="8" />
+			</basic>
+			<basic name="operDevice">
+				<column name="OPER_DEVICE" length="8" />
+			</basic>
+			
+			<basic name="overdue">
+				<column name="OVERDUE" length="8" />
+			</basic>
+			<basic name="annualIncome">
+				<column name="ANNUAL_INCOME" precision="16" scale="2" />
+			</basic>
+			<basic name="estateType">
+				<column name="ESTATE_TYPE" length="8" />
+			</basic>
+			<basic name="estateAge">
+				<column name="ESTATE_AGE" />
+			</basic>
+			
+			<basic name="incomeProof">
+				<column name="INCOME_PROOF" length="8" />
+			</basic>
+			<basic name="loanCert">
+				<column name="LOAN_CERT" length="8" />
+			</basic>
+			<basic name="vehicleCert">
+				<column name="VEHICLE_CERT" length="8" />
+			</basic>
+			<basic name="estateCert">
+				<column name="ESTATE_CERT" length="8" />
+			</basic>
+			
 			<many-to-one name="product">
 				<join-column name="PRODUCT_ID" nullable="false" />
 			</many-to-one>
