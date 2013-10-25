@@ -49,9 +49,15 @@
 	<!-- 图片列表 begin -->
 	<c:forEach var="gp" items="${groupProducts}">
 		<div class="box">
-			<a class="imgBorder" href="viewProduct?productId=${gp.id}" target="_blank">
+			<!-- <a class="imgBorder" href="viewProduct?productId=${gp.id}" target="_blank"> -->
+			  
+			<c:if test="${gp.id =='6'}"> <a class="imgBorder" href="http://tuan.9fbank.com/front/product/detail/product_detail?proId=4" target="_blank"> </c:if>
+			<c:if test="${gp.id == '7' }"> <a class="imgBorder" href="http://tuan.9fbank.com/front/product/detail/product_detail?proId=1" target="_blank"> </c:if>
+			<c:if test="${gp.id == '8' }"> <a class="imgBorder" href="http://tuan.9fbank.com/front/product/detail/product_detail?proId=3" target="_blank"> </c:if>
+			<c:if test="${gp.id == '9' }"> <a class="imgBorder" href="http://tuan.9fbank.com/front/product/detail/product_detail?proId=5" target="_blank">  </c:if>
 			<img src="images/organ/${gp.icon}" alt="${gp.name}&#10;${gp.desc}" width="130" height="79" />
-			</a> 
+			</a>
+			
 		</div>
 	</c:forEach>
 	<!-- 图片列表 end -->
