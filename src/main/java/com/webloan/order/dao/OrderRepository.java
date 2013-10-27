@@ -27,6 +27,6 @@ public interface OrderRepository extends BaseJpaRepository  {
 	//根据产品id查询关联的问答
    List<Question> listQuestionByPrdId(Long productId);
    //根据产品ID查询贷款申请条件
-   List<RequireInfo> listRequireInfoByProductID(Long productID);
+   List<RequireInfo> listRequireInfoByProductId(Long productId);
 
 }

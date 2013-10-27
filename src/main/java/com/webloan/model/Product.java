@@ -32,7 +32,14 @@ public class Product implements Serializable {
 	private String intrFormula;//INTR_FORMULAR
 	private String monthlyFormula;//MONTHLY_FORMULAR
 	private BigDecimal initialRate;//INITIAL_RATE
+	private BigDecimal managerRate;//manager_rate
 	
+	public BigDecimal getManagerRate() {
+		return managerRate;
+	}
+	public void setManagerRate(BigDecimal managerRate) {
+		this.managerRate = managerRate;
+	}
 	private List<Region> regions;
 	
 	public Long getId() {

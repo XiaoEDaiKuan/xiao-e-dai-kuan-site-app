@@ -17,10 +17,10 @@
 <div class="pop_contact">
   <div class="loan_question">
     <p>第二步：查看结果</p>
-    <div class="pop_tx">您暂不满足这个贷款的申请条件，原因：${response}</b></div>
+    <div class="pop_tx">您暂不满足这个贷款的申请条件，原因：${errorMsg}</b></div>
   </div>
   <div class="loan_no2">
-    <input name="" type="button" value="" class="loan_other" onClick="top.location.href='queryProduct'" />
+    <input type="button" class="loan_other" onclick="top.location.href='queryProduct'" />
   </div>
 </div>
 </body>

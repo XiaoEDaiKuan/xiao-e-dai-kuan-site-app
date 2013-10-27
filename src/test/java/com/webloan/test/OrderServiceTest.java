@@ -102,23 +102,6 @@ public class OrderServiceTest {
 		}
 		System.out.println("list question about product ok");
 	}
-
-	
-	@Test
-	public void TestListRequireInfoByProductID(){
-		OrderService orderService = appContext.getBean("orderService",
-				OrderService.class);
-		String productId="1";
-		List<RequireInfo> qi=orderService.listRequireInfoByProductID(productId);
-		for(RequireInfo q:qi){
-			System.out.println("产品id："+q.getProductID());
-			System.out.println("属性："+q.getAttr());
-			System.out.println("列ID："+q.getColumnID());
-			System.out.println("取值："+q.getValue());
-			System.out.println("状态："+q.getStatus());
-		}
-		System.out.println("list require info about product ok");
-	}
 	
 	@After
 	public void end() {

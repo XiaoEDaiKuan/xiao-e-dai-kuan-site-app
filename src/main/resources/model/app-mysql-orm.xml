@@ -713,5 +713,5 @@
 			</many-to-one>
 		</attributes>
 	</entity>
-
+	
 </entity-mappings>

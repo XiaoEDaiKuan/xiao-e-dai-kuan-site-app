@@ -93,11 +93,12 @@ public class OrderRepositoryImpl extends BaseJpaRepositoryImpl implements
 
 	// 根据产品ID查询贷款申请条件
 	@Override
-	public List<RequireInfo> listRequireInfoByProductID(Long productID) {
+	public List<RequireInfo> listRequireInfoByProductId(Long productId) {
 
-		return this.queryList(RequireInfo.class, new String[] { "product.id",
-				"status" }, new Object[] { productID, "1"  }, new String[] {
-				Queriable.EQ, Queriable.EQ });
+		return this.queryList(RequireInfo.class, 
+				new String[] { "product.id", "status" }, 
+				new Object[] { productId, "1" }, 
+				new String[] { Queriable.EQ, Queriable.EQ });
 	}
 
 }

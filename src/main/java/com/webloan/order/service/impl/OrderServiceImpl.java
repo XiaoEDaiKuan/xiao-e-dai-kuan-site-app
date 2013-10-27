@@ -130,9 +130,8 @@ public class OrderServiceImpl implements OrderService {
 
 	 //根据产品ID查询贷款申请条件
 	@Override
-	public List<RequireInfo> listRequireInfoByProductID(String productID) {
-        Long prdID=productID==null?null:Long.valueOf(productID);
-		return orderRepository.listRequireInfoByProductID(prdID);
+	public List<RequireInfo> listRequireInfoByProductId(Long productId) {
+		return orderRepository.listRequireInfoByProductId(productId);
 	}
 
 }
