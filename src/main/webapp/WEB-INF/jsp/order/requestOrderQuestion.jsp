@@ -30,12 +30,12 @@
 					<input name="${req.formName}" type="text" class="input" />
 				</c:when>
 				<c:otherwise>
-					<div class="options question_values">
+					<div class="options">
 					<fmt:bundle basename="dict/dict-mapping" prefix="${req.formName}.">
 		            	<c:forTokens var="opt" varStatus="vst" items="${req.ansOptions}" delims="|">
 		            		<c:if test="${not empty opt}">
-		            			<input name="${req.formName}" id="${req.formName}_${vst.index}" value="${opt}" type="radio" />
-		            			<label for="${req.formName}_${vst.index}"><span><fmt:message key="${opt}" /></span></label>
+		            			
+		            			<label for="${req.formName}_${vst.index}"><span><input name="${req.formName}" id="${req.formName}_${vst.index}" value="${opt}" type="radio" /><fmt:message key="${opt}" /></span></label>
 		            		</c:if>
 		            	</c:forTokens>
 					</fmt:bundle>

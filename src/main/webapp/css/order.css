@@ -5,7 +5,7 @@
 }
 .clearfix:after{content:".";display:block;overflow:hidden;height:0;clear:both;visibility:hidden;}
 .questions_list{
-	margin-bottom:20px;
+	margin-bottom:10px;
 }
 .questions_list .item{
 	zoom:1;
@@ -15,7 +15,7 @@
 .questions_list .item:after{
 	display:block;
 	clear:both;
-	content:"20";
+	content:"30";
 	height:0;
 	overflow:hidden;
 }
@@ -31,7 +31,7 @@
 	vertical-align:middle;
 	position:relative;
 	cursor:pointer;
-	padding:0 0 5px 0;
+	padding:0 0 10px 0;
 }
 .questions_list .label,.questions_list .options{
 	float:left;
@@ -43,7 +43,7 @@
 .questions_list .label{
 	font-weight:bolder;
 	font-size:14px;
-    width:185px;
-	padding-right:20px;
+    width:100px;
+	padding-right:0px;
 	text-align:right;
 }
