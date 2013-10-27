@@ -102,6 +102,9 @@
 			<basic name="initialRate">
 				<column name="INITIAL_RATE" precision="16" scale="4" />
 			</basic>
+			<basic name="managerRate">
+				<column name="MANAGER_RATE" precision="16" scale="4" />
+			</basic>
 			
 			<one-to-many name="regions" fetch="LAZY" target-entity="com.webloan.model.Region">
 				<join-table name="PRD_REGIONS">
@@ -200,42 +203,42 @@
 			</basic>
 			
 			<basic name="posJournal">
-				<column name="POS" length="8" />
+				<column name="POS" length="64" />
 			</basic>
 			<basic name="operCert">
-				<column name="OPER_CERT" length="8" />
+				<column name="OPER_CERT" length="64" />
 			</basic>
 			<basic name="localCert">
-				<column name="LOCAL_CERT" length="8" />
+				<column name="LOCAL_CERT" length="64" />
 			</basic>
 			<basic name="operDevice">
-				<column name="OPER_DEVICE" length="8" />
+				<column name="OPER_DEVICE" length="64" />
 			</basic>
 			
 			<basic name="overdue">
-				<column name="OVERDUE" length="8" />
+				<column name="OVERDUE" length="64" />
 			</basic>
 			<basic name="annualIncome">
 				<column name="ANNUAL_INCOME" precision="16" scale="2" />
 			</basic>
 			<basic name="estateType">
-				<column name="ESTATE_TYPE" length="8" />
+				<column name="ESTATE_TYPE" length="64" />
 			</basic>
 			<basic name="estateAge">
 				<column name="ESTATE_AGE" />
 			</basic>
 			
 			<basic name="incomeProof">
-				<column name="INCOME_PROOF" length="8" />
+				<column name="INCOME_PROOF" length="64" />
 			</basic>
 			<basic name="loanCert">
-				<column name="LOAN_CERT" length="8" />
+				<column name="LOAN_CERT" length="64" />
 			</basic>
 			<basic name="vehicleCert">
-				<column name="VEHICLE_CERT" length="8" />
+				<column name="VEHICLE_CERT" length="64" />
 			</basic>
 			<basic name="estateCert">
-				<column name="ESTATE_CERT" length="8" />
+				<column name="ESTATE_CERT" length="64" />
 			</basic>
 			
 			<many-to-one name="product">
@@ -270,40 +273,40 @@
 				<generated-value strategy="IDENTITY" />
 			</id>
 			<basic name="custName">
-				<column name="CUST_NAME" length="20" nullable="false" />
+				<column name="CUST_NAME" length="64" nullable="false" />
 			</basic>
 			<basic name="custNO">
-				<column name="CUST_NO" length="12" nullable="false" />
+				<column name="CUST_NO" length="32" nullable="false" />
 			</basic>
 			<basic name="logonPasswd">
 				<column name="LOGON_PASSWD" length="32" nullable="false" />
 			</basic>
 			<basic name="mobileNO">
-				<column name="MOBILE_NO" length="30" nullable="false" />
+				<column name="MOBILE_NO" length="32" nullable="false" />
 			</basic>
 			<basic name="idType">
-				<column name="ID_Type" length="1" nullable="false" />
+				<column name="ID_Type" length="16" nullable="false" />
 			</basic>
 			<basic name="idNO">
-				<column name="ID_NO" length="30" nullable="false" />
+				<column name="ID_NO" length="32" nullable="false" />
 			</basic>
 			<basic name="email">
-				<column name="email" length="100" nullable="false" />
+				<column name="email" length="128" nullable="false" />
 			</basic>
 			<basic name="postCode">
-				<column name="postCode" length="6" nullable="false" />
+				<column name="postCode" length="16" nullable="false" />
 			</basic>
 			<basic name="address">
 				<column name="address" length="512" nullable="false" />
 			</basic>
 			<basic name="setupTime">
-				<column name="Setup_Time"  />
+				<column name="Setup_Time" />
 			</basic>
 			<basic name="setupIP">
 				<column name="setup_ip" length="512" nullable="false" />
 			</basic>
 			<basic name="status">
-				<column name="status" length="1" nullable="false" />
+				<column name="status" length="16" nullable="false" />
 			</basic>
 			
 		</attributes>
@@ -317,10 +320,10 @@
 				<generated-value strategy="IDENTITY" />
 			</id>
 			<basic name="applyName">
-				<column name="APPLY_NAME" length="100" nullable="false" />
+				<column name="APPLY_NAME" length="128" nullable="false" />
 			</basic>
 			<basic name="applyTelephone">
-				<column name="APPLY_Telephone" length="50" nullable="false" />
+				<column name="APPLY_Telephone" length="64" nullable="false" />
 			</basic>
 			<basic name="applyAmt">
 				<column name="Apply_Amt"  precision="16" scale="2"  />
@@ -329,13 +332,13 @@
 				<column name="Approv_Amt"  precision="16" scale="2"  />
 			</basic>
 			<basic name="status">
-				<column name="Status" length="1"  />
+				<column name="Status" length="16"  />
 			</basic>
 			<basic name="orderTime">
 				<column name="Order_Time"  />
 			</basic>
 			<basic name="approvOper">
-				<column name="Approv_Oper" length="100"  />
+				<column name="Approv_Oper" length="128"  />
 			</basic>
 			<basic name="approvTime">
 				<column name="Approv_Time"  />
@@ -364,19 +367,19 @@
 				<generated-value strategy="IDENTITY" />
 			</id>
 			<basic name="fromPerson">
-				<column name="From_Person" length="50" nullable="false" />
+				<column name="From_Person" length="64" nullable="false" />
 			</basic>
 			<basic name="subject">
-				<column name="Subject" length="100" nullable="false" />
+				<column name="Subject" length="128" nullable="false" />
 			</basic>
 			<basic name="content">
 				<column name="Content" length="2048" nullable="false" />
 			</basic>
 			<basic name="sendTime">
-				<column name="send_time"  />
+				<column name="send_time" />
 			</basic>
 			<basic name="status">
-				<column name="status" length="1" nullable="false" />
+				<column name="status" length="16" nullable="false" />
 			</basic>
 			<many-to-one name="cust">
 				<join-column name="CUST_ID" nullable="false" />
@@ -392,16 +395,16 @@
 				<generated-value strategy="IDENTITY" />
 			</id>
 			<basic name="creditType">
-				<column name="credit_Type" length="1"  />
+				<column name="credit_Type" length="16" />
 			</basic>
 			<basic name="custName">
-				<column name="cust_Name" length="100"  />
+				<column name="cust_Name" length="128" />
 			</basic>
 			<basic name="custTelephone">
-				<column name="cust_Telephone" length="50"  />
+				<column name="cust_Telephone" length="64" />
 			</basic>
 			<basic name="calTime">
-				<column name="cal_Time"  />
+				<column name="cal_Time" />
 			</basic>
 			<basic name="creditMin">
 				<column name="credit_Min" precision="16" scale="2" />
@@ -411,10 +414,10 @@
 			</basic>
 			
 			<basic name="status">
-				<column name="status" length="1"  />
+				<column name="status" length="16" />
 			</basic>
 			<many-to-one name="cust">
-				<join-column name="CUST_ID"  />
+				<join-column name="CUST_ID" />
 			</many-to-one>
 		</attributes>
 	</entity>
@@ -427,16 +430,16 @@
 				<generated-value strategy="IDENTITY" />
 			</id>
 			<basic name="seqType">
-				<column name="seqType" length="1"  />
+				<column name="seqType" length="16" />
 			</basic>
 			<basic name="remark">
-				<column name="remark" length="50"  />
+				<column name="remark" length="64" />
 			</basic>
 			<basic name="value">
-				<column name="value"   />
+				<column name="value" />
 			</basic>
 			<basic name="length">
-				<column name="length"  />
+				<column name="length" />
 			</basic>
 		</attributes>
 	</entity>
@@ -449,13 +452,13 @@
 				<generated-value strategy="IDENTITY" />
 			</id>
 			<basic name="setupDate">
-				<column name="setup_date" length="8"  />
+				<column name="setup_date" length="8" />
 			</basic>
 			<basic name="setupIP">
-				<column name="setup_ip" length="16"  />
+				<column name="setup_ip" length="16" />
 			</basic>
 			<basic name="setupIPCnt">
-				<column name="setup_ip_cnt"   />
+				<column name="setup_ip_cnt" />
 			</basic>
 		</attributes>
 	</entity>
@@ -468,10 +471,10 @@
 				<generated-value strategy="IDENTITY" />
 			</id>
 			<basic name="startIP">
-				<column name="start_ip" length="16"  />
+				<column name="start_ip" length="16" />
 			</basic>
 			<basic name="endIP">
-				<column name="end_ip" length="16"  />
+				<column name="end_ip" length="16" />
 			</basic>
 		</attributes>
 	</entity>
@@ -483,13 +486,13 @@
 				<generated-value strategy="IDENTITY" />
 			</id>
 			<basic name="kindOne">
-				<column name="kind_One" length="1"  />
+				<column name="kind_One" length="16" />
 			</basic>
 			<basic name="kindTwo">
-				<column name="kind_Two" length="1"  />
+				<column name="kind_Two" length="16" />
 			</basic>
 			<basic name="askedBy">
-				<column name="asked_By" length="100"  />
+				<column name="asked_By" length="128" />
 			</basic>
 
 
@@ -497,47 +500,48 @@
 				<column name="ask_Time" />
 			</basic>
 			<basic name="tag">
-				<column name="tag" length="100" />
+				<column name="tag" length="128" />
 			</basic>
 			
 			<basic name="detail">
-				<column name="detail" length="2048"  />
+				<column name="detail" length="2048" />
 			</basic>
 			
 			<basic name="email">
-				<column name="email" length="100"  />
+				<column name="email" length="128" />
 			</basic>
 
 			<basic name="telephone">
-				<column name="telephone" length="50"  />
+				<column name="telephone" length="64" />
 			</basic>
 
 			<basic name="status">
-				<column name="status" length="1"  />
+				<column name="status" length="16" />
 			</basic>
 
 			
 			<basic name="subject">
-				<column name="subject" length="100"  />
+				<column name="subject" length="128" />
 			</basic>
 			
 			<basic name="type">
-				<column name="QST_TYPE" length="16"  />
+				<column name="QST_TYPE" length="16" />
 			</basic>
 			
 			<many-to-one name="region">
-				<join-column name="REGION_ID"  />
+				<join-column name="REGION_ID" />
 			</many-to-one>
 
 			<many-to-one name="cust">
-				<join-column name="CUST_ID"  />
+				<join-column name="CUST_ID" />
 			</many-to-one>
 
 			<many-to-one name="product">
-				<join-column name="PRODUCT_ID"   />
+				<join-column name="PRODUCT_ID" />
 			</many-to-one>
 			
-			<one-to-many name="answers" target-entity="com.webloan.model.Answer" mapped-by="question" fetch="EAGER"></one-to-many>
+			<one-to-many name="answers" target-entity="com.webloan.model.Answer" 
+										mapped-by="question" fetch="EAGER" />
 			
 		</attributes>
 	</entity>
@@ -550,13 +554,13 @@
 				<generated-value strategy="IDENTITY" />
 			</id>
 			<basic name="answerBy">
-				<column name="answer_By" length="100"  />
+				<column name="answer_By" length="128"  />
 			</basic>
 			<basic name="answerTime">
 				<column name="answer_Time" />
 			</basic>
 			<basic name="answerLevel">
-				<column name="answer_level" length="1" />
+				<column name="answer_level" length="16" />
 			</basic>
 			
 			<basic name="answerContent">
@@ -564,11 +568,11 @@
 			</basic>
 			
 			<basic name="email">
-				<column name="email" length="100"  />
+				<column name="email" length="128"  />
 			</basic>
 
 			<basic name="telephone">
-				<column name="telephone" length="50"  />
+				<column name="telephone" length="64"  />
 			</basic>
 			
 			<many-to-one name="region">
@@ -620,11 +624,11 @@
 			</id>
 
 			<basic name="status">
-				<column name="status" length="1"  />
+				<column name="status" length="16"  />
 			</basic>
 			
 			<basic name="arreaCode">
-				<column name="arrea_code" length="1"  />
+				<column name="arrea_code" length="64"  />
 			</basic>
 			
 			<many-to-one name="region">
@@ -643,68 +647,70 @@
 			</id>
 
 			<basic name="name">
-				<column name="name" length="50"  />
+				<column name="name" length="64"  />
 			</basic>
 			
 			<basic name="email">
-				<column name="email" length="100"  />
+				<column name="email" length="128"  />
 			</basic>
 
 			<basic name="telephone">
-				<column name="telephone" length="50"  />
+				<column name="telephone" length="64"  />
 			</basic>
 			
 			<basic name="content">
 				<column name="content" length="2048"  />
 			</basic>
 			<basic name="setupTime">
-				<column name="setup_Time"   />
+				<column name="setup_Time" />
 			</basic>
 			<basic name="answerBy">
-				<column name="answer_By"   />
+				<column name="answer_By" />
 			</basic>
 			
 			<basic name="answerTime">
-				<column name="answer_Time"   />
+				<column name="answer_Time" />
 			</basic>
 			<basic name="status">
-				<column name="status"   />
+				<column name="status" />
 			</basic>
 
 			<basic name="answerCont">
-				<column name="answer_Cont"   length="2048"/>
+				<column name="answer_Cont" length="2048"/>
 			</basic>
 
 		</attributes>
 	</entity>
 
 	<entity class="com.webloan.model.RequireInfo" name="RequireInfo">
-		<table name="require_info" />
+		<table name="REQUIRE_INFO" />
 		<attributes>
 			<id name="id">
 				<column name="ID" />
 				<generated-value strategy="IDENTITY" />
 			</id>
-
-			<basic name="productID">
-				<column name="product_id"   />
+			<basic name="question">
+				<column name="QUESTION" length="512" />
 			</basic>
-			
-			<basic name="attr">
-				<column name="attr" length="100"  />
+			<basic name="ansOptions">
+				<column name="ANS_OPTIONS" length="128" />
 			</basic>
-
-			<basic name="columnID">
-				<column name="column_ID" length="50"  />
+			<basic name="formName">
+				<column name="FORM_NAME" length="64" />
 			</basic>
-			
-			<basic name="value">
-				<column name="value" length="512"  />
+			<basic name="propertyName">
+				<column name="PROP_NAME" length="128" />
+			</basic>
+			<basic name="validateType">
+				<column name="VALIDATE_TYPE" length="32" />
 			</basic>
 			<basic name="status">
-				<column name="status"   />
+				<column name="STATUS" length="16" />
 			</basic>
-
+			
+			<many-to-one name="product">
+				<join-column name="PRODUCT_ID" />
+			</many-to-one>
 		</attributes>
 	</entity>
 
