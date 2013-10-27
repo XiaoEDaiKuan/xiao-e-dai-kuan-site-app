@@ -33,7 +33,6 @@
 			<option value="2" >消费贷款</option>
 			<option value="4" >购车贷款</option>
 			<option value="3" >购房贷款</option>
-			
           </select></td>
       </tr>
       <tr>
