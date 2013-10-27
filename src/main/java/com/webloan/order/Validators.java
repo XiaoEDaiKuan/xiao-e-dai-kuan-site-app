@@ -243,7 +243,7 @@ public class Validators {
 		EqualValidator ev = new EqualValidator();
 		ValidatorError e1 = ev.doValidate(v1);
 		System.out.println(e1 == null ? null : e1.getMessage());
-
+		
 		ValidatorInfo v2 = new ValidatorInfo();
 		v2.setMessageTemplate("err in");
 		v2.setName("v2");
