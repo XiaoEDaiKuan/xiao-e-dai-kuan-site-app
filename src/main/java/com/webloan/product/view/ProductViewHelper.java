@@ -92,6 +92,8 @@ public class ProductViewHelper {
 		}
 		vars.put("F", p.getInitialRate() == null ? BigDecimal.ZERO : p.getInitialRate());
 		vars.put("f", p.getInitialRate() == null ? BigDecimal.ZERO : p.getInitialRate());
+		vars.put("F1", p.getManagerRate() == null ? BigDecimal.ZERO : p.getManagerRate());
+		vars.put("f1", p.getManagerRate() == null ? BigDecimal.ZERO : p.getManagerRate());
 		
 		pv.setInterest(calcInterest(intrFormula, vars));
 		pv.setMonthlyPay(calcInterest(monFormula, vars));
