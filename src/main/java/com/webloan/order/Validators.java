@@ -40,7 +40,7 @@ public class Validators {
 			return new InValidator();
 		}
 		if (BETWEEN.equals(type)) {
-			return new InValidator();
+			return new BetweenValidator();
 		}
 		if (GE.equals(type) || GT.equals(type) || LE.equals(type) || LT.equals(type)) {
 			GlteValidator v = new GlteValidator();
