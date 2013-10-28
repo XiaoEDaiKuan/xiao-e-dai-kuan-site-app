@@ -3,7 +3,6 @@ package com.webloan.order;
 import java.beans.BeanInfo;
 import java.beans.Introspector;
 import java.beans.PropertyDescriptor;
-import java.lang.reflect.Method;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -22,11 +21,8 @@ public class Validators {
 		List<ValidatorError> verr = new ArrayList<ValidatorError>();
 		for (ValidatorInfo info : vinfo) {
 			Validator v = createValidator(info.getType());
-			if (v == null) {
-				continue;
-			}
-			
 			ValidatorError err = v.doValidate(info);
+			
 			if (err != null) {
 				verr.add(err);
 			}
@@ -56,10 +52,10 @@ public class Validators {
 	
 	static class EqualValidator implements Validator {
 		public ValidatorError doValidate(ValidatorInfo info) {
-			Object srcVal = info.getValue();
-			Object expectVal = getPropValue(info.getSource(), info.getProperty());
+			Object smpVal = info.getValue();
+			Object expVal = getPropValue(info.getSource(), info.getProperty());
 			
-			if (expectVal == null || expectVal.equals(srcVal)) {
+			if (expVal == null || expVal.equals(smpVal)) {
 				return null;
 			}
 			
@@ -72,13 +68,13 @@ public class Validators {
 	}
 	static class InValidator implements Validator {
 		public ValidatorError doValidate(ValidatorInfo info) {
-			Object srcVal = info.getValue();
-			Object expectVal = getPropValue(info.getSource(), info.getProperty());
+			Object smpVal = info.getValue();
+			Object expVal = getPropValue(info.getSource(), info.getProperty());
 			
-			if (expectVal == null || srcVal == expectVal) {
+			if (expVal == null || smpVal == expVal) {
 				return null;
 			}
-			if (srcVal != null && expectVal.toString().indexOf(srcVal.toString()) >= 0) {
+			if (smpVal != null && expVal.toString().indexOf(smpVal.toString()) >= 0) {
 				return null;
 			}
 			
@@ -92,23 +88,23 @@ public class Validators {
 	static class GlteValidator implements Validator {
 		String type = GE;
 		public ValidatorError doValidate(ValidatorInfo info) {
-			Object srcVal = info.getValue();
+			Object smpVal = info.getValue();
 			Object expVal = getPropValue(info.getSource(), info.getProperty());
 			
 			if (expVal == null) {
 				return null;
 			}
 			
-			BigDecimal srcNum = null;
+			BigDecimal smpNum = null;
 			BigDecimal expNum = null;
 			
 			try {
-				srcNum = new BigDecimal(srcVal.toString());
+				smpNum = new BigDecimal(smpVal.toString());
 				expNum = new BigDecimal(expVal.toString());
 			} catch (Exception e) {}
 			
-			if (srcNum != null && expNum != null) {
-				int eqFlag = srcNum.compareTo(expNum);
+			if (smpNum != null && expNum != null) {
+				int eqFlag = smpNum.compareTo(expNum);
 				
 				if ((GE.equals(type) && eqFlag >= 0) 
 						|| (GT.equals(type) && eqFlag > 0)
@@ -136,7 +132,7 @@ public class Validators {
 		}
 		
 		public ValidatorError doValidate(ValidatorInfo info) {
-			Object srcVal = info.getValue();
+			Object smpVal = info.getValue();
 			
 			Object minExpVal = getPropValue(info.getSource(), 
 					getPropertyName(info.getProperty(), minPrefix));
@@ -146,23 +142,23 @@ public class Validators {
 			if (minExpVal == null && maxExpVal == null) {
 				return null;
 			}
-			if (srcVal == null && (minExpVal == null || maxExpVal == null)) {
+			if (smpVal == null && (minExpVal == null || maxExpVal == null)) {
 				return null;
 			}
 			
-			BigDecimal srcNum = null;
+			BigDecimal smpNum = null;
 			BigDecimal minExpNum = null;
 			BigDecimal maxExpNum = null;
 			
 			try {
-				srcNum = new BigDecimal(srcVal.toString());
+				smpNum = new BigDecimal(smpVal.toString());
 				minExpNum = new BigDecimal(minExpVal.toString());
 				maxExpNum = new BigDecimal(maxExpVal.toString());
 			} catch (Exception e) {}
 			
-			if (srcVal != null && minExpVal != null && maxExpVal != null) {
-				int bigFlag = srcNum.compareTo(minExpNum);
-				int smallFlag = srcNum.compareTo(maxExpNum);
+			if (smpVal != null && minExpVal != null && maxExpVal != null) {
+				int bigFlag = smpNum.compareTo(minExpNum);
+				int smallFlag = smpNum.compareTo(maxExpNum);
 				
 				if (bigFlag >= 0 && smallFlag <= 0) {
 					return null;

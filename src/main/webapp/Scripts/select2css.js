@@ -173,7 +173,7 @@ function clickOptions(i, n, name){
 
 window.onload = function(e) {
 	bodyclick = document.getElementsByTagName('body').item(0);
-//	rSelects();
+	rSelects();
 	bodyclick.onclick = function(){
 		for (i=0;i<selects.length;i++){	
 			$id('select_info_' + selects[i].name).className = 'tag_select';
