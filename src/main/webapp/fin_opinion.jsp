@@ -53,7 +53,7 @@
       </div>
     </div>
     <div class="opinion2">
-      <p>您的联系电话<b>*</b></p>
+      <p>您的反馈意见<b>*</b></p>
       <textarea name="" cols="" rows="" class="input"></textarea>
     </div>
     <div class="opinion3">
