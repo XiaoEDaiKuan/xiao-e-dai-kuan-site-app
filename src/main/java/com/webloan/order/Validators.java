@@ -14,7 +14,7 @@ import static com.webloan.order.ValidatorType.*;
 
 public class Validators {
 
-	public static List<ValidatorError> validate(List<ValidatorInfo> vinfo) {
+	public static List<ValidatorError> validateAll(List<ValidatorInfo> vinfo) {
 		if (vinfo == null) {
 			return null;
 		}

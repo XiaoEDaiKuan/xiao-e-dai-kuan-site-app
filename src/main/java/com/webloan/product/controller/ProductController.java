@@ -253,7 +253,7 @@ public class ProductController extends MultiActionController {
 				pq.getProductId());
 		
 		List<ValidatorInfo> vinfo = buildValidatorInfo(reqInfo, request);
-		List<ValidatorError> verr = Validators.validate(vinfo);
+		List<ValidatorError> verr = Validators.validateAll(vinfo);
 		
 		if (verr == null || verr.isEmpty()) {
 			mav.setViewName("order/inputOrderInfo");
