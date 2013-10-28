@@ -144,7 +144,7 @@
 <div class="main3 padding-bt ground">
   <div class="credit_title"> 
     <span class="credit_title1 font_f">云金融平台</span>
-    <p>XX家银行 XX家小贷公司  XX家分支机构组成  覆盖全国XX地区的云金融网络</p>
+    <p>9大总行 10多家区域银行 17处小微金融服务中心 覆盖28区的云金融网络</p>
   </div>
   <div class="cloud">
     <div id="demo">
