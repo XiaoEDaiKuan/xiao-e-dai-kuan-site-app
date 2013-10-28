@@ -20,7 +20,7 @@ public class ProductAttach implements Serializable {
 	private BigDecimal ownerPubAccAmt;//BOWNER_PUBACC_AMT
 	private BigDecimal ownerPrvAccAmt;//BOWNER_PRVACC_AMT
 	private String ownerReg;//BOWNER_REG
-	private Integer ownerOplife;//BOWNER_OPLIFE
+	private BigDecimal ownerOplife;//BOWNER_OPLIFE
 	
 	private BigDecimal selfEmpCardAmt;//SELF_EMPLOYED_CARD_AMT
 	private BigDecimal selfEmpCashAmt;//SELF_EMPLOYED_CASH_AMT
@@ -121,12 +121,6 @@ public class ProductAttach implements Serializable {
 	}
 	public void setOwnerReg(String ownerReg) {
 		this.ownerReg = ownerReg;
-	}
-	public Integer getOwnerOplife() {
-		return ownerOplife;
-	}
-	public void setOwnerOplife(Integer ownerOplife) {
-		this.ownerOplife = ownerOplife;
 	}
 	public BigDecimal getSelfEmpCardAmt() {
 		return selfEmpCardAmt;
@@ -283,5 +277,11 @@ public class ProductAttach implements Serializable {
 	}
 	public void setProduct(Product product) {
 		this.product = product;
+	}
+	public BigDecimal getOwnerOplife() {
+		return ownerOplife;
+	}
+	public void setOwnerOplife(BigDecimal ownerOplife) {
+		this.ownerOplife = ownerOplife;
 	}
 }
