@@ -156,7 +156,7 @@
 				<column name="BOWNER_REG" length="64" />
 			</basic>
 			<basic name="ownerOplife">
-				<column name="BOWNER_OPLIFE" />
+				<column name="BOWNER_OPLIFE" precision="8" scale="2" />
 			</basic>
 			
 			<basic name="selfEmpCardAmt">
