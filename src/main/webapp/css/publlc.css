@@ -1,4 +1,4 @@
-body {font-family:Tahoma,Arial,Helvetica,STHeiti; margin:0px; padding:0px; font-size:12px; color:#333;background:url(../images/bj.jpg) repeat left top;}
+body {font-family:"Microsoft YaHei",SimSun,Tahoma,Arial,Helvetica,STHeiti; margin:0px; padding:0px; font-size:12px; color:#333;background:url(../images/bj.jpg) repeat left top;}
 html,body,div,dl,dt,dd,ul,ol,li,form,p,pre,blockquote,th,td,h1,h2,h3,h4,h5,h6,dd,dl,dt,span,em{ margin:0; padding:0; border:0;}
 *,body,ul,h1,h2{ margin:0; padding:0; list-style:none;}
 
@@ -58,7 +58,7 @@ a:hover{text-decoration:underline;color:#569bc2;}
 
 .underPmenu ul li ul {display: none;}
 
-.underPmenu ul li:hover ul {display:block; position:absolute; top:56px; left:0; width:87px;padding:0 6px; border:1px solid #abccdf; background:#fff; z-index:1000;font-family:"瀹嬩綋";}
+.underPmenu ul li:hover ul {display:block; position:absolute; top:56px; left:0; width:87px;padding:0 6px; border:1px solid #abccdf; background:#fff; z-index:1000;font-family:"Microsoft YaHei",SimSun;}
 .underPmenu ul li:hover ul li.subline{  width:87px; height:5px; overflow:hidden;}
 .underPmenu ul li:hover ul li a,.underPmenu ul li:hover ul li a:visited { font-size:12px; display:block; width:86px;_width:80px;height:27px;line-height:27px;color:#818181;border-bottom:1px solid #e3e3e3; text-align:center;background:none; text-decoration:none;}
 .underPmenu ul li:hover ul li a:hover {height:27px; line-height:27px; font-size:14px; font-weight:bold; color:#2992cc; background:none; text-decoration:none;}

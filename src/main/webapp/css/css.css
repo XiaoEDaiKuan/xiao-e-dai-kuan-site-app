@@ -61,7 +61,7 @@ a.Loansearch10 {width:48px; padding-left:15px; background:url(../images/img12.pn
 .applicationleft4 li { float:left; width:153px; margin-right:10px; color:#585657; line-height:24px;}
 .applicationleft4 li span { color:#ff7100; margin:0 3px; font-weight:bold}
 .applicationleft5 {padding:0 15px;}
-.applicationleft5 a { font-size:12px; font-family:"微软雅黑"; display:block; background:url(../images/img22.jpg) no-repeat left center; padding:0 0 0 25px; color:#000}
+.applicationleft5 a { font-size:12px; font-family:"Microft Yahei",SimSun; display:block; background:url(../images/img22.jpg) no-repeat left center; padding:0 0 0 25px; color:#000}
 .applicationleft6 {padding:0 35px;}
 .applicationleft7 {margin-top:15px;}
 .applicationleft7 h1 { font-size:14px; font-weight:bold; background:url(../images/img23.jpg) no-repeat 10px center; padding-left:30px; line-height:36px; border-bottom:1px solid #dcdcdc}
@@ -81,7 +81,7 @@ a.Loansearch10 {width:48px; padding-left:15px; background:url(../images/img12.pn
 .Loansquiz2 {font-size:18px;}
 .Loansquiz2 span {background:url(../images/img27.jpg) no-repeat left center; padding-left:40px; line-height:32px; display:inline-block}
 .Loansquiz2 input {width:306px; height:32px; line-height:32px;background:url(../images/img31.jpg) repeat-x left top;border:1px solid #aaaaaa;background-color:#fff;margin-left:10px;}
- a.Loansquiz3 {font-size:12px; font-weight:bold; font-family:"微软雅黑";color:#fff; display:inline-block; width:108px; line-height:27px;background:url(../images/img30.jpg) no-repeat left center;padding-left:40px;}
+ a.Loansquiz3 {font-size:12px; font-weight:bold; font-family:"Microft Yahei",SimSun;color:#fff; display:inline-block; width:108px; line-height:27px;background:url(../images/img30.jpg) no-repeat left center;padding-left:40px;}
 .Loansquiz4 {height:auto}
 .Loansquiz5 {margin:5px 20px 10px;}
 .Loansquiz5 li {background:url(../images/img32.jpg) repeat-x left bottom; border-bottom:0px; padding:0 0 0 10px;}

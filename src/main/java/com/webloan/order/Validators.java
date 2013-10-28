@@ -93,29 +93,29 @@ public class Validators {
 		String type = GE;
 		public ValidatorError doValidate(ValidatorInfo info) {
 			Object srcVal = info.getValue();
-			Object expectVal = getPropValue(info.getSource(), info.getProperty());
+			Object expVal = getPropValue(info.getSource(), info.getProperty());
 			
-			if (expectVal == null) {
+			if (expVal == null) {
 				return null;
 			}
-			if (srcVal != null) {
-				try {
-					srcVal = new BigDecimal(srcVal.toString());
-					expectVal = new BigDecimal(expectVal.toString());
-				} catch (Exception e) {}
-			}
-			if (srcVal != null && srcVal instanceof Comparable<?> 
-					&& srcVal.getClass() == expectVal.getClass()) {
-				try {
-					Method m = srcVal.getClass().getMethod("compareTo", Object.class);
-					Integer eqFlag = (Integer) m.invoke(srcVal, expectVal);
-					if ((GE.equals(type) && eqFlag >= 0) 
-							|| (GT.equals(type) && eqFlag > 0)
-							|| (LE.equals(type) && eqFlag <= 0)
-							|| (LT.equals(type) && eqFlag < 0)) {
-						return null;
-					}
-				} catch (Exception e) {}
+			
+			BigDecimal srcNum = null;
+			BigDecimal expNum = null;
+			
+			try {
+				srcNum = new BigDecimal(srcVal.toString());
+				expNum = new BigDecimal(expVal.toString());
+			} catch (Exception e) {}
+			
+			if (srcNum != null && expNum != null) {
+				int eqFlag = srcNum.compareTo(expNum);
+				
+				if ((GE.equals(type) && eqFlag >= 0) 
+						|| (GT.equals(type) && eqFlag > 0)
+						|| (LE.equals(type) && eqFlag <= 0)
+						|| (LT.equals(type) && eqFlag < 0)) {
+					return null;
+				}
 			}
 			
 			ValidatorError err = new ValidatorError();
@@ -149,18 +149,24 @@ public class Validators {
 			if (srcVal == null && (minExpVal == null || maxExpVal == null)) {
 				return null;
 			}
-			if (srcVal != null && minExpVal != null && maxExpVal != null 
-					&& srcVal instanceof Comparable<?> 
-					&& srcVal.getClass() == minExpVal.getClass()
-					&& srcVal.getClass() == maxExpVal.getClass()) {
-				try {
-					Method m = srcVal.getClass().getMethod("compareTo", Object.class);
-					Integer bigFlag = (Integer) m.invoke(srcVal, minExpVal);
-					Integer smallFlag = (Integer) m.invoke(srcVal, maxExpVal);
-					if (bigFlag >= 0 && smallFlag <= 0) {
-						return null;
-					}
-				} catch (Exception e) {}
+			
+			BigDecimal srcNum = null;
+			BigDecimal minExpNum = null;
+			BigDecimal maxExpNum = null;
+			
+			try {
+				srcNum = new BigDecimal(srcVal.toString());
+				minExpNum = new BigDecimal(minExpVal.toString());
+				maxExpNum = new BigDecimal(maxExpVal.toString());
+			} catch (Exception e) {}
+			
+			if (srcVal != null && minExpVal != null && maxExpVal != null) {
+				int bigFlag = srcNum.compareTo(minExpNum);
+				int smallFlag = srcNum.compareTo(maxExpNum);
+				
+				if (bigFlag >= 0 && smallFlag <= 0) {
+					return null;
+				}
 			}
 			
 			ValidatorError err = new ValidatorError();
