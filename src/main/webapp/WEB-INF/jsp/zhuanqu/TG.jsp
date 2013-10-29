@@ -10,13 +10,29 @@
 <!--
 /*第一种形式 第二种形式 更换显示样式*/
 function setTab(name,cursel,n){
+
+  var obj1=document.getElementById('sec_mort');
+  var obj2=document.getElementById('adlt_credit');
+
 	for(i=1;i<=n;i++){
 		var menu=document.getElementById(name+i);
 		var con=document.getElementById("con_"+name+"_"+i);
 		menu.className=i==cursel?"hover":"";
 		con.style.display=i==cursel?"block":"none";
+		
+       if(cursel==1){
+          obj1.style.display = "inline-block";
+          obj2.style.display = "none";
+        }  else if(cursel==2){
+          obj1.style.display = "none";
+          obj2.style.display = "inline-block";
+    
+        }
+		
 	}
 }
+
+
 //-->
 </script>
 </head>
@@ -47,14 +63,14 @@ function setTab(name,cursel,n){
 <div class="Contentbox1">
 <div id="con_one_1" class="hover">
 	<div class="quickloan6">
-    	<img src="images/img48.jpg" width="32" height="16" />
+    	<img src="images/img48.jpg" width="32" height="16" onclick="javascript:check()" />
         <h1>方案说明：</h1>
         <p>一般适用于需要提高额度较大的贷款客户。</p>
     </div>
 </div>
 <div id="con_one_2" style="display:none">
 	<div class="quickloan6 quickloan7">
-    	<img src="images/img48.jpg" width="32" height="16" />
+    	<img src="images/img48.jpg" width="32" height="16" onclick="javascript:check()"/>
         <h1>方案说明：</h1>
         <p>原有抵押贷款基础上增加信用贷产品，手续相对简单。</p>
     </div>
@@ -68,8 +84,38 @@ function setTab(name,cursel,n){
     <span class="credit_title1 Fuzzysearch8">根据您的需求，我们推荐以下贷款产品</span>
   </div>
   
+  <div class="quickloan2 ClearFix" id="sec_mort">
+  
+  <c:if test="${empty secMortProds.items}">暂无产品 </c:if>
+  <c:forEach var="prod" items="${secMortProds.items}">
+  	<div class="Loansearch19"><a href="viewProduct?productId=${prod.product.id}"><img src="images/img18.jpg" width="94" height="29" /></a></div>
+  	 <img src="images/img50.jpg" width="119" height="99" />
+     <div class="Loansearch12 quickloan3">
+    	<div class="Loansearch13 quickloan4">
+        	<h1>${prod.product.issueOrgan} - ${prod.product.name}</h1>
+            <p>
+            	<strong>额度：</strong>
+            	<span>
+            		<fmt:formatNumber pattern="#0.#" value="${prod.minLoanAmt div 10000}" /> 万 -
+            		<fmt:formatNumber pattern="#0.#" value="${prod.maxLoanAmt div 10000}"/> 万
+            	</span> 
+            	${prod.product.paidDays} 天放款 <br />
+            	<strong>费用：</strong> ${prod.product.intrDesc} <br />
+            	<strong>说明：</strong>
+            	<em>
+            	<fmt:bundle basename="dict/dict-mapping" prefix="PRD_GRNT_TYPE.">
+           			<fmt:message key="${prod.product.guarantyType}" />
+				</fmt:bundle>
+				</em>
+            </p>
+        </div>
+    	<img src="images/img13.jpg" width="42" height="42" />
+    </div>
+  </c:forEach>
+  </div>
+
+<div class="quickloan2 ClearFix" id="adlt_credit" style="display:none">
   <c:forEach var="prod" items="${incrProds.items}">
-  <div class="quickloan2 ClearFix">
   	<div class="Loansearch19"><a href="viewProduct?productId=${prod.product.id}"><img src="images/img18.jpg" width="94" height="29" /></a></div>
   	 <img src="images/img50.jpg" width="119" height="99" />
      <div class="Loansearch12 quickloan3">
@@ -92,14 +138,17 @@ function setTab(name,cursel,n){
         </div>
     	<img src="images/img13.jpg" width="42" height="42" />
     </div>
-  </div>
   </c:forEach>
+  </div>
+
+
   
 </div>
             </div>
         </div>
     </div>
 </div>
+
 
 <%@include file="../../inc/globalFooterMenu.jsp" %>
 <%@include file="../../inc/globalFooter.jsp" %>

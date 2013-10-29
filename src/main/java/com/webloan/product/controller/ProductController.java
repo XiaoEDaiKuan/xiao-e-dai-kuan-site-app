@@ -356,8 +356,12 @@ public class ProductController extends MultiActionController {
 		mav.setViewName("zhuanqu/TG");
 
 		Page incrProds = productService.pagingAttachByRecType(
-				pq.getPageIndex(), pq.getPageSize(), RecommendType.INCR_AMT);
+				pq.getPageIndex(), pq.getPageSize(), RecommendType.ADTL_CREDIT);
 		mav.addObject("incrProds", incrProds);
+
+		Page secMortProds = productService.pagingAttachByRecType(
+				pq.getPageIndex(), pq.getPageSize(), RecommendType.SEC_MORT);
+		mav.addObject("secMortProds", secMortProds);
 
 		return mav;
 	}
