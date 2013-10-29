@@ -330,9 +330,14 @@ public class ProductController extends MultiActionController {
 			HttpServletResponse response, ProductQuery pq) {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("zhuanqu/KS");
-
-		Page quickProds = productService.pagingQuickLoanProducts(
-				pq.getPageIndex(), pq.getPageSize(), pq.getPaidDay());
+		
+		String rcmdType = pq.getRcmdType();
+		if (rcmdType == null) {
+			rcmdType = RecommendType.QUICK_L1;
+		}
+		
+		Page quickProds = productService.pagingProductRecommend(
+				pq.getPageIndex(), pq.getPageSize(), rcmdType);
 		mav.addObject("quickProds", quickProds);
 
 		return mav;
@@ -380,7 +385,8 @@ public class ProductController extends MultiActionController {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("product/queryForScore");
 
-		Page page = productService.pagingProductBtwnAmount(pq);
+		Page page = productService.pagingProductBtwnAmount(1, 5, 
+				pq.getMaxLoanAmt(), pq.getMaxLoanAmt());
 		mav.addObject("pvs", productViewHelper.transferPageToView(page, pq));
 
 		Page hotRcdProds = productService.pagingProductRecommend(1, 5,

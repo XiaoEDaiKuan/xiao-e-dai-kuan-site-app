@@ -41,9 +41,9 @@ function setTab(name,cursel,n){
       
       <div id="Tab1">
 <div class="Menubox1 font_f">
-<div id="one1" onmouseover="setTab('one',1,3)"  class="hover"><a href="?paidDay=1"><span>1</span><em>天</em>放款</a></div>
-<div id="one2" onmouseover="setTab('one',2,3)"><a href="?paidDay=3"><span>3</span><em>天</em>放款</a></div>
-<div id="one3" onmouseover="setTab('one',3,3)" style="margin-right:0"><a href="?paidDay=5"><span>5</span><em>天</em>放款</a></div>
+<div id="one1" onmouseover="setTab('one',1,3)"  class="hover"><a href="?rcmdType=8"><span>1</span><em>天</em>放款</a></div>
+<div id="one2" onmouseover="setTab('one',2,3)"><a href="?rcmdType=9"><span>3</span><em>天</em>放款</a></div>
+<div id="one3" onmouseover="setTab('one',3,3)" style="margin-right:0"><a href="?rcmdType=10"><span>5</span><em>天</em>放款</a></div>
 </div>
 <div class="Contentbox1">
 <div id="con_one_1" class="hover">
@@ -86,8 +86,15 @@ function setTab(name,cursel,n){
             <p>
             	<strong>额度：</strong>
             	<span>
-            		<fmt:formatNumber pattern="#0.#" value="${prod.minLoanAmt div 10000}" /> 万 -
-            		<fmt:formatNumber pattern="#0.#" value="${prod.maxLoanAmt div 10000}"/> 万
+            	<c:choose>
+            		<c:when test="${prod.minLoanAmt eq prod.maxLoanAmt}">
+            			<fmt:formatNumber pattern="#0.#" value="${prod.minLoanAmt div 10000}" /> 万
+            		</c:when>
+            		<c:otherwise>
+	            		<fmt:formatNumber pattern="#0.#" value="${prod.minLoanAmt div 10000}" /> 万 -
+	            		<fmt:formatNumber pattern="#0.#" value="${prod.maxLoanAmt div 10000}"/> 万
+            		</c:otherwise>
+            	</c:choose>
             	</span> ${prod.product.paidDays} 天放款 <br />
             	<strong>费用：</strong> ${prod.product.intrDesc} <br />
             	<strong>说明：</strong>

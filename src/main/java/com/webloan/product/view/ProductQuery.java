@@ -18,7 +18,7 @@ public class ProductQuery {
 	
 	private Long regionId;
 	
-	private Integer paidDay;
+	private String rcmdType;
 	private BigDecimal minLoanAmt;
 	private BigDecimal maxLoanAmt;
 	
@@ -100,11 +100,11 @@ public class ProductQuery {
 	public void setRegionId(Long regionId) {
 		this.regionId = regionId;
 	}
-	public Integer getPaidDay() {
-		return paidDay;
+	public String getRcmdType() {
+		return rcmdType;
 	}
-	public void setPaidDay(Integer paidDay) {
-		this.paidDay = paidDay;
+	public void setRcmdType(String rcmdType) {
+		this.rcmdType = rcmdType;
 	}
 	public BigDecimal getMinLoanAmt() {
 		return minLoanAmt;

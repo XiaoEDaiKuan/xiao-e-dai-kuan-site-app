@@ -1,5 +1,6 @@
 package com.webloan.product.service;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 import com.webloan.common.Page;
@@ -11,7 +12,8 @@ public interface ProductService {
 	
 	Page pagingProduct(ProductQuery pq);
 	
-	Page pagingProductBtwnAmount(ProductQuery pq);
+	Page pagingProductBtwnAmount(int pageIndex, int pageSize, 
+			BigDecimal minAmt, BigDecimal maxAmt);
 	
 	List<ProductAttach> queryProductAttaches(ProductQuery pq);
 	
