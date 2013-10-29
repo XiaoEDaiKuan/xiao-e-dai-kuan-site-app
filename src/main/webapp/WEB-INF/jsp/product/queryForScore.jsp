@@ -12,10 +12,10 @@
 <div class="main3 ground"  style="background:#FFFFFF;border:solid #EFEFEF 1px">
 <c:forEach var="pv" items="${pvs.items}">
   <div class="Loansearch11 ClearFix">
-  	<div class="Loansearch19"><a style="cursor: pointer; cursor:hand" onclick="javascript:top.document.location.href=document.location.href.replace('queryForScore','productView') + '?&productId=${pv.product.id}'" target="_top"><img src="images/img18.jpg" width="94" height="29" /></a></div>
+  	<div class="Loansearch19"><a style="cursor: pointer; cursor:hand" onclick="javascript:top.document.location.href=document.location.href.replace('queryForScore','productView') + '?productId=${pv.product.id}'" target="_top"><img src="images/img18.jpg" width="94" height="29" /></a></div>
   	<div class="Loansearch12">
     	<div class="Loansearch13">
-        	<h1>${pv.product.issueOrgan}</h1>
+        	<h1>${pv.product.issueOrgan} - ${pv.product.name}</h1>
             <p>
             	<span class="Loansearch14">
             	<fmt:bundle basename="dict/dict-mapping" prefix="PRD_GRNT_TYPE.">

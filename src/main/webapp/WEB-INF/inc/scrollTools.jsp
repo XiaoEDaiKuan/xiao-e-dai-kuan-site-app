@@ -12,7 +12,7 @@ $(document).ready(function(){
 
 <style type="text/css">
 /* ranklist */
-.ranklist{height:47px;overflow:hidden;}
+.ranklist{height:80px;overflow:hidden;}
 .ranklist li{height:14px;line-height:14px;overflow:hidden;position:relative;padding:0px;margin:0 0 10px 0;}
 .ranklist li em{background:url(images/mun.gif) no-repeat;width:20px;height:16px;overflow:hidden;display:block;position:absolute;left:0;top:0;text-align:center;font-style:normal;color:#333;}
 .ranklist li em{background-position:0 -16px;}

@@ -16,24 +16,18 @@
 <div class="pop_contact">
 <div class="loan">
 	<form action="inputOrderInfoForm" method="post">
-
-	<div class="request-order-title clearfix">
-		<span>第一步: 请回答云金融问题</span>
-	</div>
+	<div class="loan_yes"><font>第一步: 请回答云金融问题</font></div>
 	
 	<ul class="questions_list clearfix" id="apply_condition_questions">
 	<c:forEach var="req" items="${reqInfo}">
-		
-        <div id="special_product_${req.formName}"
-               <c:if test="${req.product.id==3 || req.product.id==11 || req.product.id==20}">
-                    <c:if test="${req.formName=='workersExperience' || req.formName=='ownerOplife'}">
-		
-		               style="display:none"
-            		</c:if>
-		       </c:if>
-        >     
+	
+        <div id="special_product_${req.formName}" 
+			<c:if test="${(req.product.id==3 || req.product.id==11 || req.product.id==20) and (req.formName=='workersExperience' || req.formName=='ownerOplife')}">
+				style="display:none"
+			</c:if>
+        >
+           
 		<li class="item clearfix">
-
 			<div class="label question">${req.question}：</div>
 			<c:choose>
 				<c:when test="${empty req.ansOptions}">
@@ -45,17 +39,13 @@
 					<fmt:bundle basename="dict/dict-mapping" prefix="${req.formName}.">
 		            	<c:forTokens var="opt" varStatus="vst" items="${req.ansOptions}" delims="|">
 		            		<c:if test="${not empty opt}">
-		            		
-		            		    	<label for="${req.formName}_${vst.index}"><span><input name="${req.formName}" id="${req.formName}_${vst.index}" value="${opt}" type="radio"
-		            		    	 
-                                      <c:if test="${req.product.id==3 || req.product.id==11 || req.product.id==20}">
-                                         <c:if test="${req.formName=='identity'}">
-            		            		    	onclick="javascript:check(${vst.index})"
-		                                 </c:if>
-		                              </c:if>           		    	
-		            		    	/>
-		            		    	
-		            		    	<fmt:message key="${opt}" /></span></label>
+		           		    	<label for="${req.formName}_${vst.index}"><span>
+		           		    	<input name="${req.formName}" id="${req.formName}_${vst.index}" value="${opt}" type="radio" 
+								<c:if test="${(req.product.id==3 || req.product.id==11 || req.product.id==20) and req.formName=='identity'}">
+									onclick="javascript:check(${vst.index})"
+								</c:if>
+		           		    	/>
+		           		    	<fmt:message key="${opt}" /></span></label>
 		            		</c:if>
 		            	</c:forTokens>
 					</fmt:bundle>

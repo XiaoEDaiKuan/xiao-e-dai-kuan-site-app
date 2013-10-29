@@ -94,7 +94,7 @@
   	<div class="Loansearch19"><a href="viewProduct?&productId=${pv.product.id}" target="_blank"><img src="images/img18.jpg" width="94" height="29" /></a></div>
   	<div class="Loansearch12">
     	<div class="Loansearch13">
-        	<h1>${pv.product.issueOrgan}</h1>
+        	<h1>${pv.product.issueOrgan} - ${pv.product.name}</h1>
             <p>
             	<span class="Loansearch14">
             	<fmt:bundle basename="dict/dict-mapping" prefix="PRD_GRNT_TYPE.">

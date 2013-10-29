@@ -12,7 +12,7 @@
 
 <body style="background:#fff;">
 <div class="pop_contact">
-  <div class="loan_yes"><font>第三步：云信用评分</font><br /><b>您符合该产品的基本要求，</b><br />我们建议您进行信用评分测试，通过全面，权威，科学的评分测试，测测您能贷多少？</div>
+  <div class="loan_yes"><font>第二步：云信用评分</font><br /><b>您符合该产品的基本要求，</b><br />我们建议您进行信用评分测试，通过全面，权威，科学的评分测试，测测您能贷多少？</div>
   <div class="loan_no2">
     <input type="button" class="loan_imme" onclick="top.location.href='scoreChoose'" />
     <input type="button" class="loan_skip" onclick="location.href='inputNameTel?productId=${pq.productId}&loanAmt=${pq.loanAmt}'"/>

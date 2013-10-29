@@ -27,9 +27,9 @@
 						<th>时间</th>
 						<th>操作</th>
 					</tr>
-			  <c:forEach var="credit" items="${creditPage.items}" >
+			  <c:forEach var="credit" items="${creditPage.items}" varStatus="vst" >
 					<tr>
-						<td>${credit.id}</td>
+						<td>${vst.count}</td>
 						<td> ${credit.creditMin}-${credit.creditMax}万元</td>
 						<td>
 						<fmt:bundle basename="dict/dict-mapping" prefix="CREDIT_TYPE.">
