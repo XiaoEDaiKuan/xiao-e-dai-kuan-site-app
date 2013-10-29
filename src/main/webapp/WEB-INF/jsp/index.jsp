@@ -130,7 +130,7 @@
     </div>
   </div>
   <div class="main2_right">
-    <div class="ad1"><a href="productView?productId=7" target="_blank"></a></div>
+    <div class="ad1"><a href="productView?productId=4" target="_blank"></a></div>
     <div class="sina">
       <div class="sina_border">
       <div class="sina1"><a href="http://e.weibo.com/jiufutougu?ref=http%3A%2F%2Fwww.9fgroup.com%2F" target="_blank" class="sina2"><img src="images/sina.jpg" width="62" /></a><p>平台微博加关注</p></div>
