@@ -336,7 +336,7 @@ public class ProductController extends MultiActionController {
 			rcmdType = RecommendType.QUICK_L1;
 		}
 		
-		Page quickProds = productService.pagingProductRecommend(
+		Page quickProds = productService.pagingAttachByRecType(
 				pq.getPageIndex(), pq.getPageSize(), rcmdType);
 		mav.addObject("quickProds", quickProds);
 
