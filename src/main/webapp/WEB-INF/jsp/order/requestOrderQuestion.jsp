@@ -23,7 +23,17 @@
 	
 	<ul class="questions_list clearfix" id="apply_condition_questions">
 	<c:forEach var="req" items="${reqInfo}">
+		
+        <div id="special_product_${req.formName}"
+               <c:if test="${req.product.id==3 || req.product.id==11 || req.product.id==20}">
+                    <c:if test="${req.formName=='workersExperience' || req.formName=='ownerOplife'}">
+		
+		               style="display:none"
+            		</c:if>
+		       </c:if>
+        >     
 		<li class="item clearfix">
+
 			<div class="label question">${req.question}：</div>
 			<c:choose>
 				<c:when test="${empty req.ansOptions}">
@@ -31,11 +41,21 @@
 				</c:when>
 				<c:otherwise>
 					<div class="options">
+					
 					<fmt:bundle basename="dict/dict-mapping" prefix="${req.formName}.">
 		            	<c:forTokens var="opt" varStatus="vst" items="${req.ansOptions}" delims="|">
 		            		<c:if test="${not empty opt}">
-		            			
-		            			<label for="${req.formName}_${vst.index}"><span><input name="${req.formName}" id="${req.formName}_${vst.index}" value="${opt}" type="radio" /><fmt:message key="${opt}" /></span></label>
+		            		
+		            		    	<label for="${req.formName}_${vst.index}"><span><input name="${req.formName}" id="${req.formName}_${vst.index}" value="${opt}" type="radio"
+		            		    	 
+                                      <c:if test="${req.product.id==3 || req.product.id==11 || req.product.id==20}">
+                                         <c:if test="${req.formName=='identity'}">
+            		            		    	onclick="javascript:check(${vst.index})"
+		                                 </c:if>
+		                              </c:if>           		    	
+		            		    	/>
+		            		    	
+		            		    	<fmt:message key="${opt}" /></span></label>
 		            		</c:if>
 		            	</c:forTokens>
 					</fmt:bundle>
@@ -43,6 +63,7 @@
 				</c:otherwise>
 			</c:choose>
 		</li>
+     </div>
 	</c:forEach>
 	</ul>
 
@@ -56,6 +77,44 @@
 	</form>
 </div>
 </div>
+
+<script>
+function check(index){
+
+  var obj1=document.getElementById('special_product_workersExperience');
+  var obj2=document.getElementById('special_product_ownerOplife');
+  var obj3=document.getElementById('workersExperience_3');
+  var obj4=document.getElementById('ownerOplife_3');
+  
+  if(index==1 || index==2){
+
+      obj1.style.display = "none";
+      obj2.style.display = "inline-block";  
+      obj3.checked=true;
+      obj4.checked=false; 
+
+  }else if(index==3) {
+
+      obj1.style.display = "inline-block";
+      obj2.style.display = "none";
+      obj3.checked=false;
+      obj4.checked=true; 
+
+  } else if(index==0){
+
+      obj1.style.display = "none";
+      obj2.style.display = "none"; 
+      obj3.checked=true; 
+      obj4.checked=true; 
+      
+
+  }
+  
+
+}
+
+</script>
+
 </body>
 </html>
     

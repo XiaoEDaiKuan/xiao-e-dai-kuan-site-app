@@ -306,7 +306,7 @@
 .pop_switch{width:94px;height:29px;background:url(../images/btn.jpg) no-repeat left -420px; cursor:pointer;}
 
 /*贷款申请信息*/
-.loan{width:310px;margin:0 auto;}
+.loan{width:410px;margin:0 auto;}
 .loan table tr th{height:37px;font-size:14px;color:#000;text-align:right;font-size:14px;line-height:28px;font-weight:normal;}
 .loan table tr td{height:37px;}
 .loan table tr td input{width:172px;height:26px;line-height:26px;}

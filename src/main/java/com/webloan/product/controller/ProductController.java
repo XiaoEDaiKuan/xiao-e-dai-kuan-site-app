@@ -155,6 +155,18 @@ public class ProductController extends MultiActionController {
 			return mav;
 		}
 
+		//如果最小和最大贷款金额为空，则返回问答页面
+		if(null==pa.getMinLoanAmt() || null==pa.getMaxLoanAmt() ){
+			mav.setViewName("order/requestOrderQuestion");
+			
+			mav.addObject("pq", pq);
+			mav.addObject("reqInfo", orderService.listRequireInfoByProductId(
+					pq.getProductId()));
+
+			return mav;
+			
+		}
+		
 		// 低于最小贷款金额或高于最大贷款金额
 		if (pq.getLoanAmt().compareTo(
 				pa.getMinLoanAmt().divide(BigDecimal.valueOf(10000))) < 0) {
