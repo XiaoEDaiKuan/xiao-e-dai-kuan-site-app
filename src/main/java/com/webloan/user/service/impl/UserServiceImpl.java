@@ -182,6 +182,7 @@ public class UserServiceImpl implements UserService {
 		objMsg.setText(strTplContent);
 		objMsg.setTo(email);
 		objMsg.setSentDate(new Date());
+		objMsg.setFrom("9f@9fbank.com.cn");
 
 		// 发送邮件
 		boolean bSent;
@@ -789,7 +790,7 @@ public class UserServiceImpl implements UserService {
 		objMsg.setSubject(UserConstant.MAIL_SUBJECT_FORGET_PWD);
 		objMsg.setText(strTplContent);
 		objMsg.setTo(custs.get(0).getEmail());
-
+        objMsg.setFrom("9f@9fbank.com.cn");
 		// 发送邮件
 		boolean bSent;
 		try {

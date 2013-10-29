@@ -104,6 +104,7 @@ public class OrderServiceImpl implements OrderService {
  		objMsg.setSubject(OrderConstant.MAIL_SUBJECT_PRODUCT);
  		objMsg.setText(strTplContent);
  		objMsg.setTo(email);
+ 		objMsg.setFrom("9f@9fbank.com.cn");
 
          // 发送邮件
  		boolean bSent;

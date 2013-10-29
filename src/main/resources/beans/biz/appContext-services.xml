@@ -57,13 +57,17 @@
 		<!-- authenticate with SMTP Server -->
 		<property name="username" value="${mail.username}"/>
 		<property name="password" value="${mail.password}"/>
-		<property name="port"><value>587</value></property>
+		<!-- gamil "port" =587 -->
+		<property name="port"><value>465</value></property>
 		<!-- add property "mail.smtp.starttls.enable=true" for SSL, for example: GMail -->
 		<property name="javaMailProperties">
 			<props>
 				<prop key="mail.smtp.auth">true</prop>
 				<!-- 使用gmail smtp server的必须参数 -->
 				<prop key="mail.smtp.starttls.enable">true</prop>
+				<prop key="mail.smtp.socketFactory.port">465</prop>  
+                <prop key="mail.smtp.socketFactory.class">javax.net.ssl.SSLSocketFactory</prop>  
+                <prop key="mail.smtp.socketFactory.fallback">false</prop>  
 			</props>
 		</property>
 	</bean>
