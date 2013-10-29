@@ -61,10 +61,29 @@ con.style.display=i==cursel?"block":"none";
       	<ul class="applicationleft4">
       		<li>贷款金额 
       		<span>
-      		<fmt:formatNumber pattern="#0.#" value="${prod.minLoanAmt div 10000}"/> - 
-      		<fmt:formatNumber pattern="#0.#" value="${prod.maxLoanAmt div 10000}"/>
+      		<c:choose>
+      			<c:when test="${prod.minLoanAmt eq prod.maxLoanAmt}">
+      				<fmt:formatNumber pattern="#0.#" value="${prod.minLoanAmt div 10000}"/>
+      			</c:when>
+      			<c:otherwise>
+		      		<fmt:formatNumber pattern="#0.#" value="${prod.minLoanAmt div 10000}"/> - 
+		      		<fmt:formatNumber pattern="#0.#" value="${prod.maxLoanAmt div 10000}"/>
+      			</c:otherwise>
+      		</c:choose>
       		</span>万元</li>
-            <li>期限 <span>${prod.minLoanIssue} - ${prod.maxLoanIssue}</span> 月</li>
+      		
+            <li>期限 
+            <span>
+      		<c:choose>
+      			<c:when test="${prod.minLoanIssue eq prod.maxLoanIssue}">
+      				${prod.minLoanIssue}
+      			</c:when>
+      			<c:otherwise>
+            		${prod.minLoanIssue} - ${prod.maxLoanIssue}
+      			</c:otherwise>
+      		</c:choose>
+            </span>个月</li>
+
             <li>利率说明: 月利率 <span><fmt:formatNumber type="percent" pattern="0.00%" value="${prod.product.intrRate}" /></span></li>
             <li>提前还款说明</li>
         </ul>

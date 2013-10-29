@@ -62,13 +62,11 @@
 .main2_right{float:right;width:295px;}
 .ad1{width:291px;height:119px;border:1px solid #e6e6e6;margin-bottom:15px;}
 .ad1 a{display:block;width:291px;height:119px;background:url(../images/pic1.jpg) no-repeat;}
-.sina{width:291px;border:1px solid #e6e6e6;background:#e9f1f5;height:124px;margin-bottom:15px;}
-.sina_border{border:1px solid #fff;width:289px;height:120px;}
+.sina{width:291px;border:1px solid #e6e6e6;background:#e9f1f5;height:92px;margin-bottom:15px;}
+.sina_border{border:1px solid #fff;width:289px;height:88px;}
 .sina1{float:left;width:125px;text-align:center;padding:0 9px;padding-top:5px;}
-.sina1 a{display:block;width:94px;height:94px;margin:0 auto;}
+.sina1 a{display:block;width:62px;height:62px;margin:0 auto;}
 .sina1 p{color:#000;text-align:center;line-height:23px;font-family:"Microsoft YaHei",SimSun;}
-.sina2{background:url(../images/sina.jpg) no-repeat center;}
-.weixin{background:url(../images/weixin.jpg) no-repeat center;}
 .assistant{width:291px;padding-bottom:16px;}
 .assistant1{width:255px;margin:0 auto; clear:both; overflow:hidden;padding-top:18px;}
 .assistant1_1{float:left;width:65px;height:60px;}

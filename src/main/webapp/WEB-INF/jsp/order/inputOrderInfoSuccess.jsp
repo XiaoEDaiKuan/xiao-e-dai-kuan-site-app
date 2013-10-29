@@ -16,7 +16,7 @@
 
 <body style="background:#fff;">
 <div class="pop_contact">
-  <div class="loan_yes"><font>云金融售贷员已经收到您的申请，会在24小时内联系您。</font><br />如遇到困难请致电云金融客服：400-810-2599；  ddddd</div>
+  <div class="loan_yes"><font>云金融信贷员已经收到您的申请，会在24小时内联系您。</font><br />如遇到困难请致电云金融客服：400-810-2599</div>
   <div class="loan_no2">
     <input name="" type="button" value="" class="cancel_det"   id="inputOrderInfoSuccess_close"    />
   </div>
