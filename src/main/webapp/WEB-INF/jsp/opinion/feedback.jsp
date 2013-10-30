@@ -10,6 +10,7 @@
 <link href="css/publlc.css" type="text/css" rel="stylesheet" />
 <link href="css/style.css" type="text/css" rel="stylesheet" />
 <link href="css/login.css" type="text/css" rel="stylesheet" />
+<link href="css/feedback.css" type="text/css" rel="stylesheet" />
 
 <script type="text/javascript" src="Scripts/lihover.js"></script>
 <script type="text/javascript" src="Scripts/jquery-1.8.0.min.js"></script>
@@ -41,6 +42,13 @@
       </ul>
     </div>
   </div>
+  <c:if test="${response eq 'success'}">
+    <div class="financial ground">
+        <div class="response_txt"><p>提交成功，请耐心等待平台的回复。</p></div>
+    </div>                          
+  </c:if>
+  
+  <c:if test="${response ne 'success'}">
   <form action="addopinion" id="opinion_form"  method="post">
   <div class="financial ground">
     <div class="opinion"></div>
@@ -78,6 +86,7 @@
     <div class="opinion4"><input type="button" value="" id="opinion_submit" /></div>
   </div>
   </form>
+  </c:if>
 </div>
 
 <!--===========页面内容部分 结束===========-->
@@ -92,10 +101,6 @@
         obj.src = "handleCaptcha?time=" + (new Date()).getTime();
     } 
     
-    var response="${response}";
-    if(response=="success"){
-         alert("提交成功，感谢您的反馈");
-    }
 </script>
 
 </body>

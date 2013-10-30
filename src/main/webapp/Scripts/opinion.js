@@ -27,21 +27,21 @@ $(document).ready(function(){
              
                                                                         captcha_flag=true;
                                                                         
+                                                                        $('#opinion_name').blur();
+                                                                        $('#opinion_email').blur();
+                                                                        $('#opinion_content').blur();                                                                         
+                                               
+                                                                        if(name_flag && email_flag && content_flag && captcha_flag){
+
+                                                                              $("#opinion_form").submit();
+                                                     
+                                                                        }
 
                                                                     }             
                                                                   }
                                                             }
                                                      );
 
-                                                  $('#opinion_name').blur();
-                                                  $('#opinion_email').blur();
-                                                  $('#opinion_content').blur();                                                                         
-                                               
-                                                if(name_flag && email_flag && content_flag && captcha_flag){
-
-                                                     $("#opinion_form").submit();
-                                                     
-                                                }
                                                                                           
                                      }
                     )
