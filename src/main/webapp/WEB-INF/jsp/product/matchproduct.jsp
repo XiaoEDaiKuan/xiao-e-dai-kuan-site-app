@@ -56,6 +56,7 @@
 			<c:if test="${gp.id == '8' }"> <a class="imgBorder" href="http://tuan.9fbank.com/front/product/detail/product_detail?proId=3" target="_blank"> </c:if>
 			<c:if test="${gp.id == '9' }"> <a class="imgBorder" href="http://tuan.9fbank.com/front/product/detail/product_detail?proId=5" target="_blank">  </c:if>
 			<img src="images/organ/${gp.icon}" alt="${gp.name}&#10;${gp.desc}" width="130" height="79" />
+			${gp.name}
 			</a>
 			
 		</div>
