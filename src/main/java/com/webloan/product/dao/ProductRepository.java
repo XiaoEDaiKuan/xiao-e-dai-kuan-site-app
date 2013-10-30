@@ -6,6 +6,7 @@ import java.util.List;
 import com.webloan.common.BaseJpaRepository;
 import com.webloan.common.Page;
 import com.webloan.model.Product;
+import com.webloan.model.ProductAttach;
 
 public interface ProductRepository extends BaseJpaRepository {
 	
@@ -14,6 +15,8 @@ public interface ProductRepository extends BaseJpaRepository {
 	Page pagingAttachByRecommend(int pageIndex, int pageSize, String recommendType);
 	
 	Page pagingProductByRegion(int pageIndex, int pageSize, Long regionId);
+	
+	List<ProductAttach> queryAttachesByRegion(Long regionId);
 	
 	Page pagingProductByPaidDays(int pageIndex, int pageSize, List<Integer> paidDays);
 	

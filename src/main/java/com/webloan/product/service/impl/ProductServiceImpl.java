@@ -49,6 +49,10 @@ public class ProductServiceImpl implements ProductService {
 		return productRepository.pagingProductByRegion(pageIndex, pageSize, regionId);
 	}
 	
+	public List<ProductAttach> queryPurchasedProducts(Long regionId) {
+		return productRepository.queryAttachesByRegion(regionId);
+	}
+	
 	public Page pagingQuickLoanProducts(int pageIndex, int pageSize, Integer paidDay) {
 		List<Integer> paidDays = new ArrayList<Integer>();
 		if (paidDay == null) {
@@ -128,14 +132,14 @@ public class ProductServiceImpl implements ProductService {
 			ordVals.add(DESC);
 		}
 		
-		if (pq.getOrderRate() != null) {
-			ordKeys.add("product.intrFormula");
-			ordVals.add("0".equals(pq.getOrderRate()) ? ASC : DESC);
-		}
-		if (pq.getOrderMonthly() != null) {
-			ordKeys.add("product.monthlyFormula");
-			ordVals.add("0".equals(pq.getOrderMonthly()) ? ASC : DESC);
-		}
+//		if (pq.getOrderRate() != null) {
+//			ordKeys.add("product.intrFormula");
+//			ordVals.add("0".equals(pq.getOrderRate()) ? ASC : DESC);
+//		}
+//		if (pq.getOrderMonthly() != null) {
+//			ordKeys.add("product.monthlyFormula");
+//			ordVals.add("0".equals(pq.getOrderMonthly()) ? ASC : DESC);
+//		}
 		
 		String[] orderKeys = new String[ordKeys.size()];
 		String[] orderVals = new String[ordVals.size()];

@@ -2,6 +2,8 @@ package com.webloan.product.controller;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -29,6 +31,7 @@ import com.webloan.order.Validators;
 import com.webloan.order.service.OrderService;
 import com.webloan.product.service.ProductService;
 import com.webloan.product.view.ProductQuery;
+import com.webloan.product.view.ProductView;
 import com.webloan.product.view.ProductViewHelper;
 import com.webloan.question.service.QuestionService;
 import com.webloan.region.service.RegionService;
@@ -50,15 +53,66 @@ public class ProductController extends MultiActionController {
 			HttpServletResponse response, ProductQuery pq) {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("product/listproduct");
+		
+		List<ProductAttach> attaches = productService.queryProductAttaches(pq);
+		List<ProductView> prdViews = productViewHelper.transferAttachListToView(
+				attaches, pq);
 
-		Page page = productService.pagingProduct(pq);
-		mav.addObject("pvs", productViewHelper.transferPageToView(page, pq));
+		if ("0".equals(pq.getOrderRate())) {
+			Collections.sort(prdViews, new Comparator<ProductView>() {
+				public int compare(ProductView o1, ProductView o2) {
+					BigDecimal r1 = o1.getInterest();
+					BigDecimal r2 = o2.getInterest();
+					return compareBigDecimal(r1, r2);
+				}
+			});
+		}
+		else if ("0".equals(pq.getOrderMonthly())) {
+			Collections.sort(prdViews, new Comparator<ProductView>() {
+				public int compare(ProductView o1, ProductView o2) {
+					BigDecimal m1 = o1.getMonthlyPay();
+					BigDecimal m2 = o2.getMonthlyPay();
+					return compareBigDecimal(m1, m2);
+				}
+			});
+		}
+		
+		int pageIndex = pq.getPageIndex();
+		int pageSize = pq.getPageSize();
+		
+		Page page = new Page();
+		
+		page.setPageSize(pageIndex);
+		page.setPageSize(pageSize);
+		page.setTotalRecords(prdViews == null ? 0 : prdViews.size());
+		
+		int fromIndex = (pageIndex - 1) * pageSize;
+		int toIndex = Math.min(pageIndex * pageSize, page.getTotalRecords());
+		
+		if (fromIndex < toIndex) {
+			page.setItems(prdViews.subList(fromIndex, toIndex));
+		}
+		
+		mav.addObject("pvs", page);
 
 		Page hotRcdProds = productService.pagingProductRecommend(1, 5,
 				RecommendType.HOT_CREDIT);
 		mav.addObject("hotRcdProds", hotRcdProds.getItems());
 
 		return mav;
+	}
+	
+	private int compareBigDecimal(BigDecimal d1, BigDecimal d2) {
+		if (d1 == null && d2 == null) {
+			return 0;
+		}
+		if (d1 == null) {
+			return -1;
+		}
+		if (d2 == null) {
+			return 1;
+		}
+		return d1.compareTo(d2);
 	}
 
 	public ModelAndView viewProduct(HttpServletRequest request,
@@ -129,10 +183,34 @@ public class ProductController extends MultiActionController {
 				pq.getRegionId(), pq.getIdentity());
 		mav.addObject("groupProducts", grpBuyProds);
 
-		Page pchdProds = productService.pagingPurchasedProducts(
-				pq.getPageIndex(), pq.getPageSize(), pq.getRegionId());
-		mav.addObject("pvs",
-				productViewHelper.transferPageToView(pchdProds, pq));
+		List<ProductAttach> pchdProds = productService.queryPurchasedProducts(
+				pq.getRegionId());
+		List<ProductView> prdViews = productViewHelper.transferAttachListToView(
+				pchdProds, pq);
+		
+		Collections.sort(prdViews, new Comparator<ProductView>() {
+			public int compare(ProductView o1, ProductView o2) {
+				return o2.getNumOrders() - o1.getNumOrders();
+			}
+		});
+
+		int pageIndex = pq.getPageIndex();
+		int pageSize = pq.getPageSize();
+		
+		Page page = new Page();
+		
+		page.setPageSize(pageIndex);
+		page.setPageSize(pageSize);
+		page.setTotalRecords(prdViews == null ? 0 : prdViews.size());
+		
+		int fromIndex = (pageIndex - 1) * pageSize;
+		int toIndex = Math.min(pageIndex * pageSize, page.getTotalRecords());
+		
+		if (fromIndex < toIndex) {
+			page.setItems(prdViews.subList(fromIndex, toIndex));
+		}
+		
+		mav.addObject("pvs", page);
 
 		return mav;
 	}

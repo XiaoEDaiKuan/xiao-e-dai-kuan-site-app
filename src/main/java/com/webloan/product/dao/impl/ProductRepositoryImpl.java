@@ -8,6 +8,7 @@ import java.util.Map;
 import com.webloan.common.BaseJpaRepositoryImpl;
 import com.webloan.common.Page;
 import com.webloan.model.Product;
+import com.webloan.model.ProductAttach;
 import com.webloan.product.dao.ProductRepository;
 
 public class ProductRepositoryImpl extends BaseJpaRepositoryImpl implements
@@ -64,6 +65,20 @@ public class ProductRepositoryImpl extends BaseJpaRepositoryImpl implements
 		String countJpql = "select count(*) " + jpql;
 
 		return queryPageResult(pageIndex, pageSize, pageJpql, countJpql, params);
+	}
+	
+	public List<ProductAttach> queryAttachesByRegion(Long regionId) {
+		StringBuilder jpql = new StringBuilder("select a from ProductAttach a, Order o ")
+				.append(" where a.product.id=o.product.id ");
+		
+		Map<String, Object> params = new HashMap<String, Object>();
+		
+		if (regionId != null) {
+			jpql.append(" and o.region.id=:regionId ");
+			params.put("regionId", regionId);
+		}
+
+		return queryListResult(ProductAttach.class, jpql.toString(), params);
 	}
 	
 	public List<Product> queryProducts(Long regionId, String identity, String groupBuying) {

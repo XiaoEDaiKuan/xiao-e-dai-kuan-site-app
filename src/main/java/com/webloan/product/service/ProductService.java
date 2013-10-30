@@ -26,6 +26,7 @@ public interface ProductService {
 	Page pagingAttachByRecType(int pageIndex, int pageSize, String recommendType);
 	
 	Page pagingPurchasedProducts(int pageIndex, int pageSize, Long regionId);
+	List<ProductAttach> queryPurchasedProducts(Long regionId);
 	
 	Page pagingQuickLoanProducts(int pageIndex, int pageSize, Integer paidDays);
 	
