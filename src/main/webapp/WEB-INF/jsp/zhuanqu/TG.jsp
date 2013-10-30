@@ -95,11 +95,14 @@ function setTab(name,cursel,n){
         	<h1>${prod.product.issueOrgan} - ${prod.product.name}</h1>
             <p>
             	<strong>额度：</strong>
-            	<span>
-            		<fmt:formatNumber pattern="#0.#" value="${prod.minLoanAmt div 10000}" /> 万 -
-            		<fmt:formatNumber pattern="#0.#" value="${prod.maxLoanAmt div 10000}"/> 万
-            	</span> 
-            	${prod.product.paidDays} 天放款 <br />
+            	   <span>
+            	      <c:if test="${not empty prod.minLoanAmt}">
+            		    <fmt:formatNumber pattern="#0.#" value="${prod.minLoanAmt div 10000}" /> 万 -
+            		    <fmt:formatNumber pattern="#0.#" value="${prod.maxLoanAmt div 10000}"/> 万
+            	      </c:if>
+            	   </span> 
+            	  
+            	 <strong>放款时间：</strong>${prod.product.paidDays} 天放款 <br />
             	<strong>费用：</strong> ${prod.product.intrDesc} <br />
             	<strong>说明：</strong>
             	<em>
@@ -123,11 +126,18 @@ function setTab(name,cursel,n){
         	<h1>${prod.product.issueOrgan} - ${prod.product.name}</h1>
             <p>
             	<strong>额度：</strong>
-            	<span>
-            		<fmt:formatNumber pattern="#0.#" value="${prod.minLoanAmt div 10000}" /> 万 -
-            		<fmt:formatNumber pattern="#0.#" value="${prod.maxLoanAmt div 10000}"/> 万
-            	</span> ${prod.product.paidDays} 天放款 <br />
-            	<strong>费用：</strong> ${prod.product.intrDesc} <br />
+            	    <span>
+            	    <c:if test="${not empty prod.minLoanAmt}">
+            		   <fmt:formatNumber pattern="#0.#" value="${prod.minLoanAmt div 10000}" /> 万 -
+            		   <fmt:formatNumber pattern="#0.#" value="${prod.maxLoanAmt div 10000}"/> 万
+            		 </c:if>  
+            		 <c:if test="${ empty prod.minLoanAmt}">
+            		     面议
+            		 </c:if>
+            	   </span>
+            	  
+            	 <strong>放款时间：</strong>${prod.product.paidDays} 天放款 <br/>
+            	<strong>费用：</strong> ${prod.product.intrDesc} <br/>
             	<strong>说明：</strong>
             	<em>
             	<fmt:bundle basename="dict/dict-mapping" prefix="PRD_GRNT_TYPE.">
