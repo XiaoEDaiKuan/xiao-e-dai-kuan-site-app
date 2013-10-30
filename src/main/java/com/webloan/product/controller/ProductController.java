@@ -121,6 +121,10 @@ public class ProductController extends MultiActionController {
 		List<Region> regions = regionService.queryRegionByCityLoan();
 		mav.addObject("regions", regions);
 
+		if(null==pq.getRegionId()){
+			return mav;	
+		}
+		
 		List<Product> grpBuyProds = productService.queryGroupBuyingProducts(
 				pq.getRegionId(), pq.getIdentity());
 		mav.addObject("groupProducts", grpBuyProds);
