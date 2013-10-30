@@ -342,8 +342,14 @@
     <div class="Loansearch12 Loansearch17">
     	<div class="Loansearch18">
             <p>
-            	利率: <fmt:formatNumber type="percent" pattern="0.00%" value="${pv.product.intrRate}" /><br />
-            	总利息: <fmt:formatNumber pattern="#,##0.00" value="${pv.interest}" /><span> 万元</span><br />
+               <c:if test="${empty pv.product.intrRate}">
+                                                               利率:  <br/>
+                                                              总利息: <br/>   
+               </c:if>
+               <c:if test="${not empty pv.product.intrRate}">
+            	    利率: <fmt:formatNumber type="percent" pattern="0.00%" value="${pv.product.intrRate}" /><br />
+            	   总利息: <fmt:formatNumber pattern="#,##0.00" value="${pv.interest}" /><span> 万元</span><br />
+            	</c:if>
             </p>
         </div>
     </div>
