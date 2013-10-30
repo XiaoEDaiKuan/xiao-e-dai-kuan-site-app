@@ -224,7 +224,7 @@ a.Loansearch10 {width:48px; padding-left:15px; background:url(../images/img12.pn
 #tm2008style2 input.tag_select_open{display:block;color:#a3a3a3;width:148px;height:28px;background:transparent url("../images/tm2008-select2.gif") no-repeat -1px -61px;padding:0 10px;line-height:28px;}
 
 
-#uboxstyle ul.tag_options{position:absolute;padding:0;margin:0;list-style:none;background:transparent url("../images/ubox-select.gif") no-repeat right bottom;width:123px;padding:0 0 5px;margin:0;}
+#uboxstyle ul.tag_options{position:relative;padding:0;margin:0;list-style:none;background:transparent url("../images/ubox-select.gif") no-repeat right bottom;width:123px;padding:0 0 5px;margin:10px 0 0 -15px;}
 #uboxstyle ul.tag_options li{background:transparent url("../images/ubox-select.gif") repeat-y -123px 0;display:block;width:103px;padding:0 10px;height:26px;text-decoration:none;line-height:26px;color:#585858;}
 
 #uboxstyle ul.tag_options li.open_hover{background:transparent url("../images/ubox-select.gif") no-repeat 0 -81px;color:#fff}
