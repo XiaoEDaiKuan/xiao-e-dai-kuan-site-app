@@ -133,22 +133,46 @@
     	search();
     }
     
-    function removeOrder(){
+    function removeOrder(target){
+		if ($(target).hasClass("insort")) {
+			return;
+		}
+		
     	$("#orderBy a").removeClass("noinsort");
     	$("#orderBy a").removeClass("insort");
+    	$("#orderBy a").removeAttr("value");
+    	$("#orderBy a").toggleClass("noinsort");
+
+    	$(target).removeClass("noinsort");
+    	$(target).toggleClass("insort");
+    	
     	search();
     }
     function addOrder(target){
-    	$($("#orderBy a")[0]).removeClass("insort");
-    	$($("#orderBy a")[0]).addClass("noinsort");
-    	$(target).toggleClass("sortDown");
+//    	$($("#orderBy a")[0]).removeClass("insort");
+//    	$($("#orderBy a")[0]).addClass("noinsort");
+//    	$(target).toggleClass("sortDown");
+//    	$(target).removeClass("noinsort");
+//    	$(target).addClass("insort");
+//    	if ($(target).hasClass("sortDown")){
+//    		$(target).attr("value","1");
+//    	}else{
+//    		$(target).attr("value","0");
+//    	}
+		
+		if ($(target).hasClass("insort")) {
+			return;
+		}
+		
+		$("#orderBy a").removeClass("noinsort");
+    	$("#orderBy a").removeClass("insort");
+    	$("#orderBy a").removeAttr("value");
+    	$("#orderBy a").toggleClass("noinsort");
+    	
     	$(target).removeClass("noinsort");
-    	$(target).addClass("insort");
-    	if ($(target).hasClass("sortDown")){
-    		$(target).attr("value","1");
-    	}else{
-    		$(target).attr("value","0");
-    	}
+    	$(target).toggleClass("insort");
+    	$(target).attr("value","0");
+    	
     	search();
     }
     function pager(target){
@@ -271,9 +295,11 @@
 </div>
 <div class="main3 ground">
   <div class="credit_title Fuzzysearch7"> 
-     <div class="Loansearch7 ClearFix" id="orderBy"><a class="Loansearch8" onclick="removeOrder()">默认排序</a>
-     <a class="Loansearch8 Loansearch9" onclick="addOrder(this)" data="orderRate" value="0">总利息</a>
-     <a class="Loansearch8 Loansearch9 Loansearch10" onclick="addOrder(this)" data="orderMonthly" value="0">月供</a></div>
+     <div class="Loansearch7 ClearFix" id="orderBy">
+	     <a class="Loansearch8 insort" onclick="removeOrder(this)">默认排序</a>
+	     <a class="Loansearch8 noinsort" onclick="addOrder(this)" data="orderRate" value="1">总利息</a>
+	     <a class="Loansearch8 noinsort" onclick="addOrder(this)" data="orderMonthly" value="1">月供</a>
+     </div>
      <div class="Loansearch21">
      	<div id="uboxstyle">
 	<select name="issueType" id="issueType" class="formItem smallItem">
