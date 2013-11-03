@@ -103,6 +103,10 @@
 .score_btn2{width:94px;background:url(../images/btn.jpg) no-repeat left -90px;}
 .score3{width:995px;margin:0 auto;text-align:right;height:35px;}
 .score3 a{font-size:14px;color:#004f94;}
+.score4{width:995px;margin:0 auto;text-align:center;height:24px;}
+.score4 a{font-size:14px;color:#004f94;}
+.score5{width:995px;margin:0 auto;text-align:center;height:30px;}
+.score5 a{color:#ff8327;}
 
 /*信用评分器用户类型选择 score_choose*/
 .choose1{float:left;width:229px;padding:20px 80px 0 140px;}

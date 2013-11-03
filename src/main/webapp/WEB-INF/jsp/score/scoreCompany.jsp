@@ -130,7 +130,8 @@ var reset = function(){
 </iframe>
 </div>
 <div class="kong2"></div>
-
+<div class="score4"><a href="queryProduct" target="_blank">点击查看更多产品</a></div>
+<div class="score5">如果您需要更高的信用额度，请查看抵押贷款产品&nbsp;&nbsp;<a href="queryProduct" target="_blank">进入产品搜索&gt;&gt;</a></div>
 <!--===========页面内容部分 结束===========-->
 <%@include file="../../inc/memberFooter.jsp" %>
 </body>
