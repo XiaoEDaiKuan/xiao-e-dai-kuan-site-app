@@ -216,6 +216,7 @@
        	<input name="" type="submit" value="" class="reg_btn" style="width:100px;height:30px"  id="login_submit"   /></td>
 	</tr>  
   </table>
+</div>
 </form>
 <div class="footer2">
   <div class="footer2_2"><font>版权所有：北京玖富时代投资顾问有限公司 copyright 2012</font><br />
