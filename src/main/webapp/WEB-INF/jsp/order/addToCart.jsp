@@ -62,7 +62,12 @@ con.style.display=i==cursel?"block":"none";
             <li>期限 <span>${pq.loanIssue}</span> 月</li>
             <li>总利息 <span><fmt:formatNumber pattern="#,##0.00" value="${pv.interest}" /></span> 万元</li>
             <li>月供 <span><fmt:formatNumber pattern="#,##0.00" value="${pv.monthlyPay * 10000}" /></span> 元</li>
-            <li>利率说明: 月利率 <span><fmt:formatNumber type="percent" pattern="0.00%" value="${pv.product.intrRate}" /></span></li>
+            <li>利率说明: 月利率<span>
+            <c:choose>
+            	<c:when test="${empty pv.product.intrRate}">面议</c:when>
+            	<c:otherwise><fmt:formatNumber type="percent" pattern="0.00%" value="${pv.product.intrRate}" /></c:otherwise>
+            </c:choose>
+            </span></li>
             <li>提前还款说明</li>
         </ul>
       	<div class="applicationleft2"><img src="images/organ/${pv.product.icon}" width="110" height="67" /></div>

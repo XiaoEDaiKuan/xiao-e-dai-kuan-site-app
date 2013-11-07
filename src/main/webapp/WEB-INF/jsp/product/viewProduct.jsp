@@ -84,7 +84,12 @@ con.style.display=i==cursel?"block":"none";
       		</c:choose>
             </span>个月</li>
 
-            <li>利率说明: 月利率 <span><fmt:formatNumber type="percent" pattern="0.00%" value="${prod.product.intrRate}" /></span></li>
+            <li>利率说明: 月利率<span>
+            <c:choose>
+	            <c:when test="${empty prod.product.intrRate}"></c:when>
+	            <c:otherwise><fmt:formatNumber type="percent" pattern="0.00%" value="${prod.product.intrRate}" /></c:otherwise>
+            </c:choose>
+            </span></li>
             <li>提前还款说明</li>
         </ul>
       	<div class="applicationleft2"><img src="images/organ/${prod.product.icon}" width="110" height="67" /></div>
