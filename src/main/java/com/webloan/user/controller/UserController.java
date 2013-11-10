@@ -418,7 +418,6 @@ public class UserController extends MultiActionController {
 		return mav;
 	}
 
-	
 	public ModelAndView loginFormAction(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 		ModelAndView mav=new ModelAndView();
