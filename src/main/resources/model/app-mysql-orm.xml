@@ -240,6 +240,10 @@
 			<basic name="estateCert">
 				<column name="ESTATE_CERT" length="64" />
 			</basic>
+			<basic name="localReside">
+				<column name="Local_Reside" precision="8" scale="2" />
+			</basic>
+
 			
 			<many-to-one name="product">
 				<join-column name="PRODUCT_ID" nullable="false" />

@@ -53,6 +53,7 @@ public class ProductAttach implements Serializable {
 	private String loanCert;//LOAN_CERT
 	private String vehicleCert;//VEHICLE_CERT
 	private String estateCert;//ESTATE_CERT
+	private BigDecimal localReside;//Local_Reside
 	
 	private Product product;//PRODUCT_ID
 	
@@ -283,5 +284,11 @@ public class ProductAttach implements Serializable {
 	}
 	public void setOwnerOplife(BigDecimal ownerOplife) {
 		this.ownerOplife = ownerOplife;
+	}
+	public BigDecimal getLocalReside() {
+		return localReside;
+	}
+	public void setLocalReside(BigDecimal localReside) {
+		this.localReside = localReside;
 	}
 }
