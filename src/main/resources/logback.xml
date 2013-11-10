@@ -57,7 +57,7 @@
 	</logger>
 
 	
-	<root level="info">
+	<root level="debug">
 		<appender-ref ref="ROOT_CONSOLE"/>
 	</root>
 </configuration>

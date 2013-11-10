@@ -4,6 +4,17 @@ $(document).ready(function(){
 
            $('#login_form_submit').click(
                                       function(){
+                                
+                                                if( $("#logonName").val()=='' || $("#passwd").val()=='' ){
+                                                    $("#logonName_error").html("账号或密码错误");
+                                                    $("#logonName_error").css('display','inline-block');
+                                                    $("#logonName_error").addClass("wrong_box clearfix");
+ 
+                                                   return;
+                                                }
+
+                                                 $("#login_form_2").submit();
+                                
                                                   $.ajax(
                                                             {
                                                                   url:'verifyCaptcha',
@@ -20,8 +31,6 @@ $(document).ready(function(){
                                                                      $("#login_form_captcha_error").html("");
                                                                      $("#login_form_captcha_error").css('display','none');
                                                                      $("#login_form_captcha_error").removeClass("wrong_box clearfix");
-             
-                                                                     $("#login_form_2").submit();
 
                                                                   }             
                                                                  }

@@ -15,13 +15,17 @@
 		<table width="100%" border="0" cellspacing="4" cellpadding="3">
 			<tr>
 				<th>账&nbsp;&nbsp;&nbsp;号：</th>
-				<td><input name="logonName" id="logonName" type="text" style="height:28px;width:200px;margin-bottom:8px"
-					class="input" /></td>
+				<td><input name="logonName" id="logonName" type="text" style="height:28px;width:150px;margin-bottom:8px"
+					class="input" />
+					<c:if test="${response=='fail'}">
+                       <span id="logonName_error" class="e9" style="display:inline-block;">账号或密码错误</span>
+                  </c:if>
+					</td>
 			</tr>
 			<tr>
 				<th>密&nbsp;&nbsp;&nbsp;码：</th>
 				<td><input name="passwd" id="passwd" type="password"
-					class="input"  style="height:28px;width:200px;margin-bottom:8px"/></td>
+					class="input"  style="height:28px;width:150px;margin-bottom:8px"/></td>
 			</tr>
 			<tr>
 				<th>验证码：</th>

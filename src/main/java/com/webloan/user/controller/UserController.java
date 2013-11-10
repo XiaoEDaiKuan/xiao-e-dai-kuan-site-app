@@ -55,23 +55,17 @@ public class UserController extends MultiActionController {
 			HttpServletResponse response) {
 
 		/*
-		// 验证验证码
-		String sessionId = request.getSession().getId();
-		String captcha = request.getParameter("captcha");
-
-		boolean flag = false;
-		try {
-			flag = captchaService.validateResponseForID(sessionId, captcha);
-		} catch (Exception e) {
-			e.printStackTrace();
-			log.error(UserConstant.EXCEPTION_CAPTCHA_CODE);
-			throw new BizException(UserConstant.EXCEPTION_CAPTCHA_CODE);
-		}
-		if (!flag) {
-			log.error(UserConstant.EXCEPTION_CAPTCHA_CODE);
-			throw new BizException(UserConstant.EXCEPTION_CAPTCHA_CODE);
-		}
-		*/
+		 * // 验证验证码 String sessionId = request.getSession().getId(); String
+		 * captcha = request.getParameter("captcha");
+		 * 
+		 * boolean flag = false; try { flag =
+		 * captchaService.validateResponseForID(sessionId, captcha); } catch
+		 * (Exception e) { e.printStackTrace();
+		 * log.error(UserConstant.EXCEPTION_CAPTCHA_CODE); throw new
+		 * BizException(UserConstant.EXCEPTION_CAPTCHA_CODE); } if (!flag) {
+		 * log.error(UserConstant.EXCEPTION_CAPTCHA_CODE); throw new
+		 * BizException(UserConstant.EXCEPTION_CAPTCHA_CODE); }
+		 */
 
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("user/registerok");
@@ -137,21 +131,21 @@ public class UserController extends MultiActionController {
 			HttpServletResponse response) throws Exception {
 
 		// 验证验证码
-//		String sessionId = request.getSession().getId();
-//		String captcha = request.getParameter("captcha");
-//
-//		boolean flag = false;
-//		try {
-//			flag = captchaService.validateResponseForID(sessionId, captcha);
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//			log.error(UserConstant.EXCEPTION_CAPTCHA_CODE);
-//			throw new BizException(UserConstant.EXCEPTION_CAPTCHA_CODE);
-//		}
-//		if (!flag) {
-//			log.error(UserConstant.EXCEPTION_CAPTCHA_CODE);
-//			throw new BizException(UserConstant.EXCEPTION_CAPTCHA_CODE);
-//		}
+		// String sessionId = request.getSession().getId();
+		// String captcha = request.getParameter("captcha");
+		//
+		// boolean flag = false;
+		// try {
+		// flag = captchaService.validateResponseForID(sessionId, captcha);
+		// } catch (Exception e) {
+		// e.printStackTrace();
+		// log.error(UserConstant.EXCEPTION_CAPTCHA_CODE);
+		// throw new BizException(UserConstant.EXCEPTION_CAPTCHA_CODE);
+		// }
+		// if (!flag) {
+		// log.error(UserConstant.EXCEPTION_CAPTCHA_CODE);
+		// throw new BizException(UserConstant.EXCEPTION_CAPTCHA_CODE);
+		// }
 
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("redirect:/");
@@ -426,14 +420,23 @@ public class UserController extends MultiActionController {
 
 	public ModelAndView loginFormAction(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
-		ModelAndView mav = login(request, response);
-		mav.setViewName("order/requestProductInfo");
+		ModelAndView mav=new ModelAndView();
+		
+		try {
+			mav = login(request, response);
+			mav.setViewName("order/requestProductInfo");
 
-		Object productId = request.getSession().getAttribute("productId");
-		mav.addObject("productId", productId);
-		request.getSession().removeAttribute("productId");
+			Object productId = request.getSession().getAttribute("productId");
+			mav.addObject("productId", productId);
+			request.getSession().removeAttribute("productId");
 
-		return mav;
+			return mav;
+		} catch (Exception ex) {
+			mav.setViewName("user/loginForm");
+            mav.addObject("response", "fail");
+            return mav;
+		}
+		
 	}
 
 	// /////////////////////// 会员中心/////////////////////
@@ -798,6 +801,7 @@ public class UserController extends MultiActionController {
 
 	/**
 	 * 验证注册输入的手机号码
+	 * 
 	 * @param request
 	 * @param response
 	 * @return
@@ -819,17 +823,18 @@ public class UserController extends MultiActionController {
 			result = "fail1";
 		}
 
-		if(userService.duplicatedMobileCheck(mobileNo)){
+		if (userService.duplicatedMobileCheck(mobileNo)) {
 			result = "fail2";
 		}
-		
+
 		out.print(result);
 		out.close();
 		return result;
 	}
-	
+
 	/**
 	 * 验证身份证
+	 * 
 	 * @param request
 	 * @param response
 	 * @return
@@ -845,11 +850,11 @@ public class UserController extends MultiActionController {
 		if (!idV.validate()) {
 			result = "fail1";
 		}
-		
-		if(userService.duplicatedIdNoCheck(idNO)){
+
+		if (userService.duplicatedIdNoCheck(idNO)) {
 			result = "fail2";
 		}
-		
+
 		out.print(result);
 		out.close();
 
@@ -858,6 +863,7 @@ public class UserController extends MultiActionController {
 
 	/**
 	 * 检验邮件
+	 * 
 	 * @param request
 	 * @param response
 	 * @return
@@ -872,32 +878,32 @@ public class UserController extends MultiActionController {
 		if (!EmailVerify.checkEmail(email)) {
 			result = "fail1";
 		}
-		
-		if(userService.duplicatedEmailCheck(email)){
-			result="fail2";
+
+		if (userService.duplicatedEmailCheck(email)) {
+			result = "fail2";
 		}
-		
+
 		out.print(result);
 		out.close();
 
 		return result;
 	}
-	
+
 	public ModelAndView selectCity(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 		Object from = request.getParameter("from");
 		String to = from == null ? "/" : (String) from;
-		
+
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("redirect:" + to.replace("#", ""));
-		
+
 		String strId = request.getParameter("setcity");
 		Long regionId = Long.valueOf(strId);
-		
+
 		Region region = regionService.getRegionById(regionId);
 		request.getSession().setAttribute("currentRegion", region);
 		request.getSession().setAttribute("regionAvailable", "1");
-		
+
 		return mav;
 	}
 }
