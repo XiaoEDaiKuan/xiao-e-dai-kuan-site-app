@@ -80,6 +80,7 @@ public class ProductServiceImpl implements ProductService {
 			"estate", 
 			"vehicle", 
 			"credit", 
+			"product.groupBuying", 
 			"product.issueType", 
 			"product.guarantyType", 
 			"product.repayType" 
@@ -104,6 +105,7 @@ public class ProductServiceImpl implements ProductService {
 			pq.getEstate() == null ? null : "|" + pq.getEstate() + "|", 
 			pq.getVehicle() == null ? null : "|" + pq.getVehicle() + "|", 
 			pq.getCredit() == null ? null : "|" + pq.getCredit() + "|", 
+			NON_GROUP_BUYING, 
 			pq.getIssueType(), 
 			pq.getGuarantyType(), 
 			pq.getRepayType() 
@@ -121,6 +123,7 @@ public class ProductServiceImpl implements ProductService {
 			LIKE, 
 			EQ, 
 			EQ, 
+			EQ, 
 			EQ 
 		};
 		
@@ -131,6 +134,9 @@ public class ProductServiceImpl implements ProductService {
 			ordKeys.add("loanUse");
 			ordVals.add(DESC);
 		}
+		
+		ordKeys.add("product.orders");
+		ordVals.add(ASC);
 		
 //		if (pq.getOrderRate() != null) {
 //			ordKeys.add("product.intrFormula");
@@ -165,6 +171,7 @@ public class ProductServiceImpl implements ProductService {
 			"vehicle", 
 			"credit", 
 			"product.id", 
+			"product.groupBuying", 
 			"product.issueType", 
 			"product.guarantyType", 
 			"product.repayType" 
@@ -190,6 +197,7 @@ public class ProductServiceImpl implements ProductService {
 			pq.getVehicle() == null ? null : "|" + pq.getVehicle() + "|", 
 			pq.getCredit() == null ? null : "|" + pq.getCredit() + "|", 
 			pq.getProductId(), 
+			NON_GROUP_BUYING, 
 			pq.getIssueType(), 
 			pq.getGuarantyType(), 
 			pq.getRepayType() 
@@ -208,10 +216,15 @@ public class ProductServiceImpl implements ProductService {
 			EQ, 
 			EQ, 
 			EQ, 
+			EQ, 
 			EQ 
 		};
 		
-		return productRepository.queryList(ProductAttach.class, keys, vals, conds);
+		String[] orderKeys = { "product.orders" };
+		String[] orderVals = { ASC };
+		
+		return productRepository.queryList(ProductAttach.class, keys, vals, 
+				conds, orderKeys, orderVals);
 	}
 	
 	public Page pagingProductBtwnAmount(int pageIndex, int pageSize, 
