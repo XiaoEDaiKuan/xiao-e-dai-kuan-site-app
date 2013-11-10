@@ -105,6 +105,9 @@
 			<basic name="managerRate">
 				<column name="MANAGER_RATE" precision="16" scale="4" />
 			</basic>
+			<basic name="orders">
+				<column name="ORDER_INFO" />
+			</basic>
 			
 			<one-to-many name="regions" fetch="LAZY" target-entity="com.webloan.model.Region">
 				<join-table name="PRD_REGIONS">
