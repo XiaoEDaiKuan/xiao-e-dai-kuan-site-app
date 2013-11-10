@@ -37,7 +37,7 @@
             	<span class="Loansearch14 Loansearch16">${pv.product.paidDays}天放款</span>
             </p>
         </div>
-    	<img src="images/organ/${pv.product.icon}" width="42" height="42" />
+    	<img src="images/products/40x40/${pv.product.icon}" width="40" height="40" />
     </div>
     <div class="Loansearch12 Loansearch17">
     	<div class="Loansearch18">

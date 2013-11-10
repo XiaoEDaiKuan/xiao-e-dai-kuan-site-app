@@ -147,7 +147,8 @@ public class ProductRepositoryImpl extends BaseJpaRepositoryImpl implements
 
 		if (minLoanAmt != null && maxLoanAmt != null) {
 			jpql.append(" and (a.minLoanAmt between :minLoanAmt and :maxLoanAmt")
-				.append(" or a.maxLoanAmt between :minLoanAmt and :maxLoanAmt) ");
+				.append(" or a.maxLoanAmt between :minLoanAmt and :maxLoanAmt ")
+				.append(" or (a.minLoanAmt <= :minLoanAmt and a.maxLoanAmt >= :maxLoanAmt)) ");
 			params.put("minLoanAmt", minLoanAmt);
 			params.put("maxLoanAmt", maxLoanAmt);
 		}

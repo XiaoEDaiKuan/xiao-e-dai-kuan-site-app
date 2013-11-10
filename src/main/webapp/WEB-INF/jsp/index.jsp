@@ -107,7 +107,7 @@
       <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table">
 		<c:forEach var="hcrProd" items="${hcrProds.items}">
 		<tr>
-          <td width="11%"><img src="images/organ/${hcrProd.icon}" width="40" height="21" /></td>
+          <td width="11%"><img src="images/products/40x20/${hcrProd.icon}" width="40" height="20" /></td>
           <td width="18%">${hcrProd.name}</td>
           <td width="61%">${hcrProd.desc}</td>
           <td width="10%"><a href="viewProduct?productId=${hcrProd.id}" target="_blank">查看</a></td>
@@ -120,7 +120,7 @@
       <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table">
 		<c:forEach var="hchProd" items="${hchProds.items}">
 		<tr>
-          <td width="11%"><img src="images/organ/${hchProd.icon}" width="40" height="21" /></td>
+          <td width="11%"><img src="images/products/40x20/${hchProd.icon}" width="40" height="20" /></td>
           <td width="18%">${hchProd.name}</td>
           <td width="61%">${hchProd.desc}</td>
           <td width="10%"><a href="viewProduct?productId=${hchProd.id}" target="_blank">查看</a></td>

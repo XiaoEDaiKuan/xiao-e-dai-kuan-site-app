@@ -57,7 +57,7 @@
 			
 			<c:if test="${gpid ne '0'}">
 			<a class="imgBorder" href="http://tuan.9fbank.com/front/product/detail/product_detail?proId=${gpid}" target="_blank">
-				<img src="images/organ/${gp.icon}" alt="${gp.name}&#10;${gp.desc}" width="130" height="79" />
+				<img src="images/products/110x65/${gp.icon}" alt="${gp.name}&#10;${gp.desc}" width="130" height="80" />
 				${gp.name}
 			</a>
 			</c:if>
@@ -101,7 +101,7 @@
             	<span class="Loansearch14 Loansearch16">${pv.product.paidDays}天放款</span>
             </p>
         </div>
-    	<img src="images/organ/${pv.product.icon}" width="42" height="42" />
+    	<img src="images/products/40x40/${pv.product.icon}" width="40" height="40" />
     </div>
     <div class="Loansearch12 Loansearch17">
     	<div class="Loansearch18">
