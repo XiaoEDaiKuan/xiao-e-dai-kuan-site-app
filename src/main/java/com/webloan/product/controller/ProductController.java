@@ -468,7 +468,7 @@ public class ProductController extends MultiActionController {
 		mav.setViewName("product/queryForScore");
 
 		Page page = productService.pagingProductBtwnAmount(1, 5, 
-				pq.getMaxLoanAmt(), pq.getMaxLoanAmt());
+				pq.getMinLoanAmt(), pq.getMaxLoanAmt());
 		mav.addObject("pvs", productViewHelper.transferPageToView(page, pq));
 
 		Page hotRcdProds = productService.pagingProductRecommend(1, 5,

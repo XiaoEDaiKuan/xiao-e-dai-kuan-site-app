@@ -133,7 +133,7 @@ var reset = function(){
 <div class="main3 ground"  style="background:#FFFFFF;padding-top:10px; padding-bottom:10px">
 <h3 id="resultTitle" style="display:none">&nbsp;&nbsp;根据您的信用额度，适合您的贷款产品如下：</h3>
 </div>
-<iframe id="resultProduct" name="resultProduct" style="display:none" width="100%" height="750px" src="" frameborder="no" 
+<iframe id="resultProduct" name="resultProduct" style="display:none" width="100%" height="850px" src="" frameborder="no" 
 				border="0" marginwidth="0" marginheight="0" scrolling="no" allowtransparency="yes">
 
 </iframe>

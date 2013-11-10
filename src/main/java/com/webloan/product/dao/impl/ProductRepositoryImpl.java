@@ -160,7 +160,10 @@ public class ProductRepositoryImpl extends BaseJpaRepositoryImpl implements
 			params.put("maxLoanAmt", maxLoanAmt);
 		}
 		
-		jpql.append(" order by a.product.orders asc ");
+		jpql.append(" order by a.product.orders asc, a.product.id asc ");
+		
+		System.out.println(jpql);
+		System.out.println(params);
 		
 		String pageJpql = "select a " + jpql;
 		String countJpql = "select count(*) " + jpql;
