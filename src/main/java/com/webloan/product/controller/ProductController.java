@@ -76,6 +76,19 @@ public class ProductController extends MultiActionController {
 				}
 			});
 		}
+//		else {
+//			Collections.sort(prdViews, new Comparator<ProductView>() {
+//				public int compare(ProductView o1, ProductView o2) {
+//					BigDecimal r1 = o1.getInterest();
+//					BigDecimal r2 = o2.getInterest();
+//					BigDecimal m1 = o1.getMonthlyPay();
+//					BigDecimal m2 = o2.getMonthlyPay();
+//					int r = compareBigDecimal(r1, r2);
+//					int m = compareBigDecimal(m1, m2);
+//					return r == 0 ? m : r;
+//				}
+//			});
+//		}
 		
 		int pageIndex = pq.getPageIndex();
 		int pageSize = pq.getPageSize();

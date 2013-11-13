@@ -135,8 +135,8 @@ public class ProductServiceImpl implements ProductService {
 			ordVals.add(DESC);
 		}
 		
-		ordKeys.add("product.orders");
-		ordVals.add(ASC);
+//		ordKeys.add("product.orders");
+//		ordVals.add(ASC);
 		
 //		if (pq.getOrderRate() != null) {
 //			ordKeys.add("product.intrFormula");
@@ -220,11 +220,11 @@ public class ProductServiceImpl implements ProductService {
 			EQ 
 		};
 		
-		String[] orderKeys = { "product.orders" };
-		String[] orderVals = { ASC };
+//		String[] orderKeys = { "product.orders" };
+//		String[] orderVals = { ASC };
 		
 		return productRepository.queryList(ProductAttach.class, keys, vals, 
-				conds, orderKeys, orderVals);
+				conds/*, orderKeys, orderVals*/);
 	}
 	
 	public Page pagingProductBtwnAmount(int pageIndex, int pageSize, 
