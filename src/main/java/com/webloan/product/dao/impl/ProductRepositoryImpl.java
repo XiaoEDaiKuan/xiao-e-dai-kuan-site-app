@@ -16,11 +16,9 @@ public class ProductRepositoryImpl extends BaseJpaRepositoryImpl implements
 	
 	public Page pagingProductByRecommend(int pageIndex, int pageSize,
 			String recommendType) {
-		StringBuilder jpql = new StringBuilder(" from ProductRecommend pr where 1=1 ")
-				.append(" and pr.product.groupBuying=:groupBuying ");
+		StringBuilder jpql = new StringBuilder(" from ProductRecommend pr where 1=1 ");
 		
 		Map<String, Object> params = new HashMap<String, Object>();
-		params.put("groupBuying", "1");
 		
 		if (recommendType != null && !"".equals(recommendType)) {
 			jpql.append(" and pr.type=:recommendType ");
@@ -38,10 +36,9 @@ public class ProductRepositoryImpl extends BaseJpaRepositoryImpl implements
 	public Page pagingAttachByRecommend(int pageIndex, int pageSize,
 			String recommendType) {
 		StringBuilder jpql = new StringBuilder(" from ProductAttach a, ProductRecommend pr ")
-				.append(" where a.product.id=pr.product.id and pr.product.groupBuying=:groupBuying ");
+				.append(" where a.product.id=pr.product.id ");
 		
 		Map<String, Object> params = new HashMap<String, Object>();
-		params.put("groupBuying", "1");
 		
 		if (recommendType != null && !"".equals(recommendType)) {
 			jpql.append(" and pr.type=:recommendType ");
@@ -58,10 +55,9 @@ public class ProductRepositoryImpl extends BaseJpaRepositoryImpl implements
 	
 	public Page pagingProductByRegion(int pageIndex, int pageSize, Long regionId) {
 		StringBuilder jpql = new StringBuilder(" from ProductAttach a, Order o ")
-				.append(" where a.product.id=o.product.id and a.product.groupBuying=:groupBuying ");
+				.append(" where a.product.id=o.product.id ");
 		
 		Map<String, Object> params = new HashMap<String, Object>();
-		params.put("groupBuying", "1");
 		
 		if (regionId != null) {
 			jpql.append(" and o.region.id=:regionId ");
@@ -78,10 +74,9 @@ public class ProductRepositoryImpl extends BaseJpaRepositoryImpl implements
 	
 	public List<ProductAttach> queryAttachesByRegion(Long regionId) {
 		StringBuilder jpql = new StringBuilder("select a from ProductAttach a, Order o ")
-				.append(" where a.product.id=o.product.id and a.product.groupBuying=:groupBuying ");
+				.append(" where a.product.id=o.product.id ");
 		
 		Map<String, Object> params = new HashMap<String, Object>();
-		params.put("groupBuying", "1");
 		
 		if (regionId != null) {
 			jpql.append(" and o.region.id=:regionId ");
@@ -118,11 +113,9 @@ public class ProductRepositoryImpl extends BaseJpaRepositoryImpl implements
 	}
 	
 	public Page pagingProductByPaidDays(int pageIndex, int pageSize, List<Integer> paidDays) {
-		StringBuilder jpql = new StringBuilder(" from ProductAttach a where 1=1 ")
-				.append(" and a.product.groupBuying=:groupBuying ");
+		StringBuilder jpql = new StringBuilder(" from ProductAttach a where 1=1 ");
 		
 		Map<String, Object> params = new HashMap<String, Object>();
-		params.put("groupBuying", "1");
 
 		if (paidDays != null && !paidDays.isEmpty()) {
 			jpql.append(" and a.product.paidDays in (:paidDays) ");
@@ -139,11 +132,9 @@ public class ProductRepositoryImpl extends BaseJpaRepositoryImpl implements
 	
 	public Page pagingProductBtwnAmount(int pageIndex, int pageSize, 
 			BigDecimal minLoanAmt, BigDecimal maxLoanAmt) {
-		StringBuilder jpql = new StringBuilder(" from ProductAttach a where 1=1 ")
-				.append(" and a.product.groupBuying=:groupBuying ");
+		StringBuilder jpql = new StringBuilder(" from ProductAttach a where 1=1 ");
 		
 		Map<String, Object> params = new HashMap<String, Object>();
-		params.put("groupBuying", "1");
 
 		if (minLoanAmt != null && maxLoanAmt != null) {
 			jpql.append(" and (a.minLoanAmt between :minLoanAmt and :maxLoanAmt")
