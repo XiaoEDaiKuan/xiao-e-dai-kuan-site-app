@@ -34,7 +34,7 @@ public class Product implements Serializable {
 	private BigDecimal initialRate;//INITIAL_RATE
 	private BigDecimal managerRate;//MANAGER_RATE
 	
-	private Integer orders;//ORDER_INFO
+	private Integer orders;//ORDER_ID
 	
 	public BigDecimal getManagerRate() {
 		return managerRate;
