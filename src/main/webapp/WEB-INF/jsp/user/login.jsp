@@ -22,7 +22,7 @@
       <form action="login" method="post" id="login_form_2">
         <table width="100%" border="0" cellspacing="0" cellpadding="0">
           <tr>
-            <th>账&nbsp;&nbsp;&nbsp;号：</th>
+            <th width="30%">账号:</th>
             <td><input name="logonName" id="logonName" type="text" class="input" /><br/><br/>
             	<em style="color:#CCC">Email/手机/身份证/客户号</em>
             	<c:if test="${response=='fail'}">
@@ -32,17 +32,17 @@
             </td>
           </tr>
           <tr>
-            <th>密&nbsp;&nbsp;&nbsp;码：</th>
+            <th width="30%">密码:</th>
             <td><input name="passwd" id="passwd" type="password" class="input" /></td>
           </tr>
-          <tr>
-            <th>验证码：</th>
+          <tr width="30%">
+            <th>验证码:</th>
             <td><input name="captcha" type="text" class="input" id="login_form_captcha" />
             <span id="login_form_captcha_error" class="e9" style="display:none;"></span>
             </td>
           </tr>
           <tr>
-            <th>&nbsp;</th>
+            <th width="30%">&nbsp;</th>
             <td>
                <img id="captchaimg" src="handleCaptcha" alt="captcha"  class="input code" style="margin:0px;width:112px;height:32px" onclick="reloadCaptcha()" />
              </td>
