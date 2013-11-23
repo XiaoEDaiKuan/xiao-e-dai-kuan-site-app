@@ -49,18 +49,20 @@
 	<!-- 图片列表 begin -->
 	<c:forEach var="gp" items="${groupProducts}">
 		<div class="box">
-			<c:set var="gpid" value="0" />
-			<c:if test="${gp.id == '6'}"><c:set var="gpid" value="4" /></c:if>
-			<c:if test="${gp.id == '7'}"><c:set var="gpid" value="1" /></c:if>
-			<c:if test="${gp.id == '8'}"><c:set var="gpid" value="3" /></c:if>
-			<c:if test="${gp.id == '9'}"><c:set var="gpid" value="5" /></c:if>
-			
-			<c:if test="${gpid ne '0'}">
-			<a class="imgBorder" href="http://tuan.9fbank.com/front/product/detail/product_detail?proId=${gpid}" target="_blank">
-				<img src="images/products/110x65/${gp.icon}" alt="${gp.name}&#10;${gp.desc}" width="130" height="80" />
-				${gp.name}
-			</a>
-			</c:if>
+		<c:choose>
+			<c:when test="${not empty gp.linkUrl}">
+				<a class="imgBorder" href="${gp.linkUrl}" target="_blank">
+					<img src="images/products/110x65/${gp.icon}" alt="${gp.name}&#10;${gp.desc}" width="130" height="80" />
+					${gp.name}
+				</a>
+			</c:when>
+			<c:otherwise>
+				<a class="imgBorder" href="viewProduct?&productId=${gp.id}" target="_blank">
+					<img src="images/products/110x65/${gp.icon}" alt="${gp.name}&#10;${gp.desc}" width="130" height="80" />
+					${gp.name}
+				</a>
+			</c:otherwise>
+		</c:choose>
 		</div>
 	</c:forEach>
 	<!-- 图片列表 end -->
@@ -76,7 +78,16 @@
   
   <c:forEach var="pv" items="${pvs.items}">
   <div class="Loansearch11 ClearFix">
-  	<div class="Loansearch19"><a href="viewProduct?&productId=${pv.product.id}" target="_blank"><img src="images/img18.jpg" width="94" height="29" /></a></div>
+  	<div class="Loansearch19">
+	<c:choose>
+		<c:when test="${not empty pv.product.linkUrl}">
+			<a href="${pv.product.linkUrl}" target="_blank"><img src="images/img18.jpg" width="94" height="29" /></a>
+		</c:when>
+		<c:otherwise>
+			<a href="viewProduct?&productId=${pv.product.id}" target="_blank"><img src="images/img18.jpg" width="94" height="29" /></a>
+		</c:otherwise>
+	</c:choose>
+  	</div>
   	<div class="Loansearch12">
     	<div class="Loansearch13">
         	<h1>${pv.product.issueOrgan} - ${pv.product.name}</h1>

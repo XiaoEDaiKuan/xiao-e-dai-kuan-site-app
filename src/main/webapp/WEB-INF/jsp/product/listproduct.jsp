@@ -335,7 +335,16 @@
   
   <c:forEach var="pv" items="${pvs.items}">
   <div class="Loansearch11 ClearFix">
-  	<div class="Loansearch19"><a style="cursor: pointer; cursor:hand" onclick="javascript:openNewWin('productId=${pv.product.id}')"><img src="images/img18.jpg" width="94" height="29" /></a></div>
+  	<div class="Loansearch19">
+  	<c:choose>
+  		<c:when test="${not empty pv.product.linkUrl}">
+  			<a href="${pv.product.linkUrl}" target="_blank"><img src="images/img18.jpg" width="94" height="29" /></a>
+  		</c:when>
+  		<c:otherwise>
+  			<a style="cursor: pointer; cursor:hand" onclick="javascript:openNewWin('productId=${pv.product.id}')"><img src="images/img18.jpg" width="94" height="29" /></a>
+  		</c:otherwise>
+  	</c:choose>
+  	</div>
   	<div class="Loansearch12">
     	<div class="Loansearch13">
         	<h1>${pv.product.issueOrgan} - ${pv.product.name}</h1>
@@ -405,7 +414,16 @@
 			<td width="8%"><img src="images/products/40x20/${hrp.icon}" width="40" height="20" /></td>
 			<td width="20%">${hrp.name}</td>
 			<td width="65%">${hrp.desc}</td>
-			<td width="7%"><a href="viewProduct?productId=${hrp.id}" target="_blank">查看</a></td>
+			<td width="7%">
+			<c:choose>
+				<c:when test="${not empty hrp.linkUrl}">
+					<a href="${hrp.linkUrl}" target="_blank">查看</a>
+				</c:when>
+				<c:otherwise>
+					<a href="viewProduct?productId=${hrp.id}" target="_blank">查看</a>
+				</c:otherwise>
+			</c:choose>
+			</td>
 		</tr>
 		</c:forEach>
 	</table>

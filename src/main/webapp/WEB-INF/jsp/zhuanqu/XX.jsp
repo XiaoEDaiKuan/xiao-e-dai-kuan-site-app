@@ -68,10 +68,18 @@ function setTab(name,cursel,n){
     <span class="credit_title1 Fuzzysearch8">根据您的需求，我们推荐以下贷款产品</span>
   </div>
   
-
   <c:forEach var="prod" items="${xxProds.items}">
   <div class="quickloan2 ClearFix">
-  	<div class="Loansearch19"><a href="viewProduct?productId=${prod.product.id}"><img src="images/img18.jpg" width="94" height="29" /></a></div>
+  	<div class="Loansearch19">
+	<c:choose>
+		<c:when test="${not empty prod.product.linkUrl}">
+			<a href="${prod.product.linkUrl}" target="_blank"><img src="images/img18.jpg" width="94" height="29" /></a>
+		</c:when>
+		<c:otherwise>
+			<a href="viewProduct?productId=${prod.product.id}" target="_blank"><img src="images/img18.jpg" width="94" height="29" /></a>
+		</c:otherwise>
+	</c:choose>
+	</div>
   	 <img src="images/img50.jpg" width="119" height="99" />
      <div class="Loansearch12 quickloan3">
     	<div class="Loansearch13 quickloan4">

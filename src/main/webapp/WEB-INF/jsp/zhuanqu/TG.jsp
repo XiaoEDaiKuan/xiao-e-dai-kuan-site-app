@@ -88,7 +88,16 @@ function setTab(name,cursel,n){
   
   <c:if test="${empty secMortProds.items}">暂无产品 </c:if>
   <c:forEach var="prod" items="${secMortProds.items}">
-  	<div class="Loansearch19"><a href="viewProduct?productId=${prod.product.id}"><img src="images/img18.jpg" width="94" height="29" /></a></div>
+  	<div class="Loansearch19">
+	<c:choose>
+		<c:when test="${not empty prod.product.linkUrl}">
+			<a href="${prod.product.linkUrl}" target="_blank"><img src="images/img18.jpg" width="94" height="29" /></a>
+		</c:when>
+		<c:otherwise>
+			<a href="viewProduct?productId=${prod.product.id}" target="_blank"><img src="images/img18.jpg" width="94" height="29" /></a>
+		</c:otherwise>
+	</c:choose>
+  	</div>
   	 <img src="images/img50.jpg" width="119" height="99" />
      <div class="Loansearch12 quickloan3">
     	<div class="Loansearch13 quickloan4">
@@ -120,7 +129,16 @@ function setTab(name,cursel,n){
 <div  id="adlt_credit" style="display:none">
  <c:forEach var="prod" items="${incrProds.items}">
 <div class="quickloan2 ClearFix" >
-  	<div class="Loansearch19"><a href="viewProduct?productId=${prod.product.id}"><img src="images/img18.jpg" width="94" height="29" /></a></div>
+  	<div class="Loansearch19">
+	<c:choose>
+		<c:when test="${not empty prod.product.linkUrl}">
+			<a href="${prod.product.linkUrl}" target="_blank"><img src="images/img18.jpg" width="94" height="29" /></a>
+		</c:when>
+		<c:otherwise>
+			<a href="viewProduct?productId=${prod.product.id}" target="_blank"><img src="images/img18.jpg" width="94" height="29" /></a>
+		</c:otherwise>
+	</c:choose>
+  	</div>
      <div class="Loansearch12 quickloan3">
     	<div class="Loansearch13 quickloan4">
         	<h1>${prod.product.issueOrgan} - ${prod.product.name}</h1>

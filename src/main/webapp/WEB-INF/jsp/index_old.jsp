@@ -110,7 +110,16 @@
           <td width="11%"><img src="images/products/40x20/${hcrProd.icon}" width="40" height="20" /></td>
           <td width="18%">${hcrProd.name}</td>
           <td width="61%">${hcrProd.desc}</td>
-          <td width="10%"><a href="viewProduct?productId=${hcrProd.id}" target="_blank">查看</a></td>
+          <td width="10%">
+          <c:choose>
+          	<c:when test="${not empty hcrProd.linkUrl}">
+              <a href="${hcrProd.linkUrl}" target="_blank">查看</a>
+          	</c:when>
+          	<c:otherwise>
+              <a href="viewProduct?productId=${hcrProd.id}" target="_blank">查看</a>
+          	</c:otherwise>
+          </c:choose>
+          </td>
         </tr>
 		</c:forEach>
       </table>
@@ -123,14 +132,23 @@
           <td width="11%"><img src="images/products/40x20/${hchProd.icon}" width="40" height="20" /></td>
           <td width="18%">${hchProd.name}</td>
           <td width="61%">${hchProd.desc}</td>
-          <td width="10%"><a href="viewProduct?productId=${hchProd.id}" target="_blank">查看</a></td>
+          <td width="10%">
+          <c:choose>
+          	<c:when test="${not empty hchProd.linkUrl}">
+              <a href="${hchProd.linkUrl}" target="_blank">查看</a>
+          	</c:when>
+          	<c:otherwise>
+              <a href="viewProduct?productId=${hchProd.id}" target="_blank">查看</a>
+          	</c:otherwise>
+          </c:choose>
+          </td>
         </tr>
 		</c:forEach>
       </table>
     </div>
   </div>
   <div class="main2_right">
-    <div class="ad1"><a href="productView?productId=4" target="_blank"></a></div>
+    <div class="ad1"><a href="viewProduct?productId=4" target="_blank"></a></div>
     <div class="sina">
       <div class="sina_border">
       <div class="sina1"><a href="http://e.weibo.com/jiufutougu?ref=http%3A%2F%2Fwww.9fgroup.com%2F" target="_blank" class="sina2"><img src="images/sina.jpg" width="62" /></a><p>平台微博加关注</p></div>

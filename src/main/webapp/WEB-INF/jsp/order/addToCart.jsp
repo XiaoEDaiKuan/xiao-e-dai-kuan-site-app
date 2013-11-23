@@ -156,7 +156,16 @@ con.style.display=i==cursel?"block":"none";
 			<td width="8%"><img src="images/products/40x20/${hrp.icon}" width="40" height="20" /></td>
 			<td width="20%">${hrp.name}</td>
 			<td width="65%">${hrp.desc}</td>
-			<td width="7%"><a href="viewProduct?productId=${hrp.id}" target="_blank">查看</a></td>
+			<td width="7%">
+	          <c:choose>
+	          	<c:when test="${not empty hrp.linkUrl}">
+	              <a href="${hrp.linkUrl}" target="_blank">查看</a>
+	          	</c:when>
+	          	<c:otherwise>
+	              <a href="viewProduct?productId=${hrp.id}" target="_blank">查看</a>
+	          	</c:otherwise>
+	          </c:choose>
+			</td>
 		</tr>
 		</c:forEach>
 	</table>

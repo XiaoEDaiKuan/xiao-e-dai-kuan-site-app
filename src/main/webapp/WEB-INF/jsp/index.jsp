@@ -195,7 +195,16 @@ $(document).ready(function(){
           <td width="11%"><img src="images/products/40x20/${hcrProd.icon}" width="40" height="20" /></td>
           <td width="18%">${hcrProd.name}</td>
           <td width="61%" style="line-height: 16px">${hcrProd.desc}</td>
-          <td width="10%"><a href="viewProduct?productId=${hcrProd.id}" target="_blank">查看</a></td>
+          <td width="10%">
+          <c:choose>
+          	<c:when test="${not empty hcrProd.linkUrl}">
+              <a href="${hcrProd.linkUrl}" target="_blank">查看</a>
+          	</c:when>
+          	<c:otherwise>
+              <a href="viewProduct?productId=${hcrProd.id}" target="_blank">查看</a>
+          	</c:otherwise>
+          </c:choose>
+          </td>
         </tr>
 		</c:forEach>
       </table>
@@ -208,14 +217,23 @@ $(document).ready(function(){
           <td width="11%"><img src="images/products/40x20/${hchProd.icon}" width="40" height="20" /></td>
           <td width="18%">${hchProd.name}</td>
           <td width="61%">${hchProd.desc}</td>
-          <td width="10%"><a href="viewProduct?productId=${hchProd.id}" target="_blank">查看</a></td>
+          <td width="10%">
+          <c:choose>
+          	<c:when test="${not empty hchProd.linkUrl}">
+              <a href="${hchProd.linkUrl}" target="_blank">查看</a>
+          	</c:when>
+          	<c:otherwise>
+              <a href="viewProduct?productId=${hchProd.id}" target="_blank">查看</a>
+          	</c:otherwise>
+          </c:choose>
+          </td>
         </tr>
 		</c:forEach>
       </table>
     </div>
   </div>
   <div class="main2_right">
-    <div class="ad1"><a href="productView?productId=4" target="_blank"></a></div>
+    <div class="ad1"><a href="viewProduct?productId=4" target="_blank"></a></div>
     <%@include file="../inc/daikuanTools.jsp"%>
     <div class="assistant ground">
       <div class="credit_title"> <span class="credit_title1 font_f">他们已经成功贷款</span></div>
