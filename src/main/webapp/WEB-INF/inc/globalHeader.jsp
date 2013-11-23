@@ -38,7 +38,7 @@
 			<c:if test="${empty sessionScope.custName}">
 				<a href="reg">注册</a><font>|</font><a href="loginView">登录</a><font>|</font>
 			</c:if>
-			<a href="myDaikuan">我的会员中心</a><font>|</font>
+			<a href="myDaikuan">会员中心</a><font>|</font>
 			<a>信贷经理登录</a><font>|</font>
 			<a>信贷经理入驻</a>
 		</div>
