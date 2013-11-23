@@ -23,4 +23,6 @@ public interface OrderService {
    List<Question> listQuestionByPrdId(String productId);
    //根据产品ID查询贷款申请条件
    List<RequireInfo> listRequireInfoByProductId(Long productId);
+   
+   Page queryOrderByStatus(int pageIndex, int pageSize, String orderStatus);
 }

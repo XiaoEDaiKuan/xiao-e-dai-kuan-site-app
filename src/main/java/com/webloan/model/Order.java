@@ -24,7 +24,7 @@ public class Order implements Serializable {
 	   private String     approvOper;//审核人
 	   private Timestamp  approvTime;//审核时间
 	   private String     approvRemark;//审核意见
-	   private BigDecimal loanTime;//贷款期限
+	   private Integer	  loanTime;//贷款期限
 	   
 	public Long getId() {
 		return id;
@@ -107,10 +107,10 @@ public class Order implements Serializable {
 	public void setRegion(Region region) {
 		this.region = region;
 	}
-	public BigDecimal getLoanTime() {
+	public Integer getLoanTime() {
 		return loanTime;
 	}
-	public void setLoanTime(BigDecimal loanTime) {
+	public void setLoanTime(Integer loanTime) {
 		this.loanTime = loanTime;
 	}
 

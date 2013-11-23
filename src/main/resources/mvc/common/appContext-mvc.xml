@@ -33,7 +33,9 @@
 			<props>
 				<!-- Home page -->
 				<prop key="/">homePageController</prop>
-				<prop key="/index.html">oldHomePageController</prop>
+				<prop key="/index.html">homePageController</prop>
+				<prop key="/index_old.html">oldHomePageController</prop>
+				
 				<!-- 产品 -->
 				<prop key="queryProduct">productController</prop>
 				<prop key="productView">productController</prop>

@@ -10,7 +10,7 @@
 <link href="cssnew/home.css" type="text/css" rel="stylesheet" />
 <link href="cssnew/tipswindown.css" type="text/css" rel="stylesheet" />
 <link href="cssnew/css.css" type="text/css" rel="stylesheet" />
- <link href="cssnew/style.css" type="text/css" rel="stylesheet" />
+<link href="cssnew/style.css" type="text/css" rel="stylesheet" />
 <script type="text/javascript" src="Scripts/lihover.js"></script>
 <script type="text/javascript" src="Scripts/jquery-1.8.0.min.js"></script>
 <script type="text/javascript" src="Scripts/jquery.jslides.js"></script>
@@ -26,26 +26,28 @@
 <c:if test="${sessionScope.regionAvailable ne '1'}">
 <script type="text/javascript">
 $(document).ready(function(){
-	  layer();
+	layer();
 });
+
 </script>
 </c:if>
 <script type="text/javascript">
 	$(document).ready(function() {
-	$("#pop_city").click(function(){
-		tipsWindown("您可以选择以下地区：","iframe:iframe:pop_city.jsp","500","200","true","","false","text","");
-	});
-	$("#pop_question").click(function(){
-		tipsWindown("我要提问：", "iframe:iframe:postQuestionForm",
-				"550", "465", "true", "", "false", "text", "");
-	});
-	
+		$("#pop_city").click(function(){
+			tipsWindown("您可以选择以下地区：","iframe:iframe:pop_city.jsp",
+					"500","200","true","","false","text","");
+		});
+		
+		$("#pop_question").click(function(){
+			tipsWindown("我要提问：", "iframe:iframe:postQuestionForm",
+					"550", "465", "true", "", "false", "text", "");
+		});
 	});	
 	
 	setTimeout('_magicTimeout()',20*1000);
     function _magicTimeout(){
 	   $('.time_box').hide();
-    }	
+    }
 </script>
 </head>
 
@@ -237,12 +239,13 @@ $(document).ready(function(){
     <%@include file="../inc/daikuanTools.jsp"%>
     <div class="assistant ground">
       <div class="credit_title"> <span class="credit_title1 font_f">他们已经成功贷款</span></div>
+      <marquee onmouseover="this.stop()" onmouseout="this.start()" scrollamount="2" scrolldelay="0" direction="up" width="100%" height="100%">
       <ul class="success">
-        <li>张先生已经成功获得薪易贷</li>
-        <li>张先生已经成功获得薪易贷</li>
-        <li>张先生已经成功获得薪易贷</li>
-        <li>张先生已经成功获得薪易贷</li>
+      <c:forEach var="sucOrder" items="${sucOrders.items}">
+      	<li>${sucOrder.applyName}先生已经成功获得${sucOrder.product.name}</li>
+      </c:forEach>
       </ul>
+      </marquee>
     </div>
   </div>
 </div>

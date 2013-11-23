@@ -14,6 +14,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.mail.SimpleMailMessage;
 
 import com.webloan.common.Page;
+import com.webloan.common.Queriable;
 import com.webloan.model.Order;
 import com.webloan.model.Product;
 import com.webloan.model.Question;
@@ -135,4 +136,13 @@ public class OrderServiceImpl implements OrderService {
 		return orderRepository.listRequireInfoByProductId(productId);
 	}
 
+	public Page queryOrderByStatus(int pageIndex, int pageSize, String orderStatus) {
+		return orderRepository.queryPage(pageIndex, pageSize, Order.class, 
+				new String[]{ "status" }, 
+				new Object[]{ orderStatus }, 
+				new String[]{ Queriable.EQ }, 
+				new String[]{ "id" }, 
+				new String[]{ Queriable.DESC }
+		);
+	}
 }

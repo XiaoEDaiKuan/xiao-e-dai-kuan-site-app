@@ -1,5 +1,7 @@
 package com.webloan.common;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -10,6 +12,8 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.Controller;
 
 import com.webloan.common.dict.RecommendType;
+import com.webloan.model.Region;
+import com.webloan.order.service.OrderService;
 import com.webloan.product.service.ProductService;
 import com.webloan.question.QuestionConstant;
 import com.webloan.question.service.QuestionService;
@@ -20,6 +24,7 @@ public class HomePageController implements Controller {
 	@Resource ProductService productService;
 	@Resource QuestionService questionService;
 	@Resource RegionService regionService;
+	@Resource OrderService orderService;
 	
 	protected transient Logger log = LoggerFactory.getLogger(this.getClass());
 
@@ -39,7 +44,13 @@ public class HomePageController implements Controller {
 		Page hiQusts = questionService.pagingQuestions(1, 5,
 				QuestionConstant.TYPE_HIGH);
 		mav.addObject("hiQusts", hiQusts);
-
+		
+		Page sucOrders = orderService.queryOrderByStatus(1, 5, "4");
+		mav.addObject("sucOrders", sucOrders);
+		
+		List<Region> provinces = regionService.queryProvinces();
+		mav.addObject("provinces", provinces);
+		
 		return mav;
 	}
 
