@@ -73,16 +73,17 @@ a:hover{text-decoration:underline;color:#569bc2;}
 
 /*底部*/
 .footer1{width:968px;margin:0 auto; clear:both; overflow:hidden;padding:0 15px 5px 15px;}
-.about{float:left;padding-left:20px;width:120px;}
+.about{float:left;padding:0 30px 0 20px;}
 .about p{height:50px;line-height:50px;font-size:14px;font-weight:bold;color:#000;}
 .about ul{float:left;width:120px;}
 .about ul li{height:22px;line-height:22px;}
 .about ul li a{color:#595757;}
-.weibo{float:left;width:245px;background:url(../images/weibo_bj.jpg) no-repeat;margin-top:35px;}
+.weibo{float:right;width:245px;background:url(../images/weibo_bj.jpg) no-repeat;margin-top:35px;}
 .weibo a{float:left;width:114px;height:30px;padding-top:73px;text-align:center;color:#000;font-size:14px;}
-div.weibo span.weibo1 a{background:url(../images/sina.jpg) no-repeat center 10px;}
-div.weibo span.weixin1 a{background:url(../images/weixin.jpg) no-repeat 15px center;}
-div.weibo span.weixin2 a{background:url(../images/weixin2.jpg) no-repeat 15px center;}
+.weibo a.weibo1{background:url(../images/sina.jpg) no-repeat center 10px;}
+.weibo a.weixin1{background:url(../images/weixin.jpg) no-repeat center 10px;}
+.weibo a.weixin2{background:url(../images/weixin2.jpg) no-repeat center 10px;}
+
 .service{float:right;width:280px;margin-top:10px;border-left:1px solid #e0edf4;}
 .service p{height:25px;line-height:25px;font-size:14px;color:#000;font-weight:bold;padding-left:20px;}
 .service1{width:235px;margin:0 auto; position:relative;height:130px;}
@@ -92,11 +93,24 @@ div.weibo span.weixin2 a{background:url(../images/weixin2.jpg) no-repeat 15px ce
 .diagnosis{right:0;top:15px;}
 .diagnosis2{left:66px;top:90px;}
 
-.footer2{width:100%;border-top:1px solid #e0e0e0;margin-top:35px;}
-.footer2_1{width:1000px;margin:0 auto;text-align:center;height:45px;padding-top:15px;}
+.footer2{width:100%;border-top:9px solid #9b0000;margin-top:35px;background:#fafafa;}
+.footer2_1{width:1000px;margin:0 auto;text-align:center;height:45px;padding-top:25px;}
 .footer2_1 img{margin:0 10px;}
 .footer2_2{width:1000px;text-align:center;line-height:20px;color:#595757;margin:0 auto;padding-top:20px;height:105px;}
 .footer2_2 font{color:#000;font-size:12px;}
 
 /*==========顶部公用模块 结束=============*/
 
+.n_top{width:100%;height:159px;margin:0 auto;background:url(../images/n_topbj.jpg) repeat-x left top; }
+.n_top1{width:1000px;height:110px;margin:0 auto;}
+.n_top2{width:1000px;height:45px;margin:0 auto;}
+.n_top3{width:100%;height:29px;background:#545652;}
+.n_top4{width:930px;margin:0 auto;height:29px;line-height:29px;padding:0 15px;font-size:12px;}
+.n_top4_left{float:left;width:390px;color:#d5d5d5; }
+.n_top4_left font{float:left;font-size:12px;padding-right:10px;}
+.n_top4_left a{float:left;padding-top:3px;}
+.n_top4_right{float:right;width:480px;text-align:right;color:#fff;}
+.n_top4_right a{color:#fff;padding:0 5px;}
+
+/* 2013-11-18 */
+.weibo_line{float:left;height:120px;width:15px;margin-top:25px;border-right:1px solid #e0edf4;}

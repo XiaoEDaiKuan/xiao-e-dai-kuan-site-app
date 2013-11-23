@@ -271,60 +271,7 @@ $(document).ready(function(){
 	</script>
   </div>
 </div>
-
-
-<div class="footer1 ground">
-  <div class="about">
-    <p>平台说明</p>
-    <ul>
-      <li><a href="financial.html" target="_blank">什么是9F云金融</a></li>
-      <li><a href="#">常见问题</a></li>
-      <li><a href="#">服务条款</a></li>
-      <li><a href="#">隐私保护</a></li>
-      <li><a href="fin_opinion.html" target="_blank">意见反馈</a></li>
-    </ul>
-  </div>
-  <div class="about">
-    <p>咨询服务-玖富金融新干线</p>
-    <ul>
-      <li><a href="#">零售金融</a></li>
-      <li><a href="#">社区银行</a></li>
-      <li><a href="#">特色培训</a></li>
-      <li><a href="#">玖富银行家</a></li>
-    </ul>
-    <ul>
-      <li><a href="#">小微金融</a></li>
-      <li><a href="#">网点转型</a></li>
-      <li><a href="#">小微技术服务</a></li>
-    </ul>
-  </div>
-  <div class="about">
-    <p>关于玖富</p>
-    <ul>
-      <li><a href="#">公司简介</a></li>
-      <li><a href="#">企业事记</a></li>
-      <li><a href="#">专业团队</a></li>
-      <li><a href="#">诚聘英才</a></li>
-      <li><a href="#">全国网点</a></li>
-    </ul>
-  </div>
-  <div class="weibo_line"></div>
-  <div class="weibo">
-	<span class="jiathis_style_64x64" class="weibo1">
-		<a class="jiathis_follow_tsina" style="background:url(images/sina.jpg) no-repeat center 10px; cursor: hand;" rel="http://e.weibo.com/jiufutougu?ref=http%3A%2F%2Fwww.9fgroup.com%2F">官方微博</a>
-	</span>
-	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
-
-    <span id="jiathis_style_64x64" class="weixin2">
-		<a class="jiathis_follow_weixin" style="background:url(images/weixin2.jpg) no-repeat center 10px; cursor: hand;">微信</a>
-	</span>
-	<script type="text/javascript" src="http://v2.jiathis.com/code/jia.js?uid=undefined" charset="utf-8"></script>
-  </div>
-  
-</div>
-<div class="footer2">
-  <div class="footer2_1"><img src="images/beida.gif" width="121" height="44" /><img src="images/itfusc.gif" width="109" height="35" /><img src="images/mm.gif" width="84" height="40" /><a href="http://www.9floan.com/Content/Help/credit.html"><img src="images/micro.gif" width="174" height="26" /></a><a href="http://www.9floan.com/Content/Help/safe.html" target="_blank"><img src="images/anquan.gif" width="84" height="40" /></a><a href="https://ss.knet.cn/verifyseal.dll?sn=e13091811010042535yjkx000000&comefrom=verify&trustKey=dn&trustValue=www.9fbank.com" target="_blank"><img src="images/kexin.gif" width="109" height="35" /></a></div>
-  <div class="footer2_2"><font>版权所有：北京玖富时代投资顾问有限公司 copyright2012　 京ICP备07003840</font><br />公司总部地址：北京朝阳区麦子店街37号盛福大厦2580<br />传真：010-85276916&nbsp;&nbsp;&nbsp;&nbsp;邮编：100000</div>
-</div>
+<%@include file="../inc/globalFooterMenu.jsp" %>
+<%@include file="../inc/globalFooter.jsp" %>
 </body>
 </html>
