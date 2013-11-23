@@ -36,6 +36,8 @@ public class Product implements Serializable {
 	
 	private Integer orders;//ORDER_ID
 	
+	private String linkUrl;//link_url
+	
 	public BigDecimal getManagerRate() {
 		return managerRate;
 	}
@@ -175,5 +177,11 @@ public class Product implements Serializable {
 	}
 	public void setRegions(List<Region> regions) {
 		this.regions = regions;
+	}
+	public String getLinkUrl() {
+		return linkUrl;
+	}
+	public void setLinkUrl(String linkUrl) {
+		this.linkUrl = linkUrl;
 	}
 }

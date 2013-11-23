@@ -108,6 +108,10 @@
 			<basic name="orders">
 				<column name="ORDER_ID" />
 			</basic>
+			<basic name="linkUrl">
+				<column name="LINK_URL" length="512"  />
+			</basic>
+			
 			
 			<one-to-many name="regions" fetch="LAZY" target-entity="com.webloan.model.Region">
 				<join-table name="PRD_REGIONS">
