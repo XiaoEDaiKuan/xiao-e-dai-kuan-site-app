@@ -148,14 +148,23 @@ public class UserController extends MultiActionController {
 		// }
 
 		ModelAndView mav = new ModelAndView();
-		mav.setViewName("redirect:/");
-		String logonName = request.getParameter("logonName");
-		String passwd = request.getParameter("passwd");
-		Cust cust = userService.login(logonName, passwd);
-		request.getSession().setAttribute("custId", cust.getId());
-		request.getSession().setAttribute("custName", cust.getCustName());
-		mav.addObject("mobile", cust.getMobileNO());
-		return mav;
+
+		try {
+			mav.setViewName("redirect:/");
+			String logonName = request.getParameter("logonName");
+			String passwd = request.getParameter("passwd");
+			Cust cust = userService.login(logonName, passwd);
+			request.getSession().setAttribute("custId", cust.getId());
+			request.getSession().setAttribute("custName", cust.getCustName());
+			mav.addObject("mobile", cust.getMobileNO());
+			return mav;
+		}
+
+		catch (Exception ex) {
+			mav.setViewName("user/login");
+			mav.addObject("response", "fail");
+			return mav;
+		}
 	}
 
 	/**
@@ -420,8 +429,8 @@ public class UserController extends MultiActionController {
 
 	public ModelAndView loginFormAction(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
-		ModelAndView mav=new ModelAndView();
-		
+		ModelAndView mav = new ModelAndView();
+
 		try {
 			mav = login(request, response);
 			mav.setViewName("order/requestProductInfo");
@@ -433,10 +442,10 @@ public class UserController extends MultiActionController {
 			return mav;
 		} catch (Exception ex) {
 			mav.setViewName("user/loginForm");
-            mav.addObject("response", "fail");
-            return mav;
+			mav.addObject("response", "fail");
+			return mav;
 		}
-		
+
 	}
 
 	// /////////////////////// 会员中心/////////////////////

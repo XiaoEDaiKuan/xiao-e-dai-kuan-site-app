@@ -25,6 +25,10 @@
             <th>账&nbsp;&nbsp;&nbsp;号：</th>
             <td><input name="logonName" id="logonName" type="text" class="input" /><br/><br/>
             	<em style="color:#CCC">Email/手机/身份证/客户号</em>
+            	<c:if test="${response=='fail'}">
+                       <span id="logonName_error" class="e9" style="display:inline-block;">账号或密码错误</span>
+                  </c:if>
+            	
             </td>
           </tr>
           <tr>
