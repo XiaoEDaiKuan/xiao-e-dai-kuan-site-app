@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <th>验证码：</th>
-            <td><input name="captcha" type="text" class="input code" id="login_form_captcha" />
+            <td><input name="captcha" type="text" class="input" id="login_form_captcha" />
             <span id="login_form_captcha_error" class="e9" style="display:none;"></span>
             </td>
           </tr>
