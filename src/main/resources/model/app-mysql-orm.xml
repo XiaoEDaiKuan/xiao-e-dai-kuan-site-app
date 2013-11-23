@@ -357,6 +357,9 @@
 			<basic name="approvRemark">
 				<column name="Approv_Remark" length="512"  />
 			</basic>
+			<basic name="loanTime">
+				<column name="Loan_Time"  precision="16" scale="2"  />
+			</basic>
 			<many-to-one name="product">
 				<join-column name="PRODUCT_ID" nullable="false" />
 			</many-to-one>
