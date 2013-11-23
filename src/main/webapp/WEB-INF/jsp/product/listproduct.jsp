@@ -299,8 +299,8 @@
   <div class="credit_title Fuzzysearch7"> 
      <div class="Loansearch7 ClearFix" id="orderBy">
 	     <a class="Loansearch8 insort" onclick="removeOrder(this)">默认排序</a>
-	     <a class="Loansearch8 noinsort" onclick="addOrder(this)" data="orderRate" value="1">总利息</a>
-	     <a class="Loansearch8 noinsort" onclick="addOrder(this)" data="orderMonthly" value="1">月供</a>
+	     <a class="Loansearch8 noinsort sortUp" onclick="addOrder(this)" data="orderRate" value="1">总利息</a>
+	     <a class="Loansearch8 noinsort sortUp" onclick="addOrder(this)" data="orderMonthly" value="1">月供</a>
      </div>
      <div class="Loansearch21">
      	<div id="uboxstyle">
