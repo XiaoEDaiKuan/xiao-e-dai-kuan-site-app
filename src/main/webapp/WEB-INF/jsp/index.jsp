@@ -237,14 +237,14 @@ $(document).ready(function(){
     <div id="demo">
     <div id="indemo">
     <div id="demo1">
-    <div><img src="images/bank01.jpg" width="116" height="28" /><br /><img src="images/bank09.jpg" width="116" height="28" /></div>
-    <div><img src="images/bank02.jpg" width="116" height="28" /><br /><img src="images/bank10.jpg" width="116" height="28" /></div>
-    <div><img src="images/bank03.jpg" width="116" height="28" /><br /><img src="images/bank11.jpg" width="116" height="28" /></div>
-    <div><img src="images/bank04.jpg" width="116" height="28" /><br /><img src="images/bank12.jpg" width="116" height="28" /></div>
-    <div><img src="images/bank05.jpg" width="116" height="28" /><br /><img src="images/bank13.jpg" width="116" height="28" /></div>
-    <div><img src="images/bank06.jpg" width="116" height="28" /><br /><img src="images/bank14.jpg" width="116" height="28" /></div>
-    <div><img src="images/bank07.jpg" width="116" height="28" /><br /><img src="images/bank15.jpg" width="116" height="28" /></div>
-    <div><img src="images/bank08.jpg" width="116" height="28" /><br /><img src="images/bank16.jpg" width="116" height="28" /></div>
+    <div><img src="images/bankicon/116x28/abc.jpg" width="116" height="28" /><br /><img src="images/bankicon/116x28/ceb.jpg" width="116" height="28" /></div>
+    <div><img src="images/bankicon/116x28/boc.jpg" width="116" height="28" /><br /><img src="images/bankicon/116x28/cmbc.jpg" width="116" height="28" /></div>
+    <div><img src="images/bankicon/116x28/bcm.jpg" width="116" height="28" /><br /><img src="images/bankicon/116x28/icbc.jpg" width="116" height="28" /></div>
+    <div><img src="images/bankicon/116x28/cgb.jpg" width="116" height="28" /><br /><img src="images/bankicon/116x28/cbc.jpg" width="116" height="28" /></div>
+    <div><img src="images/bankicon/116x28/hsb.jpg" width="116" height="28" /><br /><img src="images/bankicon/116x28/jiangsu.jpg" width="116" height="28" /></div>
+    <div><img src="images/bankicon/116x28/cmb.jpg" width="116" height="28" /><br /><img src="images/bankicon/116x28/psbc.jpg" width="116" height="28" /></div>
+    <div><img src="images/bankicon/116x28/chongqi.jpg" width="116" height="28" /><br /><img src="images/bankicon/116x28/hb.jpg" width="116" height="28" /></div>
+    <div><img src="images/bankicon/116x28/dalian.jpg" width="116" height="28" /><br /><img src="images/bankicon/116x28/btcb.jpg" width="116" height="28" /></div>
     </div>
     <div id="demo2"></div>
     </div>
