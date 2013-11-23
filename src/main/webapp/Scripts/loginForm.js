@@ -32,6 +32,7 @@ $(document).ready(function(){
                                            }
                                      );
 
+
             $('#login_form_submit').click(
                                        function(){
                                 

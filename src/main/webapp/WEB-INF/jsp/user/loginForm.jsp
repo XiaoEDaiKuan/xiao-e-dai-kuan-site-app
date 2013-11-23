@@ -39,7 +39,7 @@
 				</td>
 			</tr>
 			<tr>
-				<th ></th>
+				<th></th>
 				<td>
 				<div class="login3" style="padding:0px;margin:0px;margin-top:15px">
 					<input type="button" value="" id="login_form_submit" /><a href="forgetPasswd" target="_top">忘记密码？</a>
