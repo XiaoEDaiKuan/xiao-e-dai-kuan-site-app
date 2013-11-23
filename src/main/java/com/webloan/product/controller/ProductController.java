@@ -426,15 +426,26 @@ public class ProductController extends MultiActionController {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("zhuanqu/KS");
 		
-		String rcmdType = pq.getRcmdType();
-		if (rcmdType == null) {
-			rcmdType = RecommendType.QUICK_L1;
-		}
+//		String rcmdType = pq.getRcmdType();
+//		if (rcmdType == null) {
+//			rcmdType = RecommendType.QUICK_L1;
+//		}
+//		Page quickProds = productService.pagingAttachByRecType(
+//				pq.getPageIndex(), pq.getPageSize(), rcmdType);
+//		mav.addObject("quickProds", quickProds);
 		
-		Page quickProds = productService.pagingAttachByRecType(
-				pq.getPageIndex(), pq.getPageSize(), rcmdType);
-		mav.addObject("quickProds", quickProds);
+		Page quickL1Prods = productService.pagingAttachByRecType(
+				pq.getPageIndex(), pq.getPageSize(), RecommendType.QUICK_L1);
+		mav.addObject("quickL1Prods", quickL1Prods);
 
+		Page quickL3Prods = productService.pagingAttachByRecType(
+				pq.getPageIndex(), pq.getPageSize(), RecommendType.QUICK_L3);
+		mav.addObject("quickL3Prods", quickL3Prods);
+
+		Page quickL5Prods = productService.pagingAttachByRecType(
+				pq.getPageIndex(), pq.getPageSize(), RecommendType.QUICK_L5);
+		mav.addObject("quickL5Prods", quickL5Prods);
+		
 		return mav;
 	}
 

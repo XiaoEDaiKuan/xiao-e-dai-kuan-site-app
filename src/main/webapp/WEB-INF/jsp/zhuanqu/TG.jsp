@@ -21,12 +21,11 @@ function setTab(name,cursel,n){
 		con.style.display=i==cursel?"block":"none";
 		
        if(cursel==1){
-          obj1.style.display = "inline-block";
+          obj1.style.display = "block";
           obj2.style.display = "none";
         }  else if(cursel==2){
           obj1.style.display = "none";
-          obj2.style.display = "inline-block";
-    
+          obj2.style.display = "block";
         }
 		
 	}
@@ -77,8 +76,9 @@ function setTab(name,cursel,n){
 </div>
 </div>
 </div>
-
     </div>
+
+    
     <div class="credit ground  applicationleft13 quickloan5">
   <div class="credit_title Fuzzysearch7 Loansearch2"> 
     <span class="credit_title1 Fuzzysearch8">根据您的需求，我们推荐以下贷款产品</span>
@@ -170,8 +170,8 @@ function setTab(name,cursel,n){
   </c:forEach>
 </div>
 
-  
 </div>
+  
             </div>
         </div>
     </div>

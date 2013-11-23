@@ -10,11 +10,29 @@
 <!--
 /*第一种形式 第二种形式 更换显示样式*/
 function setTab(name,cursel,n){
+	var quickL1 = document.getElementById('quickL1Prods');
+	var quickL3 = document.getElementById('quickL3Prods');
+	var quickL5 = document.getElementById('quickL5Prods');
+	
 	for(i=1;i<=n;i++){
 		var menu=document.getElementById(name+i);
 		var con=document.getElementById("con_"+name+"_"+i);
 		menu.className=i==cursel?"hover":"";
 		con.style.display=i==cursel?"block":"none";
+	}
+		
+	if (cursel==1) {
+		quickL1.style.display = "block";
+		quickL3.style.display = "none";
+		quickL5.style.display = "none";
+	} else if(cursel==2){
+		quickL1.style.display = "none";
+		quickL3.style.display = "block";
+		quickL5.style.display = "none";
+	} else if(cursel==3){
+		quickL1.style.display = "none";
+		quickL3.style.display = "none";
+		quickL5.style.display = "block";
 	}
 }
 //-->
@@ -41,9 +59,9 @@ function setTab(name,cursel,n){
       
       <div id="Tab1">
 <div class="Menubox1 font_f">
-<div id="one1" onmouseover="setTab('one',1,3)"  class="hover"><a href="?rcmdType=8"><span>1</span><em>天</em>放款</a></div>
-<div id="one2" onmouseover="setTab('one',2,3)"><a href="?rcmdType=9"><span>3</span><em>天</em>放款</a></div>
-<div id="one3" onmouseover="setTab('one',3,3)" style="margin-right:0"><a href="?rcmdType=10"><span>5</span><em>天</em>放款</a></div>
+<div id="one1" onmouseover="setTab('one',1,3)" class="hover"><span>1</span><em>天</em>放款</div>
+<div id="one2" onmouseover="setTab('one',2,3)"><span>3</span><em>天</em>放款</div>
+<div id="one3" onmouseover="setTab('one',3,3)" style="margin-right:0"><span>5</span><em>天</em>放款</div>
 </div>
 <div class="Contentbox1">
 <div id="con_one_1" class="hover">
@@ -71,13 +89,15 @@ function setTab(name,cursel,n){
 </div>
 
     </div>
+    
     <div class="credit ground  applicationleft13 quickloan5">
   <div class="credit_title Fuzzysearch7 Loansearch2"> 
     <span class="credit_title1 Fuzzysearch8">根据您的需求，我们推荐以下贷款产品</span>
   </div>
   
-  <c:forEach var="prod" items="${quickProds.items}">
-  <div class="quickloan2 ClearFix">
+<div id="quickL1Prods">
+  <c:forEach var="prod" items="${quickL1Prods.items}">
+  <div class="quickloan2 ClearFix" style="width: 100%">
   	<div class="Loansearch19">
 	<c:choose>
 		<c:when test="${not empty prod.product.linkUrl}">
@@ -118,8 +138,100 @@ function setTab(name,cursel,n){
     </div>
   </div>
   </c:forEach>
+</div>
+  
+<div id="quickL3Prods" style="display:none">
+  <c:forEach var="prod" items="${quickL3Prods.items}">
+  <div class="quickloan2 ClearFix" style="width: 100%">
+  	<div class="Loansearch19">
+	<c:choose>
+		<c:when test="${not empty prod.product.linkUrl}">
+			<a href="${prod.product.linkUrl}" target="_blank"><img src="images/img18.jpg" width="94" height="29" /></a>
+		</c:when>
+		<c:otherwise>
+			<a href="viewProduct?productId=${prod.product.id}" target="_blank"><img src="images/img18.jpg" width="94" height="29" /></a>
+		</c:otherwise>
+	</c:choose>
+  	</div>
+  	
+     <div class="Loansearch12 quickloan3">
+    	<div class="Loansearch13 quickloan4">
+        	<h1>${prod.product.issueOrgan} - ${prod.product.name}</h1>
+            <p>
+            	<strong>额度：</strong>
+            	<span>
+            	<c:choose>
+            		<c:when test="${prod.minLoanAmt eq prod.maxLoanAmt}">
+            			<fmt:formatNumber pattern="#0.#" value="${prod.minLoanAmt div 10000}" /> 万
+            		</c:when>
+            		<c:otherwise>
+	            		<fmt:formatNumber pattern="#0.#" value="${prod.minLoanAmt div 10000}" /> 万 -
+	            		<fmt:formatNumber pattern="#0.#" value="${prod.maxLoanAmt div 10000}"/> 万
+            		</c:otherwise>
+            	</c:choose>
+            	</span> ${prod.product.paidDays} 天放款 <br />
+            	<strong>费用：</strong> ${prod.product.intrDesc} <br />
+            	<strong>说明：</strong>
+            	<em>
+            	<fmt:bundle basename="dict/dict-mapping" prefix="PRD_GRNT_TYPE.">
+           			<fmt:message key="${prod.product.guarantyType}" />
+				</fmt:bundle>
+				</em>
+            </p>
+        </div>
+    	<img src="images/img13.jpg" width="42" height="42" />
+    </div>
+  </div>
+  </c:forEach>
+</div>
+  
+<div id="quickL5Prods" style="display:none">
+  <c:forEach var="prod" items="${quickL5Prods.items}">
+  <div class="quickloan2 ClearFix" style="width: 100%">
+  	<div class="Loansearch19">
+	<c:choose>
+		<c:when test="${not empty prod.product.linkUrl}">
+			<a href="${prod.product.linkUrl}" target="_blank"><img src="images/img18.jpg" width="94" height="29" /></a>
+		</c:when>
+		<c:otherwise>
+			<a href="viewProduct?productId=${prod.product.id}" target="_blank"><img src="images/img18.jpg" width="94" height="29" /></a>
+		</c:otherwise>
+	</c:choose>
+  	</div>
+  	
+     <div class="Loansearch12 quickloan3">
+    	<div class="Loansearch13 quickloan4">
+        	<h1>${prod.product.issueOrgan} - ${prod.product.name}</h1>
+            <p>
+            	<strong>额度：</strong>
+            	<span>
+            	<c:choose>
+            		<c:when test="${prod.minLoanAmt eq prod.maxLoanAmt}">
+            			<fmt:formatNumber pattern="#0.#" value="${prod.minLoanAmt div 10000}" /> 万
+            		</c:when>
+            		<c:otherwise>
+	            		<fmt:formatNumber pattern="#0.#" value="${prod.minLoanAmt div 10000}" /> 万 -
+	            		<fmt:formatNumber pattern="#0.#" value="${prod.maxLoanAmt div 10000}"/> 万
+            		</c:otherwise>
+            	</c:choose>
+            	</span> ${prod.product.paidDays} 天放款 <br />
+            	<strong>费用：</strong> ${prod.product.intrDesc} <br />
+            	<strong>说明：</strong>
+            	<em>
+            	<fmt:bundle basename="dict/dict-mapping" prefix="PRD_GRNT_TYPE.">
+           			<fmt:message key="${prod.product.guarantyType}" />
+				</fmt:bundle>
+				</em>
+            </p>
+        </div>
+    	<img src="images/img13.jpg" width="42" height="42" />
+    </div>
+  </div>
+  </c:forEach>
+</div>
   
   </div>
+  
             </div>
         </div>
     </div>
