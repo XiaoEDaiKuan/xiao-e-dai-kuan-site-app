@@ -86,7 +86,7 @@ con.style.display=i==cursel?"block":"none";
 
             <li>利率说明: 月利率<span>
             <c:choose>
-	            <c:when test="${empty prod.product.intrRate}"></c:when>
+	            <c:when test="${empty prod.product.intrRate}">面议</c:when>
 	            <c:otherwise><fmt:formatNumber type="percent" pattern="0.00%" value="${prod.product.intrRate}" /></c:otherwise>
             </c:choose>
             </span></li>

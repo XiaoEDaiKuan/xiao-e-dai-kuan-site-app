@@ -14,6 +14,7 @@
 	
 	<mvc:resources location="/Scripts/" mapping="/Scripts/**" />
 	<mvc:resources location="/css/" mapping="/css/**" />
+	<mvc:resources location="/cssnew/" mapping="/cssnew/**" />
 	<mvc:resources location="/images/" mapping="/images/**" />
 	
 	<!-- Resolvers -->
@@ -32,7 +33,7 @@
 			<props>
 				<!-- Home page -->
 				<prop key="/">homePageController</prop>
-				<prop key="/index.html">homePageController</prop>
+				<prop key="/index.html">oldHomePageController</prop>
 				<!-- 产品 -->
 				<prop key="queryProduct">productController</prop>
 				<prop key="productView">productController</prop>
@@ -119,6 +120,7 @@
 	</bean>
 	
 	<bean id="homePageController" class="com.webloan.common.HomePageController" />
+	<bean id="oldHomePageController" class="com.webloan.common.OldHomePageController" />
 	
 	<bean id="productController" class="com.webloan.product.controller.ProductController">
 		<property name="methodNameResolver">

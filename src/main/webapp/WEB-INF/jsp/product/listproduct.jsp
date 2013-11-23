@@ -72,9 +72,11 @@
 		var pageIndex = $.getUrlParam('pageIndex');
 		if(pageIndex != null){
 			pageIndex = parseInt(pageIndex) - 1;
-			$(".me_next a").removeClass("currentPager");
-	    	$($(".me_next a")[pageIndex]).addClass("currentPager");
+		} else {
+			pageIndex = 0;
 		}
+		$(".me_next a").removeClass("currentPager");
+    	$($(".me_next a")[pageIndex]).addClass("currentPager");
     }
     
     function getParmasUrl(){
@@ -232,7 +234,7 @@
 		<option value="" >其他</option>
 	</select>
 </div></td>
-          <td width="30%" rowspan="2" align="left" valign="middle"><a href="#"><img onclick="search()" src="images/img10.jpg" width="94" height="29" /></a></td>
+          <td width="30%" rowspan="2" align="left" valign="middle"><a href="#"><img onclick="search()" src="images/search_btn.png" width="94" height="29" /></a></td>
     <td width="16%">&nbsp;</td>
   </tr>
   <tr>

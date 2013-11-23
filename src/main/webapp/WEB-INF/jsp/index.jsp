@@ -2,87 +2,172 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns:wb="http://open.weibo.com/wb"  xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>首页</title>
-<%@include file="../inc/globalScript.jsp" %>
+<link href="cssnew/publlc.css" type="text/css" rel="stylesheet" />
+<link href="cssnew/home.css" type="text/css" rel="stylesheet" />
+<link href="cssnew/tipswindown.css" type="text/css" rel="stylesheet" />
+<link href="cssnew/css.css" type="text/css" rel="stylesheet" />
+ <link href="cssnew/style.css" type="text/css" rel="stylesheet" />
+<script type="text/javascript" src="Scripts/lihover.js"></script>
+<script type="text/javascript" src="Scripts/jquery-1.8.0.min.js"></script>
+<script type="text/javascript" src="Scripts/jquery.jslides.js"></script>
+<script type="text/javascript" src="Scripts/tipswindown.js"></script>
+<script type="text/javascript" src="Scripts/pop_zidong.js"> </script>
+<style type="text/css">
+.pop_contact .pop_city a.C_${sessionScope.currentRegion.id}{
+	color:#f68a55;
+	font-weight:bold;
+	border-bottom:solid #f68a55 1px;
+}
+</style>
+<c:if test="${sessionScope.regionAvailable ne '1'}">
+<script type="text/javascript">
+$(document).ready(function(){
+	  layer();
+});
+</script>
+</c:if>
+<script type="text/javascript">
+	$(document).ready(function() {
+	$("#pop_city").click(function(){
+		tipsWindown("您可以选择以下地区：","iframe:iframe:pop_city.jsp","500","200","true","","false","text","");
+	});
+	$("#pop_question").click(function(){
+		tipsWindown("我要提问：", "iframe:iframe:postQuestionForm",
+				"550", "465", "true", "", "false", "text", "");
+	});
+	
+	});	
+	
+	setTimeout('_magicTimeout()',20*1000);
+    function _magicTimeout(){
+	   $('.time_box').hide();
+    }	
+</script>
 </head>
+
 <body>
-<jsp:include page="../inc/globalHeader.jsp">
-	<jsp:param name="index" value="1" />
-</jsp:include>
+<!--================== 自动弹出框 城市切换 开始 ==================-->
+<div id="brg"></div>
+<div id="showdiv">
+   <div id="close_bj"><span class="font_f">提示</span>
+    <div id="close"></div>
+   </div>
+   <div id="testdiv">
+    <div class="testdiv1">根据您的IP地址，您在${sessionScope.currentRegion.name}。</div>
+    <div class="testdiv2">目前玖富云金融平台尚未在该地区开通线下贷款业务，金融机构无法接受您的贷款申请。您可以切换至以下地区浏览平台产品服务以及使用平台功能。</div>
+    <div class="pop_contact">
+		<div class="testdiv3">请选择以下地区</div>
+		<div class="pop_city">
+			<c:forEach var="alr" items="${applicationScope.allowLoanRegions}">
+				<!--<a href="selectCity?setcity=${alr.id}" class="C_${alr.id}">${alr.name}</a>-->
+				<a href="#" onclick="location.href='selectCity?setcity=${alr.id}&from='+escape(location.href)" class="C_${alr.id}">${alr.name}</a>
+			</c:forEach>
+		</div>
+		<div class="pop_city2"><b>温馨提示：</b>请选择您的真实所在地，否则金融机构不能受理您的贷款申请。</div>
+     </div>
+  </div>
+ </div>
+ <!--================== 自动弹出框 城市切换 结束 ==================-->
+<div class="n_top3">
+  <div class="n_top4">
+    <div class="n_top4_left"><font>客服热线：400-810-2599</font><a href="http://weibo.com/jiufutougu" target="_blank"><img src="images/n_weibo.jpg" width="62" height="22" /></a></div>
+    <div class="n_top4_right">
+	    <c:if test="${not empty sessionScope.custName}">${sessionScope.custName}, 欢迎您！<font>|</font> <a href="logOut">退出</a> <font>|</font></c:if>
+		<c:if test="${empty sessionScope.custName}"><a href="reg">注册</a><font>|</font><a href="loginView">登录</a><font>|</font></c:if>
+		<a href="myDaikuan">会员中心</a><font>|</font>
+		<a>信贷经理登录</a><font>|</font>
+		<a>加盟商专区</a><font>|</font>
+		<a href="http://zixun.9fbank.com" target="_blank">银行专区</a>
+    </div>
+  </div>
+</div>
+<div class="n_top">
+  <div class="n_top1">
+    <div class="logo"><a href="index.html"></a></div>
+    <!--2013-11-15-->
+    <div class="logo_wei">
+      <div class="logo_title font_f">微金融&nbsp;&nbsp;云平台</div>
+      <div class="city font_f"><font>${sessionScope.currentRegion.name}</font><a href="#" id="pop_city">[切换城市]</a></div>
+    </div>
+    <!--2013-11-15 end-->
+    <div class="top_right">
+    <!--<div class="top_right1"><a href="registered.html">注册</a><font>|</font><a href="login.html">登录</a><font>|</font><a href="members.html">我的会员中心</a><font>|</font><a href="login.html">信贷经理登录</a><font>|</font><a href="manager.html">信贷经理入驻</a></div>-->
+  </div>
+  </div>
+  <div class="n_top2">
+    <div class="underPmenu font_f" id="w_nav">
+      <ul>
+        <li class="hover"><a href="index.html">首页</a></li>
+        <li><a href="#">直接贷</a></li>
+        <li><a href="#">信用码</a></li>
+        <li><a href="http://tuan.9fbank.com/front/common/index" target="_blank">金融团</a><i></i></li>
+        <li><a href="queryProduct" target="_blank">贷款池</a>
+          <ul>
+            <li class="subline"></li>
+			<li><a href="queryProduct?loanUse=2" class="w_a1" target="_blank">消费贷款</a></li>
+			<li><a href="queryProduct?loanUse=1" class="w_a1" target="_blank">经营贷款</a></li>
+			<li><a href="queryProduct?loanUse=4" class="w_a1" target="_blank">购车贷款</a></li>
+			<li><a href="queryProduct?loanUse=3" class="w_a1" target="_blank">购房贷款</a></li>
+          </ul>
+        </li>
+        <li><a href="ask" target="_blank">贷款百科</a></li>
+        <li><a href="#">代理商</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
 <div id="full-screen-slider">
   <ul id="slides">
-    <li class="pic1"><a href="#"></a></li>
-    <li class="pic2"><a href="#"></a></li>
-    <li class="pic3"><a href="#"></a></li>
+    <li class="pic1"><a></a></li>
+    <li class="pic2"><a></a></li>
+    <li class="pic3"><a href="http://tuan.9fbank.com" target="_blank"></a></li>
   </ul>
   <div class="sy_login">
     <div class="sy_login1">
     </div>
-    <div class="sy_login2">
-      <h1>玖富专业贷款搜索平台</h1>
+    <div class="sy_login2 sy_login4">
+    	<h1>直接贷</h1>
       <table width="100%" border="0" cellspacing="0" cellpadding="0">
         <tr>
-          <th width="20%">职业身份：</th>
-          <td><div id="tm2008style">
-	<select name="identity" id="identity" class="proSearch" readonly="true">
-		<option value="">不限职业</option>
-		<option value="1">企业主</option>
-		<option value="2" >个体户</option>
-		<option value="3" >上班族</option>
-	</select>
-</div></td>
-          <td>&nbsp;</td>
+          <th width="30%" height="24" align="right" valign="middle">姓名：</th>
+          <td width="70%"><input name="" type="text" class="sy_login6" /></td>
         </tr>
         <tr>
-          <th>贷款用途：</th>
-          <td><div id="tm2008style">
-	<select name="loanUse" id="loanUse" class="proSearch"  readonly="true">
-		<option value="">请选择</option>
-		<option value="0">不限</option>
-		<option value="1" >经营贷款</option>
-		<option value="2" >消费贷款</option>
-		<option value="3" >购车贷款</option>
-		<option value="4" >购房贷款</option>
-	</select>
-</div></td>
-          <td>&nbsp;</td>
+          <th height="24" align="right" valign="middle">手机号：</th>
+          <td><input name="" type="text" class="sy_login6" /></td>
         </tr>
         <tr>
-          <th>贷款金额：</th>
-          <td><div id="tm2008style2">
-	<select name="loanAmt" id="loanAmt" class="proSearch">
-		<option value="3" >3</option>
-		<option value="5" >5</option>
-		<option value="10" >10</option>
-		<option value="20" >20</option>
-		<option value="50" >50</option>
-		<option value="100" >100</option>
-		<option value="" >其他</option>
-	</select>
-</div></td>
-          <td>不足1万可用小数表示</td>
+          <th height="24" align="right" valign="middle">所在城市：</th>
+          <td><select name="">
+            <option value="北京">北京</option>
+            <option value="牡丹江">黑龙江</option>
+            <option value="上海">上海</option>
+            <option value="广州">广州</option>
+          </select>
+          <select name="">
+            <option value="北京">北京</option>
+            <option value="牡丹江">黑龙江</option>
+            <option value="上海">上海</option>
+            <option value="广州">广州</option>
+          </select>
+          </td>
         </tr>
         <tr>
-          <th>贷款期限：</th>
-          <td><div id="tm2008style">
-	<select name="loanIssue" id="loanIssue" class="proSearch"  readonly="true">
-		<option value="3">3个月</option>
-		<option value="6" >6个月</option>
-		<option value="12">12个月</option>
-		<option value="24" >2年</option>
-		<option value="36" >3年</option>
-		<option value="60" >5年</option>
-		<option value="120" >10年</option>
-	</select>
-</div></td>
-          <td>&nbsp;</td>
+          <th height="24" align="right" valign="middle">申请额度：</th>
+          <td><input name="" type="text" class="sy_login5" />万元</td>
         </tr>
         <tr>
-          <td>&nbsp;</td>
-          <td><input name="" type="button" value="" class="btn1" onclick="searchProduct()" /></td>
-          <td>&nbsp;</td>
+          <th height="24" align="right" valign="middle">贷款期限：</th>
+          <td><input name="" type="text" class="sy_login5" />个月</td>
+        </tr>
+        <tr>
+          <td height="40" align="right" valign="bottom">&nbsp;</td>
+          <td align="right" valign="middle"><a href="贷款搜索.html" class="sy_login3">立即申请</a></td>
         </tr>
       </table>
     </div>
@@ -103,20 +188,20 @@
 <div class="main2">
   <div class="main2_left">
     <div class="credit ground">
-      <div class="credit_title"> <span class="credit_title1 font_f">热门信用贷款</span> <span class="credit_title2">无需抵押 担保</span> <a target="_blank" href="queryProduct">更多信用贷款</a> </div>
+      <div class="credit_title"> <span class="credit_title1 font_f">小微快速贷款精选</span> <span class="credit_title2">无需抵押 担保</span> <a target="_blank" href="queryProduct">更多信用贷款</a> </div>
       <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table">
 		<c:forEach var="hcrProd" items="${hcrProds.items}">
 		<tr>
           <td width="11%"><img src="images/products/40x20/${hcrProd.icon}" width="40" height="20" /></td>
           <td width="18%">${hcrProd.name}</td>
-          <td width="61%">${hcrProd.desc}</td>
+          <td width="61%" style="line-height: 16px">${hcrProd.desc}</td>
           <td width="10%"><a href="viewProduct?productId=${hcrProd.id}" target="_blank">查看</a></td>
         </tr>
 		</c:forEach>
       </table>
     </div>
     <div class="credit ground">
-      <div class="credit_title"> <span class="credit_title1 font_f">热门特色贷款</span></div>
+      <div class="credit_title"> <span class="credit_title1 font_f">银行特色贷款精选</span></div>
       <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table">
 		<c:forEach var="hchProd" items="${hchProds.items}">
 		<tr>
@@ -131,33 +216,35 @@
   </div>
   <div class="main2_right">
     <div class="ad1"><a href="productView?productId=4" target="_blank"></a></div>
-    <div class="sina">
-      <div class="sina_border">
-      <div class="sina1"><a href="http://e.weibo.com/jiufutougu?ref=http%3A%2F%2Fwww.9fgroup.com%2F" target="_blank" class="sina2"><img src="images/sina.jpg" width="62" /></a><p>平台微博加关注</p></div>
-      <div class="sina1"><a href="#" class="weixin"><img src="images/weixin.jpg" width="62" height="62" /></a><p>平台微信二维码</p></div> 
-      </div>   
-    </div>
     <%@include file="../inc/daikuanTools.jsp"%>
-    <%@include file="../inc/scrollTools.jsp"%>
+    <div class="assistant ground">
+      <div class="credit_title"> <span class="credit_title1 font_f">他们已经成功贷款</span></div>
+      <ul class="success">
+        <li>张先生已经成功获得薪易贷</li>
+        <li>张先生已经成功获得薪易贷</li>
+        <li>张先生已经成功获得薪易贷</li>
+        <li>张先生已经成功获得薪易贷</li>
+      </ul>
+    </div>
   </div>
 </div>
 <div class="main3 padding-bt ground">
   <div class="credit_title"> 
-    <span class="credit_title1 font_f">云金融平台</span>
-    <p>9大总行 10多家区域银行 17处小微金融服务中心 覆盖28区的云金融网络</p>
+    <span class="credit_title1 font_f">云金融平台入驻银行</span>
+    <p>9大总行 10多家区域银行 17处小微金融服务中心  覆盖全国28区的云金融网络</p>
   </div>
   <div class="cloud">
     <div id="demo">
     <div id="indemo">
     <div id="demo1">
-    <div><img src="images/bankicon/116x28/abc.jpg" width="116" height="28" /><br /><img src="images/bankicon/116x28/ceb.jpg" width="116" height="28" /></div>
-    <div><img src="images/bankicon/116x28/boc.jpg" width="116" height="28" /><br /><img src="images/bankicon/116x28/cmbc.jpg" width="116" height="28" /></div>
-    <div><img src="images/bankicon/116x28/bcm.jpg" width="116" height="28" /><br /><img src="images/bankicon/116x28/icbc.jpg" width="116" height="28" /></div>
-    <div><img src="images/bankicon/116x28/cgb.jpg" width="116" height="28" /><br /><img src="images/bankicon/116x28/cbc.jpg" width="116" height="28" /></div>
-    <div><img src="images/bankicon/116x28/hsb.jpg" width="116" height="28" /><br /><img src="images/bankicon/116x28/jiangsu.jpg" width="116" height="28" /></div>
-    <div><img src="images/bankicon/116x28/cmb.jpg" width="116" height="28" /><br /><img src="images/bankicon/116x28/psbc.jpg" width="116" height="28" /></div>
-    <div><img src="images/bankicon/116x28/chongqi.jpg" width="116" height="28" /><br /><img src="images/bankicon/116x28/hb.jpg" width="116" height="28" /></div>
-    <div><img src="images/bankicon/116x28/dalian.jpg" width="116" height="28" /><br /><img src="images/bankicon/116x28/btcb.jpg" width="116" height="28" /></div>
+    <div><img src="images/bank01.jpg" width="116" height="28" /><br /><img src="images/bank09.jpg" width="116" height="28" /></div>
+    <div><img src="images/bank02.jpg" width="116" height="28" /><br /><img src="images/bank10.jpg" width="116" height="28" /></div>
+    <div><img src="images/bank03.jpg" width="116" height="28" /><br /><img src="images/bank11.jpg" width="116" height="28" /></div>
+    <div><img src="images/bank04.jpg" width="116" height="28" /><br /><img src="images/bank12.jpg" width="116" height="28" /></div>
+    <div><img src="images/bank05.jpg" width="116" height="28" /><br /><img src="images/bank13.jpg" width="116" height="28" /></div>
+    <div><img src="images/bank06.jpg" width="116" height="28" /><br /><img src="images/bank14.jpg" width="116" height="28" /></div>
+    <div><img src="images/bank07.jpg" width="116" height="28" /><br /><img src="images/bank15.jpg" width="116" height="28" /></div>
+    <div><img src="images/bank08.jpg" width="116" height="28" /><br /><img src="images/bank16.jpg" width="116" height="28" /></div>
     </div>
     <div id="demo2"></div>
     </div>
@@ -184,29 +271,60 @@
 	</script>
   </div>
 </div>
-<div class="main4">
-  <div class="ask ground">
-    <div class="credit_title"> <span class="credit_title1 font_f">大家都在问</span> <!--<a target="_blank" href="ask">更多问题</a>-->
-    <input name="" type="button" value="我要提问" id="pop_question" /> </div>
-    <ul class="homequestion_list">
-    <c:forEach var="hiQust" items="${hiQusts.items}">
-      <!--li><a href="viewAnswer?id=${hiQust.id}" target="_blank"></a></li-->
-      <li><div onclick="showQuestion('Q_${hiQust.id}')" style="cursor: pointer;display: block;color:#727171">${hiQust.detail} 
-      	<span style="float:right"><fmt:formatDate value="${hiQust.askTime}" pattern="yyyy-MM-dd" /></span></div></li>
-    		<li id="Q_${hiQust.id}" style="display:none;background-color:#f2f7fd">
-    		<c:forEach var="a" items="${hiQust.answers}" varStatus="ast">
-				<c:if test="${ast.index == 0}"><a href="viewAnswer?id=${hiQust.id}" style="display:block;background-color:#f2f7fd" target="_blank" >答: ${a.answerContent}</a></c:if>&nbsp;
-			</c:forEach>
-			</li>
-    </c:forEach>
+
+
+<div class="footer1 ground">
+  <div class="about">
+    <p>平台说明</p>
+    <ul>
+      <li><a href="financial.html" target="_blank">什么是9F云金融</a></li>
+      <li><a href="#">常见问题</a></li>
+      <li><a href="#">服务条款</a></li>
+      <li><a href="#">隐私保护</a></li>
+      <li><a href="fin_opinion.html" target="_blank">意见反馈</a></li>
     </ul>
-    <div style="clear:both"></div>
   </div>
-  <div class="strategy ground">
-  <%@include file="../inc/gonglueList.jsp"%>
-  </div> 
+  <div class="about">
+    <p>咨询服务-玖富金融新干线</p>
+    <ul>
+      <li><a href="#">零售金融</a></li>
+      <li><a href="#">社区银行</a></li>
+      <li><a href="#">特色培训</a></li>
+      <li><a href="#">玖富银行家</a></li>
+    </ul>
+    <ul>
+      <li><a href="#">小微金融</a></li>
+      <li><a href="#">网点转型</a></li>
+      <li><a href="#">小微技术服务</a></li>
+    </ul>
+  </div>
+  <div class="about">
+    <p>关于玖富</p>
+    <ul>
+      <li><a href="#">公司简介</a></li>
+      <li><a href="#">企业事记</a></li>
+      <li><a href="#">专业团队</a></li>
+      <li><a href="#">诚聘英才</a></li>
+      <li><a href="#">全国网点</a></li>
+    </ul>
+  </div>
+  <div class="weibo_line"></div>
+  <div class="weibo">
+	<span class="jiathis_style_64x64" class="weibo1">
+		<a class="jiathis_follow_tsina" style="background:url(images/sina.jpg) no-repeat center 10px; cursor: hand;" rel="http://e.weibo.com/jiufutougu?ref=http%3A%2F%2Fwww.9fgroup.com%2F">官方微博</a>
+	</span>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+
+    <span id="jiathis_style_64x64" class="weixin2">
+		<a class="jiathis_follow_weixin" style="background:url(images/weixin2.jpg) no-repeat center 10px; cursor: hand;">微信</a>
+	</span>
+	<script type="text/javascript" src="http://v2.jiathis.com/code/jia.js?uid=undefined" charset="utf-8"></script>
+  </div>
+  
 </div>
-<%@include file="../inc/globalFooterMenu.jsp" %>
-<%@include file="../inc/globalFooter.jsp" %>
+<div class="footer2">
+  <div class="footer2_1"><img src="images/beida.gif" width="121" height="44" /><img src="images/itfusc.gif" width="109" height="35" /><img src="images/mm.gif" width="84" height="40" /><a href="http://www.9floan.com/Content/Help/credit.html"><img src="images/micro.gif" width="174" height="26" /></a><a href="http://www.9floan.com/Content/Help/safe.html" target="_blank"><img src="images/anquan.gif" width="84" height="40" /></a><a href="https://ss.knet.cn/verifyseal.dll?sn=e13091811010042535yjkx000000&comefrom=verify&trustKey=dn&trustValue=www.9fbank.com" target="_blank"><img src="images/kexin.gif" width="109" height="35" /></a></div>
+  <div class="footer2_2"><font>版权所有：北京玖富时代投资顾问有限公司 copyright2012　 京ICP备07003840</font><br />公司总部地址：北京朝阳区麦子店街37号盛福大厦2580<br />传真：010-85276916&nbsp;&nbsp;&nbsp;&nbsp;邮编：100000</div>
+</div>
 </body>
 </html>

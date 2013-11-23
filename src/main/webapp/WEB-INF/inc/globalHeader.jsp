@@ -46,7 +46,7 @@
 		<div class="underPmenu font_f" id="w_nav">
 			<ul>
 				<li <c:if test="${param.index eq '1'}">class="hover"</c:if>><a href="index.html">首页</a></li>
-				<li <c:if test="${param.index eq '2'}">class="hover"</c:if>><a href="queryProduct" target="_blank">贷款搜索</a>
+				<li <c:if test="${param.index eq '2'}">class="hover"</c:if>><a href="queryProduct" target="_blank">贷款池</a>
 					<ul>
 						<li class="subline"></li>
 						<li><a href="queryProduct?loanUse=2" class="w_a1" target="_blank">消费贷款</a></li>
@@ -58,7 +58,7 @@
 				<li <c:if test="${param.index eq '3'}">class="hover"</c:if>><a href="scoreChoose" target="_blank">信用评分</a></li>
 				<li <c:if test="${param.index eq '4'}">class="hover"</c:if>><a href="http://tuan.9fbank.com/front/common/index" target="_blank">金融团</a> <i></i></li>
 				<li <c:if test="${param.index eq '5'}">class="hover"</c:if>><a href="gonglue" target="_blank">贷款攻略</a></li>
-				<li <c:if test="${param.index eq '6'}">class="hover"</c:if>><a href="ask" target="_blank">贷款问答</a></li>
+				<li <c:if test="${param.index eq '6'}">class="hover"</c:if>><a href="ask" target="_blank">贷款百科</a></li>
 			</ul>
 		</div>
 	</div>
