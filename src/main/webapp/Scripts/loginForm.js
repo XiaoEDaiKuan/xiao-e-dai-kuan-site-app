@@ -52,7 +52,7 @@ $(document).ready(function(){
  
                                                    return;
                                                 }
-                                                     
+                                                   
                                                      if(flag){
                                                          $("#login_form_2").submit();
                                                      }

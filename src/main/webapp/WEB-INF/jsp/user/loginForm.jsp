@@ -14,21 +14,23 @@
 	<form action="loginFormAction" method="post" id="login_form_2">
 		<table width="100%" border="0" cellspacing="4" cellpadding="3">
 			<tr>
-				<th>账&nbsp;&nbsp;&nbsp;号：</th>
+				<th >账号:</th>
 				<td><input name="logonName" id="logonName" type="text" style="height:28px;width:150px;margin-bottom:8px"
-					class="input" />
+					class="input" /><br/>
+					<em style="color:#CCC">Email/手机/身份证/客户号</em>
 					<c:if test="${response=='fail'}">
+					<br>
                        <span id="logonName_error" class="e9" style="display:inline-block;">账号或密码错误</span>
                   </c:if>
 					</td>
 			</tr>
 			<tr>
-				<th>密&nbsp;&nbsp;&nbsp;码：</th>
+				<th >密码:</th>
 				<td><input name="passwd" id="passwd" type="password"
 					class="input"  style="height:28px;width:150px;margin-bottom:8px"/></td>
 			</tr>
 			<tr>
-				<th>验证码：</th>
+				<th >验证码:</th>
 				<td><input name="captcha" type="text" class="input code"  style="height:28px;width:108px;margin-bottom:0px;vertical-align: middle; " id="login_form_captcha" />
 				<img id="captchaimg" src="handleCaptcha" alt="captcha"  class="input code" style="margin:0px;width:90px;height:28px;vertical-align: middle;" onclick="reloadCaptcha()" />
 				  <span id="login_form_captcha_ok" class="tip_yes" style="display:none;"></span>
@@ -37,7 +39,7 @@
 				</td>
 			</tr>
 			<tr>
-				<th></th>
+				<th ></th>
 				<td>
 				<div class="login3" style="padding:0px;margin:0px;margin-top:15px">
 					<input type="button" value="" id="login_form_submit" /><a href="forgetPasswd" target="_top">忘记密码？</a>

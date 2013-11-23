@@ -432,7 +432,14 @@ public class UserController extends MultiActionController {
 		ModelAndView mav = new ModelAndView();
 
 		try {
-			mav = login(request, response);
+			mav.setViewName("redirect:/");
+			String logonName = request.getParameter("logonName");
+			String passwd = request.getParameter("passwd");
+			Cust cust = userService.login(logonName, passwd);
+			request.getSession().setAttribute("custId", cust.getId());
+			request.getSession().setAttribute("custName", cust.getCustName());
+			mav.addObject("mobile", cust.getMobileNO());
+
 			mav.setViewName("order/requestProductInfo");
 
 			Object productId = request.getSession().getAttribute("productId");
@@ -440,7 +447,10 @@ public class UserController extends MultiActionController {
 			request.getSession().removeAttribute("productId");
 
 			return mav;
-		} catch (Exception ex) {
+
+		}
+
+		catch (Exception ex) {
 			mav.setViewName("user/loginForm");
 			mav.addObject("response", "fail");
 			return mav;
