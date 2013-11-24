@@ -36,6 +36,7 @@
 	<copy todir="${webapp.target}" overwrite="true" includeemptydirs="false">
 		<fileset dir="${webapp.dir}" excludes=".gitignore">
 			<include name="css/**/*" />
+			<include name="cssnew/**/*" />
 			<include name="images/**/*" />
 			<include name="Scripts/**/*" />
 			<include name="META-INF/**/*" />
