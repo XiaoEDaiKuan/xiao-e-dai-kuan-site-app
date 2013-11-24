@@ -45,6 +45,9 @@
 				<!-- 订单 -->
 				<prop key="popSave">orderController</prop>
 				<prop key="orderEmail">orderController</prop>
+				<prop key="directloan">orderController</prop>
+				<prop key="directOrder">orderController</prop>
+				<prop key="loadCities">orderController</prop>
 				
 				<!-- 用户注册 -->
 				<prop key="createUser">userController</prop>
@@ -65,6 +68,8 @@
   			    <prop key="verifyIdNo">userController</prop>
   			    <prop key="verifyEmail">userController</prop>
   			    <prop key="selectCity">userController</prop>
+  			    <prop key="creditCust">userController</prop>
+  			    <prop key="createCreditCust">userController</prop>
   			    
 				<prop key="loginForm">userController</prop>
 				<prop key="loginFormAction">userController</prop>

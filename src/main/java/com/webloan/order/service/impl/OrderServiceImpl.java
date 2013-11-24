@@ -18,8 +18,10 @@ import com.webloan.common.Queriable;
 import com.webloan.model.Order;
 import com.webloan.model.Product;
 import com.webloan.model.Question;
+import com.webloan.model.Region;
 import com.webloan.model.RequireInfo;
 import com.webloan.order.OrderConstant;
+import com.webloan.order.OrderQuery;
 import com.webloan.order.dao.OrderRepository;
 import com.webloan.order.service.OrderService;
 import com.webloan.util.MailEngine;
@@ -144,5 +146,16 @@ public class OrderServiceImpl implements OrderService {
 				new String[]{ "id" }, 
 				new String[]{ Queriable.DESC }
 		);
+	}
+	
+	public void createOrder(OrderQuery orderQuery) {
+		Order order = new Order();
+		order.setApplyName(orderQuery.getApplyName());
+		order.setApplyTelephone(orderQuery.getApplyTelephone());
+		order.setApplyAmt(orderQuery.getApplyAmt());
+		order.setLoanTime(orderQuery.getLoanTime());
+		Region region = orderRepository.load(Region.class, orderQuery.getCityId());
+		order.setRegion(region);
+		orderRepository.save(order);
 	}
 }

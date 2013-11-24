@@ -32,6 +32,7 @@
 .sy_login2 table tr td select{width:60px;height:20px;margin-right:7px;padding:0px;border:1px solid #bdbdbd;}
 .sy_login2 input {height:22px; line-height:22px; width:105px;border:1px solid #bdbdbd;border-radius: 20px; padding:0 10px;}
 a.sy_login3 {margin-right:35px; display:inline-block;padding:3px 12px;background:#385a83;color:#FFF; font-family:"微软雅黑"; font-size:14px;border-radius: 10px; text-decoration:none}
+.sy_login3 {margin-right:35px; display:inline-block;padding:3px 12px;background:#385a83;color:#FFF; font-family:"微软雅黑"; font-size:14px;border-radius: 10px; text-decoration:none}
 .sy_login4 {padding:0px}
 input.sy_login5 {width:40px;margin-right:5px}
 
