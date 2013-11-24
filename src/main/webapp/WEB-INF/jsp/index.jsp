@@ -42,6 +42,29 @@ $(document).ready(function(){
 			tipsWindown("我要提问：", "iframe:iframe:postQuestionForm",
 					"550", "465", "true", "", "false", "text", "");
 		});
+		
+		$("#provinceList").change(function(){
+			var checkValue = $(this).val();
+			if (checkValue) {
+				$.ajax({
+					url: 'loadCities',
+					type: 'post',
+					data: {
+						provinceId: checkValue
+					},
+					dataType: "json",
+					success: function (data) {
+						$("#cityList").find("option").each(function(){
+				            $(this).remove();
+				    	});
+						$("<option value=''>请选择</option>").appendTo($("#cityList"));
+						for (var i = 0; i < data.length; i++) {
+							$("<option value='" + data[i].id +"'>" + data[i].name + "</option>").appendTo($("#cityList"));
+						}
+					}
+				});
+			}
+		});
 	});	
 	
 	setTimeout('_magicTimeout()',20*1000);
@@ -104,8 +127,8 @@ $(document).ready(function(){
     <div class="underPmenu font_f" id="w_nav">
       <ul>
         <li class="hover"><a href="index.html">首页</a></li>
-        <li><a href="#">直接贷</a></li>
-        <li><a href="#">信用码</a></li>
+        <li><a href="directloan" target="_blank">直接贷</a></li>
+        <li><a href="creditCust" target="_blank">信用码</a></li>
         <li><a href="http://tuan.9fbank.com/front/common/index" target="_blank">金融团</a><i></i></li>
         <li><a href="queryProduct" target="_blank">贷款池</a>
           <ul>
@@ -134,44 +157,43 @@ $(document).ready(function(){
     </div>
     <div class="sy_login2 sy_login4">
     	<h1>直接贷</h1>
+    	<form action="directOrder" method="post" target="_blank">
       <table width="100%" border="0" cellspacing="0" cellpadding="0">
         <tr>
           <th width="30%" height="24" align="right" valign="middle">姓名：</th>
-          <td width="70%"><input name="" type="text" class="sy_login6" /></td>
+          <td width="70%"><input name="applyName" type="text" class="sy_login6" /></td>
         </tr>
         <tr>
           <th height="24" align="right" valign="middle">手机号：</th>
-          <td><input name="" type="text" class="sy_login6" /></td>
+          <td><input name="applyTelephone" type="text" class="sy_login6" /></td>
         </tr>
         <tr>
           <th height="24" align="right" valign="middle">所在城市：</th>
-          <td><select name="">
-            <option value="北京">北京</option>
-            <option value="牡丹江">黑龙江</option>
-            <option value="上海">上海</option>
-            <option value="广州">广州</option>
+          <td><select id="provinceList">
+            <option value="">请选择</option>
+	        <c:forEach var="prov" items="${provinces}">
+	        <option value="${prov.id}">${prov.name}</option>
+	        </c:forEach>
           </select>
-          <select name="">
-            <option value="北京">北京</option>
-            <option value="牡丹江">黑龙江</option>
-            <option value="上海">上海</option>
-            <option value="广州">广州</option>
+          <select id="cityList" name="cityId">
+            <option value="">请选择</option>
           </select>
           </td>
         </tr>
         <tr>
           <th height="24" align="right" valign="middle">申请额度：</th>
-          <td><input name="" type="text" class="sy_login5" />万元</td>
+          <td><input name="applyAmt" type="text" class="sy_login5" />万元</td>
         </tr>
         <tr>
           <th height="24" align="right" valign="middle">贷款期限：</th>
-          <td><input name="" type="text" class="sy_login5" />个月</td>
+          <td><input name="loanTime" type="text" class="sy_login5" />个月</td>
         </tr>
         <tr>
           <td height="40" align="right" valign="bottom">&nbsp;</td>
-          <td align="right" valign="middle"><a href="贷款搜索.html" class="sy_login3">立即申请</a></td>
+          <td align="right" valign="middle"><input type="submit" value="立即申请" class="sy_login3"/></td>
         </tr>
       </table>
+      </form>
     </div>
   </div>
 </div>

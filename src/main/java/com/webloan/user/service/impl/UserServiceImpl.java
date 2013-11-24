@@ -826,4 +826,21 @@ public class UserServiceImpl implements UserService {
 	  return custs.get(0);
 	}
 
+	public Boolean saveCust(Cust cust) {
+		List<Cust> custs = userRepository.queryList(Cust.class, 
+				new String[]{ "custName", "mobileNO" }, 
+				new Object[]{ cust.getCustName(), cust.getMobileNO() });
+		
+		Boolean ret = false;
+		
+		if (custs == null || custs.isEmpty()) {
+			try {
+				userRepository.save(cust);
+				ret = true;
+			} catch (Exception e) {}
+		}
+		
+		return ret;
+	}
+	
 }

@@ -287,28 +287,28 @@
 				<column name="CUST_NAME" length="64" nullable="false" />
 			</basic>
 			<basic name="custNO">
-				<column name="CUST_NO" length="32" nullable="false" />
+				<column name="CUST_NO" length="32" />
 			</basic>
 			<basic name="logonPasswd">
-				<column name="LOGON_PASSWD" length="32" nullable="false" />
+				<column name="LOGON_PASSWD" length="32" />
 			</basic>
 			<basic name="mobileNO">
 				<column name="MOBILE_NO" length="32" nullable="false" />
 			</basic>
 			<basic name="idType">
-				<column name="ID_Type" length="16" nullable="false" />
+				<column name="ID_Type" length="16" />
 			</basic>
 			<basic name="idNO">
-				<column name="ID_NO" length="32" nullable="false" />
+				<column name="ID_NO" length="32" />
 			</basic>
 			<basic name="email">
-				<column name="email" length="128" nullable="false" />
+				<column name="email" length="128" />
 			</basic>
 			<basic name="postCode">
-				<column name="postCode" length="16" nullable="false" />
+				<column name="postCode" length="16" />
 			</basic>
 			<basic name="address">
-				<column name="address" length="512" nullable="false" />
+				<column name="address" length="512" />
 			</basic>
 			<basic name="setupTime">
 				<column name="Setup_Time" />
@@ -319,7 +319,9 @@
 			<basic name="status">
 				<column name="status" length="16" nullable="false" />
 			</basic>
-			
+			<basic name="custType">
+				<column name="cust_type" length="16" />
+			</basic>
 		</attributes>
 	</entity>
 
@@ -361,10 +363,10 @@
 				<column name="Loan_Time" />
 			</basic>
 			<many-to-one name="product">
-				<join-column name="PRODUCT_ID" nullable="false" />
+				<join-column name="PRODUCT_ID" />
 			</many-to-one>
 			<many-to-one name="cust">
-				<join-column name="CUST_ID" nullable="false" />
+				<join-column name="CUST_ID" />
 			</many-to-one>
 			<many-to-one name="region">
 				<join-column name="REGION_ID"  />

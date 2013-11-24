@@ -54,4 +54,6 @@ public interface UserService {
 
 	//获得用户信息
 	public Cust findCustById(Long custId);
+	
+	Boolean saveCust(Cust cust);
 }

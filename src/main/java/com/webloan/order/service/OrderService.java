@@ -5,6 +5,7 @@ import java.util.List;
 import com.webloan.common.Page;
 import com.webloan.model.Question;
 import com.webloan.model.RequireInfo;
+import com.webloan.order.OrderQuery;
 
 public interface OrderService {
 	//查询订单
@@ -25,4 +26,6 @@ public interface OrderService {
    List<RequireInfo> listRequireInfoByProductId(Long productId);
    
    Page queryOrderByStatus(int pageIndex, int pageSize, String orderStatus);
+   
+   void createOrder(OrderQuery orderQuery);
 }

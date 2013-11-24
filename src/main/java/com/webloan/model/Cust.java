@@ -23,6 +23,8 @@ public class Cust implements Serializable {
 	   private Timestamp setupTime;//注册时间
 	   private String setupIP;//注册时的IP
 	   private String status="1";//状态,默认未激活
+	   private String custType="0";//客户类型：0为普通客户，1为信用码客户
+	   
 	public Long getId() {
 		return id;
 	}
@@ -101,6 +103,11 @@ public class Cust implements Serializable {
 	public void setStatus(String status) {
 		this.status = status;
 	}
-
+	public String getCustType() {
+		return custType;
+	}
+	public void setCustType(String custType) {
+		this.custType = custType;
+	}
 	
 }

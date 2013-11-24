@@ -925,4 +925,34 @@ public class UserController extends MultiActionController {
 
 		return mav;
 	}
+	
+	public ModelAndView creditCust(HttpServletRequest request,
+			HttpServletResponse response) throws Exception {
+		return new ModelAndView("user/creditcust");
+	}
+	public void createCreditCust(HttpServletRequest request,
+			HttpServletResponse response, Cust cust) throws Exception {
+		Boolean ret = false;
+		
+		if (cust.getCustName() != null && !"".equals(cust.getCustNO())
+				&& cust.getMobileNO() != null && !"".equals(cust.getMobileNO())) {
+			String setupIP = request.getHeader("Remote_Addr");
+			if (setupIP == null) {
+				setupIP = request.getHeader("HTTP_X_FORWARDED_FOR");
+			}
+			if (setupIP == null) {
+				setupIP = request.getRemoteAddr();
+			}
+			
+			cust.setSetupIP(setupIP);
+			cust.setCustType("1");
+			
+			ret = userService.saveCust(cust);
+		}
+		
+		PrintWriter out = response.getWriter();
+		out.print(ret ? "success" : "fail");
+		out.flush();
+		out.close();
+	}
 }
