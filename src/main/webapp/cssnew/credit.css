@@ -1,0 +1,76 @@
+@charset "utf-8";
+/* CSS Document */
+.cre_code{width:100%;background:url(../images/credit/credit_code_bj.jpg) repeat-x left top;}
+.cre_top{width:1000px;height:875px;background:url(../images/credit/credit_code_topbj.jpg) no-repeat right 12px;margin:0 auto;}
+.cre_logo{width:200px;height:305px;background:#fff;padding:125px 0 0 0;}
+.cre_logo a{display:block;width:132px;height:115px;margin:0 auto;background:url(../images/credit/credit_logo.jpg) no-repeat;}
+.cre_logo p{width:151px;height:24px;background:url(../images/credit/credit_ad.jpg) no-repeat;margin:0 auto;}
+.cre_main{width:100%;background:#fae9da;}
+.cre_msg{width:766px;height:585px;margin:0 auto;background:url(../images/credit/credit_code_line.jpg) no-repeat;} 
+.cre_qr_code{width:585px;height:210px;margin:0 auto;padding:40px 0 0 0;}
+.cre_qr_code_left{float:left;width:157px;height:157px;background:url(../images/credit/qr_code.jpg) no-repeat;}
+.cre_qr_code_right{float:right;width:355px;font-size:48px;color:#ff4400;padding-top:75px;}
+.cre_message_title{width:625px;margin:0 auto; font-size:30px;color:#c2765b;line-height:45px;font-weight:600;}
+.cre_message_title p{color:#88472f;padding-left:75px;}
+.cre_message{width:610px;margin:0 auto; clear:both; overflow:hidden;}
+.cre_message_left{float:left;width:405px;padding-top:20px;}
+.cre_message_left p{height:45px;line-height:30px;font-family:"微软雅黑";}
+.cre_message_left p font{float:left;font-size:21px;color:#5d210b;text-align:right;width:138px;padding-right:8px;}
+.cre_message_left p input{float:left;width:240px;height:28px;border:1px solid #ddd;line-height:28px;font-size:14px;}
+.cre_message_right{float:right;width:80px;height:81px;padding:20px 20px 0 0;}
+.cre_message_right input{width:80px;height:81px;background:url(../images/credit/credit_code_btn.jpg) no-repeat; cursor:pointer;}
+
+.cre_footer{width:100%;height:508px;background:url(../images/credit/credit_footer_bj.jpg) repeat-x left top;}
+.cre_footer_logo{width:155px;height:155px;margin:0 auto;background:url(../images/credit/credit_footer_logo.jpg) no-repeat;}
+.cre_footer_content{width:1003px;margin:0 auto;}
+.cre_footer_link{width:1003px;height:75px;background:#f40;text-align:center;padding-top:25px;}
+.cre_footer_link a{padding:0 15px;}
+
+.cre_footer_add{width:1003px;background:#f40;font-size:14px;color:#fff;line-height:30px;text-align:center;}
+
+
+/* 弹出框 */
+html,body {width:100%;height:100%; margin:0px; font-size:12px;}
+.mydiv2 {z-index:99999;width:315px;
+left:50%;top:50%;
+margin-left:-157px!important;/*FF IE7 该值为本身宽的一半 */
+margin-top:-175px!important;/*FF IE7 该值为本身高的一半*/
+margin-top:0px;
+position:fixed!important;/* FF IE7*/
+position:absolute;/*IE6*/
+_top:       expression(eval(document.compatMode &&
+            document.compatMode=='CSS1Compat') ?
+            documentElement.scrollTop + (document.documentElement.clientHeight-this.offsetHeight)/2 :/*IE6*/
+            document.body.scrollTop + (document.body.clientHeight - this.clientHeight)/2);/*IE5 IE5.5*/
+border-radius: 23px;
+border:5px solid #ff8080;
+}
+
+.bg,.popIframe {
+background: #666; 
+display:none;
+width: 100%;
+height: 100%;
+_height:100%;
+left:0;
+top:0;/*FF IE7*/
+filter:alpha(opacity=60);/*IE*/
+opacity:0.6;/*FF*/
+z-index:1;
+position:fixed!important;/*FF IE7*/
+position:absolute;/*IE6*/
+_top:       expression(eval(document.compatMode &&
+            document.compatMode=='CSS1Compat') ?
+            documentElement.scrollTop + (document.documentElement.clientHeight-this.offsetHeight)/2 :/*IE6*/
+            document.body.scrollTop + (document.body.clientHeight - this.clientHeight)/2);
+}
+.popIframe {filter:alpha(opacity=0);/*IE*/opacity:0;/*FF*/_height:0;}
+.pop{width:315px;height:30px;background:#ff0000;border-top-left-radius:18px;border-top-right-radius:18px;}
+.pop_right{float:right;width:13px;height:17px;padding:10px 10px 0 0;}
+
+.pop2{width:315px;background:#fff;font-family:"微软雅黑";padding:30px 0 30px 0;border-bottom-right-radius:18px;border-bottom-left-radius:18px; clear:both; overflow:hidden;text-align:center;}
+.pop2 font{font-size:20px;font-weight:600;}
+.pop2 p{font-size:14px;padding-top:15px;color:#555;}
+.pop2 input{width:80px;height:28px;background:#ff8080;text-align:center;line-height:28px;border-radius: 5px;margin-top:25px;font-size:14px;color:#fff;font-weight:600; cursor:pointer;}
+
+
