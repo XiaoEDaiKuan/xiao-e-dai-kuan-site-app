@@ -7,6 +7,7 @@
 <title>直接贷</title>
 <link href="cssnew/publicise.css" type="text/css" rel="stylesheet" />
 <script type="text/javascript" src="Scripts/jquery-1.8.0.min.js"></script>
+<script type="text/javascript" src="Scripts/zhijiedai.js"> </script>
 
 <script type="text/javascript">
 	$(document).ready(function() {
@@ -47,7 +48,10 @@
     <form action="directOrder" method="post">
     <ul class="login_content">
       <li>
-        <input name="applyName" type="text" value="您的姓名" />
+        <input name="applyName" type="text" value="您的姓名" id="applyName"/>
+              <span id="applyName_ok" class="tip_yes" style="display:none;"></span>
+              <span id="applyName_error" class="e9" style="display:none;"></span>
+        
       </li>
       <li>
         <input name="applyTelephone" type="text" value="您的手机号" />

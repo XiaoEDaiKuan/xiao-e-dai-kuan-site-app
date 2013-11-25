@@ -32,6 +32,7 @@ $(document).ready(
                                    
              $('#applyName').blur(
                                       function(){
+                                      
                                                   var flag1=false;
                                                   var len=$("#applyName").val().replace(/[^\x00-\xff]/g,"**").length;
                                                   if(len>=4 && len<=10){
