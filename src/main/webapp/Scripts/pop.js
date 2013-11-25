@@ -38,7 +38,7 @@ $(document).ready(
                                                      $("#custName_ok").css('display','none');
                                                      $("#custName_error").css('display','inline-block');
                                                      $("#custName_error").addClass("wrong_box clearfix");
-                                                     $("#custName_error").html("请输入2-5个汉字");
+                                                     $("#custName_error").html("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;请输入2-5个汉字");
                                                      cust_name_flag=false;
                                                      
                                                   }
@@ -52,7 +52,8 @@ $(document).ready(
                                                     mobile_falg=pattern.test($("#mobileNO").val());
                                                
                                                     if(!mobile_falg){
-                                                        $("#mobileNO_error").html("请输入正确的手机号码");
+                                               
+                                                        $("#mobileNO_error").html("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;请输入正确的手机号码");
                                                         $("#mobileNO_error").css('display','inline-block');
                                                         $("#mobileNO_error").addClass("wrong_box");
                                                         mobile_falg=false;
@@ -62,7 +63,6 @@ $(document).ready(
                                                         $("#mobileNO_error").removeClass("wrong_box clearfix");
                                                         mobile_falg=true;
                                                      }
-                                               
                                       
                                       }
              );                           

@@ -257,7 +257,7 @@ $(document).ready(function(){
 		<c:forEach var="hchProd" items="${hchProds.items}">
 		<tr>
           <td width="11%"><img src="images/products/40x20/${hchProd.icon}" width="40" height="20" /></td>
-          <td width="18%">${hchProd.name}</td>
+          <td width="18%">${hchProd.issueOrgan}-${hchProd.name}</td>
           <td width="61%">${hchProd.desc}</td>
           <td width="10%">
           <c:choose>

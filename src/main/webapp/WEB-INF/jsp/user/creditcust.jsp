@@ -32,10 +32,12 @@
       <div class="cre_message_left">
         <p><font>姓名</font>
           <input id="custName" name="custName" type="text" />
+              
               <span id="custName_ok" class="tip_yes" style="display:none;"></span>
               <span id="custName_error" class="e9" style="display:none;"></span>
           
         </p>
+        <br>
         <p><font>手机号</font>
           <input id="mobileNO" name="mobileNO" type="text" />
                 <span id="mobileNO_ok" class="tip_yes" style="display:none;"></span>
