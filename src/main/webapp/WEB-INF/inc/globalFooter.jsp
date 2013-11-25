@@ -4,7 +4,7 @@
 		<img src="images/beida.gif" width="121" height="44" />
 		<img src="images/itfusc.gif" width="109" height="35" />
 		<img src="images/mm.gif" width="84" height="40" />
-		<a href="http://www.9floan.com/Content/Help/credit.html"><img src="images/micro.gif" width="174" height="26" /></a>
+		<a href="http://www.9floan.com/Content/Help/credit.html" target="_blank"><img src="images/micro.gif" width="174" height="26" /></a>
 		<a href="http://www.9floan.com/Content/Help/safe.html" target="_blank"><img src="images/anquan.gif" width="84" height="40" /></a>
 		<a><img src="images/kexin.gif" width="109" height="35" /></a>
 	</div>
