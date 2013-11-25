@@ -27,10 +27,10 @@
   <div class="about">
     <p>关于玖富</p>
     <ul>
-      <li><a href="http://www.9fgroup.com/Content/about9f.html" target="_blank">公司简介</a></li>
-      <li><a href="http://www.9fgroup.com/Content/events.html" target="_blank">企业事记</a></li>
-      <li><a href="http://www.9fgroup.com/Content/aboutUs_Team.html" target="_blank">专业团队</a></li>
-      <li><a href="http://www.9fgroup.com/Shared/joinUs" target="_blank">诚聘英才</a></li>
+      <li><a href="introduction.jsp" target="_blank">公司简介</a></li>
+      <li><a href="milestones.jsp" target="_blank">企业事记</a></li>
+      <li><a href="teams.jsp" target="_blank">专业团队</a></li>
+      <li><a href="joinus.jsp" target="_blank">诚聘英才</a></li>
       <li><a href="branch.jsp" target="_blank">全国网点</a></li>
     </ul>
   </div>
