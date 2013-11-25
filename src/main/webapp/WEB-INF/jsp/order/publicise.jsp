@@ -19,25 +19,33 @@
                    
                  $("#applyName").click(
                                       function(){
+                                          if($("#applyName").val()=="您的姓名"){
                                             $("#applyName").val("");
+                                            }
                                       }
                   );                                         
                  
                  $("#applyTelephone").click(
                                       function(){
+                                      if($("#applyTelephone").val()=="您的手机号"){
                                             $("#applyTelephone").val("");
+                                          }  
                                       }
                   );                                         
 
                  $("#loan_amt").click(
                                       function(){
+                                        if($("#loan_amt").val()=="申请额度（万元）"){
                                             $("#loan_amt").val("");
+                                            }
                                       }
                   );         
                                                   
                  $("#loan_issue").click(
                                       function(){
+                                      if($("#loan_issue").val()=="贷款期限（个月）"){
                                             $("#loan_issue").val("");
+                                          }  
                                       }
                   );         
 
@@ -56,17 +64,20 @@
                                                   var flag2=pattern.test($("#applyName").val());
 
                                                   if(flag1 && flag2){
-                                                  	  $("#applyName_ok").css('display','inline-block');      
+                                                  	 $("#applyName_ok").css('display','inline-block');      
                                                      $("#applyName_error").css('display','none');
                                                      $("#applyName_error").removeClass("wrong_box clearfix");
                                                      $("#applyName_error").html("");
                                                      cust_name_flag=true;  
+                                                     
                                                   }else{
                                                      $("#applyName_ok").css('display','none');
                                                      $("#applyName_error").css('display','inline-block');
                                                      $("#applyName_error").addClass("wrong_box clearfix");
-                                                     $("#applyName_error").html("请输入2-5个汉字");
-                                                     cust_name_flag=false;  
+                                                     $("#applyName_error").html("<font color='red'>请输入2-5个汉字</font>");
+                                                     $("#applyName").val("");
+                                                     cust_name_flag=false;
+                                                     $("#applyName").val("您的姓名");  
                                                   }
                                                   
                                                }
@@ -79,9 +90,10 @@
                                                     mobile_falg=pattern.test($("#applyTelephone").val());
                                                
                                                     if(!mobile_falg){
-                                                        $("#applyTelephone_error").html("请输入正确的手机号码");
+                                                        $("#applyTelephone_error").html("<font color='red'>请输入正确的手机号码</font>");
                                                         $("#applyTelephone_error").css('display','inline-block');
                                                         $("#applyTelephone_error").addClass("wrong_box");
+                                                        $("#applyTelephone").val("您的手机号");
                                                      }else {
                                                         $("#applyTelephone_error").html("");
                                                         $("#applyTelephone_error").css('display','none');
@@ -100,9 +112,11 @@
                                                   loan_amt_flag=pattern.test($("#loan_amt").val());
                                                
                                                     if(!loan_amt_flag){
-                                                        $("#loan_amt_error").html("请输入正确的贷款金额");
+                                                        $("#loan_amt_error").html("<font color='red'>请输入正确的贷款金额</font>");
                                                         $("#loan_amt_error").css('display','inline-block');
                                                         $("#loan_amt_error").addClass("wrong_box");
+                                                        $("#loan_amt").val("申请额度（万元）");
+                                                        loan_amt_flag=false;
                                                      }else {
                                                         $("#loan_amt_error").html("");
                                                         $("#loan_amt_error").css('display','none');
@@ -120,9 +134,11 @@
                                                   loan_issue_flag=pattern.test($("#loan_issue").val());
                                                
                                                     if(!loan_issue_flag){
-                                                        $("#loan_issue_error").html("请输入正确的贷款期限");
+                                                        $("#loan_issue_error").html("<font color='red'>请输入正确的贷款期限</font>");
                                                         $("#loan_issue_error").css('display','inline-block');
                                                         $("#loan_issue_error").addClass("wrong_box");
+                                                        $("#loan_issue").val("贷款期限（个月）");
+                                                        loan_issue_flag=false;
                                                      }else {
                                                         $("#loan_issue_error").html("");
                                                         $("#loan_issue_error").css('display','none');
@@ -140,7 +156,7 @@
                                                      $("#provinceList_ok").css('display','none');
                                                      $("#provinceList_error").css('display','inline-block');
                                                      $("#provinceList_error").addClass("wrong_box clearfix");
-                                                     $("#provinceList_error").html("请选择正确的省份及城市");
+                                                     $("#provinceList_error").html("<font color='red'>请选择正确的省份及城市</font>");
                                                      provinceList_flag=false;  
                                                       return;
                                                   }else{
@@ -160,7 +176,7 @@
                                                      $("#provinceList_ok").css('display','none');
                                                      $("#provinceList_error").css('display','inline-block');
                                                      $("#provinceList_error").addClass("wrong_box clearfix");
-                                                     $("#provinceList_error").html("请选择正确的省份及城市");
+                                                     $("#provinceList_error").html("<font color='red'>请选择正确的省份及城市</font>");
                                                      provinceList_flag=false;  
                                                       return;
                                                   }else{
@@ -236,14 +252,15 @@
         <input name="applyName" type="text" value="您的姓名" id="applyName"/>
               <span id="applyName_ok" class="tip_yes" style="display:none;"></span>
               <span id="applyName_error" class="e9" style="display:none;"></span>
-        
       </li>
+      
       <li>
         <input name="applyTelephone" type="text" value="您的手机号"  id="applyTelephone" />
                 <span id="applyTelephone_ok" class="tip_yes" style="display:none;"></span>
                 <span id="applyTelephone_error" class="e9" style="display:none;"></span>
         
       </li>
+      
       <li>
         <select name="provinceId" id="provinceList">
           <option value="">所在省份</option>
@@ -258,16 +275,19 @@
                 <span id="provinceList_error" class="e9" style="display:none;"></span>
         
       </li>
+      
       <li>
         <input name="applyAmt" type="text" value="申请额度（万元）" class="input1" id="loan_amt" />
              <span id="loan_amt_ok" class="tip_yes" style="display:none;"></span>
              <span id="loan_amt_error" class="e9" style="display:none;"></span>
       </li>
+      
       <li>
         <input name="loanTime" type="text" value="贷款期限（个月）" class="input1" id="loan_issue" />
                 <span id="loan_issue_ok" class="tip_yes" style="display:none;"></span>
                 <span id="loan_issue_error" class="e9" style="display:none;"></span>
       </li>
+      
       <li>
         <input type="button" class="btn"  id="zhijiedai_submit" />
       </li>
