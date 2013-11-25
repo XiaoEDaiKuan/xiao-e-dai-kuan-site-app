@@ -235,8 +235,8 @@ $(document).ready(function(){
 		<c:forEach var="hcrProd" items="${hcrProds.items}">
 		<tr>
           <td width="11%"><img src="images/products/40x20/${hcrProd.icon}" width="40" height="20" /></td>
-          <td width="18%">${hcrProd.name}</td>
-          <td width="61%" style="line-height: 16px">${hcrProd.desc}</td>
+          <td width="24%" style="line-height: 16px">${hcrProd.name}</td>
+          <td width="55%" style="line-height: 16px">${hcrProd.desc}</td>
           <td width="10%">
           <c:choose>
           	<c:when test="${not empty hcrProd.linkUrl}">
@@ -257,8 +257,8 @@ $(document).ready(function(){
 		<c:forEach var="hchProd" items="${hchProds.items}">
 		<tr>
           <td width="11%"><img src="images/products/40x20/${hchProd.icon}" width="40" height="20" /></td>
-          <td width="18%">${hchProd.issueOrgan}-${hchProd.name}</td>
-          <td width="61%">${hchProd.desc}</td>
+          <td width="24%" style="line-height: 16px">${hchProd.issueOrgan}-${hchProd.name}</td>
+          <td width="55%" style="line-height: 16px">${hchProd.desc}</td>
           <td width="10%">
           <c:choose>
           	<c:when test="${not empty hchProd.linkUrl}">
@@ -281,9 +281,11 @@ $(document).ready(function(){
       <div class="credit_title"> <span class="credit_title1 font_f">他们已经成功贷款</span></div>
       <marquee onmouseover="this.stop()" onmouseout="this.start()" scrollamount="2" scrolldelay="0" direction="up" width="100%" height="100%">
       <ul class="success">
-      <c:forEach var="sucOrder" items="${sucOrders.items}">
-      	<li>${sucOrder.applyName}先生已经成功获得${sucOrder.product.name}</li>
-      </c:forEach>
+        <li>李女士成功获得了5万元薪易贷。</li>
+        <li>王先生成功获得了8万元楼易贷。</li>
+        <li>王先生成功获得了8万元商会贷。</li>
+        <li>张女士成功获得了3万元薪易贷。</li>
+        <li>林女士成功获得了3万元快易贷。</li>
       </ul>
       </marquee>
     </div>
