@@ -40,9 +40,10 @@
         <br>
         <p><font>手机号</font>
           <input id="mobileNO" name="mobileNO" type="text" />
+        </p>
                 <span id="mobileNO_ok" class="tip_yes" style="display:none;"></span>
                 <span id="mobileNO_error" class="e9" style="display:none;"></span>
-        </p>
+
       </div>
       <div class="cre_message_right">
         <input type="button" onclick="javascript:saveCreditCust()" />

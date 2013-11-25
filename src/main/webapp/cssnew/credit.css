@@ -13,7 +13,7 @@
 .cre_message_title{width:625px;margin:0 auto; font-size:30px;color:#c2765b;line-height:45px;font-weight:600;}
 .cre_message_title p{color:#88472f;padding-left:75px;}
 .cre_message{width:610px;margin:0 auto; clear:both; overflow:hidden;}
-.cre_message_left{float:left;width:405px;padding-top:20px;}
+.cre_message_left{float:left;width:405px;padding-top:10px;}
 .cre_message_left p{height:40px;line-height:30px;font-family:"微软雅黑";}
 .cre_message_left p font{float:left;font-size:21px;color:#5d210b;text-align:right;width:138px;padding-right:8px;}
 .cre_message_left p input{float:left;width:240px;height:28px;border:1px solid #ddd;line-height:28px;font-size:14px;}
