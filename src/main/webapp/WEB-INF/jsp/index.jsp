@@ -16,6 +16,8 @@
 <script type="text/javascript" src="Scripts/jquery.jslides.js"></script>
 <script type="text/javascript" src="Scripts/tipswindown.js"></script>
 <script type="text/javascript" src="Scripts/pop_zidong.js"> </script>
+<script type="text/javascript" src="Scripts/zhijiedai.js"> </script>
+
 <style type="text/css">
 .pop_contact .pop_city a.C_${sessionScope.currentRegion.id}{
 	color:#f68a55;
@@ -157,15 +159,21 @@ $(document).ready(function(){
     </div>
     <div class="sy_login2 sy_login4">
     	<h1>直接贷</h1>
-    	<form action="directOrder" method="post" target="_blank">
+    	<form action="directOrder" method="post" target="_blank" id="directOrder">
       <table width="100%" border="0" cellspacing="0" cellpadding="0">
         <tr>
           <th width="30%" height="24" align="right" valign="middle">姓名：</th>
-          <td width="70%"><input name="applyName" type="text" class="sy_login6" /></td>
+          <td width="70%"><input name="applyName" type="text" class="sy_login6" id="applyName" />
+              <span id="applyName_ok" class="tip_yes" style="display:none;"></span>
+              <span id="applyName_error" class="e9" style="display:none;"></span>
+          </td>
         </tr>
         <tr>
           <th height="24" align="right" valign="middle">手机号：</th>
-          <td><input name="applyTelephone" type="text" class="sy_login6" /></td>
+          <td><input name="applyTelephone" type="text" class="sy_login6" id="applyTelephone" />
+                <span id="applyTelephone_ok" class="tip_yes" style="display:none;"></span>
+                <span id="applyTelephone_error" class="e9" style="display:none;"></span>
+          </td>
         </tr>
         <tr>
           <th height="24" align="right" valign="middle">所在城市：</th>
@@ -175,22 +183,32 @@ $(document).ready(function(){
 	        <option value="${prov.id}">${prov.name}</option>
 	        </c:forEach>
           </select>
-          <select id="cityList" name="cityId">
+          <select id="cityList" name="cityId" >
             <option value="">请选择</option>
           </select>
+                <span id="provinceList_ok" class="tip_yes" style="display:none;"></span>
+                <span id="provinceList_error" class="e9" style="display:none;"></span>
+
+
           </td>
         </tr>
         <tr>
           <th height="24" align="right" valign="middle">申请额度：</th>
-          <td><input name="applyAmt" type="text" class="sy_login5" />万元</td>
+          <td><input name="applyAmt" type="text" class="sy_login5" id="loan_amt" />万元
+                <span id="loan_amt_ok" class="tip_yes" style="display:none;"></span>
+                <span id="loan_amt_error" class="e9" style="display:none;"></span>
+          </td>
         </tr>
         <tr>
           <th height="24" align="right" valign="middle">贷款期限：</th>
-          <td><input name="loanTime" type="text" class="sy_login5" />个月</td>
+          <td><input name="loanTime" type="text" class="sy_login5"  id="loan_issue"/>个月
+                <span id="loan_issue_ok" class="tip_yes" style="display:none;"></span>
+                <span id="loan_issue_error" class="e9" style="display:none;"></span>
+          </td>
         </tr>
         <tr>
           <td height="40" align="right" valign="bottom">&nbsp;</td>
-          <td align="right" valign="middle"><input type="submit" value="立即申请" class="sy_login3"/></td>
+          <td align="right" valign="middle"><input type="button" value="立即申请" class="sy_login3"  id="zhijiedai_submit"/></td>
         </tr>
       </table>
       </form>
