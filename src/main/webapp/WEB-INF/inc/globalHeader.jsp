@@ -40,7 +40,7 @@
 			</c:if>
 			<a href="myDaikuan">会员中心</a><font>|</font>
 			<a>信贷经理登录</a><font>|</font>
-   		    <a>加盟商专区</a><font>|</font>
+   		    <a>代理商专区</a><font>|</font>
 		    <a href="http://zixun.9fbank.com" target="_blank">银行专区</a>
 		</div>
 
