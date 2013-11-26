@@ -167,6 +167,46 @@ public class UserController extends MultiActionController {
 		}
 	}
 
+	public ModelAndView memlogin(HttpServletRequest request,
+			HttpServletResponse response) throws Exception {
+
+		// 验证验证码
+		// String sessionId = request.getSession().getId();
+		// String captcha = request.getParameter("captcha");
+		//
+		// boolean flag = false;
+		// try {
+		// flag = captchaService.validateResponseForID(sessionId, captcha);
+		// } catch (Exception e) {
+		// e.printStackTrace();
+		// log.error(UserConstant.EXCEPTION_CAPTCHA_CODE);
+		// throw new BizException(UserConstant.EXCEPTION_CAPTCHA_CODE);
+		// }
+		// if (!flag) {
+		// log.error(UserConstant.EXCEPTION_CAPTCHA_CODE);
+		// throw new BizException(UserConstant.EXCEPTION_CAPTCHA_CODE);
+		// }
+
+		ModelAndView mav = new ModelAndView();
+
+		try {
+			mav.setViewName("member/myDaikuan");
+			String logonName = request.getParameter("logonName");
+			String passwd = request.getParameter("passwd");
+			Cust cust = userService.login(logonName, passwd);
+			request.getSession().setAttribute("custId", cust.getId());
+			request.getSession().setAttribute("custName", cust.getCustName());
+			mav.addObject("mobile", cust.getMobileNO());
+			return mav;
+		}
+
+		catch (Exception ex) {
+			mav.setViewName("user/login");
+			mav.addObject("response", "fail");
+			return mav;
+		}
+	}
+
 	/**
 	 * 跳转到登录页面
 	 * 
@@ -432,7 +472,7 @@ public class UserController extends MultiActionController {
 		ModelAndView mav = new ModelAndView();
 
 		try {
-			mav.setViewName("redirect:/");
+			//mav.setViewName("redirect:/");
 			String logonName = request.getParameter("logonName");
 			String passwd = request.getParameter("passwd");
 			Cust cust = userService.login(logonName, passwd);
@@ -476,7 +516,7 @@ public class UserController extends MultiActionController {
 
 		if (null == custId) {
 			log.error(UserConstant.EXCEPTION_CUST_NOT_FOUND);
-			mav.setViewName("user/login");
+			mav.setViewName("member/memlogin");
 			return mav;
 
 		}
