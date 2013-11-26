@@ -235,7 +235,7 @@ $(document).ready(function(){
 		<c:forEach var="hcrProd" items="${hcrProds.items}">
 		<tr>
           <td width="11%"><img src="images/products/40x20/${hcrProd.icon}" width="40" height="20" /></td>
-          <td width="24%" style="line-height: 16px">${hcrProd.name}</td>
+          <td width="24%" style="line-height: 16px">${hcrProd.issueOrgan}-${hcrProd.name}</td>
           <td width="55%" style="line-height: 16px">${hcrProd.desc}</td>
           <td width="10%">
           <c:choose>
