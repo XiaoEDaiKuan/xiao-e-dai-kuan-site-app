@@ -828,8 +828,8 @@ public class UserServiceImpl implements UserService {
 
 	public Boolean saveCust(Cust cust) {
 		List<Cust> custs = userRepository.queryList(Cust.class, 
-				new String[]{ "custName", "mobileNO" }, 
-				new Object[]{ cust.getCustName(), cust.getMobileNO() });
+				new String[]{ "mobileNO" }, 
+				new Object[]{ cust.getMobileNO() });
 		
 		Boolean ret = false;
 		

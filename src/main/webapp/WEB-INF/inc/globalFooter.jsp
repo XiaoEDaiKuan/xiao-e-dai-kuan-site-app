@@ -6,7 +6,7 @@
 		<img src="images/mm.gif" width="84" height="40" />
 		<a href="http://www.9floan.com/Content/Help/credit.html" target="_blank"><img src="images/micro.gif" width="174" height="26" /></a>
 		<a href="http://www.9floan.com/Content/Help/safe.html" target="_blank"><img src="images/anquan.gif" width="84" height="40" /></a>
-		<a><img src="images/kexin.gif" width="109" height="35" /></a>
+		<a href="https://ss.knet.cn/verifyseal.dll?sn=e13091811010042535yjkx000000&comefrom=verify&trustKey=dn&trustValue=www.9fbank.com" target="_blank"><img src="images/kexin.gif" width="109" height="35" /></a>
 	</div>
 	<div class="footer2_2">
 		<font>版权所有：北京玖富时代投资顾问有限公司 copyright&copy;2012 京ICP备07003840</font><br />

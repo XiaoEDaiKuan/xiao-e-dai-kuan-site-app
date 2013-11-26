@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <div class="top">
 	<div class="logo">
-		<a href="index"></a>
+		<a href="index.html"></a>
 	</div>
 	<div class="registered font_f">会员中心</div>
 	  <div class="back_home font_f"><a href="index.html">9F首页</a></div>
