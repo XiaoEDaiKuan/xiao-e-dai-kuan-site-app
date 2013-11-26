@@ -42,7 +42,7 @@
 	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
 
     <span id="jiathis_style_64x64" class="weixin2">
-		<a class="jiathis_follow_weixin" style="background:url(images/weixin2.jpg) no-repeat center 10px; cursor: pointer; cursor: hand;">微信</a>
+		<a class="jiathis_follow_weixin" style="background:url(images/weixin2.jpg) no-repeat center 10px; cursor: pointer; cursor: hand;"></a>
 	</span>
 	<script type="text/javascript" src="http://v2.jiathis.com/code/jia.js?uid=undefined" charset="utf-8"></script>
   </div>
