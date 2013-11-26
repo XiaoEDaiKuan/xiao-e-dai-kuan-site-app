@@ -22,20 +22,20 @@ public class UserRepositoryImpl extends BaseJpaRepositoryImpl implements
 	@Override
 	public List<Cust> findCustByEmail(String email) {
 
-		return this.queryList(Cust.class, new String[] { "email" },
-				new Object[] { email });
+		return this.queryList(Cust.class, new String[] { "email","custType" },
+				new Object[] { email ,"0"});
 	}
 
 	@Override
 	public List<Cust> findCustByMobile(String mobile) {
-		return this.queryList(Cust.class, new String[] { "mobileNO" },
-				new Object[] { mobile });
+		return this.queryList(Cust.class, new String[] { "mobileNO","custType" },
+				new Object[] { mobile,"0" });
 	}
 
 	@Override
 	public List<Cust> findCustByIdNO(String idNO) {
-		return this.queryList(Cust.class, new String[] { "idNO" },
-				new Object[] { idNO });
+		return this.queryList(Cust.class, new String[] { "idNO","custType" },
+				new Object[] { idNO ,"0"});
 	}
 
 	@Override
@@ -109,7 +109,7 @@ public class UserRepositoryImpl extends BaseJpaRepositoryImpl implements
 	public boolean duplicatedMobileCheck(String mobileNO) {
 		boolean flag = false;
 		List<Cust> custs = this.queryList(Cust.class,
-				new String[] { "mobileNO" }, new Object[] { mobileNO });
+				new String[] { "mobileNO","custType" }, new Object[] { mobileNO,"0" });
 		if (custs.size() > 0) {
 			flag = true;
 		}
@@ -120,7 +120,7 @@ public class UserRepositoryImpl extends BaseJpaRepositoryImpl implements
 	public boolean duplicatedMyMobileCheck(Long custId, String mobileNO) {
 		boolean flag = false;
 		List<Cust> custs = this.queryList(Cust.class,
-				new String[] { "mobileNO" }, new Object[] { mobileNO });
+				new String[] { "mobileNO","custType" }, new Object[] { mobileNO,"0" });
 		if (null == custs) {
 			return flag;
 		}
@@ -207,8 +207,8 @@ public class UserRepositoryImpl extends BaseJpaRepositoryImpl implements
 
 	@Override
 	public List<Cust> findCustByCustNO(String custNO) {
-		return this.queryList(Cust.class, new String[] { "custNO" },
-				new Object[] { custNO });
+		return this.queryList(Cust.class, new String[] { "custNO","custType" },
+				new Object[] { custNO ,"0"});
 	}
 
 	@Override
