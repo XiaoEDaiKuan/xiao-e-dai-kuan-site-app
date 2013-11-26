@@ -520,6 +520,7 @@ public class UserController extends MultiActionController {
 			return mav;
 
 		}
+		
 
 		String strPageIndex = request.getParameter("pageIndex");
 		String strPageSize = request.getParameter("pageSize");
