@@ -94,7 +94,7 @@ function saveCreditCust() {
 				showDiv();
 			} else {
 				$("#myPopFont").html("提交失败！");
-				$("#myPopPrg").html("您输入的手机号已注册过，请重新输入！");
+				$("#myPopPrg").html("您输入的手机号已提交过，请重新输入！");
 				showDiv();
 			}
 		}

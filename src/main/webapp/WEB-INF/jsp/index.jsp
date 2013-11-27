@@ -162,21 +162,21 @@ $(document).ready(function(){
     	<form action="directOrder" method="post" target="_blank" id="directOrder">
       <table width="100%" border="0" cellspacing="0" cellpadding="0">
         <tr>
-          <th width="30%" height="24" align="right" valign="middle">姓名：</th>
+          <th width="30%" align="right" valign="top">姓名：</th>
           <td width="70%"><input name="applyName" type="text" class="sy_login6" id="applyName" />
               <span id="applyName_ok" class="tip_yes" style="display:none;"></span>
               <span id="applyName_error" class="e9" style="display:none;"></span>
           </td>
         </tr>
         <tr>
-          <th height="24" align="right" valign="middle">手机号：</th>
+          <th align="right" valign="top">手机号：</th>
           <td><input name="applyTelephone" type="text" class="sy_login6" id="applyTelephone" />
                 <span id="applyTelephone_ok" class="tip_yes" style="display:none;"></span>
                 <span id="applyTelephone_error" class="e9" style="display:none;"></span>
           </td>
         </tr>
         <tr>
-          <th height="24" align="right" valign="middle">所在城市：</th>
+          <th align="right" valign="top">所在城市：</th>
           <td><select id="provinceList">
             <option value="">请选择</option>
 	        <c:forEach var="prov" items="${provinces}">
@@ -193,14 +193,14 @@ $(document).ready(function(){
           </td>
         </tr>
         <tr>
-          <th height="24" align="right" valign="middle">申请额度：</th>
+          <th align="right" valign="top">申请额度：</th>
           <td><input name="applyAmt" type="text" class="sy_login5" id="loan_amt" />万元
                 <span id="loan_amt_ok" class="tip_yes" style="display:none;"></span>
                 <span id="loan_amt_error" class="e9" style="display:none;"></span>
           </td>
         </tr>
         <tr>
-          <th height="24" align="right" valign="middle">贷款期限：</th>
+          <th align="right" valign="top">贷款期限：</th>
           <td><input name="loanTime" type="text" class="sy_login5"  id="loan_issue"/>个月
                 <span id="loan_issue_ok" class="tip_yes" style="display:none;"></span>
                 <span id="loan_issue_error" class="e9" style="display:none;"></span>
