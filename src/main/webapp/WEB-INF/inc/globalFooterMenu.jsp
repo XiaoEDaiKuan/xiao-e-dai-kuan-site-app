@@ -42,8 +42,8 @@
 	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
 
     <span id="jiathis_style_64x64" class="weixin2">
-		<a class="_jiathis_follow_weixin_" style="background:url(images/weixin2.jpg) no-repeat 16px 5px; cursor: pointer; cursor: hand;"></a>
+		<a class="jiathis_follow_weixin" style="background:url(images/weixin2.jpg) no-repeat 16px 5px; cursor: pointer; cursor: hand;"></a>
 	</span>
- 	<!--<script type="text/javascript" src="http://v2.jiathis.com/code/jia.js?uid=undefined" charset="utf-8"></script> -->
+ 	<script type="text/javascript" src="http://v2.jiathis.com/code/jia.js?uid=undefined" charset="utf-8"></script>
   </div>
 </div>
