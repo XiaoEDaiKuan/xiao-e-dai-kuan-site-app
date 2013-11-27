@@ -25,12 +25,12 @@
 					</td>
 			</tr>
 			<tr>
-				<th style="vertical-align:top">密码:</th>
+				<th style="vertical-align:top;padding-top:4px;">密码:</th>
 				<td><input name="passwd" id="passwd" type="password"
 					class="input"  style="height:28px;width:150px;margin-bottom:8px"/></td>
 			</tr>
 			<tr>
-				<th style="vertical-align:top">验证码:</th>
+				<th style="vertical-align:top;padding-top:4px;">验证码:</th>
 				<td><input name="captcha" type="text" class="input code"  style="height:28px;width:108px;margin-bottom:0px;vertical-align: middle; " id="login_form_captcha" />
 				<img id="captchaimg" src="handleCaptcha" alt="captcha"  class="input code" style="margin:0px;width:90px;height:28px;vertical-align: middle;" onclick="reloadCaptcha()" />
 				  <span id="login_form_captcha_ok" class="tip_yes" style="display:none;"></span>
