@@ -244,7 +244,7 @@
   <div class="banner float_l"><img src="images/banner.jpg" width="627" height="382" /></div>
   <div class="login float_r">
     <div class="login_title"><b>直接贷款</b>
-      <p>Rapid directly to apply for a loan</p>
+      <p>Apply for a loan directly.</p>
     </div>
     <form action="directOrder" method="post" id="directOrder">
     <ul class="login_content">
@@ -320,7 +320,7 @@
     </div>
   </div>
   <div class="right float_r">
-    <h1>9大用户<font>Nine big user</font></h1>
+    <h1 style="text-align: center">9大用户</h1>
     <div class="user_content">
       <div class="user1"><p><img src="images/user1.jpg" width="140" height="106" /></p>
       <font>私营业主用户</font></div>
@@ -344,8 +344,15 @@
   </div>
 </div>
 <div class="footer2">
-  <div class="footer2_1"><img src="images/beida.png" width="121" height="44" /><img src="images/itfusc.png" width="109" height="35" /><img src="images/mm.png" width="84" height="40" /><a href="http://www.9floan.com/Content/Help/credit.html"><img src="images/micro.png" width="174" height="26" /></a><a href="http://www.9floan.com/Content/Help/safe.html" target="_blank"><img src="images/anquan.png" width="84" height="40" /></a><a href="https://ss.knet.cn/verifyseal.dll?sn=e13091811010042535yjkx000000&comefrom=verify&trustKey=dn&trustValue=www.9fbank.com" target="_blank"><img src="images/kexin.png" width="109" height="35" /></a></div>
-  <div class="footer2_2"><font>版权所有：北京玖富时代投资顾问有限公司 copyright2012　 京ICP备07003840</font><br />技术服务商：北京九富科技有限公司<br />公司总部地址：北京朝阳区麦子店街37号盛福大厦2580<br />传真：010-85276916&nbsp;&nbsp;&nbsp;&nbsp;邮编：100000</div>
+  <div class="footer2_1">
+  	<img src="images/beida.png" width="121" height="44" />
+  	<img src="images/itfusc.png" width="109" height="35" />
+  	<img src="images/mm.png" width="84" height="40" />
+  	<a href="http://www.9floan.com/Content/Help/credit.html" target="_blank"><img src="images/micro.png" width="174" height="26" /></a>
+  	<a href="http://www.9floan.com/Content/Help/safe.html" target="_blank"><img src="images/anquan.png" width="84" height="40" /></a>
+  	<a href="https://ss.knet.cn/verifyseal.dll?sn=e13091811010042535yjkx000000&comefrom=verify&trustKey=dn&trustValue=www.9fbank.com" target="_blank"><img src="images/kexin.png" width="109" height="35" /></a>
+  </div>
+  <div class="footer2_2"><font>版权所有：北京玖富时代投资顾问有限公司 copyright&copy;2012　 京ICP备07003840</font><br />技术服务商：北京九富科技有限公司<br />公司总部地址：北京朝阳区麦子店街37号盛福大厦2580<br />传真：010-85276916&nbsp;&nbsp;&nbsp;&nbsp;邮编：100000</div>
 </div>
 
 </body>
