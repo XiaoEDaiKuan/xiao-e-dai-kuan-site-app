@@ -14,11 +14,13 @@ import org.mvel2.MVEL;
 import com.webloan.common.Page;
 import com.webloan.model.Product;
 import com.webloan.model.ProductAttach;
-import com.webloan.order.service.OrderService;
+import com.webloan.model.ProductStats;
+import com.webloan.product.service.ProductService;
 
 public class ProductViewHelper {
 	
-	@Resource OrderService orderService;
+//	@Resource OrderService orderService;
+	@Resource ProductService productService;
 	
 	public Page transferPageToView(Page page, ProductQuery pq) {
 		List<?> items = page.getItems();
@@ -72,7 +74,11 @@ public class ProductViewHelper {
 		ProductView pv = new ProductView();
 		
 		pv.setProduct(p);
-		pv.setNumOrders(orderService.getOrderCount(p.getId()));
+//		pv.setNumOrders(orderService.getOrderCount(p.getId()));
+		
+		ProductStats ps = productService.getStatsByProductId(p.getId());
+		pv.setNumOrders(ps.getTotalCnt() == null ? 0 : ps.getTotalCnt().intValue());
+		pv.setSucOrders(ps.getSuccessCnt() == null ? 0 : ps.getSuccessCnt().intValue());
 		
 		String intrFormula = p.getIntrFormula();
 		String monFormula = p.getMonthlyFormula();

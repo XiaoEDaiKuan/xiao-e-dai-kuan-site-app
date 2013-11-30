@@ -24,4 +24,6 @@ public interface ProductRepository extends BaseJpaRepository {
 	
 	Page pagingProductBtwnAmount(int pageIndex, int pageSize, 
 			BigDecimal minLoanAmt, BigDecimal maxLoanAmt);
+
+	List<?> querySumOfStats();
 }

@@ -9,6 +9,7 @@ import com.webloan.product.dao.ProductRepository;
 import com.webloan.common.Page;
 import com.webloan.model.Product;
 import com.webloan.model.ProductAttach;
+import com.webloan.model.ProductStats;
 import com.webloan.product.service.ProductService;
 import com.webloan.product.view.ProductQuery;
 
@@ -230,5 +231,39 @@ public class ProductServiceImpl implements ProductService {
 		BigDecimal maxLoanAmt = maxAmt == null ? null : new BigDecimal(10000).multiply(maxAmt);
 		return productRepository.pagingProductBtwnAmount(pageIndex, 
 				pageSize, minLoanAmt, maxLoanAmt);
+	}
+	
+	public ProductStats getStatsByProductId(Long productId) {
+		List<ProductStats> stats = productRepository.queryList(
+				ProductStats.class, 
+				new String[] { "product.id" }, 
+				new Object[] { productId });
+		
+		return stats == null || stats.isEmpty() ? null : stats.get(0);
+	}
+	
+	public List<?> querySumOfStats() {
+		return productRepository.querySumOfStats();
+	}
+	
+	public void updateProductStats(String productCode, Object numOrders, Object sucOrders) {
+		List<ProductStats> stats = productRepository.queryList(
+				ProductStats.class, 
+				new String[] { "productCode" }, 
+				new Object[] { productCode });
+		
+		if (productCode == null || stats == null || stats.isEmpty()) {
+			return;
+		}
+		
+		ProductStats stat = stats.get(0);
+		if (numOrders != null) {
+			stat.setTotalCnt(Long.valueOf(numOrders.toString()));
+		}
+		if (sucOrders != null) {
+			stat.setSuccessCnt(Long.valueOf(sucOrders.toString()));
+		}
+		
+		productRepository.update(stat);
 	}
 }

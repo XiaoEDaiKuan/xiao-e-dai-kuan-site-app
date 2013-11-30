@@ -392,7 +392,7 @@
     </div>
     <div class="Loansearch12 Loansearch17">
     	<div class="Loansearch18">
-            <p><br />有<span>${pv.numOrders}</span>人申请<br /></p>
+            <p>有<span>${pv.numOrders}</span>人申请<br />有<span>${pv.sucOrders}</span>人成功<br /></p>
         </div>
     </div>
   </div>

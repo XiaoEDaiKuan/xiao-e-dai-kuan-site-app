@@ -162,4 +162,9 @@ public class ProductRepositoryImpl extends BaseJpaRepositoryImpl implements
 
 		return queryPageResult(pageIndex, pageSize, pageJpql, countJpql, params);
 	}
+	
+	public List<?> querySumOfStats() {
+		String jpql = "select sum(s.totalCnt), sum(s.successCnt) from ProductStats s";
+		return queryListResult(jpql, null);
+	}
 }

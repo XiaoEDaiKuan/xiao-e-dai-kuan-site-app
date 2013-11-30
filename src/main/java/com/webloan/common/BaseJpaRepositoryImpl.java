@@ -133,6 +133,9 @@ public class BaseJpaRepositoryImpl implements BaseJpaRepository {
 	}
 	
 	private void fillQueryParams(Query query, Map<?, ?> params) {
+		if (query == null || params == null || params.isEmpty()) {
+			return;
+		}
 		for (Map.Entry<?, ?> param : params.entrySet()) {
 			Object key = param.getKey();
 			if (key instanceof Number) {

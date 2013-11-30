@@ -1,15 +1,18 @@
 package com.webloan.product.controller;
 
+import java.io.PrintWriter;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.codehaus.jackson.map.ObjectMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.servlet.ModelAndView;
@@ -512,5 +515,41 @@ public class ProductController extends MultiActionController {
 		
 		
 		return mav;
+	}
+	
+	public void updateNumOfOrders(HttpServletRequest request, 
+			HttpServletResponse response) throws Exception {
+		String strData = request.getParameter("data");
+		String retStr = "fail";
+		
+		try {
+			ObjectMapper mapper = new ObjectMapper();  
+			Object params = mapper.readValue(strData, Object.class);
+			
+			if (params instanceof List<?>) {
+				List<?> listParams = (List<?>) params;
+				for (Object item : listParams) {
+					updateNumOfOrder(item);
+				}
+			}
+			else if (params instanceof Map<?, ?>) {
+				updateNumOfOrder(params);
+			}
+			
+			retStr= "success";
+		}
+		catch (Exception e) {}
+		
+		response.setCharacterEncoding("UTF-8");
+		PrintWriter out = response.getWriter();
+		out.print(retStr);
+		out.flush();
+		out.close();
+	}
+	
+	private void updateNumOfOrder(Object params) {
+		Map<?, ?> param = (Map<?, ?>) params;
+		productService.updateProductStats((String) param.get("productCode"), 
+				param.get("numOrders"), param.get("sucOrders"));
 	}
 }

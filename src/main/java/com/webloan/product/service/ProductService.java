@@ -6,6 +6,7 @@ import java.util.List;
 import com.webloan.common.Page;
 import com.webloan.model.Product;
 import com.webloan.model.ProductAttach;
+import com.webloan.model.ProductStats;
 import com.webloan.product.view.ProductQuery;
 
 public interface ProductService {
@@ -31,4 +32,10 @@ public interface ProductService {
 	Page pagingQuickLoanProducts(int pageIndex, int pageSize, Integer paidDays);
 	
 	List<Product> queryGroupBuyingProducts(Long regionId, String identity);
+	
+	ProductStats getStatsByProductId(Long productId);
+	
+	List<?> querySumOfStats();
+	
+	void updateProductStats(String productCode, Object numOrders, Object sucOrders);
 }

@@ -188,8 +188,6 @@ $(document).ready(function(){
           </select>
                 <span id="provinceList_ok" class="tip_yes" style="display:none;"></span>
                 <span id="provinceList_error" class="e9" style="display:none;"></span>
-
-
           </td>
         </tr>
         <tr>
@@ -227,6 +225,33 @@ $(document).ready(function(){
       即将上线 尽请期待</a></li>
   </ul>
 </div>
+
+<div class="suc_loan">
+  <div class="suc_loan_line">
+    <div class="suc_loan_title font_f">截至当前，9F平台已实现：</div>
+    <div class="suc_loan_content">
+      <p>
+        <font>有</font>
+        <span>
+        <c:forEach var="num" items="${numOfOrders}">
+        	<img src="images/cntnums/suc_number${num}.jpg" />
+        </c:forEach>
+        </span>
+        <font>人申请贷款</font>
+      </p>
+      <p>
+        <font>有</font>
+        <span>
+        <c:forEach var="num" items="${numOfSuccess}">
+        	<img src="images/cntnums/suc_number${num}.jpg" />
+        </c:forEach>
+        </span>
+        <font>人成功贷款</font>
+      </p>
+    </div>
+  </div>
+</div>
+
 <div class="main2">
   <div class="main2_left">
     <div class="credit ground">

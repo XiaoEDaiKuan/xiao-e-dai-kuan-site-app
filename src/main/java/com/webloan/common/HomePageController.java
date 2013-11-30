@@ -1,5 +1,6 @@
 package com.webloan.common;
 
+import java.util.Arrays;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -51,7 +52,16 @@ public class HomePageController implements Controller {
 		List<Region> provinces = regionService.queryProvinces();
 		mav.addObject("provinces", provinces);
 		
+		List<?> orderNums = productService.querySumOfStats();
+		if (orderNums != null && !orderNums.isEmpty()) {
+			Object[] nums = (Object[]) orderNums.get(0);
+			mav.addObject("numOfOrders", nums[0].toString().toCharArray());
+			mav.addObject("numOfSuccess", nums[1].toString().toCharArray());
+		} else {
+			mav.addObject("numOfOrders", Arrays.asList(0));
+			mav.addObject("numOfSuccess", Arrays.asList(0));
+		}
+		
 		return mav;
 	}
-
 }
