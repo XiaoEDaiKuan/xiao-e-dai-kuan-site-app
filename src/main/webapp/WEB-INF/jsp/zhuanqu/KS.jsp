@@ -134,7 +134,8 @@ function setTab(name,cursel,n){
 				</em>
             </p>
         </div>
-    	<img src="images/img13.jpg" width="42" height="42" />
+    	<img src="images/products/40x20/${prod.product.icon}"  width="42" height="42" />
+    	
     </div>
   </div>
   </c:forEach>
@@ -179,7 +180,7 @@ function setTab(name,cursel,n){
 				</em>
             </p>
         </div>
-    	<img src="images/img13.jpg" width="42" height="42" />
+    	<img src="images/products/40x20/${prod.product.icon}"  width="42" height="42" />
     </div>
   </div>
   </c:forEach>
@@ -224,7 +225,7 @@ function setTab(name,cursel,n){
 				</em>
             </p>
         </div>
-    	<img src="images/img13.jpg" width="42" height="42" />
+    	<img src="images/products/40x20/${prod.product.icon}"  width="42" height="42" />
     </div>
   </div>
   </c:forEach>
