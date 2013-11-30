@@ -730,4 +730,27 @@
 		</attributes>
 	</entity>
 	
+	<entity class="com.webloan.model.ProductStats" name="ProductStats">
+		<table name="PRD_STATS" />
+		<attributes>
+			<id name="id">
+				<column name="ID" />
+				<generated-value strategy="IDENTITY" />
+			</id>
+			<basic name="productCode">
+				<column name="product_Code" length="30" />
+			</basic>
+			<basic name="successCnt">
+				<column name="SUCCESS_CNT"  />
+			</basic>
+			<basic name="totalCnt">
+				<column name="TOTAL_CNT"  />
+			</basic>
+			
+			<many-to-one name="product">
+				<join-column name="PRODUCT_ID" />
+			</many-to-one>
+		</attributes>
+	</entity>
+	
 </entity-mappings>
