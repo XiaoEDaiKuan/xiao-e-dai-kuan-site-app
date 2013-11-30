@@ -77,8 +77,10 @@ public class ProductViewHelper {
 //		pv.setNumOrders(orderService.getOrderCount(p.getId()));
 		
 		ProductStats ps = productService.getStatsByProductId(p.getId());
-		pv.setNumOrders(ps.getTotalCnt() == null ? 0 : ps.getTotalCnt().intValue());
-		pv.setSucOrders(ps.getSuccessCnt() == null ? 0 : ps.getSuccessCnt().intValue());
+		if (ps != null) {
+			pv.setNumOrders(ps.getTotalCnt() == null ? 0 : ps.getTotalCnt().intValue());
+			pv.setSucOrders(ps.getSuccessCnt() == null ? 0 : ps.getSuccessCnt().intValue());
+		}
 		
 		String intrFormula = p.getIntrFormula();
 		String monFormula = p.getMonthlyFormula();
