@@ -55,8 +55,10 @@ public class HomePageController implements Controller {
 		List<?> orderNums = productService.querySumOfStats();
 		if (orderNums != null && !orderNums.isEmpty()) {
 			Object[] nums = (Object[]) orderNums.get(0);
-			mav.addObject("numOfOrders", nums[0].toString().toCharArray());
-			mav.addObject("numOfSuccess", nums[1].toString().toCharArray());
+			mav.addObject("numOfOrders", nums[0] == null ? Arrays.asList(0) 
+					: nums[0].toString().toCharArray());
+			mav.addObject("numOfSuccess", nums[1] == null ? Arrays.asList(0) 
+					: nums[1].toString().toCharArray());
 		} else {
 			mav.addObject("numOfOrders", Arrays.asList(0));
 			mav.addObject("numOfSuccess", Arrays.asList(0));
