@@ -16,6 +16,8 @@
 #slides li.pic1{background:url(../images/banner01.jpg) no-repeat center top}
 #slides li.pic2{background:url(../images/banner02.jpg) no-repeat center top}
 #slides li.pic3{background:url(../images/banner03.jpg) no-repeat center top}
+#slides li.pic4{background:url(../images/banner04.jpg) no-repeat center top}
+
 #slides li a { display:block; width:100%; height:100%; text-indent:-9999px}
 #pagination { display:block; position:absolute; left:50%; top:320px; z-index:9900;  padding:5px 15px 5px 0; margin:0}
 #pagination li { float:left; width:10px; height:10px; float:left; margin-left:15px; border-radius:5px; background:#004f94; }

@@ -153,6 +153,7 @@ $(document).ready(function(){
     <li class="pic1"><a></a></li>
     <li class="pic2"><a></a></li>
     <li class="pic3"><a href="http://tuan.9fbank.com" target="_blank"></a></li>
+    <li class="pic4"><a></a></li>
   </ul>
   <div class="sy_login">
     <div class="sy_login1">
