@@ -44,20 +44,20 @@
 	</appender>
 	
 
-	<logger name="ROOT_CONSOLE" level="error" additivity="false">
+	<logger name="ROOT_CONSOLE" level="debug" additivity="false">
 	 	<appender-ref ref="ROOT_CONSOLE"/>
 	</logger>
 	
-	<logger name="com.webloan" level="error" additivity="false">
+	<logger name="com.webloan" level="debug" additivity="false">
 	 	<appender-ref ref="WEB_LOAN_FILE"/>
 	</logger>
 	
-	<logger name="ROOT_LOG" level="error" additivity="false">
+	<logger name="ROOT_LOG" level="debug" additivity="false">
 	 	<appender-ref ref="ROOT_FILE"/>
 	</logger>
 
 	
-	<root level="error">
+	<root level="debug">
 		<appender-ref ref="ROOT_CONSOLE"/>
 	</root>
 </configuration>

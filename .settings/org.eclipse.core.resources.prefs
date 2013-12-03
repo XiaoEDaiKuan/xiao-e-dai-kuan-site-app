@@ -1,7 +1,17 @@
 eclipse.preferences.version=1
+encoding//src/main/webapp/WEB-INF/jsp/index.jsp=UTF-8
+encoding//src/main/webapp/WEB-INF/jsp/order/publicise.jsp=UTF-8
+encoding//src/main/webapp/WEB-INF/jsp/order/publiciseok.jsp=UTF-8
+encoding//src/main/webapp/WEB-INF/jsp/user/creditcust.jsp=UTF-8
 encoding//src/main/webapp/css/home.css=UTF-8
 encoding//src/main/webapp/css/publlc.css=UTF-8
 encoding//src/main/webapp/css/style.css=UTF-8
 encoding//src/main/webapp/css/tipswindown.css=UTF-8
+encoding//src/main/webapp/cssnew/css.css=UTF-8
+encoding//src/main/webapp/cssnew/home.css=UTF-8
+encoding//src/main/webapp/cssnew/publicise.css=UTF-8
+encoding//src/main/webapp/cssnew/publlc.css=UTF-8
+encoding//src/main/webapp/cssnew/style.css=UTF-8
+encoding//src/main/webapp/cssnew/tipswindown.css=UTF-8
 encoding//src/main/webapp/fin_opinion.jsp=UTF-8
 encoding/<project>=UTF-8
