@@ -37,7 +37,7 @@
 	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
 
     <span id="jiathis_style_64x64" class="weixin1">
-		<a class="jiathis_follow_weixin"></a>
+		<a class="jiathis_follow_weixin" rel="images/weixin.jpg"></a>
 	</span>
 	<script type="text/javascript" src="http://v2.jiathis.com/code/jia.js?uid=undefined" charset="utf-8"></script>
   </div>
