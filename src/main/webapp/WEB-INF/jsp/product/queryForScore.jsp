@@ -18,7 +18,7 @@
   			<a href="${pv.product.linkUrl}" target="_blank"><img src="images/img18.jpg" width="94" height="29" /></a>
   		</c:when>
   		<c:otherwise>
-  			<a style="cursor: pointer; cursor:hand" onclick="javascript:top.document.location.href=document.location.href.replace('queryForScore','productView') + '?productId=${pv.product.id}'" target="_top"><img src="images/img18.jpg" width="94" height="29" /></a>
+  			<a style="cursor: pointer; cursor:hand" onclick="javascript:top.document.location.href='viewProduct?productId='+${pv.product.id}" target="_top"><img src="images/img18.jpg" width="94" height="29" /></a>
   		</c:otherwise>
   	</c:choose>
   	</div>
