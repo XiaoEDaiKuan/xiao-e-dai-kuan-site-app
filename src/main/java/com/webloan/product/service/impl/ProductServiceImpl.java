@@ -20,6 +20,9 @@ public class ProductServiceImpl implements ProductService {
 	public static final String GROUP_BUYING = "0";
 	public static final String NON_GROUP_BUYING = "1";
 	
+	public static final String STATUS_NORMAL = "0";
+	public static final String STATUS_DISABLED = "1";
+	
 	private ProductRepository productRepository;
 
 	public ProductRepository getProductRepository() {
@@ -172,6 +175,7 @@ public class ProductServiceImpl implements ProductService {
 			"vehicle", 
 			"credit", 
 			"product.id", 
+			"product.status", 
 			"product.issueType", 
 			"product.guarantyType", 
 			"product.repayType" 
@@ -197,6 +201,7 @@ public class ProductServiceImpl implements ProductService {
 			pq.getVehicle() == null ? null : "|" + pq.getVehicle() + "|", 
 			pq.getCredit() == null ? null : "|" + pq.getCredit() + "|", 
 			pq.getProductId(), 
+			STATUS_NORMAL, 
 			pq.getIssueType(), 
 			pq.getGuarantyType(), 
 			pq.getRepayType() 
@@ -212,6 +217,7 @@ public class ProductServiceImpl implements ProductService {
 			LIKE, 
 			LIKE, 
 			LIKE, 
+			EQ, 
 			EQ, 
 			EQ, 
 			EQ, 
