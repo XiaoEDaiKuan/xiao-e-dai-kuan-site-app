@@ -130,6 +130,11 @@
 				<column name="ID" />
 				<generated-value strategy="IDENTITY" />
 			</id>
+
+			<basic name="isMarried">
+				<column name="IS_MARRIED" length="1" />
+			</basic>
+
 			<basic name="nationality">
 				<column name="NATIONALITY" length="64" />
 			</basic>

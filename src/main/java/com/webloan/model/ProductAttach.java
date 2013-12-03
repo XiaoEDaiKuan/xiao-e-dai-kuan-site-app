@@ -55,6 +55,8 @@ public class ProductAttach implements Serializable {
 	private String estateCert;//ESTATE_CERT
 	private BigDecimal localReside;//Local_Reside
 	
+	private String isMarried;//is_married
+	
 	private Product product;//PRODUCT_ID
 	
 	public Long getId() {
@@ -290,5 +292,11 @@ public class ProductAttach implements Serializable {
 	}
 	public void setLocalReside(BigDecimal localReside) {
 		this.localReside = localReside;
+	}
+	public String getIsMarried() {
+		return isMarried;
+	}
+	public void setIsMarried(String isMarried) {
+		this.isMarried = isMarried;
 	}
 }
