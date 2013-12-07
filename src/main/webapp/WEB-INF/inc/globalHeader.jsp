@@ -60,7 +60,7 @@
 		          </ul>
 		        </li>
 		        <li <c:if test="${param.index eq '6'}">class="hover"</c:if>><a href="ask" target="_blank">贷款百科</a></li>
-		        <li><a href="#">代理商</a></li>
+		        <li><a href="aghome.jsp" target="_blank">代理商</a></li>
 			</ul>
 		</div>
 	</div>
