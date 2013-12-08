@@ -50,6 +50,7 @@
 				<prop key="directloan">orderController</prop>
 				<prop key="directOrder">orderController</prop>
 				<prop key="loadCities">orderController</prop>
+				<prop key="loadProvinces">orderController</prop>
 				
 				<!-- 用户注册 -->
 				<prop key="createUser">userController</prop>
@@ -125,7 +126,8 @@
 				<prop key="addopinion">opinionController</prop>
 
                 <prop key="memlogin">userController</prop>
-
+				<prop key="createAgent">agentController</prop>
+				
 			</props>
 		</property>
 	</bean>
@@ -172,6 +174,12 @@
 	</bean>
 	
 	<bean id="opinionController" class="com.webloan.opinion.controller.OpinionController">
+		<property name="methodNameResolver">
+			<bean class="org.springframework.web.servlet.mvc.multiaction.InternalPathMethodNameResolver" />
+		</property>
+	</bean>
+	
+	<bean id="agentController" class="com.webloan.agent.controller.AgentController">
 		<property name="methodNameResolver">
 			<bean class="org.springframework.web.servlet.mvc.multiaction.InternalPathMethodNameResolver" />
 		</property>

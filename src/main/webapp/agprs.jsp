@@ -9,20 +9,78 @@
 <script type="text/javascript" src="Scripts/jquery-1.8.0.min.js"></script>
 <script type="text/javascript" src="Scripts/tipswindown.js"></script>
 <script type="text/javascript">
-	$(document).ready(function() {
+$(document).ready(function() {
 	$("#agent_city").click(function(){
 		tipsWindown("您可以选择以下地区：","iframe:iframe:pop_city.jsp","500","200","true","","false","text","");
 	});
+	
 	$("#agent_ok").click(function(){
-		tipsWindown("提示","iframe:iframe:agent_ok.html","350","160","true","","false","text","");
+		var pa = $("#agentform").serializeArray();
+		var param = {}, isEmpty = false;
+		
+		$.each(pa, function(i,v){
+			param[v.name] = v.value;
+			if (!v.value) isEmpty = true;
+		});
+		
+		if (isEmpty) return;
+		
+		$.ajax({
+			url: 'createAgent',
+			type: 'post',
+			data: param,
+			dataType: "text",
+			success: function (data) {
+				tipsWindown("提示","iframe:iframe:agentok.jsp","350","160","true","","false","text","");
+			}
+		});
+	});
+
+	$("#provinceList").change(function(){
+		var checkValue = $(this).val();
+		if (checkValue) {
+			$.ajax({
+				url: 'loadCities',
+				type: 'post',
+				data: {
+					provinceId: checkValue
+				},
+				dataType: "json",
+				success: function (data) {
+					$("#cityList").find("option").each(function(){
+			            $(this).remove();
+			    	});
+					$("<option value=''>请选择</option>").appendTo($("#cityList"));
+					for (var i = 0; i < data.length; i++) {
+						$("<option value='" + data[i].id +"'>" + data[i].name + "</option>").appendTo($("#cityList"));
+					}
+				}
+			});
+		}
 	});
 	
-	});	
+	$.ajax({
+		url: 'loadProvinces',
+		type: 'post',
+		data: {},
+		dataType: "json",
+		success: function (data) {
+			$("#provinceList").find("option").each(function(){
+	            $(this).remove();
+	    	});
+			$("<option value=''>请选择</option>").appendTo($("#provinceList"));
+			for (var i = 0; i < data.length; i++) {
+				$("<option value='" + data[i].id +"'>" + data[i].name + "</option>").appendTo($("#provinceList"));
+			}
+		}
+	});
 	
-	setTimeout('_magicTimeout()',20*1000);
-    function _magicTimeout(){
-	   $('.time_box').hide();
-    }	
+});	
+	
+setTimeout('_magicTimeout()', 20*1000);
+function _magicTimeout(){
+	$('.time_box').hide();
+}	
 </script>
 </head>
 
@@ -54,33 +112,33 @@
     <div class="agent_process_applybox">
       <h1>申请代理</h1>
       <div class="agent_process_apply clear ">
+      <form id="agentform">
         <div class="agent_process_apply_content float_l font_f_song">
           <p><font>姓名</font><span>
-            <input name="" type="text" />
+            <input name="name" type="text" />
             </span></p>
           <p><font>性别</font>
             <label>
-              <input type="radio" name="RadioGroup1" value="男" id="RadioGroup1_0" />
+              <input type="radio" name="gender" value="0" id="RadioGroup1_0" checked="checked" />
               男</label>
             <label>
-              <input type="radio" name="RadioGroup1" value="女" id="RadioGroup1_1" />
+              <input type="radio" name="gender" value="1" id="RadioGroup1_1" />
               女</label>
           </p>
           <p><font>联系电话</font><span>
-            <input name="" type="text" />
+            <input name="telephone" type="text" />
             </span></p>
           <p><font>拟代理城市</font>
-            <select name="">
-              <option>市区</option>
-              <option>黄埔</option>
+            <select name="cityId" id="cityList">
+              <option value=''>请选择</option>
             </select>
-            <select name="">
-              <option>省份</option>
-              <option>上海</option>
+            <select id="provinceList">
+              <option value=''>请选择</option>
             </select>
           </p>
         </div>
-        <div class="agent_process_apply_btn float_r"><input name="" type="button" value="申请代理" id="agent_ok" /></div>
+        </form>
+        <div class="agent_process_apply_btn float_r"><input type="button" value="申请代理" id="agent_ok" /></div>
       </div>
     </div>
   </div>

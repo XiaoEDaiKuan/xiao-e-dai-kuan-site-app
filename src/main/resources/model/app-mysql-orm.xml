@@ -758,4 +758,26 @@
 		</attributes>
 	</entity>
 	
+	<entity class="com.webloan.model.Agent" name="Agent">
+		<table name="AGENT_INFO" />
+		<attributes>
+			<id name="id">
+				<column name="ID" />
+				<generated-value strategy="IDENTITY" />
+			</id>
+			<basic name="name">
+				<column name="NAME" length="128" />
+			</basic>
+			<basic name="gender">
+				<column name="GENDER" length="16" />
+			</basic>
+			<basic name="telephone">
+				<column name="TELEPHONE" length="64" />
+			</basic>
+			<many-to-one name="region">
+				<join-column name="REGION_ID"  />
+			</many-to-one>
+		</attributes>
+	</entity>
+	
 </entity-mappings>

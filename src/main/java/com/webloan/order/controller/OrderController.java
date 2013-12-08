@@ -136,5 +136,29 @@ public class OrderController extends MultiActionController{
 		out.flush();
 		out.close();
 	}
+	
+	public void loadProvinces(HttpServletRequest request, 
+			HttpServletResponse response) throws Exception {
+		List<Region> provinces = regionService.queryProvinces();
+		
+		StringBuilder retstr = new StringBuilder();
+		
+		for (Region province : provinces) {
+			retstr.append(",{").append("\"id\":\"").append(province.getId())
+					.append("\",\"name\":\"").append(province.getName()).append("\"}");
+		}
+		
+		if (retstr.length() > 0) {
+			retstr.replace(0, 1, "[").append("]");
+		} else {
+			retstr.append("[]");
+		}
+		
+		response.setCharacterEncoding("UTF-8");
+		PrintWriter out = response.getWriter();
+		out.print(retstr.toString());
+		out.flush();
+		out.close();
+	}
 
 }
